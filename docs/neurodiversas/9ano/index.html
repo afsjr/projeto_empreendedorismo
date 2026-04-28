@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9º Ano — Neurodiversas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --bg: #0f172a; --bg2: #1e293b; --bg3: #334155; --text: #f1f5f9; --text2: #94a3b8; --cyan: #0891b2; }
+        body { font-family: 'Outfit', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .header { text-align: center; padding: 40px 20px; }
+        .header h1 { font-size: 36px; margin-bottom: 10px; }
+        .header h1 span { color: var(--cyan); }
+        .header p { color: var(--text2); }
+        .back { display: inline-flex; align-items: center; gap: 8px; color: var(--text2); text-decoration: none; padding: 10px 20px; background: var(--bg2); border-radius: 10px; margin-bottom: 30px; }
+        .lessons { display: flex; flex-direction: column; gap: 12px; }
+        .lesson { display: flex; align-items: center; gap: 15px; background: var(--bg2); border: 1px solid var(--bg3); border-radius: 14px; padding: 18px 20px; text-decoration: none; color: var(--text); transition: all 0.2s; }
+        .lesson:hover { border-color: var(--cyan); transform: translateX(5px); }
+        .lesson.done { opacity: 0.7; }
+        .num { width: 40px; height: 40px; background: var(--bg3); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16px; flex-shrink: 0; }
+        .info { flex: 1; }
+        .info h3 { font-size: 17px; margin-bottom: 4px; }
+        .info p { font-size: 13px; color: var(--text2); }
+        .time { background: var(--bg3); padding: 5px 12px; border-radius: 20px; font-size: 12px; }
+        .check { width: 24px; height: 24px; border: 2px solid var(--bg3); border-radius: 50%; flex-shrink: 0; }
+        .check.done { background: #16a34a; border-color: #16a34a; }
+        .check.done::after { content: '✓'; color: white; font-size: 14px; display: flex; align-items: center; justify-content: center; height: 100%; }
+        .progress { background: var(--bg2); border-radius: 14px; padding: 20px; margin-top: 30px; display: flex; align-items: center; gap: 20px; }
+        .progress-icon { font-size: 40px; }
+        .progress-info { flex: 1; }
+        .progress-info h4 { margin-bottom: 8px; }
+        .progress-bar { height: 8px; background: var(--bg3); border-radius: 4px; overflow: hidden; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--cyan), #8b5cf6); border-radius: 4px; transition: width 0.5s; }
+        .progress-text { font-size: 20px; font-weight: 700; color: var(--cyan); }
+        @media (max-width: 500px) { .header h1 { font-size: 28px; } .lesson { padding: 15px; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/index.html" class="back">← Voltar</a>
+        <div class="header">
+            <h1>9º Ano — <span>Neurodiversas</span></h1>
+            <p>Investimento e Escala • 10 aulas de 10 min</p>
+        </div>
+        <div class="lessons">
+            <a href="aula-01-startup.html" class="lesson" data-lesson="aula-01-startup.html"><div class="num">1</div><div class="info"><h3>O que é Startup</h3><p>Conceito e exemplos</p></div><span class="time">10 min</span><div class="check"></div></a>
+            <a href="aula-02-pitch.html" class="lesson" data-lesson="aula-02-pitch.html"><div class="num">2</div><div class="info"><h3>Pitch</h3><p>Apresentar ideia</p></div><span class="time">10 min</span><div class="check"></div></a>
+            <a href="aula-03-valuation.html" class="lesson" data-lesson="aula-03-valuation.html"><div class="num">3</div><div class="info"><h3>Valuation</h3><p>Valor de uma empresa</p></div><span class="time">10 min</span><div class="check"></div></a>
+            <a href="aula-04-cac.html" class="lesson" data-lesson="aula-04-cac.html"><div class="num">4</div><div class="info"><h3>CAC</h3><p>Custo de aquisição</p></div><span class="time">10 min</span><div class="check"></div></a>
+            <a href="aula-05-ltv.html" class="lesson" data-lesson="aula-05-ltv.html"><div class="num">5</div><div class="info"><h3>LTV</h3><p>Valor do cliente</p></div><span class="time">10 min</span><div class="check"></div></a>
+            <a href="aula-06-growth.html" class="lesson" data-lesson="aula-06-growth.html"><div class="num">6</div><div class="info"><h3>Growth Hacking</h3><p>Crescimento rápido</p></div><span class="time">10 min</span><div class="check"></div></a>
+            <a href="aula-07-churn.html" class="lesson" data-lesson="aula-07-churn.html"><div class="num">7</div><div class="info"><h3>Churn</h3><p>Taxa de abandono</p></div><span class="time">10 min</span><div class="check"></div></a>
+            <a href="aula-08-investidores.html" class="lesson" data-lesson="aula-08-investidores.html"><div class="num">8</div><div class="info"><h3>Investidores</h3><p>Anjo e VC</p></div><span class="time">10 min</span><div class="check"></div></a>
+            <a href="aula-09-retencao.html" class="lesson" data-lesson="aula-09-retencao.html"><div class="num">9</div><div class="info"><h3>Retenção</h3><p>Manter clientes</p></div><span class="time">10 min</span><div class="check"></div></a>
+            <a href="aula-10-projeto.html" class="lesson" data-lesson="aula-10-projeto.html"><div class="num">10</div><div class="info"><h3>Projeto Final</h3><p>Aplicar conhecimentos</p></div><span class="time">10 min</span><div class="check"></div></a>
+        </div>
+        <div class="progress">
+            <div class="progress-icon">📊</div>
+            <div class="progress-info"><h4>Progresso do 9º Ano</h4><div class="progress-bar"><div class="progress-fill" id="fill" style="width: 0%"></div></div></div>
+            <div class="progress-text" id="text">0%</div>
+        </div>
+    </div>
+    <script>
+        const prefix = '9ano/'; const total = 10;
+        function loadState() {
+            const done = JSON.parse(localStorage.getItem('done_lessons') || '[]');
+            document.querySelectorAll('.lesson').forEach(el => {
+                if (done.includes(prefix + el.dataset.lesson)) { el.querySelector('.check').classList.add('done'); el.classList.add('done'); }
+            });
+            updateProgress();
+        }
+        function updateProgress() {
+            const count = JSON.parse(localStorage.getItem('done_lessons') || '[]').filter(l => l.includes('9ano')).length;
+            document.getElementById('fill').style.width = Math.round((count/total)*100) + '%';
+            document.getElementById('text').textContent = Math.round((count/total)*100) + '%';
+        }
+        document.querySelectorAll('.check').forEach(c => c.addEventListener('click', e => {
+            e.preventDefault();
+            const l = c.closest('.lesson');
+            c.classList.add('done'); l.classList.add('done');
+            const done = JSON.parse(localStorage.getItem('done_lessons') || '[]');
+            if (!done.includes(prefix + l.dataset.lesson)) done.push(prefix + l.dataset.lesson);
+            localStorage.setItem('done_lessons', JSON.stringify(done));
+            updateProgress();
+        }));
+        loadState();
+    </script>
+</body>
+</html>

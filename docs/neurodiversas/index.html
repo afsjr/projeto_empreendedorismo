@@ -3,743 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Empreendedorismo — Neurodiverso</title>
+    <title>Neurodiversas — Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap');
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'Outfit', sans-serif; 
-            background: #0f172a;
-            min-height: 100vh;
-            color: #e2e8f0;
-        }
-        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        :root { --bg: #0f172a; --bg2: #1e293b; --bg3: #334155; --text: #f1f5f9; --text2: #94a3b8; --purple: #8b5cf6; }
+        body { font-family: 'Outfit', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; }
+        .header { text-align: center; padding: 40px 20px; }
+        .header h1 { font-size: 32px; margin-bottom: 10px; background: linear-gradient(135deg, var(--purple), #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .header p { color: var(--text2); max-width: 500px; margin: 0 auto; }
+        .back { display: inline-flex; align-items: center; gap: 8px; color: var(--text2); text-decoration: none; padding: 10px 20px; background: var(--bg2); border-radius: 10px; margin-bottom: 30px; }
         
-        /* Header */
-        .header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        .header h1 {
-            font-size: 40px;
-            font-weight: 800;
-            background: linear-gradient(135deg, #8b5cf6, #06b6d4);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 15px;
-        }
-        .header p {
-            font-size: 18px;
-            color: #94a3b8;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        /* Info Cards */
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-bottom: 50px;
-        }
-        .info-card {
-            background: #1e293b;
-            border-radius: 16px;
-            padding: 25px;
-            text-align: center;
-            border: 1px solid #334155;
-            transition: all 0.3s;
-        }
-        .info-card:hover { border-color: #8b5cf6; transform: translateY(-3px); }
-        .info-card .icon { font-size: 40px; margin-bottom: 15px; }
-        .info-card h3 { font-size: 18px; margin-bottom: 10px; color: white; }
-        .info-card p { font-size: 14px; color: #94a3b8; }
-        
-        /* Years Section */
-        .years-section { margin-bottom: 50px; }
-        .section-title {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .section-title::before {
-            content: '';
-            width: 4px;
-            height: 24px;
-            background: linear-gradient(to bottom, #8b5cf6, #06b6d4);
-            border-radius: 2px;
-        }
-        
-        /* Year Cards */
-        .years-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-        }
-        .year-card {
-            background: #1e293b;
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid #334155;
-            transition: all 0.3s;
-        }
-        .year-card:hover { border-color: #8b5cf6; }
-        
-        .year-header {
-            padding: 20px 25px;
-            color: white;
-        }
-        .year-header.ano6 { background: linear-gradient(135deg, #16a34a, #15803d); }
-        .year-header.ano7 { background: linear-gradient(135deg, #ef4444, #dc2626); }
-        .year-header.ano8 { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
-        .year-header.ano9 { background: linear-gradient(135deg, #0891b2, #0e7490); }
-        
-        .year-header h3 { font-size: 22px; font-weight: 700; }
+        .years-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .year-card { background: var(--bg2); border-radius: 16px; overflow: hidden; border: 1px solid var(--bg3); transition: all 0.3s; text-decoration: none; color: var(--text); }
+        .year-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2); }
+        .year-header { padding: 20px 25px; color: white; }
+        .year-header h3 { font-size: 22px; }
         .year-header p { font-size: 13px; opacity: 0.9; margin-top: 5px; }
-        .year-header .stats {
-            display: flex;
-            gap: 15px;
-            margin-top: 10px;
-            font-size: 12px;
-        }
-        .year-header .stats span {
-            background: rgba(255,255,255,0.2);
-            padding: 4px 10px;
-            border-radius: 20px;
-        }
-        
+        .year-header .stats { display: flex; gap: 10px; margin-top: 10px; }
+        .year-header .stats span { background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 20px; font-size: 12px; }
+        .year-card.ano6 .year-header { background: linear-gradient(135deg, #16a34a, #15803d); }
+        .year-card.ano7 .year-header { background: linear-gradient(135deg, #ef4444, #dc2626); }
+        .year-card.ano8 .year-header { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+        .year-card.ano9 .year-header { background: linear-gradient(135deg, #0891b2, #0e7490); }
         .year-body { padding: 20px; }
-        .lessons-list { display: flex; flex-direction: column; gap: 8px; }
+        .year-body p { font-size: 14px; color: var(--text2); }
+        .year-body .meta { display: flex; gap: 15px; margin-top: 10px; font-size: 13px; color: var(--text2); }
         
-        .lesson-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 15px;
-            background: #0f172a;
-            border-radius: 10px;
-            text-decoration: none;
-            color: #e2e8f0;
-            transition: all 0.2s;
-            border: 1px solid #334155;
-        }
-        .lesson-item:hover { 
-            background: #1e293b; 
-            border-color: #8b5cf6;
-        }
-        .lesson-item .check {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            border: 2px solid #475569;
-            flex-shrink: 0;
-        }
-        .lesson-item .check.done { 
-            background: #16a34a; 
-            border-color: #16a34a;
-        }
-        .lesson-item .check.done::after {
-            content: '✓';
-            color: white;
-            font-size: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .lesson-item .title { flex: 1; font-size: 14px; }
-        .lesson-item .badge {
-            font-size: 11px;
-            color: #94a3b8;
-            background: #334155;
-            padding: 3px 8px;
-            border-radius: 10px;
-        }
+        .progress { background: var(--bg2); border-radius: 16px; padding: 25px; margin-top: 40px; display: flex; align-items: center; gap: 20px; }
+        .progress-icon { font-size: 50px; }
+        .progress-info { flex: 1; }
+        .progress-info h3 { margin-bottom: 10px; }
+        .progress-bar { height: 10px; background: var(--bg3); border-radius: 5px; overflow: hidden; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--purple), #06b6d4); border-radius: 5px; transition: width 0.5s; }
+        .progress-text { font-size: 28px; font-weight: 700; color: var(--purple); }
         
-        /* Mentor Section */
-        .mentor-section {
-            background: linear-gradient(135deg, #1e293b, #0f172a);
-            border-radius: 16px;
-            padding: 40px;
-            border: 1px solid #8b5cf6;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .mentor-section h2 {
-            font-size: 28px;
-            margin-bottom: 15px;
-        }
-        .mentor-section p {
-            color: #94a3b8;
-            margin-bottom: 25px;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .mentor-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: linear-gradient(135deg, #8b5cf6, #06b6d4);
-            color: white;
-            padding: 15px 35px;
-            border-radius: 50px;
-            font-size: 16px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-        .mentor-btn:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3); }
+        .mentor-btn { display: block; text-align: center; background: linear-gradient(135deg, var(--purple), #06b6d4); color: white; text-decoration: none; padding: 18px; border-radius: 14px; font-size: 18px; font-weight: 600; margin-top: 30px; transition: all 0.3s; }
+        .mentor-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3); }
         
-        /* Legend */
-        .legend {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            padding: 20px;
-            background: #1e293b;
-            border-radius: 12px;
-            margin-bottom: 30px;
-        }
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 13px;
-            color: #94a3b8;
-        }
-        .legend-item .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
-        .legend-item .dot.purple { background: #8b5cf6; }
-        .legend-item .dot.green { background: #16a34a; }
-        .legend-item .dot.cyan { background: #06b6d4; }
-        
-        /* Progress Bar */
-        .progress-section {
-            background: #1e293b;
-            border-radius: 12px;
-            padding: 20px 25px;
-            margin-bottom: 30px;
-        }
-        .progress-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        .progress-header h3 { font-size: 16px; }
-        .progress-header span { color: #8b5cf6; font-weight: 600; }
-        .progress-bar {
-            height: 10px;
-            background: #334155;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #8b5cf6, #06b6d4);
-            border-radius: 5px;
-            width: 0%;
-            transition: width 0.5s ease;
-        }
-        
-        @media (max-width: 768px) {
-            .years-grid, .info-grid { grid-template-columns: 1fr; }
-            .header h1 { font-size: 28px; }
-            .container { padding: 20px 15px; }
-            .year-card { margin-bottom: 15px; }
-            .lesson-item { padding: 10px 12px; }
-            .lesson-item .title { font-size: 13px; }
-            .lesson-item .badge { font-size: 10px; padding: 2px 6px; }
-            .mentor-section { padding: 25px 20px; }
-            .info-card { padding: 20px; }
-            .legend { flex-wrap: wrap; gap: 15px; }
-            .progress-header { flex-direction: column; gap: 10px; text-align: center; }
-        }
-        @media (max-width: 480px) {
-            .years-grid { gap: 15px; }
-            .year-header { padding: 15px 20px; }
-            .year-header h3 { font-size: 18px; }
-            .year-header .stats { flex-wrap: wrap; }
-            .info-grid { gap: 15px; }
-        }
+        @media (max-width: 600px) { .years-grid { grid-template-columns: 1fr; } .header h1 { font-size: 26px; } .progress { flex-direction: column; text-align: center; } }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
+        <a href="/index.html" class="back">← Voltar ao Início</a>
+        
         <div class="header">
-            <h1>Empreendedorismo Neurodiverso</h1>
-            <p>Aulas adaptadas para TEA e TDAH. Curtas, com pausas, dicas específicas e acompanhamento de mentor.</p>
+            <h1>🧠 Aulas Neurodiversas</h1>
+            <p>Aulas adaptadas para TEA e TDAH. Curtas, com pausas e dicas específicas.</p>
         </div>
         
-        <!-- Progress -->
-        <div class="progress-section">
-            <div class="progress-header">
-                <h3>Seu Progresso</h3>
-                <span id="progress-percent">0%</span>
-            </div>
-            <div class="progress-bar">
-                <div class="progress-fill" id="progress-fill"></div>
-            </div>
-        </div>
-        
-        <!-- Info Cards -->
-        <div class="info-grid">
-            <div class="info-card">
-                <div class="icon">📚</div>
-                <h3>Teoria</h3>
-                <p>Aulas curtas de 10 min com linguagem direta e pausas.</p>
-            </div>
-            <div class="info-card">
-                <div class="icon">🚀</div>
-                <h3>Projetos</h3>
-                <p>Atividades práticas para aplicar o conhecimento.</p>
-            </div>
-            <div class="info-card">
-                <div class="icon">🧠</div>
-                <h3>Mentor IA</h3>
-                <p>Tire dúvidas e receba orientação personalizada.</p>
-            </div>
-        </div>
-        
-        <!-- Years Grid -->
-        <div class="years-section">
-            <h2 class="section-title">Escolha seu Ano</h2>
-            <div class="years-grid">
-                
-                <!-- 6º Ano -->
-                <div class="year-card">
-                    <div class="year-header ano6">
-                        <h3>6º Ano</h3>
-                        <p>Fundamentos do Empreendedorismo</p>
-                        <div class="stats">
-                            <span>11 aulas</span>
-                            <span>~110 min</span>
-                        </div>
-                    </div>
-                    <div class="year-body">
-                        <div class="lessons-list">
-                            <a href="6ano/aula-01-empreendedor.html" class="lesson-item">
-                                <div class="check done"></div>
-                                <span class="title">O que é Empreendedorismo</span>
-                                <span class="badge">10 min</span>
-                            </a>
-                            <a href="6ano/aula-02-ideias.html" class="lesson-item">
-                                <div class="check done"></div>
-                                <span class="title">Gerar Ideias</span>
-                                <span class="badge">10 min</span>
-                            </a>
-                            <a href="6ano/aula-03-dinheiro.html" class="lesson-item">
-                                <div class="check done"></div>
-                                <span class="title">Dinheiro</span>
-                                <span class="badge">10 min</span>
-                            </a>
-                            <a href="6ano/aula-04-preco.html" class="lesson-item">
-                                <div class="check done"></div>
-                                <span class="title">Preço</span>
-                                <span class="badge">10 min</span>
-                            </a>
-                            <a href="6ano/aula-05-lucro.html" class="lesson-item">
-                                <div class="check"></div>
-                                <span class="title">Lucro</span>
-                                <span class="badge">10 min</span>
-                            </a>
-                            <a href="6ano/aula-06-poupanca.html" class="lesson-item">
-                                <div class="check"></div>
-                                <span class="title">Poupança</span>
-                                <span class="badge">10 min</span>
-                            </a>
-                            <a href="6ano/aula-07-gastos.html" class="lesson-item">
-                                <div class="check"></div>
-                                <span class="title">Gastos</span>
-                                <span class="badge">10 min</span>
-                            </a>
-                            <a href="6ano/aula-08-marketing.html" class="lesson-item">
-                                <div class="check"></div>
-                                <span class="title">Marketing</span>
-                                <span class="badge">10 min</span>
-                            </a>
-                            <a href="6ano/aula-09-equipe.html" class="lesson-item">
-                                <div class="check"></div>
-                                <span class="title">Equipe</span>
-                                <span class="badge">10 min</span>
-                            </a>
-                            <a href="6ano/aula-10-criatividade.html" class="lesson-item">
-                                <div class="check"></div>
-                                <span class="title">Criatividade</span>
-                                <span class="badge">10 min</span>
-                            </a>
-                            <a href="6ano/aula-11-projeto.html" class="lesson-item">
-                                <div class="check"></div>
-                                <span class="title">Projeto Final</span>
-                                <span class="badge">10 min</span>
-                            </a>
-                        </div>
-                    </div>
+        <div class="years-grid">
+            <a href="6ano/" class="year-card ano6">
+                <div class="year-header">
+                    <h3>6º Ano</h3>
+                    <p>Fundamentos do Empreendedorismo</p>
+                    <div class="stats"><span>11 aulas</span><span>~110 min</span></div>
                 </div>
-                
-                <!-- 7º Ano -->
-                <div class="year-card">
-                    <div class="year-header ano7">
-                        <h3>7º Ano</h3>
-                        <p>Descoberta e Validação</p>
-                        <div class="stats">
-                            <span>11 aulas</span>
-                            <span>~110 min</span>
-                        </div>
-                    </div>
-                    <div class="year-body">
-                        <div class="lessons-list">
-                            <a href="7ano/aula-01-descoberta.html" class="lesson-item">
-                                <div class="check done"></div>
-                                <span class="title">Descoberta</span>
-                                <span class="badge">10 min</span>
-                            </a>
-                            <a href="7ano/aula-02-problema.html" class="lesson-item">
-                                <div class="check done"></div>
-                                <span class="title">Encontrar Problema</span>
-                                <span class="badge">10 min</span>
-                            </a>
-                            <a href="7ano/aula-03-solucao.html" class="lesson-item">
-                                <div class="check done"></div>
-                                <span class="title">Criar Solução</span>
-                                <span class="badge">10 min</span>
-                            </a>
-                            <a href="7ano/aula-04-mvp.html" class="lesson-item">
-                                <div class="check done"></div>
-                                <span class="title">MVP</span>
-                                <span class="badge">10 min</span>
-                            </a>
-                            <a href="7ano/aula-05-validacao.html" class="lesson-item">
-                                <div class="check"></div>
-                                <span class="title">Validação</span>
-                                <span class="badge">10 min</span>
-                            </a>
-                            <a href="7ano/aula-06-pitch.html" class="lesson-item">
-                                <div class="check"></div>
-                                <span class="title">Pitch</span>
-                                <span class="badge">10 min</span>
-                            </a>
-                            <a href="7ano/aula-07-preco.html" class="lesson-item">
-                                <div class="check"></div>
-                                <span class="title">Precificação</span>
-                                <span class="badge">10 min</span>
-                            </a>
-                            <a href="7ano/aula-08-comunicacao.html" class="lesson-item">
-                                <div class="check"></div>
-                                <span class="title">Comunicação</span>
-                                <span class="badge">10 min</span>
-                            </a>
-                            <a href="7ano/aula-09-vendas.html" class="lesson-item">
-                                <div class="check"></div>
-                                <span class="title">Vendas</span>
-                                <span class="badge">10 min</span>
-                            </a>
-                            <a href="7ano/aula-10-marketing.html" class="lesson-item">
-                                <div class="check"></div>
-                                <span class="title">Marketing</span>
-                                <span class="badge">10 min</span>
-                            </a>
-                            <a href="7ano/aula-11-fluxo.html" class="lesson-item">
-                                <div class="check"></div>
-                                <span class="title">Fluxo de Caixa</span>
-                                <span class="badge">10 min</span>
-                            </a>
-                        </div>
-                    </div>
+                <div class="year-body">
+                    <p>Ideias, dinheiro, preços, lucro, poupança e criatividade.</p>
+                    <div class="meta"><span>📚 11 aulas</span><span>⏱️ 10 min cada</span></div>
                 </div>
-                
-                <!-- 8º Ano -->
-                <div class="year-card">
-                    <div class="year-header ano8">
-                        <h3>8º Ano</h3>
-                        <p>Startups e Crescimento</p>
-                        <div class="stats">
-                            <span>11 aulas</span>
-                            <span>~110 min</span>
-                        </div>
-                    </div>
-                    <div class="year-body">
-                        <div class="lessons-list">
-                            <a href="8ano/aula-01-startup.html" class="lesson-item">
-                                <div class="check done"></div>
-                                <span class="title">O que é Startup</span>
-                                <span class="badge">10 min</span>
-                            </a>
-                            <a href="8ano/aula-02-mindset.html" class="lesson-item">
-                                <div class="check done"></div>
-                                <span class="title">Mindset</span>
-                                <span class="badge">10 min</span>
-                            </a>
-                            <a href="8ano/aula-03-problema.html" class="lesson-item">
-                                <div class="check done"></div>
-                                <span class="title">Problema</span>
-                                <span class="badge">10 min</span>
-                            </a>
-                            <a href="8ano/aula-04-solucao.html" class="lesson-item">
-                                <div class="check done"></div>
-                                <span class="title">Solução</span>
-                                <span class="badge">10 min</span>
-                            </a>
-                            <a href="8ano/aula-05-mvp.html" class="lesson-item">
-                                <div class="check"></div>
-                                <span class="title">MVP</span>
-                                <span class="badge">10 min</span>
-                            </a>
-                            <a href="8ano/aula-06-validacao.html" class="lesson-item">
-                                <div class="check"></div>
-                                <span class="title">Validação</span>
-                                <span class="badge">10 min</span>
-                            </a>
-                            <a href="8ano/aula-07-preco.html" class="lesson-item">
-                                <div class="check"></div>
-                                <span class="title">Precificação</span>
-                                <span class="badge">10 min</span>
-                            </a>
-                            <a href="8ano/aula-08-marketing.html" class="lesson-item">
-                                <div class="check"></div>
-                                <span class="title">Marketing</span>
-                                <span class="badge">10 min</span>
-                            </a>
-                            <a href="8ano/aula-09-vendas.html" class="lesson-item">
-                                <div class="check"></div>
-                                <span class="title">Vendas</span>
-                                <span class="badge">10 min</span>
-                            </a>
-                            <a href="8ano/aula-10-comunicacao.html" class="lesson-item">
-                                <div class="check"></div>
-                                <span class="title">Comunicação</span>
-                                <span class="badge">10 min</span>
-                            </a>
-                            <a href="8ano/aula-11-fluxo-caixa.html" class="lesson-item">
-                                <div class="check"></div>
-                                <span class="title">Fluxo de Caixa</span>
-                                <span class="badge">10 min</span>
-                            </a>
-                        </div>
-                    </div>
+            </a>
+            
+            <a href="7ano/" class="year-card ano7">
+                <div class="year-header">
+                    <h3>7º Ano</h3>
+                    <p>Descoberta e Validação</p>
+                    <div class="stats"><span>11 aulas</span><span>~110 min</span></div>
                 </div>
-                
-                <!-- 9º Ano -->
-                <div class="year-card">
-                    <div class="year-header ano9">
-                        <h3>9º Ano</h3>
-                        <p>Investimento e Escala</p>
-                        <div class="stats">
-                            <span>10 aulas</span>
-                            <span>~100 min</span>
-                        </div>
-                    </div>
-                    <div class="year-body">
-                        <div class="lessons-list">
-                            <a href="9ano/aula-01-startup.html" class="lesson-item">
-                                <div class="check done"></div>
-                                <span class="title">O que é Startup</span>
-                                <span class="badge">10 min</span>
-                            </a>
-                            <a href="9ano/aula-02-pitch.html" class="lesson-item">
-                                <div class="check done"></div>
-                                <span class="title">Pitch</span>
-                                <span class="badge">10 min</span>
-                            </a>
-                            <a href="9ano/aula-03-valuation.html" class="lesson-item">
-                                <div class="check done"></div>
-                                <span class="title">Valuation</span>
-                                <span class="badge">10 min</span>
-                            </a>
-                            <a href="9ano/aula-04-cac.html" class="lesson-item">
-                                <div class="check done"></div>
-                                <span class="title">CAC</span>
-                                <span class="badge">10 min</span>
-                            </a>
-                            <a href="9ano/aula-05-ltv.html" class="lesson-item">
-                                <div class="check"></div>
-                                <span class="title">LTV</span>
-                                <span class="badge">10 min</span>
-                            </a>
-                            <a href="9ano/aula-06-growth.html" class="lesson-item">
-                                <div class="check"></div>
-                                <span class="title">Growth Hacking</span>
-                                <span class="badge">10 min</span>
-                            </a>
-                            <a href="9ano/aula-07-churn.html" class="lesson-item">
-                                <div class="check"></div>
-                                <span class="title">Churn</span>
-                                <span class="badge">10 min</span>
-                            </a>
-                            <a href="9ano/aula-08-investidores.html" class="lesson-item">
-                                <div class="check"></div>
-                                <span class="title">Investidores</span>
-                                <span class="badge">10 min</span>
-                            </a>
-                            <a href="9ano/aula-09-retencao.html" class="lesson-item">
-                                <div class="check"></div>
-                                <span class="title">Retenção</span>
-                                <span class="badge">10 min</span>
-                            </a>
-                            <a href="9ano/aula-10-projeto.html" class="lesson-item">
-                                <div class="check"></div>
-                                <span class="title">Projeto Final</span>
-                                <span class="badge">10 min</span>
-                            </a>
-                        </div>
-                    </div>
+                <div class="year-body">
+                    <p>Problema, solução, MVP, validação, pitch e precificação.</p>
+                    <div class="meta"><span>📚 11 aulas</span><span>⏱️ 10 min cada</span></div>
                 </div>
-            </div>
-        </div>
-        
-        <!-- Mentor Section -->
-        <div class="mentor-section">
-            <h2>Precisa de ajuda?</h2>
-            <p>Converse com o Mentor IA. Ele conhece todas as aulas e pode explicar qualquer dúvida de forma adaptada.</p>
-            <a href="/docs/mentor/index.html" class="mentor-btn">
-                <span>🧠</span>
-                <span>Falar com Mentor</span>
+            </a>
+            
+            <a href="8ano/" class="year-card ano8">
+                <div class="year-header">
+                    <h3>8º Ano</h3>
+                    <p>Startups e Crescimento</p>
+                    <div class="stats"><span>11 aulas</span><span>~110 min</span></div>
+                </div>
+                <div class="year-body">
+                    <p>Mindset, solução, MVP, validação, marketing e fluxo de caixa.</p>
+                    <div class="meta"><span>📚 11 aulas</span><span>⏱️ 10 min cada</span></div>
+                </div>
+            </a>
+            
+            <a href="9ano/" class="year-card ano9">
+                <div class="year-header">
+                    <h3>9º Ano</h3>
+                    <p>Investimento e Escala</p>
+                    <div class="stats"><span>10 aulas</span><span>~100 min</span></div>
+                </div>
+                <div class="year-body">
+                    <p>Pitch, valuation, CAC, LTV, growth hacking e investidores.</p>
+                    <div class="meta"><span>📚 10 aulas</span><span>⏱️ 10 min cada</span></div>
+                </div>
             </a>
         </div>
         
-        <!-- Legend -->
-        <div class="legend">
-            <div class="legend-item">
-                <div class="dot purple"></div>
-                <span>Roxo = Em andamento</span>
+        <div class="progress">
+            <div class="progress-icon">📊</div>
+            <div class="progress-info">
+                <h3>Progresso Total</h3>
+                <div class="progress-bar"><div class="progress-fill" id="fill" style="width: 0%"></div></div>
             </div>
-            <div class="legend-item">
-                <div class="dot green"></div>
-                <span>Verde = Feito</span>
-            </div>
-            <div class="legend-item">
-                <div class="dot cyan"></div>
-                <span>10 min = Aula Curta</span>
-            </div>
+            <div class="progress-text" id="text">0%</div>
         </div>
         
-        <!-- Export Button -->
-        <div style="text-align: center; margin-top: 30px;">
-            <button onclick="exportProgress()" style="background: linear-gradient(135deg, #16a34a, #15803d); color: white; padding: 12px 30px; border: none; border-radius: 25px; font-size: 14px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 8px;">
-                <span>📄</span> Exportar Progresso
-            </button>
-        </div>
+        <a href="/docs/mentor/index.html" class="mentor-btn">💬 Falar com Mentor IA</a>
     </div>
     
     <script>
-        // Progress tracking
-        function updateProgress() {
-            const totalLessons = 43;
-            const doneCheckboxes = document.querySelectorAll('.check.done').length;
-            const percent = Math.round((doneCheckboxes / totalLessons) * 100);
-            
-            document.getElementById('progress-percent').textContent = percent + '%';
-            document.getElementById('progress-fill').style.width = percent + '%';
-            
-            // Save to localStorage
-            localStorage.setItem('neuro_progress', percent);
+        function loadProgress() {
+            const done = JSON.parse(localStorage.getItem('done_lessons') || '[]');
+            const total = 43;
+            const count = done.filter(l => l.includes('6ano') || l.includes('7ano') || l.includes('8ano') || l.includes('9ano')).length;
+            const percent = Math.round((count / total) * 100);
+            document.getElementById('fill').style.width = percent + '%';
+            document.getElementById('text').textContent = percent + '%';
         }
-        
-        // Click to mark as done
-        document.querySelectorAll('.check:not(.done)').forEach(check => {
-            check.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                check.classList.add('done');
-                check.closest('.lesson-item').style.opacity = '0.7';
-                updateProgress();
-                
-                // Save state
-                const lessonId = check.closest('.lesson-item').getAttribute('href');
-                const doneLessons = JSON.parse(localStorage.getItem('done_lessons') || '[]');
-                doneLessons.push(lessonId);
-                localStorage.setItem('done_lessons', JSON.stringify(doneLessons));
-            });
-        });
-        
-        // Load saved state
-        function loadState() {
-            const doneLessons = JSON.parse(localStorage.getItem('done_lessons') || '[]');
-            document.querySelectorAll('.lesson-item').forEach(item => {
-                if (doneLessons.includes(item.getAttribute('href'))) {
-                    const check = item.querySelector('.check');
-                    if (check) {
-                        check.classList.add('done');
-                        item.style.opacity = '0.7';
-                    }
-                }
-            });
-            updateProgress();
-        }
-        
-        loadState();
-        
-        // Export Progress as PDF
-        function exportProgress() {
-            const doneLessons = JSON.parse(localStorage.getItem('done_lessons') || '[]');
-            const totalLessons = 43;
-            const completedCount = doneLessons.length;
-            const percent = Math.round((completedCount / totalLessons) * 100);
-            
-            const yearStats = {
-                '6ano': { name: '6º Ano', done: 0, total: 11 },
-                '7ano': { name: '7º Ano', done: 0, total: 11 },
-                '8ano': { name: '8º Ano', done: 0, total: 11 },
-                '9ano': { name: '9º Ano', done: 0, total: 10 }
-            };
-            
-            doneLessons.forEach(lesson => {
-                if (lesson.includes('6ano')) yearStats['6ano'].done++;
-                else if (lesson.includes('7ano')) yearStats['7ano'].done++;
-                else if (lesson.includes('8ano')) yearStats['8ano'].done++;
-                else if (lesson.includes('9ano')) yearStats['9ano'].done++;
-            });
-            
-            let content = `
-                <html>
-                <head>
-                    <meta charset="UTF-8">
-                    <style>
-                        body { font-family: Arial, sans-serif; padding: 40px; }
-                        h1 { color: #8b5cf6; }
-                        .stat { margin: 20px 0; padding: 15px; background: #f5f5f5; border-radius: 8px; }
-                        .percent { font-size: 48px; color: #16a34a; }
-                    </style>
-                </head>
-                <body>
-                    <h1>📊 Meu Progresso - Empreendedorismo Neurodiverso</h1>
-                    <p>Gerado em: ${new Date().toLocaleDateString('pt-BR')}</p>
-                    
-                    <div class="stat">
-                        <div class="percent">${percent}%</div>
-                        <p>${completedCount} de ${totalLessons} aulas concluídas</p>
-                    </div>
-                    
-                    <h2>Por Ano:</h2>
-                    ${Object.values(yearStats).map(y => `
-                        <div class="stat">
-                            <strong>${y.name}</strong>: ${y.done}/${y.total} aulas (${Math.round((y.done/y.total)*100)}%)
-                        </div>
-                    `).join('')}
-                    
-                    <h2>Aulas Concluídas:</h2>
-                    <ul>
-                        ${doneLessons.map(l => `<li>${l}</li>`).join('')}
-                    </ul>
-                </body>
-                </html>
-            `;
-            
-            const blob = new Blob([content], { type: 'text/html' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `progresso-empreendedorismo-${new Date().toISOString().split('T')[0]}.html`;
-            a.click();
-            URL.revokeObjectURL(url);
-        }
+        loadProgress();
     </script>
 </body>
 </html>
