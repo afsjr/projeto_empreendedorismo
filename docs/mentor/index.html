@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mentor IA — Empreendedorismo</title>
+    <!-- Bibliotecas Práticas (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap');
         
@@ -566,8 +568,8 @@
     <script>
         // AI Configuration
         const AI_CONFIG = {
-            apiKey: localStorage.getItem('openai_api_key') || '',
-            model: 'gpt-3.5-turbo'
+            apiKey: localStorage.getItem('openai_api_key') || '', // Pega do navegador
+            model: 'llama-3.1-8b-instant' // Otimizado para Groq
         };
         
         let currentMode = '';
@@ -636,11 +638,15 @@ Responda sempre em português brasileiro de forma entusiasmada!`
         }
         
         function showApiKeyPrompt() {
-            const apiKey = prompt('Digite sua API Key da Groq (obtenha em https://console.groq.com/keys):\n\nCaso contrário, clique OK para usar o modo simulado.');
+            const currentKey = localStorage.getItem('openai_api_key') || '';
+            const apiKey = prompt('Configure sua API Key da Groq:\n(Obtenha em console.groq.com)', currentKey);
+            
             if (apiKey !== null) {
-                AI_CONFIG.apiKey = apiKey;
-                localStorage.setItem('openai_api_key', apiKey);
+                const cleanedKey = apiKey.trim();
+                AI_CONFIG.apiKey = cleanedKey;
+                localStorage.setItem('openai_api_key', cleanedKey);
                 updateStatus();
+                if(cleanedKey) alert('✓ API Key configurada com sucesso!');
             }
         }
         
@@ -812,6 +818,11 @@ Responda sempre em português brasileiro de forma entusiasmada!`
         }
         
         function formatText(text) {
+            // Se a biblioteca marked estiver disponível, usa ela para Markdown real
+            if (typeof marked !== 'undefined') {
+                return marked.parse(text);
+            }
+            // Fallback simples caso o CDN falhe
             return text
                 .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
                 .replace(/\n/g, '<br>');
