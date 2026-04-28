@@ -86,6 +86,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            text-decoration: none;
         }
         
         .nav-btn:hover {
@@ -145,52 +146,6 @@
             margin: 0 auto 40px;
         }
         
-        /* Progress Bar */
-        .progress-card {
-            background: var(--bg-secondary);
-            border-radius: 16px;
-            padding: 25px 30px;
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            max-width: 700px;
-            margin: 0 auto 60px;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-        
-        .progress-icon {
-            font-size: 40px;
-            flex-shrink: 0;
-        }
-        
-        .progress-info { flex: 1; }
-        
-        .progress-info h3 {
-            font-size: 16px;
-            margin-bottom: 8px;
-        }
-        
-        .progress-bar {
-            height: 8px;
-            background: var(--bg-card);
-            border-radius: 4px;
-            overflow: hidden;
-        }
-        
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--accent-purple), var(--accent-cyan));
-            border-radius: 4px;
-            transition: width 0.5s ease;
-        }
-        
-        .progress-text {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--accent-purple);
-            flex-shrink: 0;
-        }
-        
         /* Section Titles */
         .section-title {
             font-size: 28px;
@@ -209,13 +164,66 @@
             border-radius: 3px;
         }
         
-        /* Cards Grid */
-        .cards-grid {
+        /* Years Grid - Principal */
+        .years-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
             margin-bottom: 60px;
         }
+        
+        .year-card {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .year-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 15px 35px rgba(6, 182, 212, 0.15);
+        }
+        
+        .year-card .icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+        
+        .year-card h4 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .year-card p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+        
+        .year-card .stats {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .year-card .stats span {
+            background: var(--bg-card);
+            padding: 4px 10px;
+            border-radius: 10px;
+            font-size: 11px;
+        }
+        
+        .year-card.ano6 { border-top: 4px solid #16a34a; }
+        .year-card.ano7 { border-top: 4px solid #ef4444; }
+        .year-card.ano8 { border-top: 4px solid var(--accent-purple); }
+        .year-card.ano9 { border-top: 4px solid var(--accent-cyan); }
         
         /* Card */
         .card {
@@ -249,10 +257,9 @@
             margin-bottom: 15px;
         }
         
-        .card-badge.neuro { background: var(--accent-purple); color: white; }
         .card-badge.rapid { background: var(--accent-cyan); color: white; }
+        .card-badge.neuro { background: var(--accent-purple); color: white; }
         .card-badge.ai { background: var(--accent-green); color: white; }
-        .card-badge.admin { background: var(--accent-red); color: white; }
         
         .card h3 {
             font-size: 22px;
@@ -280,64 +287,20 @@
             gap: 5px;
         }
         
-        /* Years Grid */
-        .years-grid {
+        /* Cards Grid */
+        .cards-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
             margin-bottom: 60px;
         }
         
-        .year-card {
-            background: var(--bg-secondary);
-            border-radius: 16px;
-            padding: 25px;
-            text-align: center;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: all 0.3s;
-            text-decoration: none;
-            color: inherit;
+        /* Divider */
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--bg-card), transparent);
+            margin: 40px 0;
         }
-        
-        .year-card:hover {
-            transform: translateY(-3px);
-            border-color: var(--accent-purple);
-        }
-        
-        .year-card .icon {
-            font-size: 45px;
-            margin-bottom: 15px;
-        }
-        
-        .year-card h4 {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-        
-        .year-card p {
-            font-size: 13px;
-            color: var(--text-secondary);
-            margin-bottom: 15px;
-        }
-        
-        .year-card .stats {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-        }
-        
-        .year-card .stats span {
-            background: var(--bg-card);
-            padding: 4px 10px;
-            border-radius: 10px;
-            font-size: 11px;
-        }
-        
-        .year-card.ano6:hover { border-color: #16a34a; }
-        .year-card.ano7:hover { border-color: #ef4444; }
-        .year-card.ano8:hover { border-color: var(--accent-purple); }
-        .year-card.ano9:hover { border-color: var(--accent-cyan); }
         
         /* Footer */
         .footer {
@@ -378,13 +341,6 @@
             .cards-grid {
                 grid-template-columns: 1fr;
             }
-            
-            .progress-card {
-                flex-direction: column;
-                text-align: center;
-                gap: 15px;
-                padding: 20px;
-            }
         }
         
         @media (max-width: 500px) {
@@ -405,18 +361,15 @@
             <h1>Empreendedores 2026</h1>
         </div>
         <nav class="header-nav">
-            <button class="nav-btn" onclick="window.location.href='#neurodiversas'">
-                <span>🧠</span><span>Neurodiversas</span>
-            </button>
-            <button class="nav-btn" onclick="window.location.href='#aulas'">
+            <a href="#aulas" class="nav-btn">
                 <span>📚</span><span>Aulas Rápidas</span>
-            </button>
-            <button class="nav-btn" onclick="window.location.href='docs/mentor/index.html'">
+            </a>
+            <a href="#neurodiversas" class="nav-btn">
+                <span>🧠</span><span>Neurodiversas</span>
+            </a>
+            <a href="docs/mentor/index.html" class="nav-btn">
                 <span>💬</span><span>Mentor IA</span>
-            </button>
-            <button class="nav-btn" onclick="window.location.href='pages/admin.html'">
-                <span>⚙️</span><span>Admin</span>
-            </button>
+            </a>
         </nav>
     </header>
     
@@ -426,25 +379,87 @@
         <section class="hero">
             <div class="hero-badge">🎓 CSM 2026</div>
             <h2>Plataforma de<br>Empreendedorismo</h2>
-            <p>Acesso centralizado a todas as ferramentas, aulas e recursos do programa Empreendedores Exponenciais.</p>
+            <p>Programa completo de formação empreendedora para os anos finais do ensino fundamental. Acesse as aulas por série.</p>
         </section>
         
-        <!-- Progress Card -->
-        <div class="progress-card">
-            <div class="progress-icon">📊</div>
-            <div class="progress-info">
-                <h3>Seu Progresso</h3>
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progressFill" style="width: 0%"></div>
-                </div>
+        <!-- AULAS RAPIDAS - Principal -->
+        <section id="aulas">
+            <h2 class="section-title">Aulas Rápidas</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 25px;">Currículo completo do programa Empreendedores Exponenciais. 136+ aulas distribídas pelos 4 anos.</p>
+            
+            <div class="years-grid">
+                <a href="docs/aula-rapida-6ano/" class="year-card ano6">
+                    <div class="icon">📗</div>
+                    <h4>6º Ano</h4>
+                    <p>Introdução ao Empreendedorismo</p>
+                    <div class="stats">
+                        <span>20 aulas</span>
+                        <span>~200 min</span>
+                    </div>
+                </a>
+                
+                <a href="docs/aula-rapida-7ano/" class="year-card ano7">
+                    <div class="icon">📘</div>
+                    <h4>7º Ano</h4>
+                    <p>Negócios e Canvas</p>
+                    <div class="stats">
+                        <span>34 aulas</span>
+                        <span>~340 min</span>
+                    </div>
+                </a>
+                
+                <a href="docs/aula-rapida-8ano/" class="year-card ano8">
+                    <div class="icon">📕</div>
+                    <h4>8º Ano</h4>
+                    <p>Finanças e Marketing</p>
+                    <div class="stats">
+                        <span>34 aulas</span>
+                        <span>~340 min</span>
+                    </div>
+                </a>
+                
+                <a href="docs/aula-rapida-9ano/" class="year-card ano9">
+                    <div class="icon">📙</div>
+                    <h4>9º Ano</h4>
+                    <p>Investidores e Pitch</p>
+                    <div class="stats">
+                        <span>34 aulas</span>
+                        <span>~340 min</span>
+                    </div>
+                </a>
             </div>
-            <div class="progress-text" id="progressText">0%</div>
-        </div>
+            
+            <div class="cards-grid">
+                <a href="docs/aula-rapida/index.html" class="card">
+                    <span class="card-badge rapid">Índice</span>
+                    <div class="card-icon">📋</div>
+                    <h3>Índice Completo</h3>
+                    <p>Navegue por todas as 136+ aulas do programa. Organize seu progresso e acompanhe o conteúdo.</p>
+                    <div class="card-meta">
+                        <span>📚 136 aulas</span>
+                        <span>📝 Exercícios</span>
+                    </div>
+                </a>
+                
+                <a href="docs/mentor/index.html" class="card">
+                    <span class="card-badge ai">IA</span>
+                    <div class="card-icon">🧠</div>
+                    <h3>Mentor IA</h3>
+                    <p>Tire dúvidas, crie negócios e avalie projetos com apoio inteligente disponível 24h.</p>
+                    <div class="card-meta">
+                        <span>💬 Chat</span>
+                        <span>🚀 2 modos</span>
+                    </div>
+                </a>
+            </div>
+        </section>
         
-        <!-- Neurodiversas Section -->
+        <div class="divider"></div>
+        
+        <!-- NEURODIVERSAS - Secundário -->
         <section id="neurodiversas">
             <h2 class="section-title">Aulas Neurodiversas</h2>
-            <p style="color: var(--text-secondary); margin-bottom: 25px;">Aulas adaptadas para TEA e TDAH — curtas, com pausas e dicas específicas.</p>
+            <p style="color: var(--text-secondary); margin-bottom: 25px;">Versão adaptada para alunos com TEA e TDAH. Aulas curtas de 10 min com pausas e dicas específicas.</p>
             
             <div class="cards-grid">
                 <a href="docs/neurodiversas/6ano/" class="card">
@@ -491,87 +506,14 @@
                     </div>
                 </a>
             </div>
-        </section>
-        
-        <!-- Quick Access -->
-        <section>
-            <h2 class="section-title">Acesso Rápido</h2>
-            <div class="cards-grid">
-                <a href="docs/mentor/index.html" class="card">
-                    <span class="card-badge ai">IA</span>
-                    <div class="card-icon">🧠</div>
-                    <h3>Mentor IA</h3>
-                    <p>Converse com a IA para criar negócios, avaliar projetos e tirar dúvidas sobre qualquer tema.</p>
-                    <div class="card-meta">
-                        <span>💬 Chat</span>
-                        <span>🚀 2 modos</span>
-                    </div>
-                </a>
-                
-                <a href="docs/aula-rapida/index.html" class="card">
-                    <span class="card-badge rapid">Completo</span>
-                    <div class="card-icon">📚</div>
-                    <h3>Teoria Completa</h3>
-                    <p>Acesse todo o conteúdo pedagógico com 136+ aulas do programa original.</p>
-                    <div class="card-meta">
-                        <span>📚 136 aulas</span>
-                        <span>📝 Exercícios</span>
-                    </div>
-                </a>
-                
-                <a href="docs/neurodiversas/index.html" class="card">
-                    <span class="card-badge neuro">Hub</span>
-                    <div class="card-icon">📊</div>
+            
+            <a href="docs/neurodiversas/index.html" class="card" style="display: flex; align-items: center; gap: 20px;">
+                <div class="card-icon">📊</div>
+                <div>
                     <h3>Painel Neurodiversas</h3>
-                    <p>Acompanhe seu progresso, marque aulas concluídas e exporte seu avanço.</p>
-                    <div class="card-meta">
-                        <span>✅ Checkmarks</span>
-                        <span>📄 Exportar</span>
-                    </div>
-                </a>
-            </div>
-        </section>
-        
-        <!-- Anos Section -->
-        <section id="aulas">
-            <h2 class="section-title">Aulas Rápidas por Ano</h2>
-            <div class="years-grid">
-                <a href="docs/aula-rapida-6ano/" class="year-card ano6">
-                    <div class="icon">📗</div>
-                    <h4>6º Ano</h4>
-                    <p>Introdução ao Empreendedorismo</p>
-                    <div class="stats">
-                        <span>20 aulas</span>
-                    </div>
-                </a>
-                
-                <a href="docs/aula-rapida-7ano/" class="year-card ano7">
-                    <div class="icon">📘</div>
-                    <h4>7º Ano</h4>
-                    <p>Negócios e Canvas</p>
-                    <div class="stats">
-                        <span>34 aulas</span>
-                    </div>
-                </a>
-                
-                <a href="docs/aula-rapida-8ano/" class="year-card ano8">
-                    <div class="icon">📕</div>
-                    <h4>8º Ano</h4>
-                    <p>Finanças e Marketing</p>
-                    <div class="stats">
-                        <span>34 aulas</span>
-                    </div>
-                </a>
-                
-                <a href="docs/aula-rapida-9ano/" class="year-card ano9">
-                    <div class="icon">📙</div>
-                    <h4>9º Ano</h4>
-                    <p>Investidores e Pitch</p>
-                    <div class="stats">
-                        <span>34 aulas</span>
-                    </div>
-                </a>
-            </div>
+                    <p style="margin-bottom: 0;">Acompanhe progresso, marque aulas concluídas e exporte seu avanço.</p>
+                </div>
+            </a>
         </section>
     </main>
     
@@ -580,19 +522,5 @@
         <p>© 2026 <a href="#">Empreendedores Exponenciais</a> • Colégio Santa Mônica</p>
         <p style="margin-top: 10px; font-size: 12px;">Fundamentado na BNCC • Alinhado ao Entrecomp</p>
     </footer>
-    
-    <script>
-        // Load progress from localStorage
-        function loadProgress() {
-            const doneLessons = JSON.parse(localStorage.getItem('done_lessons') || '[]');
-            const totalLessons = 43;
-            const percent = Math.round((doneLessons.length / totalLessons) * 100);
-            
-            document.getElementById('progressFill').style.width = percent + '%';
-            document.getElementById('progressText').textContent = percent + '%';
-        }
-        
-        loadProgress();
-    </script>
 </body>
 </html>
