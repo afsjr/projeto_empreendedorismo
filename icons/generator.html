@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Gerador de Ícones PWA</title>
+    <style>
+        body { font-family: system-ui; padding: 2rem; background: #0c0c0f; color: #fff; }
+        .icon-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 1rem; }
+        canvas { border-radius: 12px; }
+        h2 { color: #E8B800; }
+    </style>
+</head>
+<body>
+    <h2>Gerador de Ícones PWA</h2>
+    <p>Abra esta página no browser e baixe as imagens geradas:</p>
+    <div class="icon-grid" id="icons"></div>
+    
+    <script>
+    const sizes = [72, 96, 128, 144, 152, 192, 384, 512];
+    const colors = { bg: '#C8181A', text: '#fff' };
+    
+    sizes.forEach(size => {
+        const canvas = document.createElement('canvas');
+        canvas.width = canvas.height = size;
+        canvas.style.width = canvas.style.height = '100px';
+        const ctx = canvas.getContext('2d');
+        
+        ctx.fillStyle = colors.bg;
+        ctx.beginPath();
+        ctx.roundRect(0, 0, size, size, size * 0.15);
+        ctx.fill();
+        
+        ctx.fillStyle = colors.text;
+        ctx.font = `bold ${size * 0.5}px Arial`;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('🚀', size/2, size/2);
+        
+        const div = document.createElement('div');
+        div.innerHTML = `<p>${size}x${size}</p>`;
+        div.appendChild(canvas);
+        document.getElementById('icons').appendChild(div);
+        
+        const link = document.createElement('a');
+        link.download = `icon-${size}.png`;
+        link.href = canvas.toDataURL('image/png');
+        link.textContent = `📥 Baixar ${size}x${size}`;
+        link.style.display = 'block';
+        div.appendChild(link);
+    });
+    </script>
+</body>
+</html>

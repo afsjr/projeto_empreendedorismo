@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas de Negócio — Startup Sprint 9º Ano</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #7c3aed;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+            z-index: 1000;
+        }
+
+        .print-button:hover { background: #6d28d9; }
+
+        .canvas-container {
+            background: white;
+            border: 3px solid #7c3aed;
+            border-radius: 16px;
+            padding: 25px;
+            max-width: 297mm;
+            margin: 0 auto 30px;
+            page-break-after: always;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .canvas-header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #f59e0b;
+        }
+
+        .canvas-header h1 {
+            font-size: 28px;
+            color: #7c3aed;
+            font-weight: 800;
+        }
+
+        .canvas-header p {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .canvas-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .canvas-block {
+            background: #f5f3ff;
+            border: 2px solid #7c3aed;
+            border-radius: 12px;
+            padding: 15px;
+        }
+
+        .canvas-block h3 {
+            font-size: 14px;
+            color: #6d28d9;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .canvas-block p {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .canvas-block .linha {
+            border-bottom: 1.5px dashed #7c3aed;
+            min-height: 28px;
+            margin-bottom: 8px;
+            padding: 3px;
+            font-size: 12px;
+        }
+
+        .canvas-block.priority {
+            grid-column: span 1;
+        }
+
+        .canvas-full {
+            grid-column: span 3;
+        }
+
+        .canvas-full .linha {
+            min-height: 35px;
+        }
+
+        .bloco-verde {
+            background: #d1fae5;
+            border-color: #10b981;
+        }
+
+        .bloco-amarelo {
+            background: #fef3c7;
+            border-color: #f59e0b;
+        }
+
+        .bloco-azul {
+            background: #e0e7ff;
+            border-color: #6366f1;
+        }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .print-button { display: none; }
+            .canvas-container {
+                box-shadow: none;
+                margin: 0;
+                padding: 15px;
+                border: 2px solid #7c3aed;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .canvas-grid { grid-template-columns: 1fr; }
+            .canvas-block { grid-column: span 1; }
+            .canvas-full { grid-column: span 1; }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-button" onclick="window.print()">🖨️ Imprimir Canvas</button>
+
+    <div class="canvas-container">
+        <div class="canvas-header">
+            <h1>📊 Business Model Canvas — Startup Sprint</h1>
+            <p>9º Ano | Startup Real: Do Problema ao 1º Cliente | CSM 2026</p>
+            <p style="margin-top: 10px; font-size: 12px; color: #7c3aed;"><strong>Grupo:</strong> _________________ | <strong>Startup:</strong> _________________</p>
+        </div>
+
+        <div class="canvas-grid">
+            <!-- Bloco 1: Proposta de Valor -->
+            <div class="canvas-block">
+                <h3>💎 Proposta de Valor</h3>
+                <p>Por que alguém compraria?</p>
+                <div class="linha"></div>
+                <div class="linha"></div>
+                <div class="linha"></div>
+                <div class="linha"></div>
+            </div>
+
+            <!-- Bloco 2: Segmentos de Clientes -->
+            <div class="canvas-block">
+                <h3>👥 Segmentos de Clientes</h3>
+                <p>Para quem criamos valor?</p>
+                <div class="linha"></div>
+                <div class="linha"></div>
+                <div class="linha"></div>
+                <div class="linha"></div>
+            </div>
+
+            <!-- Bloco 3: Canais -->
+            <div class="canvas-block">
+                <h3>📢 Canais</h3>
+                <p>Como alcançamos clientes?</p>
+                <div class="linha"></div>
+                <div class="linha"></div>
+                <div class="linha"></div>
+                <div class="linha"></div>
+            </div>
+
+            <!-- Bloco 4: Relacionamento -->
+            <div class="canvas-block bloco-verde">
+                <h3>🤝 Relacionamento</h3>
+                <p>Como conquistamos clientes?</p>
+                <div class="linha"></div>
+                <div class="linha"></div>
+                <div class="linha"></div>
+            </div>
+
+            <!-- Bloco 5: Fontes de Receita -->
+            <div class="canvas-block bloco-verde">
+                <h3>💰 Fontes de Receita</h3>
+                <p>Como ganhamos dinheiro?</p>
+                <div class="linha"></div>
+                <div class="linha"></div>
+                <div class="linha"></div>
+                <div class="linha"></div>
+            </div>
+
+            <!-- Bloco 6: Recursos Chaves -->
+            <div class="canvas-block bloco-amarelo">
+                <h3>🔑 Recursos Chaves</h3>
+                <p>O que é essencial?</p>
+                <div class="linha"></div>
+                <div class="linha"></div>
+                <div class="linha"></div>
+            </div>
+
+            <!-- Bloco 7: Atividades Chaves -->
+            <div class="canvas-block bloco-amarelo">
+                <h3>⚡ Atividades Chaves</h3>
+                <p>O que precisamos fazer?</p>
+                <div class="linha"></div>
+                <div class="linha"></div>
+                <div class="linha"></div>
+            </div>
+
+            <!-- Bloco 8: Parcerias -->
+            <div class="canvas-block bloco-azul">
+                <h3>🤝 Parcerias</h3>
+                <p>Quem pode ajudar?</p>
+                <div class="linha"></div>
+                <div class="linha"></div>
+                <div class="linha"></div>
+            </div>
+
+            <!-- Bloco 9: Estrutura de Custos -->
+            <div class="canvas-block bloco-azul">
+                <h3>💸 Estrutura de Custos</h3>
+                <p>Quanto custa operar?</p>
+                <div class="linha"></div>
+                <div class="linha"></div>
+                <div class="linha"></div>
+            </div>
+        </div>
+
+        <!-- Resumo Executive -->
+        <div class="canvas-block canvas-full" style="margin-top: 20px; background: linear-gradient(135deg, #f5f3ff, #ede9fe);">
+            <h3>📋 Resumo Executivo (1 minuto)</h3>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 10px;">
+                <div>
+                    <p style="font-size: 11px; font-weight: 700; color: #6d28d9;">PROBLEMA</p>
+                    <div class="linha"></div>
+                </div>
+                <div>
+                    <p style="font-size: 11px; font-weight: 700; color: #6d28d9;">SOLUÇÃO</p>
+                    <div class="linha"></div>
+                </div>
+                <div>
+                    <p style="font-size: 11px; font-weight: 700; color: #6d28d9;">PROPOSTA DE VALOR</p>
+                    <div class="linha"></div>
+                </div>
+                <div>
+                    <p style="font-size: 11px; font-weight: 700; color: #6d28d9;">MODELO DE RECEITA</p>
+                    <div class="linha"></div>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 20px; padding: 15px; background: #f0fdf4; border: 2px dashed #16a34a; border-radius: 10px;">
+            <h4 style="color: #15803d; font-size: 14px; margin-bottom: 10px;">💡 Dica: Resumo de 30 segundos (para o pitch)</h4>
+            <p style="font-size: 13px; color: #333; font-style: italic;">"Nossa startup resolve [PROBLEMA] para [PÚBLICO]. Somos diferentes porque [DIFERENCIAL]. Cobramos [MODELO] e projected [MÉTRICA]."</p>
+        </div>
+    </div>
+
+    <!-- Versão Resumida para Impressão Rápida (1 página) -->
+    <div class="canvas-container" style="max-width: 180mm; page-break-after: always;">
+        <div class="canvas-header">
+            <h1>🎯 Lean Canvas — Versão Resumida</h1>
+            <p>Para completar em 15 minutos</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+            <div class="canvas-block" style="background: #fef3c7;">
+                <h3>🎯 Problema</h3>
+                <div class="linha"></div>
+                <div class="linha"></div>
+            </div>
+
+            <div class="canvas-block" style="background: #d1fae5;">
+                <h3>💡 Solução</h3>
+                <div class="linha"></div>
+                <div class="linha"></div>
+            </div>
+
+            <div class="canvas-block" style="background: #e0e7ff;">
+                <h3>💎 Proposta de Valor</h3>
+                <div class="linha"></div>
+                <div class="linha"></div>
+            </div>
+
+            <div class="canvas-block" style="background: #fce7f3;">
+                <h3>👥 métricas-Chave</h3>
+                <div class="linha"></div>
+                <div class="linha"></div>
+            </div>
+
+            <div class="canvas-block" style="background: #f5f3ff;">
+                <h3>📢 Canais</h3>
+                <div class="linha"></div>
+            </div>
+
+            <div class="canvas-block" style="background: #fef3c7;">
+                <h3>💰 Receita</h3>
+                <div class="linha"></div>
+                <div class="linha"></div>
+            </div>
+        </div>
+
+        <div style="margin-top: 20px; padding: 15px; background: #7c3aed; border-radius: 10px;">
+            <h4 style="color: white; font-size: 16px; margin-bottom: 10px;">🛡️ Vantagem Incomparável</h4>
+            <div class="linha" style="background: white; border-bottom: none; min-height: 40px;"></div>
+        </div>
+
+        <div style="margin-top: 15px; padding: 15px; background: #1a1a2e; border-radius: 10px;">
+            <h4 style="color: #f59e0b; font-size: 16px;">🏗️ MVP (Minimum Viable Product)</h4>
+            <p style="color: white; font-size: 12px; margin-top: 5px;">O menor produto possível para testar a ideia:</p>
+            <div class="linha" style="background: white; border-bottom: none; min-height: 40px;"></div>
+        </div>
+    </div>
+
+</body>
+</html>

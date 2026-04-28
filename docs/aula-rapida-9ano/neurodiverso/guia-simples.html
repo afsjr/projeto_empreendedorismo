@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia do(Auxiliar) — Versão Super Simples</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Dyslexic:wght@400;600;700&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Open Dyslexic', sans-serif;
+            background: #ecfccb;
+            padding: 15px;
+            line-height: 2;
+        }
+
+        .folha {
+            background: white;
+            border: 4px solid #65a30b;
+            border-radius: 20px;
+            padding: 20px;
+            max-width: 160mm;
+            margin: 0 auto;
+        }
+
+        .cabecalho {
+            text-align: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 3px dashed #65a30b;
+        }
+
+        .cabecalho h1 {
+            font-size: 24px;
+            color: #365314;
+        }
+
+        .regra-ouro {
+            background: #fecaca;
+            border: 4px solid #dc2626;
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .regra-ouro h2 {
+            font-size: 20px;
+            color: #991b1b;
+            margin-bottom: 8px;
+        }
+
+        .regra-ouro p {
+            font-size: 18px;
+            color: #333;
+        }
+
+        .passo {
+            background: #fef9c3;
+            border: 3px solid #eab308;
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 12px;
+        }
+
+        .passo .numero {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #eab308;
+            color: white;
+            border-radius: 50%;
+            font-weight: 700;
+            margin-right: 10px;
+        }
+
+        .passo .titulo {
+            font-size: 18px;
+            font-weight: 700;
+            color: #713f12;
+        }
+
+        .passo p {
+            margin-top: 8px;
+            font-size: 16px;
+        }
+
+        .sim {
+            background: #dcfce7;
+            border: 3px solid #16a34a;
+            border-radius: 10px;
+            padding: 10px;
+            margin-top: 8px;
+        }
+
+        .sim p {
+            font-size: 16px;
+            color: #166534;
+        }
+
+        .nao {
+            background: #fee2e2;
+            border: 3px solid #dc2626;
+            border-radius: 10px;
+            padding: 10px;
+            margin-top: 8px;
+        }
+
+        .nao p {
+            font-size: 16px;
+            color: #991b1b;
+        }
+
+        .imprimir {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #65a30b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        @media print {
+            body { background: white; }
+            .imprimir { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <button class="imprimir" onclick="window.print()">🖨️ IMPRIMIR</button>
+
+    <div class="folha">
+        <div class="cabecalho">
+            <h1>🤝 GUIA DO(A) AUXILIAR(A)</h1>
+        </div>
+
+        <div class="regra-ouro">
+            <h2>⚠️ REGRA DE OURO</h2>
+            <p>AS IDEIAS SÃO DELE. Você só ajuda!</p>
+        </div>
+
+        <div class="passo">
+            <span class="numero">1</span>
+            <span class="titulo">Antes de começar</span>
+            <p>Diga: "Hoje você vai criar uma empresa de brinquedos! Pode ser sobre trens, peças, carrinhos... o que você quiser!"</p>
+        </div>
+
+        <div class="passo">
+            <span class="numero">2</span>
+            <span class="titulo">Durante a atividade</span>
+            <p>Sente ao lado. Leia as perguntas. Pergunte: "O que você quer escrever?" ou "Quer que eu escreva?"</p>
+        </div>
+
+        <div class="passo">
+            <span class="numero">3</span>
+            <span class="titulo">Se ele travar</span>
+            <p>Diga: "Lembra daqueles trens que você gosta? E se você fizesse uma empresa de fazer trens assim?"</p>
+        </div>
+
+        <div class="passo">
+            <span class="numero">4</span>
+            <span class="titulo">Na apresentação</span>
+            <p>Ofereça: "Quer apresentar sozinho ou comigo?"</p>
+        </div>
+
+        <div class="sim">
+            <p>✅ PODE FAZER: ler, escrever o que ele dicta, dar opções, animá-lo</p>
+        </div>
+
+        <div class="nao">
+            <p>❌ NÃO PODE: decidir por ele, fazer por ele, corrigir</p>
+        </div>
+
+        <div style="text-align: center; margin-top: 15px; font-size: 24px;">
+            🌟 Ele consegue! 🌟
+        </div>
+    </div>
+
+</body>
+</html>

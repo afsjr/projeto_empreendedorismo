@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Empresa de Brinquedos 🚂</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Dyslexic:wght@400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Open Dyslexic', 'Outfit', sans-serif;
+            background: #dbeafe;
+            padding: 15px;
+            line-height: 2;
+        }
+
+        .folha {
+            background: white;
+            border: 5px solid #2563eb;
+            border-radius: 25px;
+            padding: 30px;
+            max-width: 180mm;
+            margin: 0 auto;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+
+        .cabecalho {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 5px dashed #2563eb;
+        }
+
+        .cabecalho .emoji {
+            font-size: 70px;
+        }
+
+        .cabecalho h1 {
+            font-size: 36px;
+            color: #2563eb;
+            font-weight: 800;
+        }
+
+        .cabecalho p {
+            font-size: 18px;
+            color: #666;
+        }
+
+        .nome-box {
+            background: #dbeafe;
+            border: 4px solid #2563eb;
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .nome-box label {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1d4ed8;
+            display: block;
+        }
+
+        .linha_nome {
+            border-bottom: 4px solid #2563eb;
+            min-height: 45px;
+            margin-top: 10px;
+            font-size: 22px;
+        }
+
+        .passo {
+            background: #fef3c7;
+            border: 4px solid #f59e0b;
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .passo .numero {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 55px;
+            height: 55px;
+            background: #f59e0b;
+            color: white;
+            border-radius: 50%;
+            font-weight: 800;
+            font-size: 30px;
+            margin-right: 15px;
+        }
+
+        .passo .titulo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #b45309;
+            vertical-align: middle;
+        }
+
+        .passo .tempo {
+            display: block;
+            background: #f59e0b;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 700;
+            margin-top: 10px;
+            width: fit-content;
+        }
+
+        .pergunta {
+            margin: 20px 0 10px 0;
+        }
+
+        .pergunta label {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+            display: block;
+        }
+
+        .linha {
+            border-bottom: 4px dotted #f59e0b;
+            min-height: 45px;
+            margin-top: 5px;
+        }
+
+        .opcoes {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin: 15px 0;
+        }
+
+        .opcao {
+            background: white;
+            border: 3px solid #fbbf24;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .opcao .emoji {
+            font-size: 40px;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .opcao .texto {
+            font-size: 18px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .dica {
+            background: #dbeafe;
+            border-left: 6px solid #2563eb;
+            border-radius: 0 15px 15px 0;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        .dica .emoji {
+            font-size: 24px;
+            margin-right: 8px;
+        }
+
+        .dica .texto {
+            font-size: 18px;
+            color: #1d4ed8;
+        }
+
+        .bonus {
+            background: #fce7f3;
+            border: 4px dashed #ec4899;
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .bonus h3 {
+            font-size: 22px;
+            color: #be1857;
+            margin-bottom: 10px;
+        }
+
+        .bonus p {
+            font-size: 18px;
+            color: #333;
+        }
+
+        .estrelas {
+            text-align: center;
+            font-size: 50px;
+            margin-top: 20px;
+        }
+
+        .imprimir {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .imprimir { display: none; }
+            .folha { box-shadow: none; padding: 15px; }
+        }
+
+        @media (max-width: 600px) {
+            .opcoes { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <button class="imprimir" onclick="window.print()">🖨️ IMPRIMIR</button>
+
+    <div class="folha">
+        <div class="cabecalho">
+            <div class="emoji">🚂</div>
+            <h1>MINHA EMPRESA DE BRINQUEDOS</h1>
+            <p>Feito por mim! ✨</p>
+        </div>
+
+        <div class="nome-box">
+            <label>👤 Meu nome:</label>
+            <div class="linha_nome"></div>
+        </div>
+
+        <div class="nome-box">
+            <label>🚂 Nome da minha empresa:</label>
+            <div class="linha_nome"></div>
+        </div>
+
+        <!-- PASSO 1: O que vou fazer -->
+        <div class="passo">
+            <span class="numero">1</span>
+            <span class="titulo">O que eu vou criar?</span>
+            <span class="tempo">⏱️ 5 minutos</span>
+
+            <p style="font-size: 18px; margin-top: 15px; color: #333;">Você pode criar brinquedos assim:</p>
+
+            <div class="opcoes">
+                <div class="opcao">
+                    <div class="emoji">🚂</div>
+                    <div class="texto">Trens de montar</div>
+                </div>
+                <div class="opcao">
+                    <div class="emoji">🏗️</div>
+                    <div class="texto">Peças de montar</div>
+                </div>
+                <div class="opcao">
+                    <div class="emoji">🚜</div>
+                    <div class="texto">Carrinhos</div>
+                </div>
+                <div class="opcao">
+                    <div class="emoji">🦕</div>
+                    <div class="texto">Dinossauros</div>
+                </div>
+            </div>
+
+            <div class="pergunta">
+                <label>Eu vou criar:</label>
+                <div class="linha"></div>
+            </div>
+        </div>
+
+        <!-- PASSO 2: Para quem -->
+        <div class="passo">
+            <span class="numero">2</span>
+            <span class="titulo">Para quem é?</span>
+            <span class="tempo">⏱️ 3 minutos</span>
+
+            <div class="pergunta">
+                <label>Quem vai comprar?</label>
+                <div class="linha"></div>
+            </div>
+
+            <div class="pergunta">
+                <label>Idade da pessoa:</label>
+                <div class="linha"></div>
+            </div>
+
+            <div class="dica">
+                <span class="emoji">💡</span>
+                <span class="texto">Crianças de 5 a 10 anos são o público ideal!</span>
+            </div>
+        </div>
+
+        <!-- PASSO 3: Preço -->
+        <div class="passo">
+            <span class="numero">3</span>
+            <span class="titulo">Quanto custa?</span>
+            <span class="tempo">⏱️ 3 minutos</span>
+
+            <div class="pergunta">
+                <label>Custo para fazer (material):</label>
+                <div class="linha">R$</div>
+            </div>
+
+            <div class="pergunta">
+                <label>Quanto vou vender?</label>
+                <div class="linha">R$</div>
+            </div>
+
+            <div class="pergunta">
+                <label>Quanto lucro?:</label>
+                <div class="linha">R$</div>
+            </div>
+        </div>
+
+        <!-- PASSO 4: Onde vender -->
+        <div class="passo">
+            <span class="numero">4</span>
+            <span class="titulo">Onde vender?</span>
+            <span class="tempo">⏱️ 2 minutos</span>
+
+            <div class="pergunta">
+                <label>Local de venda:</label>
+                <div class="linha"></div>
+            </div>
+
+            <div class="opcoes">
+                <div class="opcao">
+                    <div class="emoji">🏫</div>
+                    <div class="texto">Escola</div>
+                </div>
+                <div class="opcao">
+                    <div class="emoji">🛒</div>
+                    <div class="texto">Feira</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BÔNUS -->
+        <div class="bonus">
+            <h3>⭐ BÔNUS!</h3>
+            <p>Se você pudesse vender na escola, quantos brinquedos venderia?</p>
+            <div class="linha"></div>
+        </div>
+
+        <div class="estrelas">
+            🚂 Você consegue! 🚂
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano de Aula — Identificação de Oportunidades (7º Ano, 50 min)</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Outfit', sans-serif; background: #f5f5f5; padding: 30px; line-height: 1.6; }
+        .plano-container { max-width: 210mm; margin: 0 auto; background: white; border-radius: 16px; padding: 40px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        .plano-header { text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 4px solid #ef4444; }
+        .plano-header h1 { font-size: 26px; color: #ef4444; font-weight: 800; margin-bottom: 8px; }
+        .plano-header h2 { font-size: 18px; color: #f59e0b; font-weight: 600; }
+        .info-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 25px; }
+        .info-card { background: #fef2f2; border: 2px solid #ef4444; border-radius: 10px; padding: 12px; text-align: center; }
+        .info-card h3 { font-size: 11px; color: #dc2626; margin-bottom: 4px; }
+        .info-card p { font-size: 14px; font-weight: 700; color: #333; }
+        .objetivo-box { background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); color: white; border-radius: 12px; padding: 18px; margin-bottom: 25px; }
+        .objetivo-box h3 { font-size: 16px; margin-bottom: 10px; }
+        .objetivo-box ul { padding-left: 20px; }
+        .objetivo-box li { margin-bottom: 5px; font-size: 13px; }
+        .materiais-box { background: #fef3c7; border-left: 5px solid #f59e0b; border-radius: 10px; padding: 18px; margin-bottom: 25px; }
+        .materiais-box h3 { color: #d97706; font-size: 16px; margin-bottom: 12px; }
+        .materiais-box li { margin-bottom: 6px; font-size: 13px; }
+        .timeline-box h3 { font-size: 20px; color: #ef4444; margin-bottom: 15px; text-align: center; }
+        .timeline-item { display: flex; gap: 15px; margin-bottom: 15px; padding: 15px; border-radius: 10px; border-left: 5px solid; }
+        .timeline-item.abertura { background: #fee2e2; border-color: #ef4444; }
+        .timeline-item.teoria { background: #e0e7ff; border-color: #6366f1; }
+        .timeline-item.pratica { background: #fef3c7; border-color: #f59e0b; }
+        .timeline-item.fechamento { background: #d1fae5; border-color: #10b981; }
+        .timeline-tempo { min-width: 55px; text-align: center; }
+        .timeline-tempo .numero { font-size: 24px; font-weight: 800; color: #333; }
+        .timeline-tempo .label { font-size: 10px; color: #666; }
+        .timeline-content h4 { font-size: 15px; color: #333; margin-bottom: 8px; }
+        .timeline-content p { font-size: 13px; color: #555; margin-bottom: 6px; }
+        .timeline-content ul { padding-left: 18px; }
+        .timeline-content li { margin-bottom: 4px; font-size: 12px; }
+        .dicas-professor { background: #e0f2fe; border: 2px solid #0ea5e9; border-radius: 10px; padding: 18px; margin-bottom: 25px; }
+        .dicas-professor h3 { color: #0369a1; font-size: 16px; margin-bottom: 12px; }
+        .dicas-professor li { margin-bottom: 6px; font-size: 13px; }
+        .conexao-projeto { background: #fef2f2; border: 2px solid #ef4444; border-radius: 10px; padding: 18px; }
+        .conexao-projeto h3 { color: #ef4444; font-size: 16px; margin-bottom: 10px; }
+        .conexao-projeto p { font-size: 13px; color: #555; }
+        .print-button { position: fixed; top: 20px; right: 20px; background: #ef4444; color: white; border: none; padding: 12px 24px; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; z-index: 1000; }
+        @media print { body { background: white; padding: 0; } .print-button { display: none; } .plano-container { box-shadow: none; padding: 20px; } }
+        @media (max-width: 768px) { .info-grid { grid-template-columns: repeat(2, 1fr); } .timeline-item { flex-direction: column; } }
+    </style>
+</head>
+<body>
+    <button class="print-button" onclick="window.print()">🖨️ Imprimir</button>
+    <div class="plano-container">
+        <div class="plano-header">
+            <h1>🔍 IDENTIFICAÇÃO DE OPORTUNIDADES</h1>
+            <h2>7º Ano | Módulo 1: Negócios | Lição 3</h2>
+            <p class="subtitle">Empreendedores Exponenciais | CSM Limoeiro</p>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-card"><h3>⏱️ Duração</h3><p>50 min</p></div>
+            <div class="info-card"><h3>👥 Público</h3><p>7º Ano</p></div>
+            <div class="info-card"><h3>📚 Módulo</h3><p>Negócios</p></div>
+            <div class="info-card"><h3>📄 Página</h3><p>88</p></div>
+        </div>
+
+        <div class="objetivo-box">
+            <h3>🎯 OBJETIVOS DA AULA</h3>
+            <ul>
+                <li>Compreender a diferença entre <strong>IDEIA</strong> e <strong>OPORTUNIDADE</strong></li>
+                <li>Conhecer as <strong>5 fontes de oportunidades</strong> de negócio</li>
+                <li>Aplicar o <strong>Teste da Oportunidade</strong> em ideias</li>
+            </ul>
+        </div>
+
+        <div class="materiais-box">
+            <h3>📦 MATERIAIS NECESSÁRIOS</h3>
+            <ul>
+                <li>Quadro ou projetor</li>
+                <li>Post-its (2 cores: verde = ideia, laranja = oportunidade)</li>
+            </ul>
+        </div>
+
+        <div class="timeline-box">
+            <h3>📋 CRONOGRAMA (50 MIN)</h3>
+
+            <div class="timeline-item abertura">
+                <div class="timeline-tempo"><div class="numero">5</div><div class="label">min</div></div>
+                <div class="timeline-content">
+                    <h4>🚀 ABERTURA — Ideia vs. Oportunidade</h4>
+                    <p><strong>Desafio rápido:</strong> "App para cachorros pedirem comida pelo celular — isso é uma IDEIA ou OPORTUNIDADE?"</p>
+                    <p><strong>Discussão:</strong> Por que não é oportunidade? (Não há mercado disposto a pagar por isso!)</p>
+                    <p><strong>Introdução:</strong> "Nem toda ideia é oportunidade. Oportunidade é ideia VALIDADA."</p>
+                </div>
+            </div>
+
+            <div class="timeline-item teoria">
+                <div class="timeline-tempo"><div class="numero">12</div><div class="label">min</div></div>
+                <div class="timeline-content">
+                    <h4>📚 TEORIA — 5 Fontes + Teste</h4>
+                    <p><strong>5 Fontes de Oportunidades:</strong></p>
+                    <ul>
+                        <li>🏠 <b>Problemas pessoais:</b> Você enfrenta → cria solução</li>
+                        <li>👀 <b>Observação:</b> Notar frustrações do dia a dia</li>
+                        <li>📈 <b>Tendências:</b> Comportamentos novos (envelhecimento, digital)</li>
+                        <li>💡 <b>Novas tecnologias:</b> Aplicar tech existente a novos contextos</li>
+                        <li>🔍 <b>Gaps de mercado:</b> Grupos mal atendidos pela concorrência</li>
+                    </ul>
+                    <p><strong>Teste das 5 Perguntas:</strong></p>
+                    <ul>
+                        <li>1. Problema real e relevante?</li>
+                        <li>2. Pessoas dispostas a PAGAR?</li>
+                        <li>3. Você consegue entregar?</li>
+                        <li>4. Mercado grande o suficiente?</li>
+                        <li>5. Vantagem competitiva?</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item pratica">
+                <div class="timeline-tempo"><div class="numero">23</div><div class="label">min</div></div>
+                <div class="timeline-content">
+                    <h4>✋ ATIVIDADE — Caça às Oportunidades</h4>
+                    <p><strong>Min 0-5:</strong> Grupos de 4. Cada um escolhe um CONTEXTO: Escola, Casa, Transporte, Lazer, Alimentação.</p>
+                    <p><strong>Min 5-15:</strong> Listem 5 problemas/frustrações nesse contexto. Usem post-its VERDES.</p>
+                    <p><strong>Min 15-20:</strong> Apliquem o Teste das 5 Perguntas em cada problema.</p>
+                    <p><strong>Min 20-23:</strong> Post-its que passaram no teste = OPORTUNIDADES (mudar para LARANJA).</p>
+                    <p><strong>Premio:</strong> Grupo com mais oportunidades válidas ganha "Badge de Caçador de Oportunidades".</p>
+                </div>
+            </div>
+
+            <div class="timeline-item fechamento">
+                <div class="timeline-tempo"><div class="numero">10</div><div class="label">min</div></div>
+                <div class="timeline-content">
+                    <h4>🎯 FECHAMENTO — Apresentação</h4>
+                    <p><strong>Cada grupo:</strong> Apresente a melhor oportunidade encontrada. Por que passou no teste?</p>
+                    <p><strong>Tarefa:</strong> Durante a semana, observe 3 oportunidades na sua comunidade. Aplique o teste das 5 perguntas.</p>
+                    <p><strong>Próxima aula:</strong> Diferenciação e Proposta de Valor — como se destacar da concorrência</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="dicas-professor">
+            <h3>💡 DICAS</h3>
+            <ol>
+                <li><strong>Exemplos:</strong> Nubank (problema: bancos ruins), 99 (gap: taxistas insatisfeitos)</li>
+                <li><strong>Limoeiro:</strong> "Que oportunidades existem na nossa cidade?"</li>
+                <li><strong>Equilibre:</strong> Nem todos os problemas viram oportunidades — tudo bem!</li>
+            </ol>
+        </div>
+
+        <div class="conexao-projeto">
+            <h3>🔗 PROJETO DO SEMESTRE</h3>
+            <p>No <strong>Shark Tank CSM</strong>, vocês precisam identificar uma oportunidade REAL de negócio em Limoeiro.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,662 @@
+/* ========================================
+   NEOBRUTALISTA CSM PREMIUM - ESTILOS
+   Uma abordagem moderna, vibrante e tátil ao Neobrutalismo
+   ======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Outfit:wght@400;700;900&display=swap');
+
+/* VARIÁVEIS NEOBRUTALISTAS REFINADAS */
+body.neo-mode {
+    /* Cores de Destaque (Comuns) */
+    --neo-yellow: #FFDE03; /* Neobrutalist Yellow */
+    --neo-red: #C8181A;    /* CSM Red */
+    --neo-blue: #0056B3;
+    --neo-green: #10B981;
+    --neo-gray: #444444;   /* Tom de cinza solicitado */
+    --neo-orange: #F97316;
+    --neo-pink: #D81B60;
+    
+    /* Tema Light Neobrutalist (Default) */
+    --neo-black: #121212;
+    --neo-white: #FFFFFF;
+    --bg-primary: #F3F3F0;
+    --bg-surface: #FFFFFF;
+    --bg-surface2: #EFEFEF;
+    --bg-surface3: #DDDDDD;
+    --text: #121212;
+    --text-dim: #333333;
+    --text-muted: #666666;
+    --border-color: var(--neo-black);
+    --shadow-color: var(--neo-black);
+    --dot-color: rgba(0, 0, 0, 0.2);
+    
+    --border-width: 3px;
+    --border: var(--border-width) solid var(--border-color);
+    --radius: 0px;
+    --radius-sm: 0px;
+    
+    --shadow-sm: 4px 4px 0px var(--shadow-color);
+    --shadow: 8px 8px 0px var(--shadow-color);
+    --shadow-lg: 12px 12px 0px var(--shadow-color);
+    
+    --font-main: 'Space Grotesk', sans-serif;
+    --font-display: 'Outfit', sans-serif;
+}
+
+    /* Tema Dark Neobrutalist */
+body.neo-mode.dark-neo {
+    --bg-primary: #0A0A0A;
+    --bg-surface: #1A1A1A;
+    --bg-surface2: #222222;
+    --bg-surface3: #333333;
+    --text: #FFFFFF;
+    --text-dim: #EEEEEE;
+    --text-muted: #AAAAAA;
+    --border-color: #FFFFFF;
+    --shadow-color: var(--neo-yellow); /* Sombra amarela no modo escuro fica incrível */
+    --dot-color: rgba(255, 255, 255, 0.1);
+}
+
+/* RESET E BASE */
+body.neo-mode {
+    font-family: var(--font-main);
+    background: var(--bg-primary) !important;
+    color: var(--text) !important;
+    line-height: 1.5;
+    background-image: 
+        radial-gradient(var(--dot-color) 1.5px, transparent 1.5px) !important;
+    background-size: 30px 30px !important;
+    background-attachment: fixed !important;
+}
+
+body.neo-mode * {
+    transition: transform 0.1s cubic-bezier(0.17, 0.67, 0.83, 0.67), 
+                box-shadow 0.1s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+
+body.neo-mode .header {
+    background: var(--bg-surface) !important;
+    border-bottom: 5px solid var(--border-color) !important;
+    backdrop-filter: none !important;
+    height: 80px !important;
+    padding: 0 40px !important;
+    box-shadow: 0 4px 0px var(--shadow-color) !important;
+}
+
+body.neo-mode .logo {
+    background: var(--neo-yellow) !important;
+    border: var(--border) !important;
+    padding: 8px 20px !important;
+    box-shadow: var(--shadow-sm) !important;
+    color: #121212 !important; /* Sempre escuro no fundo amarelo */
+    font-family: var(--font-display) !important;
+    font-weight: 900 !important;
+    text-transform: uppercase !important;
+    letter-spacing: -1px !important;
+}
+
+body.neo-mode .logo img {
+    border: 2px solid #121212 !important;
+    box-shadow: 2px 2px 0px #121212 !important;
+    border-radius: 0 !important;
+}
+
+/* ========================================
+   NAVIGATION
+   ======================================== */
+
+body.neo-mode .nav-btn {
+    border: var(--border) !important;
+    border-radius: 0px !important;
+    background: var(--bg-surface) !important;
+    color: var(--text) !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    padding: 10px 20px !important;
+    margin: 0 5px !important;
+    box-shadow: var(--shadow-sm) !important;
+}
+
+body.neo-mode .nav-btn:hover {
+    transform: translate(-2px, -2px) !important;
+    box-shadow: 6px 6px 0px var(--shadow-color) !important;
+    background: var(--neo-yellow) !important;
+    color: #121212 !important;
+}
+
+body.neo-mode .nav-btn.active {
+    background: var(--border-color) !important;
+    color: var(--bg-surface) !important;
+    transform: translate(2px, 2px) !important;
+    box-shadow: 0px 0px 0px var(--shadow-color) !important;
+}
+
+/* ========================================
+   SIDEBAR
+   ======================================== */
+
+body.neo-mode .sidebar {
+    background: var(--bg-primary) !important;
+    border-right: 5px solid var(--neo-black) !important;
+    padding: 2rem 1.5rem !important;
+}
+
+body.neo-mode .module-header {
+    border: var(--border) !important;
+    border-radius: 0px !important;
+    background: var(--bg-surface) !important;
+    color: var(--text) !important;
+    padding: 15px !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    box-shadow: var(--shadow-sm) !important;
+    margin-bottom: 10px !important;
+}
+
+body.neo-mode .module-header:hover {
+    background: var(--neo-blue) !important;
+    color: white !important;
+}
+
+body.neo-mode .module-header.active {
+    background: var(--border-color) !important;
+    color: var(--bg-surface) !important;
+}
+
+body.neo-mode .lesson-item {
+    border: 2px solid transparent !important;
+    padding: 12px 15px !important;
+    font-weight: 600 !important;
+    margin: 5px 0 !important;
+}
+
+body.neo-mode .lesson-item:hover {
+    border-color: var(--border-color) !important;
+    background: var(--bg-surface) !important;
+    transform: translateX(5px) !important;
+    box-shadow: 4px 4px 0px var(--shadow-color) !important;
+}
+
+body.neo-mode .lesson-item.active {
+    background: var(--neo-yellow) !important;
+    color: #121212 !important;
+    border-color: var(--border-color) !important;
+    box-shadow: var(--shadow-sm) !important;
+}
+
+body.neo-mode .lesson-num {
+    border: 2px solid var(--border-color) !important;
+    border-radius: 0 !important;
+    background: var(--bg-surface) !important;
+    color: var(--text) !important;
+}
+
+/* ========================================
+   CARDS
+   ======================================== */
+
+body.neo-mode .card {
+    background: var(--bg-surface) !important;
+    border: var(--border) !important;
+    border-radius: 0px !important;
+    box-shadow: var(--shadow) !important;
+    padding: 2.5rem !important;
+    margin-bottom: 2rem !important;
+    color: var(--text) !important;
+}
+
+body.neo-mode .card:hover {
+    transform: translate(-4px, -4px) !important;
+    box-shadow: var(--shadow-lg) !important;
+}
+
+body.neo-mode .card-title {
+    font-family: var(--font-display) !important;
+    font-weight: 900 !important;
+    font-size: 1.8rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: -0.05em !important;
+    color: var(--text) !important;
+    margin-bottom: 1rem !important;
+    display: inline-block !important;
+    position: relative !important;
+}
+
+body.neo-mode .card-title::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: var(--neo-yellow);
+    z-index: -1;
+    opacity: 0.8;
+}
+
+/* ========================================
+   BUTTONS
+   ======================================== */
+
+body.neo-mode .btn {
+    border: var(--border) !important;
+    border-radius: 0px !important;
+    font-family: var(--font-display) !important;
+    font-weight: 900 !important;
+    text-transform: uppercase !important;
+    padding: 15px 30px !important;
+    box-shadow: var(--shadow) !important;
+    display: inline-flex !important;
+}
+
+body.neo-mode .btn:hover {
+    transform: translate(-3px, -3px) !important;
+    box-shadow: var(--shadow-lg) !important;
+}
+
+body.neo-mode .btn:active {
+    transform: translate(4px, 4px) !important;
+    box-shadow: 0px 0px 0px var(--neo-black) !important;
+}
+
+body.neo-mode .btn-primary {
+    background: var(--neo-red) !important;
+    color: white !important;
+}
+
+body.neo-mode .btn-secondary {
+    background: var(--neo-gray) !important;
+    color: white !important;
+}
+
+body.neo-mode .btn-danger {
+    background: var(--border-color) !important;
+    color: var(--bg-surface) !important;
+}
+
+/* ========================================
+   FORMS
+   ======================================== */
+
+body.neo-mode .form-input,
+body.neo-mode .form-select,
+body.neo-mode .form-textarea {
+    background: var(--bg-surface) !important;
+    border: var(--border) !important;
+    border-radius: 0px !important;
+    color: var(--text) !important;
+    padding: 15px !important;
+    font-weight: 600 !important;
+    box-shadow: inset 4px 4px 0px var(--dot-color) !important;
+}
+
+body.neo-mode .form-input:focus,
+body.neo-mode .form-select:focus,
+body.neo-mode .form-textarea:focus {
+    background: var(--bg-surface2) !important;
+    outline: none !important;
+    box-shadow: var(--shadow-sm) !important;
+    transform: translate(-2px, -2px) !important;
+    border-color: var(--neo-yellow) !important;
+}
+
+body.neo-mode .form-label {
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+}
+
+/* ========================================
+   STATS
+   ======================================== */
+
+body.neo-mode .stat-card {
+    background: var(--bg-surface) !important;
+    border: var(--border) !important;
+    border-radius: 0px !important;
+    box-shadow: var(--shadow) !important;
+    overflow: visible !important;
+    color: var(--text) !important;
+}
+
+body.neo-mode .stat-card::before {
+    display: none !important;
+}
+
+body.neo-mode .stat-value {
+    font-family: var(--font-display) !important;
+    font-weight: 900 !important;
+    font-size: 3rem !important;
+    text-shadow: 3px 3px 0px rgba(0,0,0,0.1) !important;
+}
+
+body.neo-mode .stat-label {
+    text-transform: uppercase !important;
+    font-weight: 800 !important;
+    color: var(--neo-black) !important;
+}
+
+/* Variantes de cores para stats */
+body.neo-mode .stat-card.red { background: var(--neo-red) !important; border-color: var(--border-color) !important; }
+body.neo-mode .stat-card.red .stat-value, 
+body.neo-mode .stat-card.red .stat-label { color: white !important; text-shadow: 2px 2px 0px rgba(0,0,0,0.5) !important; }
+
+body.neo-mode .stat-card.green { background: var(--neo-green) !important; border-color: var(--border-color) !important; }
+body.neo-mode .stat-card.blue { background: var(--neo-blue) !important; border-color: var(--border-color) !important; }
+body.neo-mode .stat-card.blue .stat-value, 
+body.neo-mode .stat-card.blue .stat-label { color: white !important; text-shadow: 2px 2px 0px rgba(0,0,0,0.5) !important; }
+
+body.neo-mode .stat-card.orange { background: var(--neo-orange) !important; border-color: var(--border-color) !important; }
+body.neo-mode .stat-card.purple { background: var(--neo-gray) !important; border-color: var(--border-color) !important; color: white !important; }
+body.neo-mode .stat-card.purple .stat-value, 
+body.neo-mode .stat-card.purple .stat-label { color: white !important; }
+
+/* ========================================
+   TABS
+   ======================================== */
+
+body.neo-mode .tabs {
+    border-bottom: 5px solid var(--border-color) !important;
+}
+
+body.neo-mode .tab {
+    border: var(--border) !important;
+    border-bottom: none !important;
+    background: var(--bg-surface) !important;
+    color: var(--text) !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    margin-right: 10px !important;
+    padding: 15px 30px !important;
+    transform: translateY(5px) !important;
+}
+
+body.neo-mode .tab.active {
+    background: var(--border-color) !important;
+    color: var(--bg-surface) !important;
+    transform: translateY(0px) !important;
+}
+
+/* ========================================
+   BADGES
+   ======================================== */
+
+body.neo-mode .badge {
+    border: 2px solid var(--border-color) !important;
+    border-radius: 0px !important;
+    box-shadow: 2px 2px 0px var(--border-color) !important;
+    background: var(--bg-surface) !important;
+    color: var(--text) !important;
+    font-weight: 900 !important;
+    padding: 5px 12px !important;
+}
+
+body.neo-mode .badge-pendente { background: var(--neo-yellow) !important; color: #121212 !important; }
+body.neo-mode .badge-respondida { background: var(--neo-green) !important; color: white !important; }
+body.neo-mode .badge-enviado { background: var(--neo-blue) !important; color: white !important; }
+
+
+/* ========================================
+   MODAL
+   ======================================== */
+
+body.neo-mode .modal {
+    background: var(--bg-surface) !important;
+    border: 5px solid var(--border-color) !important;
+    border-radius: 0px !important;
+    box-shadow: var(--shadow-lg) !important;
+    color: var(--text) !important;
+}
+
+body.neo-mode .modal-header {
+    background: var(--neo-yellow) !important;
+    border-bottom: 5px solid var(--border-color) !important;
+    color: #121212 !important;
+}
+
+body.neo-mode .modal-close {
+    background: var(--neo-red) !important;
+    border: var(--border) !important;
+    color: white !important;
+    font-weight: 900 !important;
+    border-radius: 0 !important;
+    width: 40px !important;
+    height: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 3px 3px 0px var(--border-color) !important;
+}
+
+body.neo-mode .modal-close:hover {
+    transform: translate(-2px, -2px) !important;
+    box-shadow: 5px 5px 0px var(--neo-black) !important;
+}
+
+/* ========================================
+   PROGRESS BAR
+   ======================================== */
+
+body.neo-mode .progress {
+    height: 35px !important;
+    background: var(--bg-surface2) !important;
+    border: var(--border) !important;
+    border-radius: 0 !important;
+    overflow: visible !important;
+    position: relative !important;
+}
+
+body.neo-mode .progress-bar {
+    background: var(--neo-green) !important;
+    height: 100% !important;
+    border-right: var(--border) !important;
+    box-shadow: inset -5px 0px 0px rgba(0,0,0,0.2) !important;
+}
+
+/* ========================================
+   TABLE
+   ======================================== */
+
+body.neo-mode .table-container {
+    border: var(--border) !important;
+    box-shadow: var(--shadow) !important;
+}
+
+body.neo-mode .table th {
+    background: var(--neo-black) !important;
+    color: var(--neo-white) !important;
+    padding: 20px !important;
+    text-transform: uppercase !important;
+    font-weight: 900 !important;
+}
+
+body.neo-mode .table td {
+    padding: 15px 20px !important;
+    border-bottom: 2px solid var(--border-color) !important;
+    color: var(--text) !important;
+}
+
+body.neo-mode .table tr:hover td {
+    background: var(--neo-yellow-light) !important;
+}
+
+/* ========================================
+   LANDING PAGE (INDEX.HTML)
+   ======================================== */
+
+body.neo-mode .hero-container {
+    background: var(--bg-surface) !important;
+    border: 5px solid var(--border-color) !important;
+    box-shadow: var(--shadow-lg) !important;
+    padding: 4rem !important;
+    max-width: 1200px !important;
+    color: var(--text) !important;
+}
+
+body.neo-mode .hero-header {
+    margin-bottom: 4rem !important;
+}
+
+body.neo-mode .hero-logo {
+    background: var(--neo-yellow) !important;
+    border: var(--border) !important;
+    box-shadow: var(--shadow) !important;
+    width: 250px !important;
+    height: 80px !important;
+    animation: none !important;
+    color: #121212 !important;
+}
+
+body.neo-mode .hero-title {
+    font-family: var(--font-display) !important;
+    font-weight: 900 !important;
+    color: var(--text) !important;
+    text-shadow: 4px 4px 0px var(--neo-yellow) !important;
+    font-size: 4rem !important;
+}
+
+body.neo-mode .hero-title .highlight {
+    color: var(--neo-red) !important;
+}
+
+body.neo-mode .platform-card {
+    background: var(--bg-surface) !important;
+    border: var(--border) !important;
+    border-radius: 0 !important;
+    box-shadow: var(--shadow) !important;
+    padding: 3rem !important;
+    animation: none !important;
+}
+
+body.neo-mode .platform-card:hover {
+    transform: translate(-8px, -8px) !important;
+    box-shadow: var(--shadow-lg) !important;
+    background: var(--bg-surface2) !important;
+}
+
+body.neo-mode .platform-card::before {
+    display: none !important;
+}
+
+body.neo-mode .card-icon {
+    width: 80px !important;
+    height: 80px !important;
+    background: var(--bg-surface) !important;
+    border: var(--border) !important;
+    color: var(--text) !important;
+    border-radius: 0 !important;
+    box-shadow: 6px 6px 0px var(--neo-red) !important;
+    margin-bottom: 2rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 2.5rem !important;
+}
+
+body.neo-mode .card-button {
+    background: var(--neo-black) !important;
+    color: var(--neo-white) !important;
+    border: var(--border) !important;
+    border-radius: 0 !important;
+    box-shadow: 6px 6px 0px var(--neo-red) !important;
+    padding: 15px 30px !important;
+    font-weight: 900 !important;
+    text-transform: uppercase !important;
+}
+
+body.neo-mode .card-button:hover {
+    transform: translate(-3px, -3px) !important;
+    box-shadow: 9px 9px 0px var(--neo-red) !important;
+}
+
+body.neo-mode .card-badge {
+    border-radius: 0 !important;
+    border: 2px solid var(--neo-black) !important;
+    background: var(--neo-yellow) !important;
+    box-shadow: 3px 3px 0px var(--neo-black) !important;
+}
+
+/* ========================================
+   THEME TOGGLE BUTTON
+   ======================================== */
+
+body.neo-mode .theme-toggle {
+    background: var(--border-color) !important;
+    color: var(--bg-surface) !important;
+    border: 4px solid var(--border-color) !important;
+    border-radius: 0px !important;
+    box-shadow: 6px 6px 0px var(--neo-yellow) !important;
+    font-family: var(--font-display) !important;
+    font-weight: 900 !important;
+    padding: 15px 30px !important;
+}
+
+body.neo-mode .theme-toggle:hover {
+    transform: translate(-4px, -4px) !important;
+    box-shadow: 10px 10px 0px var(--neo-yellow) !important;
+    background: var(--neo-red) !important;
+    color: white !important;
+}
+
+/* ========================================
+   UTILITIES
+   ======================================== */
+
+body.neo-mode .particles {
+    opacity: 0.1 !important;
+}
+
+/* SCROLLBAR NEO */
+body.neo-mode ::-webkit-scrollbar {
+    width: 15px;
+}
+
+body.neo-mode ::-webkit-scrollbar-track {
+    background: var(--bg-surface);
+    border-left: 4px solid var(--border-color);
+}
+
+body.neo-mode ::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border: 3px solid var(--bg-surface);
+}
+
+body.neo-mode ::-webkit-scrollbar-thumb:hover {
+    background: var(--neo-red);
+}
+
+/* ========================================
+   ICON & EMOJI ENHANCEMENT
+   ======================================== */
+
+body.neo-mode .emoji, 
+body.neo-mode .icon,
+body.neo-mode [class*="icon-"],
+body.neo-mode .stat-card i {
+    filter: drop-shadow(2px 2px 0px var(--border-color));
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+body.neo-mode .platform-card:hover .card-icon {
+    transform: scale(1.1) rotate(-5deg) !important;
+    background: var(--neo-yellow) !important;
+    color: #121212 !important;
+}
+
+body.neo-mode .card-badge {
+    border-radius: 0 !important;
+    border: 2px solid var(--border-color) !important;
+    background: var(--neo-yellow) !important;
+    box-shadow: 3px 3px 0px var(--border-color) !important;
+    color: #121212 !important;
+    font-weight: 900 !important;
+}
+
+body.neo-mode .hero-logo i {
+    font-size: 2rem;
+    filter: drop-shadow(2px 2px 0px #121212);
+}

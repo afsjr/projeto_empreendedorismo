@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini DRE Visual — 6º Ano Feira do Centavo Consciente</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #f59e0b;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+            z-index: 1000;
+        }
+
+        .print-button:hover {
+            background: #d97706;
+        }
+
+        .dre-page {
+            background: white;
+            border: 3px solid #f59e0b;
+            border-radius: 16px;
+            padding: 30px;
+            max-width: 210mm;
+            margin: 0 auto 30px;
+            page-break-after: always;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .dre-header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #f59e0b;
+        }
+
+        .dre-header h1 {
+            font-size: 28px;
+            color: #d97706;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        .dre-header h2 {
+            font-size: 16px;
+            color: #16a34a;
+            font-weight: 600;
+        }
+
+        .dre-header .subtitle {
+            font-size: 13px;
+            color: #666;
+        }
+
+        .empresa-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .info-field {
+            background: #f0fdf4;
+            border: 2px dashed #16a34a;
+            border-radius: 10px;
+            padding: 15px;
+        }
+
+        .info-field label {
+            font-weight: 600;
+            color: #333;
+            font-size: 14px;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .info-field .linha {
+            border-bottom: 2px dotted #ccc;
+            min-height: 30px;
+        }
+
+        .explicacao-box {
+            background: #e0f2fe;
+            border-left: 5px solid #0ea5e9;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .explicacao-box h4 {
+            color: #0369a1;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .explicacao-box .exemplo {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 10px;
+        }
+
+        .explicacao-box .exemplo p {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .explicacao-box .formula {
+            background: #16a34a;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .dre-section {
+            margin-bottom: 25px;
+        }
+
+        .dre-section h3 {
+            font-size: 22px;
+            color: #d97706;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .dre-tabela {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+        }
+
+        .dre-tabela th,
+        .dre-tabela td {
+            border: 2px solid #e5e7eb;
+            padding: 12px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        .dre-tabela th {
+            background: #f59e0b;
+            color: white;
+            font-weight: 700;
+        }
+
+        .dre-tabela td {
+            background: white;
+        }
+
+        .dre-tabela .receita {
+            background: #f0fdf4;
+        }
+
+        .dre-tabela .custo {
+            background: #fef2f2;
+        }
+
+        .dre-tabela .lucro {
+            background: #16a34a;
+            color: white;
+            font-weight: 800;
+            font-size: 16px;
+        }
+
+        .dre-visual {
+            display: flex;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .dre-card {
+            flex: 1;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .dre-card.receita-card {
+            background: linear-gradient(135deg, #86efac, #4ade80);
+            color: #14532d;
+        }
+
+        .dre-card.custo-card {
+            background: linear-gradient(135deg, #fca5a5, #f87171);
+            color: #7f1d1d;
+        }
+
+        .dre-card.lucro-card {
+            background: linear-gradient(135deg, #fde68a, #fbbf24);
+            color: #78350f;
+        }
+
+        .dre-card .emoji {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .dre-card .label {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .dre-card .valor {
+            font-size: 28px;
+            font-weight: 800;
+        }
+
+        .dre-card .formula-text {
+            font-size: 12px;
+            margin-top: 5px;
+            opacity: 0.8;
+        }
+
+        .grafico-area {
+            background: #fafafa;
+            border: 2px dashed #e5e7eb;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .grafico-area h4 {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .barra-container {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 30px;
+            height: 150px;
+            margin: 20px 0;
+        }
+
+        .barra {
+            width: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .barra-fill {
+            width: 100%;
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .barra-fill.receita-bar {
+            background: linear-gradient(to top, #22c55e, #4ade80);
+            min-height: 100px;
+        }
+
+        .barra-fill.custo-bar {
+            background: linear-gradient(to top, #ef4444, #f87171);
+            min-height: 60px;
+        }
+
+        .barra-fill.lucro-bar {
+            background: linear-gradient(to top, #f59e0b, #fbbf24);
+            min-height: 40px;
+        }
+
+        .barra-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .reflexao-section {
+            background: #f3e8ff;
+            border: 2px solid #7c3aed;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .reflexao-section h4 {
+            color: #7c3aed;
+            font-size: 18px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .reflexao-pergunta {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 10px;
+        }
+
+        .reflexao-pergunta p {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .reflexao-pergunta .linha-resposta {
+            border-bottom: 2px dotted #ccc;
+            min-height: 30px;
+        }
+
+        .status-box {
+            background: #f0fdf4;
+            border: 3px solid #16a34a;
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .status-box h4 {
+            color: #16a34a;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .status-options {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .status-option {
+            padding: 10px 20px;
+            border: 2px solid #16a34a;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .status-option.lucrativo {
+            background: #22c55e;
+            color: white;
+        }
+
+        .status-option.ponto-equilibrio {
+            background: #f59e0b;
+            color: white;
+        }
+
+        .status-option.prejuizo {
+            background: #ef4444;
+            color: white;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .print-button {
+                display: none;
+            }
+
+            .dre-page {
+                box-shadow: none;
+                margin: 0;
+                padding: 20px;
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-button" onclick="window.print()">🖨️ Imprimir DRE</button>
+
+    <div class="dre-page">
+        <div class="dre-header">
+            <h1>📊 MINI DRE VISUAL</h1>
+            <h2>Demonstrativo de Resultados da Mini-Empresa</h2>
+            <p class="subtitle">6º Ano | Feira do Centavo Consciente | CSM 2026</p>
+        </div>
+
+        <div class="empresa-info">
+            <div class="info-field">
+                <label>🏢 Nome da Mini-Empresa:</label>
+                <div class="linha"></div>
+            </div>
+            <div class="info-field">
+                <label>📦 Produto:</label>
+                <div class="linha"></div>
+            </div>
+        </div>
+
+        <!-- Explicação visual do DRE -->
+        <div class="explicacao-box">
+            <h4>🤔 O QUE É O DRE? (Raio-X Financeiro)</h4>
+            <p style="font-size: 14px;">O DRE mostra se sua empresa está ganhando ou perdendo dinheiro!</p>
+            
+            <div class="exemplo">
+                <p><strong>Exemplo com Brigadeiro:</strong></p>
+                <p>📦 Custos: R$ 10,00 (ingredientes para 10 brigadeiros)</p>
+                <p>💰 Vendas: R$ 25,00 (vendeu 10 brigadeiros a R$ 2,50 cada)</p>
+                <p>🎉 Lucro: R$ 25,00 - R$ 10,00 = <strong>R$ 15,00!</strong></p>
+            </div>
+
+            <div class="formula">
+                LUCRO = RECEITA - CUSTOS
+            </div>
+        </div>
+
+        <!-- DRE Visual com Cards -->
+        <div class="dre-visual">
+            <div class="dre-card receita-card">
+                <div class="emoji">💰</div>
+                <div class="label">RECEITA</div>
+                <div class="valor">R$</div>
+                <div class="formula-text">Preço × Vendidos</div>
+            </div>
+            <div class="dre-card custo-card">
+                <div class="emoji">📦</div>
+                <div class="label">CUSTOS</div>
+                <div class="valor">R$</div>
+                <div class="formula-text">Materiais + Embalagem</div>
+            </div>
+            <div class="dre-card lucro-card">
+                <div class="emoji">🎉</div>
+                <div class="label">LUCRO</div>
+                <div class="valor">R$</div>
+                <div class="formula-text">Receita - Custos</div>
+            </div>
+        </div>
+
+        <!-- DRE Detalhado -->
+        <div class="dre-section">
+            <h3>📊 SEU DRE — Preencha!</h3>
+            
+            <table class="dre-tabela">
+                <tr>
+                    <th style="width: 70%;">Descrição</th>
+                    <th>Valor (R$)</th>
+                </tr>
+                <tr class="receita">
+                    <td>💰 <strong>RECEITA TOTAL</strong> (preço × quantidade vendida)</td>
+                    <td>R$</td>
+                </tr>
+                <tr>
+                    <td style="padding-left: 30px;">→ Preço de cada unidade:</td>
+                    <td>R$</td>
+                </tr>
+                <tr>
+                    <td style="padding-left: 30px;">→ Quantidade vendida:</td>
+                    <td></td>
+                </tr>
+                <tr class="custo">
+                    <td>📦 <strong>CUSTOS TOTAIS</strong> (soma de todos os materiais)</td>
+                    <td>(R$)</td>
+                </tr>
+                <tr>
+                    <td style="padding-left: 30px;">→ Matéria-prima:</td>
+                    <td>R$</td>
+                </tr>
+                <tr>
+                    <td style="padding-left: 30px;">→ Embalagem:</td>
+                    <td>R$</td>
+                </tr>
+                <tr>
+                    <td style="padding-left: 30px;">→ Outros:</td>
+                    <td>R$</td>
+                </tr>
+                <tr class="lucro">
+                    <td>🎉 <strong>LUCRO</strong> (receita - custos)</td>
+                    <td>R$</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Gráfico de Barras Visual -->
+        <div class="grafico-area">
+            <h4>📊 SEU DRE VISUAL</h4>
+            <p style="font-size: 13px; color: #666;">Desenhe as barras proporcionalmente aos seus valores:</p>
+            
+            <div class="barra-container">
+                <div class="barra">
+                    <div class="barra-fill receita-bar">R$</div>
+                    <div class="barra-label">RECEITA</div>
+                </div>
+                <div class="barra">
+                    <div class="barra-fill custo-bar">R$</div>
+                    <div class="barra-label">CUSTOS</div>
+                </div>
+                <div class="barra">
+                    <div class="barra-fill lucro-bar">R$</div>
+                    <div class="barra-label">LUCRO</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Análise de Resultado -->
+        <div class="status-box">
+            <h4>📈 RESULTADO DA SUA EMPRESA:</h4>
+            <p style="font-size: 14px; color: #555; margin-bottom: 10px;">Marque a situação:</p>
+            <div class="status-options">
+                <div class="status-option lucrativo">
+                    ✅ Lucrativo!<br><small>Ganhamos dinheiro</small>
+                </div>
+                <div class="status-option ponto-equilibrio">
+                    ⚠️ Ponto de Equilíbrio<br><small>Empatamos</small>
+                </div>
+                <div class="status-option prejuizo">
+                    ❌ Prejuízo<br><small>Perdemos dinheiro</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reflexão -->
+        <div class="reflexao-section">
+            <h4>🤔 REFLEXÃO — O que aprendemos?</h4>
+            
+            <div class="reflexao-pergunta">
+                <p><strong>1.</strong> Sua empresa teve lucro? Quanto?</p>
+                <div class="linha-resposta"></div>
+            </div>
+
+            <div class="reflexao-pergunta">
+                <p><strong>2.</strong> Se pudessem refazer, o que mudariam nos custos ou no preço?</p>
+                <div class="linha-resposta"></div>
+                <div class="linha-resposta"></div>
+            </div>
+
+            <div class="reflexao-pergunta">
+                <p><strong>3.</strong> O que foi mais difícil: calcular custos, definir preço ou projetar vendas? Por quê?</p>
+                <div class="linha-resposta"></div>
+                <div class="linha-resposta"></div>
+            </div>
+
+            <div class="reflexao-pergunta">
+                <p><strong>4.</strong> Esse negócio seria viável na vida real? O que precisariam para funcionar de verdade?</p>
+                <div class="linha-resposta"></div>
+                <div class="linha-resposta"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

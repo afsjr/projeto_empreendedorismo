@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano de Aula — Startup Sprint (9º Ano, 30 min)</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #f5f5f5;
+            padding: 30px;
+            line-height: 1.6;
+        }
+
+        .plano-container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .plano-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 4px solid #7c3aed;
+        }
+
+        .plano-header h1 {
+            font-size: 30px;
+            color: #7c3aed;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .plano-header h2 {
+            font-size: 20px;
+            color: #f59e0b;
+            font-weight: 600;
+        }
+
+        .plano-header .subtitle {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .info-card {
+            background: #f5f3ff;
+            border: 2px solid #7c3aed;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .info-card h3 {
+            font-size: 14px;
+            color: #6d28d9;
+            margin-bottom: 5px;
+        }
+
+        .info-card p {
+            font-size: 18px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .objetivo-box {
+            background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .objetivo-box h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .objetivo-box ul {
+            padding-left: 20px;
+        }
+
+        .objetivo-box li {
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .materiais-box {
+            background: #fef3c7;
+            border-left: 5px solid #f59e0b;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .materiais-box h3 {
+            color: #d97706;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .materiais-box ul {
+            padding-left: 20px;
+        }
+
+        .materiais-box li {
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .timeline-box {
+            margin-bottom: 30px;
+        }
+
+        .timeline-box h3 {
+            font-size: 22px;
+            color: #7c3aed;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 5px solid;
+        }
+
+        .timeline-item.abertura {
+            background: #fee2e2;
+            border-color: #ef4444;
+        }
+
+        .timeline-item.acao {
+            background: #fef3c7;
+            border-color: #f59e0b;
+        }
+
+        .timeline-item.socializacao {
+            background: #d1fae5;
+            border-color: #10b981;
+        }
+
+        .timeline-item.premiacao {
+            background: #e0e7ff;
+            border-color: #6366f1;
+        }
+
+        .timeline-tempo {
+            min-width: 80px;
+            text-align: center;
+        }
+
+        .timeline-tempo .numero {
+            font-size: 32px;
+            font-weight: 800;
+            color: #333;
+        }
+
+        .timeline-tempo .label {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .timeline-content h4 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .timeline-content p {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        .timeline-content ul {
+            padding-left: 20px;
+        }
+
+        .timeline-content li {
+            margin-bottom: 5px;
+            font-size: 13px;
+        }
+
+        .dicas-professor {
+            background: #e0f2fe;
+            border: 2px solid #0ea5e9;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .dicas-professor h3 {
+            color: #0369a1;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .dicas-professor ol {
+            padding-left: 20px;
+        }
+
+        .dicas-professor li {
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .pontuacao-final {
+            background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .pontuacao-final h3 {
+            font-size: 22px;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .pontuacao-tabela {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .pontuacao-tabela th,
+        .pontuacao-tabela td {
+            border: 1.5px solid #6d28d9;
+            padding: 12px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        .pontuacao-tabela th {
+            background: #6d28d9;
+            color: white;
+            font-weight: 700;
+        }
+
+        .badge-box {
+            background: #f5f3ff;
+            border: 3px dashed #7c3aed;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .badge-box h4 {
+            color: #6d28d9;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .badge-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .badge-item {
+            background: white;
+            border: 2px solid #7c3aed;
+            border-radius: 10px;
+            padding: 15px;
+        }
+
+        .badge-item .icon {
+            font-size: 36px;
+            margin-bottom: 5px;
+        }
+
+        .badge-item .nome {
+            font-size: 14px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .badge-item .desc {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .conexao-projeto {
+            background: #f5f3ff;
+            border: 2px solid #8b5cf6;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .conexao-projeto h3 {
+            color: #7c3aed;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .conexao-projeto p {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #7c3aed;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+            z-index: 1000;
+        }
+
+        .print-button:hover {
+            background: #6d28d9;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .print-button {
+                display: none;
+            }
+
+            .plano-container {
+                box-shadow: none;
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .badge-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-button" onclick="window.print()">🖨️ Imprimir Plano</button>
+
+    <div class="plano-container">
+        <div class="plano-header">
+            <h1>🚀 STARTUP SPRINT</h1>
+            <h2>Plano de Aula Rápida — 30 Minutos</h2>
+            <p class="subtitle">9º Ano | Startup Real: Do Problema ao 1º Cliente | Empreendedores Exponenciais | CSM</p>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>⏱️ Duração</h3>
+                <p>30 minutos</p>
+            </div>
+            <div class="info-card">
+                <h3>👥 Público</h3>
+                <p>9º Ano (14-15 anos)</p>
+            </div>
+            <div class="info-card">
+                <h3>🎯 Formato</h3>
+                <p>Grupos de 3-4 alunos</p>
+            </div>
+        </div>
+
+        <div class="objetivo-box">
+            <h3>🎯 OBJETIVOS DA AULA</h3>
+            <ul>
+                <li>Vivenciar o <strong>ciclo de uma startup</strong>: problema → solução → proposta de valor →MVP →validação</li>
+                <li>Entender <strong>metodologias ágeis</strong>: Design Thinking, Lean Startup, MVP</li>
+                <li>Desenvolver <strong>pitch conceitual</strong> de uma ideia de negócio</li>
+                <li>Praticar <strong>validação rápida</strong> de ideias com potenciais clientes</li>
+                <li>Usar <strong>Mentor IA</strong> como consultor estratégico</li>
+            </ul>
+        </div>
+
+        <div class="materiais-box">
+            <h3>📦 MATERIAIS NECESSÁRIOS</h3>
+            <ul>
+                <li>📄 <strong>Cartão de Desafio Startup</strong> — 1 por grupo (imprimir de <code>cartao-startup.html</code>)</li>
+                <li>📊 <strong>Canvas de Negócio Resumido</strong> — 1 por grupo (imprimir de <code>canvas-startup.html</code>)</li>
+                <li>🤖 <strong>Cartão Mentor IA</strong> — 1 por grupo (imprimir de <code>cartao-mentor-ia.html</code>)</li>
+                <li>🖊️ Canetas coloridas + post-it</li>
+                <li>⏱️ Timer visível (projetor ou celular)</li>
+                <li>📱 Celular ou computador para Mentor IA (opcional)</li>
+                <li>🏅 Adesivos ou carimbos para badges</li>
+            </ul>
+        </div>
+
+        <div class="timeline-box">
+            <h3>📋 CRONOGRAMA DA AULA (30 MIN)</h3>
+
+            <div class="timeline-item abertura">
+                <div class="timeline-tempo">
+                    <div class="numero">3</div>
+                    <div class="label">minutos</div>
+                </div>
+                <div class="timeline-content">
+                    <h4>🚀 ABERTURA — Lançamento do Desafio</h4>
+                    <p><strong>Professor(a):</strong> Apresente como um desafio de startup:</p>
+                    <ul>
+                        <li>"Hoje vocês vão ser <strong>empreendedores por 15 minutos</strong>!"</li>
+                        <li>"Cada grupo vai criar uma <strong>startup completa</strong>: identificar problema, propor solução, criar MVP e validar"</li>
+                        <li>"Podem usar o <strong>Mentor IA</strong> como consultor estratégico"</li>
+                        <li>"O grupo com a melhor startup conceito ganha <strong>badges especiais</strong>!"</li>
+                    </ul>
+                    <p><strong>Ação:</strong> Distribua Cartão Startup + Canvas de Negócio + Cartão Mentor IA.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item acao">
+                <div class="timeline-tempo">
+                    <div class="numero">17</div>
+                    <div class="label">minutos</div>
+                </div>
+                <div class="timeline-content">
+                    <h4>💡 AÇÃO — Criando a Startup</h4>
+                    <p><strong>O que os alunos делают (5 etapas no cartão):</strong></p>
+                    <ul>
+                        <li>🎯 <strong>Min 0-3:</strong> Etapa 1 — Identificam UM problema real (na escola, comunidade ou dia a dia)</li>
+                        <li>💡 <strong>Min 3-6:</strong> Etapa 2 — Criam solução inovadora para o problema</li>
+                        <li>💰 <strong>Min 6-9:</strong> Etapa 3 — Definem proposta de valor (por que alguém pagaria?)</li>
+                        <li>🎨 <strong>Min 9-12:</strong> Etapa 4 — Desenham o MVP (Minimum Viable Product)</li>
+                        <li>✅ <strong>Min 12-15:</strong> Etapa 5 — Validam com outro grupo (simulam cliente)</li>
+                        <li>🤖 <strong>Mentor IA:</strong> Usam para inspirar problema, definir proposta de valor ou criar nome</li>
+                        <li>⭐ <strong>Bônus:</strong> Respondam: "Qual seria o modelo de receita?" (+25 pts)</li>
+                    </ul>
+                    <p><strong>Professor(a):</strong></p>
+                    <ul>
+                        <li>⏱️ Projete timer regressivo de 15 minutos</li>
+                        <li>📢 Anuncie: "10 minutos!", "5 minutos!", "2 minutos!"</li>
+                        <li>🚶 Circule entre grupos: "Qual problema vocês identificaram?", "Alguém pagaria por isso?"</li>
+                        <li>💡 Se travarem: "Pensem em problemas reais que vocês enfrentam na escola..."</li>
+                        <li>📊 Ajude com o Canvas se necessário</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item socializacao">
+                <div class="timeline-tempo">
+                    <div class="numero">7</div>
+                    <div class="label">minutos</div>
+                </div>
+                <div class="timeline-content">
+                    <h4>🗣️ SOCIALIZAÇÃO — Pitch das Startups</h4>
+                    <p><strong>Formato:</strong> Cada grupo tem <strong>1 minuto</strong>:</p>
+                    <ul>
+                        <li>🚀 <strong>Nome da startup + problema resolvido</strong></li>
+                        <li>💡 <strong>Solução + proposta de valor</strong></li>
+                        <li>🎨 <strong>Como seria o MVP</strong></li>
+                        <li>💰 <strong>Modelo de receita</strong> (bônus)</li>
+                    </ul>
+                    <p><strong>Professor(a):</strong></p>
+                    <ul>
+                        <li>⏱️ Cronometre 1 min por grupo</li>
+                        <li>📊 Projete tabela: Startup | Problema | Solução | MVP</li>
+                        <li>💬 Faça 1 pergunta: "Esse problema é real? Quem pagaria?"</li>
+                        <li>👏 Elogiem as soluções mais inovadoras!</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item premiacao">
+                <div class="timeline-tempo">
+                    <div class="numero">3</div>
+                    <div class="label">minutos</div>
+                </div>
+                <div class="timeline-content">
+                    <h4>🏆 PREMIAÇÃO — Análise de Resultados + Badges</h4>
+                    <p><strong>Análise rápida:</strong></p>
+                    <ul>
+                        <li>Qual startup resolve o <strong>problema mais real</strong>?</li>
+                        <li>Qual tem a <strong>proposta de valor mais clara</strong>?</li>
+                        <li>Qual respondeu melhor o <strong>modelo de receita</strong>?</li>
+                    </ul>
+                    <p><strong>Entregue os badges:</strong></p>
+                    <ul>
+                        <li>🥇 <strong>Problema Real</strong> → Badge "CEO Fundador"</li>
+                        <li>🎨 <strong>Solução Inovadora</strong> → Badge "Product Hacker"</li>
+                        <li>💡 <strong>Melhor MVP</strong> → Badge "Lean Builder"</li>
+                    </ul>
+                    <p><strong>Fechamento:</strong> "Hoje vocês criaram um conceito de startup! No projeto completo da Startup Real, vocês vão criar de verdade — validar com clientes reais, construir MVP e fazer pelo menos 1 transação!"</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="dicas-professor">
+            <h3>💡 DICAS PARA O(A) PROFESSOR(A)</h3>
+            <ol>
+                <li><strong>Anime-se!</strong> Startups são empolgantes. Trate como "encontros de investidores."</li>
+                <li><strong>Timer visível é essencial:</strong> A pressão de tempo cria foco e emoção.</li>
+                <li><strong>Conecte com a realidade:</strong> Problemas da escola são os melhores pontos de partida.</li>
+                <li><strong>Não corrija durante a ação:</strong> Deixe as ideias fluírem. Corrija na socialização.</li>
+                <li><strong>Mentor IA é opcional:</strong> Sem celular, funciona 100% no papel.</li>
+                <li><strong>Conecte com o projeto grande:</strong> Explain this is a "tastinho" da Startup Real — 6 semanas!</li>
+                <li><strong>Foque em problemas reais:</strong> não soluções genéricas.</li>
+            </ol>
+        </div>
+
+        <div class="pontuacao-final">
+            <h3>📊 SISTEMA DE PONTUAÇÃO</h3>
+            <table class="pontuacao-tabela">
+                <tr>
+                    <th>Critério</th>
+                    <th>Pontos</th>
+                    <th>Exemplo</th>
+                </tr>
+                <tr>
+                    <td>Problema identificado + justificativa</td>
+                    <td><strong>15 pts</strong></td>
+                    <td>"Alunos têm fome às 10h porque cantina fecha" = 15 pts</td>
+                </tr>
+                <tr>
+                    <td>Solução inovadora</td>
+                    <td><strong>15 pts</strong></td>
+                    <td>Máquina de snacks healthy 24h = 15 pts</td>
+                </tr>
+                <tr>
+                    <td>Proposta de valor clara</td>
+                    <td><strong>15 pts</strong></td>
+                    <td>"Snacks saudáveis, rápidos, acessíveis" = 15 pts</td>
+                </tr>
+                <tr>
+                    <td>MVP definido</td>
+                    <td><strong>15 pts</strong></td>
+                    <td>Protótipo da máquina com 5 produtos = 15 pts</td>
+                </tr>
+                <tr>
+                    <td>Validação com outro grupo</td>
+                    <td><strong>10 pts</strong></td>
+                    <td>Testou仮説 com clientes simulados = 10 pts</td>
+                </tr>
+                <tr>
+                    <td>Modelo de receita (bônus)</td>
+                    <td><strong>+25 pts</strong></td>
+                    <td>Venda direta + assinatura = 25 pts</td>
+                </tr>
+            </table>
+
+            <div class="badge-box">
+                <h4>🏅 BADGES DA ATIVIDADE</h4>
+                <div class="badge-grid">
+                    <div class="badge-item">
+                        <div class="icon">🥇</div>
+                        <div class="nome">CEO Fundador</div>
+                        <div class="desc">Problema mais real identificado</div>
+                    </div>
+                    <div class="badge-item">
+                        <div class="icon">🎨</div>
+                        <div class="nome">Product Hacker</div>
+                        <div class="desc">Solução mais inovadora</div>
+                    </div>
+                    <div class="badge-item">
+                        <div class="icon">💡</div>
+                        <div class="nome">Lean Builder</div>
+                        <div class="desc">MVP mais criativo</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="conexao-projeto">
+            <h3>🔗 CONEXÃO COM O PROJETO GRANDE</h3>
+            <p>Esta aula é uma <strong>versão rápida e gamificada</strong> do projeto <strong>"🚀 Startup Real: Do Problema ao 1º Cliente"</strong> (9º Ano, 1º Semestre, Opção A) documentado no <code>detalhe_projetos.md</code>.</p>
+            <p><strong>Projeto completo:</strong> 6 semanas (12 aulas) com identificação de problema real, pesquisa com clientes, construção de MVP, validação e pelo menos 1 transação real.</p>
+            <p><strong>Esta aula rápida serve para:</strong></p>
+            <ul style="padding-left: 20px; margin-top: 10px;">
+                <li>✅ <strong>Introduzir</strong> metodologias de startup (Design Thinking, Lean, MVP)</li>
+                <li>✅ <strong>Despertar</strong> o interesse antes do projeto completo</li>
+                <li>✅ <strong>Avaliar</strong> o conhecimento prévio sobre startups</li>
+                <li>✅ <strong>Engajar</strong> com competição saudável</li>
+            </ul>
+            <p style="margin-top: 15px; font-size: 13px; color: #666;">
+                <strong>Arquivos desta aula:</strong><br>
+                📄 <code>docs/aula-rapida-9ano/cartao-startup.html</code> — Cartões de desafio por grupo<br>
+                📊 <code>docs/aula-rapida-9ano/canvas-startup.html</code> — Canvas de negócio resumido<br>
+                🤖 <code>docs/aula-rapida-9ano/cartao-mentor-ia.html</code> — Guia de uso do Mentor IA<br>
+                📋 <code>docs/aula-rapida-9ano/plano-de-aula.html</code> — Este plano de aula
+            </p>
+        </div>
+    </div>
+</body>
+</html>

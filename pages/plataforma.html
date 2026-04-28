@@ -1,0 +1,2195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma de Projetos — CSM</title>
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <style>
+        /* Plataforma específica */
+        .hero-section {
+            text-align: center;
+            padding: 3rem 1rem;
+            background: linear-gradient(135deg, var(--bg-surface2), transparent);
+            border-radius: var(--radius);
+            margin-bottom: 2rem;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--csm-gold-light);
+            color: var(--csm-gold-dark);
+            font-size: 0.75rem;
+            padding: 5px 14px;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .hero-section h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero-section h1 em {
+            color: var(--csm-red);
+            font-style: normal;
+        }
+
+        .hero-section p {
+            color: var(--text-dim);
+            max-width: 500px;
+            margin: 0 auto 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.25rem;
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            border-color: var(--csm-red);
+            transform: translateY(-2px);
+        }
+
+        .project-card-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-title {
+            font-size: 1rem;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .project-desc {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .group-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.25rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .group-card:hover {
+            border-color: var(--csm-gold);
+        }
+
+        .group-name {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .group-members {
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
+            margin-bottom: 0.75rem;
+        }
+
+        .member-chip {
+            font-size: 0.7rem;
+            background: var(--csm-red-light);
+            color: var(--csm-red-dark);
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-c {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .stat-n {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--csm-red);
+        }
+
+        .stat-l {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-top: 0.2rem;
+        }
+
+        .groups-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 2rem 1rem;
+            }
+
+            .hero-section h1 {
+                font-size: 1.4rem;
+            }
+        }
+
+        /* Fontes maiores para telas grandes */
+        @media (min-width: 1200px) {
+            .hero-section {
+                padding: 4rem 3rem;
+            }
+
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-section p {
+                font-size: 1.2rem;
+            }
+
+            .hero-badge {
+                font-size: 0.95rem;
+            }
+
+            .landing-card {
+                padding: 2rem;
+            }
+
+            .landing-card h2 {
+                font-size: 1.5rem;
+            }
+
+            .landing-card p {
+                font-size: 1.05rem;
+            }
+
+            .stat-card {
+                padding: 1.5rem;
+            }
+
+            .stat-n {
+                font-size: 2rem;
+            }
+
+            .stat-l {
+                font-size: 0.8rem;
+            }
+
+            .group-card {
+                padding: 1.5rem;
+            }
+
+            .project-card {
+                padding: 1.5rem;
+            }
+
+            .form-input,
+            .form-select,
+            .form-textarea {
+                padding: 0.85rem 1rem;
+                font-size: 1rem;
+            }
+        }
+
+        @media (min-width: 1600px) {
+            .hero-section {
+                padding: 5rem 4rem;
+            }
+
+            .hero-section h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero-section p {
+                font-size: 1.3rem;
+            }
+
+            .hero-badge {
+                font-size: 1rem;
+            }
+
+            .landing-card {
+                padding: 2.5rem;
+            }
+
+            .landing-card h2 {
+                font-size: 1.7rem;
+            }
+
+            .landing-card p {
+                font-size: 1.1rem;
+            }
+
+            .stat-card {
+                padding: 1.8rem;
+            }
+
+            .stat-n {
+                font-size: 2.3rem;
+            }
+
+            .group-card {
+                padding: 1.8rem;
+            }
+
+            .project-card {
+                padding: 1.8rem;
+            }
+
+            .form-input,
+            .form-select,
+            .form-textarea {
+                padding: 1rem 1.2rem;
+                font-size: 1.05rem;
+            }
+        }
+
+        @media (min-width: 1920px) {
+            .hero-section {
+                padding: 6rem 5rem;
+            }
+
+            .hero-section h1 {
+                font-size: 3.2rem;
+            }
+
+            .hero-section p {
+                font-size: 1.4rem;
+            }
+
+            .hero-badge {
+                font-size: 1.05rem;
+            }
+
+            .landing-card {
+                padding: 3rem;
+            }
+
+            .landing-card h2 {
+                font-size: 1.9rem;
+            }
+
+            .landing-card p {
+                font-size: 1.15rem;
+            }
+
+            .stat-card {
+                padding: 2rem;
+            }
+
+            .stat-n {
+                font-size: 2.6rem;
+            }
+
+            .group-card {
+                padding: 2rem;
+            }
+
+            .project-card {
+                padding: 2rem;
+            }
+
+            .form-input,
+            .form-select,
+            .form-textarea {
+                padding: 1.1rem 1.3rem;
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Etapas do Projeto */
+        .etapa-card {
+            transition: all 0.3s ease;
+        }
+
+        .etapa-card:hover {
+            background: var(--bg-surface3) !important;
+        }
+
+        .etapa-card.concluida {
+            border-left-color: var(--accent-green) !important;
+            opacity: 0.85;
+        }
+
+        .etapa-card.concluida strong {
+            color: var(--accent-green);
+        }
+
+        .progress-wrap {
+            margin-top: 0.75rem;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 0.4rem;
+        }
+
+        .progress-bar {
+            background: var(--bg-surface3);
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, var(--accent-green), var(--accent-blue));
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        /* Mobile Navigation - Slide-in from right */
+        .mobile-toggle {
+            display: none;
+            width: 44px;
+            height: 44px;
+            border: none;
+            background: var(--bg-surface2);
+            border-radius: 10px;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            flex-shrink: 0;
+        }
+
+        .mobile-toggle:hover {
+            background: var(--bg-surface3);
+        }
+
+        .hamburger {
+            width: 20px;
+            height: 2px;
+            background: var(--text);
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .hamburger::before,
+        .hamburger::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 2px;
+            background: var(--text);
+            left: 0;
+            transition: var(--transition);
+        }
+
+        .hamburger::before {
+            top: -6px;
+        }
+
+        .hamburger::after {
+            top: 6px;
+        }
+
+        .mobile-toggle.active .hamburger {
+            background: transparent;
+        }
+
+        .mobile-toggle.active .hamburger::before {
+            top: 0;
+            transform: rotate(45deg);
+        }
+
+        .mobile-toggle.active .hamburger::after {
+            top: 0;
+            transform: rotate(-45deg);
+        }
+
+        .mobile-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 90;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .mobile-overlay.show {
+            display: block;
+            opacity: 1;
+        }
+
+        .logo-text {
+            font-weight: 800;
+            font-size: 1rem;
+            letter-spacing: -0.02em;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 180px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 900px) {
+            .mobile-toggle {
+                display: flex;
+            }
+
+            .nav {
+                position: fixed;
+                top: 64px;
+                right: -300px;
+                width: 280px;
+                height: calc(100vh - 64px);
+                background: var(--bg-surface);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 0.5rem;
+                box-shadow: -8px 0 30px rgba(0, 0, 0, 0.3);
+                transition: right 0.3s ease;
+                z-index: 95;
+                overflow-y: auto;
+            }
+
+            .nav.open {
+                right: 0;
+            }
+
+            .nav-btn {
+                width: 100%;
+                text-align: left;
+                padding: 14px 18px;
+                font-size: 1rem;
+                border-radius: 12px;
+                min-height: 48px;
+                display: flex;
+                align-items: center;
+            }
+
+            .nav-btn.active {
+                background: var(--accent-orange);
+                color: #fff;
+            }
+
+            .header {
+                padding: 0 1rem;
+                gap: 0.75rem;
+            }
+
+            .logo {
+                flex: 1;
+                min-width: 0;
+            }
+
+            .logo-text {
+                max-width: 140px;
+            }
+
+            .theme-toggle,
+            .header>.nav-btn:last-child {
+                width: 44px;
+                height: 44px;
+                padding: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-text {
+                font-size: 0.9rem;
+                max-width: 100px;
+            }
+
+            .hero-section {
+                padding: 1.5rem 1rem;
+            }
+
+            .hero-section h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <button class="mobile-toggle" onclick="toggleMobileNav()" aria-label="Menu">
+            <span class="hamburger"></span>
+        </button>
+        <div class="logo" onclick="setView('landing')" style="cursor:pointer;">
+            <img src="../CSM.png" alt="Logo">
+            <span class="logo-text">Empreendedores Exponenciais</span>
+        </div>
+
+        <nav class="nav" id="mainNav">
+            <button class="nav-btn active" data-view="landing">Início</button>
+            <button class="nav-btn" data-view="groups">Meus Grupos</button>
+            <button class="nav-btn" data-view="dashboard" id="dashboardNavBtn">📊 Dashboard</button>
+            <button class="nav-btn" data-view="projects">Projetos</button>
+            <button class="nav-btn" id="professorBtn" onclick="handleProfessorClick()">Professor</button>
+        </nav>
+
+        <button class="theme-toggle" onclick="App.toggleTheme()" aria-label="Alternar tema">☀️</button>
+        <button class="nav-btn" onclick="window.location.href='../index.html'" aria-label="Início">🏠</button>
+    </header>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-overlay" id="mobileOverlay" onclick="toggleMobileNav()"></div>
+
+    <div class="container" style="padding-top: 2rem; padding-bottom: 2rem;">
+
+        <!-- LANDING VIEW -->
+        <div id="view-landing" class="view">
+            <div class="hero-section">
+                <h1>Aprenda empreendendo.<br><em>Transforme o futuro.</em></h1>
+                <p>O programa Empreendedores Exponenciais leva estudantes do 6º ao 9º ano a vivenciar projetos reais de
+                    negócios, finanças, inovação e comunicação.</p>
+                <div class="hero-btns">
+                    <button class="btn btn-primary" onclick="setView('projects')">Explorar Projetos</button>
+                    <button class="btn btn-secondary" onclick="setView('groups')">Meu Grupo</button>
+                    <a href="https://docs.google.com/document/d/119xXNQAC83FzKCbJpDZS432E02zPv1aB/edit?usp=sharing&ouid=101035257661693497848&rtpof=true&sd=true"
+                        target="_blank" class="btn btn-secondary">
+                        📄 Trabalhos Detalhados
+                    </a>
+                </div>
+            </div>
+
+            <div class="stats-bar" id="landingStats"></div>
+
+            <div class="section-title"
+                style="font-size: 1rem; font-weight: 700; margin-bottom: 1rem; color: var(--csm-red-dark);">
+                Por que participar? (Baseado nas Competências da BNCC)
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-title">💡 Projetos Reais</div>
+                    <div class="project-desc">Competência 6 BNCC - Você vende, investe, cria e apresenta — não só estuda
+                        teoria. Desenvolva projetos de vida!</div>
+                </div>
+                <div class="project-card">
+                    <div class="project-title">🤝 Trabalho em Equipe</div>
+                    <div class="project-desc">Competência 9 BNCC - Grupos de 3-4 alunos com papéis definidos. Aprenda
+                        cooperação e empatia.</div>
+                </div>
+                <div class="project-card">
+                    <div class="project-title">📊 Finanças na Prática</div>
+                    <div class="project-desc">Competência 6 BNCC - DRE, custos, precificação e investimentos. Aprenda a
+                        lidar com dinheiro!</div>
+                </div>
+                <div class="project-card">
+                    <div class="project-title">🎤 Comunicação e Pitch</div>
+                    <div class="project-desc">Competências 9 e 10 BNCC - TED talks, Shark Tank e apresentações.
+                        Desenvolva liderança!</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GROUPS VIEW -->
+        <div id="view-groups" class="view" style="display: none;">
+            <div class="groups-header">
+                <h2 style="font-size: 1.25rem; font-weight: 700;">Meus Grupos</h2>
+                <div style="display: flex; gap: 0.5rem;">
+                    <button class="btn btn-secondary btn-sm" onclick="refreshData()" title="Atualizar dados">🔄
+                        Atualizar</button>
+                    <button class="btn btn-primary btn-sm" onclick="openGroupForm()">+ Novo Grupo</button>
+                </div>
+            </div>
+            <div class="projects-grid" id="groupsGrid"></div>
+        </div>
+
+        <!-- DASHBOARD VIEW -->
+        <div id="view-dashboard" class="view" style="display: none;">
+            <div class="groups-header">
+                <h2 style="font-size: 1.25rem; font-weight: 700;">📊 Dashboard - Visão Geral</h2>
+                <button class="btn btn-secondary btn-sm" onclick="refreshData()" title="Atualizar dados">🔄
+                    Atualizar</button>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="stats-bar" id="dashboardStats"></div>
+
+            <!-- Filters -->
+            <div class="tabs" style="margin-bottom: 1.5rem;">
+                <button class="tab active" onclick="filterDashboard('all', this)">Todos</button>
+                <button class="tab" onclick="filterDashboard('6', this)">6º Ano</button>
+                <button class="tab" onclick="filterDashboard('7', this)">7º Ano</button>
+                <button class="tab" onclick="filterDashboard('8', this)">8º Ano</button>
+                <button class="tab" onclick="filterDashboard('9', this)">9º Ano</button>
+            </div>
+
+            <!-- Groups Grid with Progress -->
+            <div class="projects-grid" id="dashboardGrid"></div>
+
+            <!-- Activity Log Section (Professor Only) -->
+            <div id="logsSection"
+                style="margin-top: 2rem; border-top: 2px solid var(--border); padding-top: 1.5rem; display: none;">
+                <div class="groups-header">
+                    <h2 style="font-size: 1.25rem; font-weight: 700;">📋 Registro de Atividades</h2>
+                </div>
+                <div class="tabs" style="margin-bottom: 1rem;">
+                    <button class="tab active" onclick="filterLogs('all', this)">Todos</button>
+                    <button class="tab" onclick="filterLogs('login', this)">Logins</button>
+                    <button class="tab" onclick="filterLogs('criacao_grupo', this)">Criação</button>
+                    <button class="tab" onclick="filterLogs('exclusao_grupo', this)">Exclusão</button>
+                    <button class="tab" onclick="filterLogs('atualizacao_progresso', this)">Progresso</button>
+                </div>
+                <div id="logsContainer" style="max-height: 400px; overflow-y: auto;">
+                    <!-- Logs will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- PROJECTS VIEW -->
+        <div id="view-projects" class="view" style="display: none;">
+            <div class="groups-header">
+                <h2 style="font-size: 1.25rem; font-weight: 700;">Projetos do Programa</h2>
+                <a href="https://docs.google.com/document/d/119xXNQAC83FzKCbJpDZS432E02zPv1aB/edit?usp=sharing&ouid=101035257661693497848&rtpof=true&sd=true"
+                    target="_blank" class="btn btn-secondary btn-sm">
+                    📄 Documentação Detalhada
+                </a>
+            </div>
+
+            <div class="tabs" style="margin-bottom: 1.5rem;">
+                <button class="tab active" onclick="filterProjects('all', this)">Todos</button>
+                <button class="tab" onclick="filterProjects('6', this)">6º Ano</button>
+                <button class="tab" onclick="filterProjects('7', this)">7º Ano</button>
+                <button class="tab" onclick="filterProjects('8', this)">8º Ano</button>
+                <button class="tab" onclick="filterProjects('9', this)">9º Ano</button>
+            </div>
+
+            <div class="projects-grid" id="projectsGrid"></div>
+        </div>
+
+    </div>
+
+    <!-- Modal Grupo -->
+    <div class="modal-overlay" id="groupModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title" id="groupModalTitle">Novo Grupo</h3>
+                <button class="modal-close" onclick="closeModal('groupModal')">×</button>
+            </div>
+            <div class="modal-body">
+                <form id="groupForm">
+                    <div class="form-group">
+                        <label for="grupoNome" class="form-label">Nome do Grupo</label>
+                        <input type="text" id="grupoNome" name="nome" class="form-input"
+                            placeholder="Ex: Equipe Inovação" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="grupoAno" class="form-label">Ano Escolar</label>
+                        <select id="grupoAno" name="ano" class="form-select" required>
+                            <option value="6">6º Ano</option>
+                            <option value="7">7º Ano</option>
+                            <option value="8">8º Ano</option>
+                            <option value="9">9º Ano</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="projetoSelect" class="form-label">Projeto</label>
+                        <select name="projeto" class="form-select" id="projetoSelect" required>
+                            <option value="">Selecione...</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="grupoMembros" class="form-label">Membros (um por linha)</label>
+                        <textarea id="grupoMembros" name="membros" class="form-textarea" rows="4"
+                            placeholder="Aluno 1&#10;Aluno 2&#10;Aluno 3"></textarea>
+                    </div>
+                    <div class="flex gap-1" style="justify-content: flex-end;">
+                        <button type="button" class="btn btn-secondary"
+                            onclick="closeModal('groupModal')">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Progresso Modal -->
+    <div class="modal-overlay" id="progressoModal">
+        <div class="modal" style="max-width: 700px; max-height: 90vh; overflow-y: auto;">
+            <div class="modal-header">
+                <h3 class="modal-title">📊 Acompanhamento do Projeto</h3>
+                <button class="modal-close" onclick="closeModal('progressoModal')">×</button>
+            </div>
+            <div class="modal-body" id="progressoModalContent">
+                <!-- Conteúdo dinâmico -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Auth Modal -->
+    <div class="modal-overlay" id="authModal">
+        <div class="modal" style="max-width: 400px;">
+            <div class="modal-header">
+                <h3 class="modal-title">🔒 Área Restrita</h3>
+                <button class="modal-close" onclick="closeModal('authModal')">×</button>
+            </div>
+            <div class="modal-body">
+                <p style="margin-bottom: 1rem; color: var(--text-dim);">Digite a senha de acesso:</p>
+                <form id="authForm">
+                    <div class="form-group">
+                        <label for="authPassword" class="form-label">Senha de Acesso</label>
+                        <input type="password" id="authPassword" class="form-input" placeholder="Digite a senha"
+                            autocomplete="current-password" required>
+                    </div>
+                    <div id="authError"
+                        style="color: var(--accent-red); font-size: 0.85rem; margin-bottom: 1rem; display: none;">
+                        Senha incorreta. Tente novamente.
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Entrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- Validação de dados (deve vir antes do supabase-config.js) -->
+    <script src="../validacao-dados.js"></script>
+    <script src="../supabase-config.js"></script>
+    <script src="../js/app.js"></script>
+
+    <script>
+        // Dados dos projetos (24 projetos - 6 por ano) - Conforme detalhe_projetos.md
+        const PROJETOS = [
+            // 6º Ano - 1º Semestre
+            { id: 'p6-1A', title: '💰 Feira do Centavo Consciente', desc: 'Crie uma mini-empresa real: escolha produto, calcule custos, defina preço, produza e venda na Feira. Ao final, apresente o DRE.', ano: 6, sem: 1 },
+            { id: 'p6-1B', title: '🔍 Detetives Financeiros de Limoeiro', desc: 'Investigue a vida financeira da comunidade: interviewe comerciantes, pesquise preços, analise hábitos de consumo e produza um documentário.', ano: 6, sem: 1 },
+            { id: 'p6-1C', title: '🎲 O Jogo que Ensina a Poupar', desc: 'Crie um jogo de tabuleiro original que ensine conceitos de educação financeira. O jogo deve ser jogável e divertido.', ano: 6, sem: 1 },
+            // 6º Ano - 2º Semestre
+            { id: 'p6-2A', title: '💡 Inventor da Escola', desc: 'Identifique um problema real na escola e crie um protótipo funcional de solução inovadora.', ano: 6, sem: 2 },
+            { id: 'p6-2B', title: '📢 Minha Voz, Nossa Causa', desc: 'Escolha uma causa social da comunidade e crie uma campanha de comunicação completa: slogan, cartaz, vídeo e ação na escola.', ano: 6, sem: 2 },
+            { id: 'p6-2C', title: '🎤 Talk Show Empreendedor', desc: 'Crie e grave um talk show entrevistando um empreendedor real de Limoeiro. Pesquise, prepare perguntas, grave e edite o programa.', ano: 6, sem: 2 },
+            // 7º Ano - 1º Semestre
+            { id: 'p7-1A', title: '📊 Consultoria Financeira Mirim', desc: 'Atue como consultor financeiro: analise as finanças de um pequeno comerciante de Limoeiro e entregue um plano com recomendações.', ano: 7, sem: 1 },
+            { id: 'p7-1B', title: '🗺️ Mapa Empreendedor de Limoeiro', desc: 'Mapeamento completo dos negócios de um bairro: tipos de comércio, oportunidades não exploradas, perfil dos empreendedores.', ano: 7, sem: 1 },
+            { id: 'p7-1C', title: '🦈 Shark Tank CSM', desc: 'Crie um negócio completo e apresente em formato Shark Tank para uma banca de investidores.', ano: 7, sem: 1 },
+            // 7º Ano - 2º Semestre
+            { id: 'p7-2A', title: '🚀 Hackathon da Comunidade', desc: 'Sprint de Design Thinking para resolver problema real da comunidade de Limoeiro. Todas as etapas: empatia, definição, ideação, prototipagem e teste.', ano: 7, sem: 2 },
+            { id: 'p7-2B', title: '📱 Agência de Comunicação CSM', desc: 'Atue como agência de marketing: atendam um comerciante real, criando marca, posts para redes sociais e estratégia de divulgação.', ano: 7, sem: 2 },
+            { id: 'p7-2C', title: '🎙️ TEDx CSM', desc: 'Cada aluno prepara e apresenta uma palestra de 5 minutos no formato TED Talk sobre um tema do semestre.', ano: 7, sem: 2 },
+            // 8º Ano - 1º Semestre
+            { id: 'p8-1A', title: '🚀 Startup Weekend Escolar', desc: 'Em 4 semanas, crie uma startup real: identifique problema, crie MVP digital, lance e meça resultados.', ano: 8, sem: 1 },
+            { id: 'p8-1B', title: '💳 Fintech da Escola', desc: 'Projete um app financeiro para jovens: conceito, wireframes, protótipo clicável e teste de usabilidade.', ano: 8, sem: 1 },
+            { id: 'p8-1C', title: '♻️ Economia Circular de Limoeiro', desc: 'Identifique um resíduo da comunidade e transforme em produto com valor. Lixo de um é matéria-prima de outro.', ano: 8, sem: 1 },
+            // 8º Ano - 2º Semestre
+            { id: 'p8-2A', title: '🧠 Lab de Tecnologia Aplicada', desc: 'Escolha uma tecnologia (IA, IoT, RA, blockchain) e crie uma aplicação prática para Limoeiro.', ano: 8, sem: 2 },
+            { id: 'p8-2B', title: '🎨 Redesign de Experiência', desc: 'Escolha um serviço público ou escolar e faça o redesign completo da experiência do usuário usando UX.', ano: 8, sem: 2 },
+            { id: 'p8-2C', title: '🎧 Podcast Inovação & Futuro', desc: 'Produza 3 episódios de podcast sobre como tecnologias exponenciais podem transformar Limoeiro e o sertão.', ano: 8, sem: 2 },
+            // 9º Ano - 1º Semestre
+            { id: 'p9-1A', title: '🌟 Startup Real: Do Problema ao 1º Cliente', desc: 'Crie uma startup REAL: valide problema, construa MVP, lance e realize pelo menos 1 transação real.', ano: 9, sem: 1 },
+            { id: 'p9-1B', title: '📈 Fundo de Investimento Estudantil', desc: 'Simule um fundo de investimentos com R$100K fictícios. Decisões semanais baseadas em cenários econômicos reais.', ano: 9, sem: 1 },
+            { id: 'p9-1C', title: '❤️ Incubadora Social', desc: 'Crie uma startup que gere LUCRO e IMPACTO SOCIAL simultaneamente. Prove que é possível fazer o bem e ter um negócio sustentável.', ano: 9, sem: 1 },
+            // 9º Ano - 2º Semestre
+            { id: 'p9-2A', title: '🏆 Demo Day — O Grande Pitch', desc: 'Apresente seu projeto para banca de empreendedores reais convidados. Pitch de 5 min + stand completo.', ano: 9, sem: 2 },
+            { id: 'p9-2B', title: '🏗️ Limoeiro 2040', desc: 'Planeje o futuro de Limoeiro com soluções inovadoras para desafios da cidade.', ano: 9, sem: 2 },
+            { id: 'p9-2C', title: '🎓 Mentor de Futuro', desc: 'Seja mentor de alunos mais novos, compartilhando conhecimento e experiência.', ano: 9, sem: 2 }
+        ];
+
+        let currentView = 'landing';
+        let currentFilter = 'all';
+        let editingGroupId = null;
+
+        // Dados do Supabase
+        let grupos = [];
+        let progresso = {};
+        let progressoDetalhado = [];
+
+        // Etapas detalhadas para CADA PROJETO específico - Conforme detalhe_projetos.md
+        const ETAPAS_POR_PROJETO = {
+            // 6º ANO - 1º SEMESTRE
+            'p6-1A': [ // 💰 Feira do Centavo Consciente
+                {
+                    id: 1, nome: 'Escolha do Produto e Pesquisa de Mercado', desc: 'Semana 1 (2 aulas) - A equipe decide o que vai vender e faz pesquisa com 20 colegas',
+                    tarefas: ['Listar 5 ideias de produto (cada membro traz 1-2 ideias)', 'Aplicar questionário de pesquisa com 20 pessoas', 'Tabular resultados e escolher o produto mais votação', 'Definir nome da mini-empresa e slogan']
+                },
+                {
+                    id: 2, nome: 'Planejamento Financeiro', desc: 'Semana 2 (2 aulas) - Listar custos, definir preço e calcular meta de vendas',
+                    tarefas: ['Listar todos os custos (matéria-prima, embalagem, decoração do stand)', 'Calcular custo unitário de cada produto', 'Definir preço de venda (custo + margem de 50-100%)', 'Preencher planilha de DRE projetado', 'Definir meta de vendas']
+                },
+                {
+                    id: 3, nome: 'Produção e Marketing', desc: 'Semana 3 (2 aulas) - Produzir o produto e criar material visual do stand',
+                    tarefas: ['Produzir lote-teste (5 unidades) e avaliar qualidade', 'Ajustar receita/processo se necessário', 'Produzir lote final para a Feira', 'Criar cartaz do stand (nome, preços, slogan)', 'Preparar sistema de troco e controle de vendas']
+                },
+                {
+                    id: 4, nome: 'Feira + DRE Final', desc: 'Semana 4 (2 aulas) - Dia da Feira! Vender e apresentar resultados',
+                    tarefas: ['Montar stand com produtos, cartaz e troco', 'Registrar CADA venda (quantidade e valor)', 'Ao final: somar receita real, subtrair custos reais', 'Preencher DRE final no painel', 'Apresentar para os visitantes: o que aprenderam?']
+                },
+                {
+                    id: 5, nome: 'Apresentação Final', desc: 'Avaliação e reflexão sobre o projeto',
+                    tarefas: ['Apresentar DRE para a turma', 'Discutir: o que funcionou? O que mudaria?', 'Documentar aprendizados', 'Avaliar desempenho do grupo']
+                }
+            ],
+            'p6-1B': [ // 🔍 Detetives Financeiros de Limoeiro
+                {
+                    id: 1, nome: 'Planejamento da Investigação', desc: 'Semana 1 (2 aulas) - Definir foco da investigação e criar roteiro',
+                    tarefas: ['Escolher o tema da investigação', 'Criar 8-10 perguntas para as entrevistas', 'Definir quem será entrevistado (mínimo 5 pessoas)', 'Distribuir papéis: repórter, fotógrafo, editor, analista']
+                },
+                {
+                    id: 2, nome: 'Pesquisa de Campo', desc: 'Semana 2 (2 aulas) - Entrevistar comerciantes e comparar preços',
+                    tarefas: ['Realizar entrevistas (gravar áudio com autorização)', 'Comparar preços de 5 produtos em 3 lojas diferentes', 'Fotografar os locais visitados', 'Anotar observações no caderno de campo']
+                },
+                {
+                    id: 3, nome: 'Análise e Produção', desc: 'Semana 3 (2 aulas) - Organizar dados e criar jornal mural',
+                    tarefas: ['Tabular dados das entrevistas', 'Criar pelo menos 2 gráficos comparativos (preços, hábitos)', 'Escrever 3-4 matérias curtas (máx 1 parágrafo cada)', 'Montar layout do jornal mural com fotos e gráficos']
+                },
+                {
+                    id: 4, nome: 'Apresentação na Feira', desc: 'Semana 4 (2 aulas) - Montar stand e apresentar descobertas',
+                    tarefas: ['Ensaiar apresentação (cada um fala 2 min)', 'Preparar 3-5 dicas financeiras para visitantes (tipo folheto)', 'Montar stand com jornal mural em destaque', 'Interagir com visitantes contando as descobertas']
+                },
+                {
+                    id: 5, nome: 'Apresentação Final', desc: 'Avaliação e reflexão',
+                    tarefas: ['Apresentar jornal mural completo', 'Compartilhar aprendizados', 'Avaliar trabalho em equipe', 'Documentar metodologia']
+                }
+            ],
+            'p6-1C': [ // 🎲 O Jogo que Ensina a Poupar
+                {
+                    id: 1, nome: 'Game Design', desc: 'Semana 1 (2 aulas) - Definir mecânica e regras do jogo',
+                    tarefas: ['Jogar 1-2 jogos de referência (Banco Imobiliário simplificado, Jogo da Vida)', 'Definir: tipo de jogo, objetivo, nº de jogadores, tempo de partida', 'Listar 5 conceitos financeiros que o jogo deve ensinar', 'Criar rascunho do tabuleiro e regras básicas']
+                },
+                {
+                    id: 2, nome: 'Produção das Peças', desc: 'Semana 2 (2 aulas) - Criar tabuleiro, cartas e componentes',
+                    tarefas: ['Desenhar e colorir o tabuleiro em papelão', 'Criar 20-30 cartas (eventos financeiros, perguntas, surpresas)', 'Produzir dinheiro do jogo (cédulas de papel)', 'Criar peões com tampinhas ou massinhas', 'Escrever manual de regras claro e organizado']
+                },
+                {
+                    id: 3, nome: 'Playtest e Ajustes', desc: 'Semana 3 (2 aulas) - Testar com outra equipe e ajustar',
+                    tarefas: ['Jogar 1 partida completa entre a equipe', 'Convidar outra equipe para jogar (observem sem ajudar)', 'Coletar feedback: O que confundiu? O que divertiu? O que mudaria?', 'Fazer ajustes nas regras, cartas ou tabuleiro']
+                },
+                {
+                    id: 4, nome: 'Finalização e Feira', desc: 'Semana 4 (2 aulas) - Acabamento profissional e apresentação',
+                    tarefas: ['Acabamento final (plastificar cartas, reforçar tabuleiro)', 'Criar cartaz explicativo do jogo (nome, regras resumidas, aprendizados)', 'Preparar 2-3 cópias para jogos simultâneos na Feira', 'Ensaiar como explicar o jogo em 1 minuto para visitantes']
+                },
+                {
+                    id: 5, nome: 'Apresentação Final', desc: 'Avaliação do projeto',
+                    tarefas: ['Demonstrar jogo completo', 'Receber feedback da banca', 'Documentar aprendizados', 'Avaliar colaboração da equipe']
+                }
+            ],
+            // 6º ANO - 2º SEMESTRE
+            'p6-2A': [ // 💡 Inventor da Escola
+                {
+                    id: 1, nome: 'Caça ao Problema', desc: 'Semana 1 (2 aulas) - Identificar problema real na escola',
+                    tarefas: ['Caminhar pela escola anotando problemas observados', 'Entrevistar 10 pessoas sobre problemas do cotidiano escolar', 'Listar os 5 problemas mais citados', 'Escolher 1 problema para resolver (votar na equipe)']
+                },
+                {
+                    id: 2, nome: 'Chuva de Ideias + Seleção', desc: 'Semana 2 (2 aulas) - Brainstorming e seleção de solução',
+                    tarefas: ['Brainstorming: cada um apresenta 3 ideias (total 12+)', 'Avaliar cada ideia nos critérios: viabilidade, criatividade, impacto', 'Selecionar a ideia vencedora', 'Fazer rascunho/esboço da invenção (3 ângulos: frente, lado, cima)']
+                },
+                {
+                    id: 3, nome: 'Construção do Protótipo', desc: 'Semana 3 (2 aulas) - Construir solução com materiais',
+                    tarefas: ['Listar materiais necessários e providenciar', 'Construir protótipo (versão 1)', 'Testar: funciona? O que precisa ajustar?', 'Construir versão melhorada se necessário']
+                },
+                {
+                    id: 4, nome: 'Teste + Feira', desc: 'Semana 4 (2 aulas) - Testar com usuários reais e apresentar',
+                    tarefas: ['Testar protótipo com 5 usuários reais', 'Coletar feedback e anotar melhorias possíveis', 'Criar painel visual do processo de invenção', 'Montar stand e ensaiar apresentação (2 min cada)']
+                },
+                {
+                    id: 5, nome: 'Apresentação Final', desc: 'Avaliação final',
+                    tarefas: ['Apresentar protótipo para banca', 'Demonstrar processo completo', 'Documentar aprendizados', 'Avaliar trabalho em equipe']
+                }
+            ],
+            'p6-2B': [ // 📢 Minha Voz, Nossa Causa
+                {
+                    id: 1, nome: 'Escolha da Causa + Pesquisa', desc: 'Semana 1 (2 aulas) - Escolher causa social e pesquisar',
+                    tarefas: ['Cada membro sugere 2 causas', 'Votar na causa da equipe', 'Pesquisar dados reais sobre o problema (internet + observação local)', 'Entrevistar 5 pessoas afetadas pelo problema']
+                },
+                {
+                    id: 2, nome: 'Criação da Campanha', desc: 'Semana 2 (2 aulas) - Criar materiais de comunicação',
+                    tarefas: ['Criar nome e slogan da campanha (testar 3-5 opções)', 'Desenhar cartaz principal (A2 ou maior)', 'Criar panfleto informativo (frente e verso)', 'Definir mensagem-chave: em 1 frase, o que querem que as pessoas façam?']
+                },
+                {
+                    id: 3, nome: 'Produção de Vídeo', desc: 'Semana 3 (2 aulas) - Gravar vídeo de 60-90 segundos',
+                    tarefas: ['Escrever roteiro do vídeo (início, meio, chamada para ação)', 'Gravar cenas (mínimo 5 takes)', 'Editar no celular (música, texto, cortes)', 'Assistir juntos e fazer últimos ajustes']
+                },
+                {
+                    id: 4, nome: 'Lançamento na Feira', desc: 'Semana 4 (2 aulas) - Montar stand e fazer campanha ativa',
+                    tarefas: ['Montar stand visual (cartaz + TV/celular com vídeo)', 'Imprimir panfletos (20-30 cópias)', 'Definir quem aborda, quem explica, quem distribui', 'Coletar assinaturas de apoio à causa']
+                },
+                {
+                    id: 5, nome: 'Apresentação Final', desc: 'Avaliação do impacto',
+                    tarefas: ['Apresentar campanha completa', 'Medir engajamento полученный', 'Documentar aprendizados', 'Avaliar trabalho em equipe']
+                }
+            ],
+            'p6-2C': [ // 🎤 Talk Show Empreendedor
+                {
+                    id: 1, nome: 'Pré-Produção', desc: 'Semana 1 (2 aulas) - Escolher empreendedor e preparar roteiro',
+                    tarefas: ['Listar 5 empreendedores possíveis da comunidade', 'Fazer contato e convite (com apoio do professor)', 'Pesquisar sobre o negócio do convidado', 'Criar roteiro com 10-12 perguntas estratégicas', 'Definir papéis: apresentador(a), entrevistador(a), cinegrafista, editor(a)']
+                },
+                {
+                    id: 2, nome: 'Gravação', desc: 'Semana 2 (2 aulas) - Gravar entrevista completa',
+                    tarefas: ['Montar cenário simples (fundo + cadeiras)', 'Testar áudio e enquadramento antes de começar', 'Gravar entrevista (20-30 min brutos)', 'Gravar abertura e encerramento do programa']
+                },
+                {
+                    id: 3, nome: 'Edição', desc: 'Semana 3 (2 aulas) - Editar programa final de 8-12 min',
+                    tarefas: ['Selecionar os melhores trechos (cortar silêncios e erros)', 'Montar sequência: abertura + entrevista + encerramento', 'Adicionar música de fundo (livre de direitos)', 'Adicionar títulos e créditos finais', 'Exportar versão final (8-12 min)']
+                },
+                {
+                    id: 4, nome: 'Exibição na Feira', desc: 'Semana 4 (2 aulas) - Montar stand e convidar empreendedor',
+                    tarefas: ['Preparar cartaz com foto do convidado e principais frases', 'Montar exibição em loop (notebook/TV)', 'Preparar apresentação oral: 3 maiores aprendizados da entrevista', 'Convidar o empreendedor entrevistado para a Feira']
+                },
+                {
+                    id: 5, nome: 'Apresentação Final', desc: 'Avaliação do projeto',
+                    tarefas: ['Apresentar programa completo', 'Compartilhar aprendizados da entrevista', 'Documentar metodologia', 'Avaliar trabalho em equipe']
+                }
+            ],
+            // 7º ANO - 1º SEMESTRE
+            'p7-1A': [ // 📊 Consultoria Financeira Mirim
+                {
+                    id: 1, nome: 'Formação da Consultoria', desc: 'Semana 1 (2 aulas) - Criar identidade e preparar ferramentas',
+                    tarefas: ['Criar nome e logo da consultoria', 'Estudar modelo de diagnóstico financeiro', 'Definir papéis: analista financeiro, entrevistador, redator, designer', 'Preparar formulário de perguntas para o comerciante']
+                },
+                {
+                    id: 2, nome: 'Diagnóstico de Campo', desc: 'Semana 2 (2 aulas) - Visitar comerciante e coletar dados',
+                    tarefas: ['Realizar entrevista com o comerciante (40 min)', 'Fotografar o negócio (com autorização)', 'Preencher formulário de diagnóstico completo', 'Coletar dados: faturamento médio, custos fixos/variáveis, lucro estimado']
+                },
+                {
+                    id: 3, nome: 'Análise e Plano', desc: 'Semana 3-4 (4 aulas) - Analisar dados e criar recomendações',
+                    tarefas: ['Organizar dados em planilha', 'Calcular DRE simplificado do negócio', 'Identificar 3-5 oportunidades de melhoria', 'Redigir Plano Financeiro (2-3 páginas): diagnóstico + recomendações', 'Criar gráficos visuais para o painel']
+                },
+                {
+                    id: 4, nome: 'Apresentação na Feira', desc: 'Semana 5 (2 aulas) - Entregar plano e apresentar',
+                    tarefas: ['Montar stand com identidade visual da consultoria', 'Imprimir plano financeiro em envelope profissional', 'Ensaiar apresentação (3 min cada membro)', 'Convidar o comerciante para receber o plano na Feira']
+                },
+                {
+                    id: 5, nome: 'Apresentação Final', desc: 'Avaliação final',
+                    tarefas: ['Apresentar consultoria completa', 'Demonstrar impacto potencial', 'Documentar metodologia', 'Avaliar trabalho em equipe']
+                }
+            ],
+            'p7-1B': [ // 🗺️ Mapa Empreendedor de Limoeiro
+                {
+                    id: 1, nome: 'Planejamento do Mapeamento', desc: 'Semana 1 - Definir perímetro e categorias',
+                    tarefas: ['Definir área a ser mapeada', 'Criar categorias e código de cores', 'Preparar ficha de coleta (nome, tipo, tempo de atividade, nº funcionários)']
+                },
+                {
+                    id: 2, nome: 'Coleta de Campo', desc: 'Semana 2 - Registrar cada negócio',
+                    tarefas: ['Percorrer as ruas mapeando cada negócio', 'Preencher ficha para cada estabelecimento', 'Fotografar fachadas', 'Anotar terrenos/imóveis vazios (oportunidades)']
+                },
+                {
+                    id: 3, nome: 'Análise + Mapa', desc: 'Semana 3 - Compilar dados e identificar oportunidades',
+                    tarefas: ['Tabulpar dados coletados', 'Desenhar mapa ilustrado colorido', 'Calcular: quantos negócios por categoria?', 'Listar 3-5 oportunidades de negócios que faltam na região']
+                },
+                {
+                    id: 4, nome: 'Feira', desc: 'Semana 4 - Apresentar mapa e relatório',
+                    tarefas: ['Montar stand com mapa em destaque', 'Criar mini-relatório: descobertas + oportunidades', 'Apresentar para visitantes']
+                },
+                {
+                    id: 5, nome: 'Apresentação Final', desc: 'Avaliação',
+                    tarefas: ['Demonstrar mapa completo', 'Compartilhar insights', 'Documentar metodologia', 'Avaliar trabalho em equipe']
+                }
+            ],
+            'p7-1C': [ // 🦈 Shark Tank CSM
+                {
+                    id: 1, nome: 'Ideação + Canvas', desc: 'Semana 1 - Criar ideia de negócio',
+                    tarefas: ['Brainstorming: 10 ideias em 15 min', 'Selecionar a melhor ideia', 'Preencher Canvas simplificado', 'Definir nome, logo, slogan']
+                },
+                {
+                    id: 2, nome: 'Finanças + Marketing', desc: 'Semana 2 - Calcular custos e criar estratégia',
+                    tarefas: ['Calcular custos e preço de venda', 'Projetar DRE de 3 meses', 'Definir estratégia de marketing (canais, mensagem)', 'Criar material visual (logo, post para rede social)']
+                },
+                {
+                    id: 3, nome: 'Protótipo + Pitch', desc: 'Semana 3 - Criar produto e apresentar',
+                    tarefas: ['Construir protótipo físico ou digital', 'Montar slides do pitch (máx 8 slides)', 'Ensaiar pitch 3-5 vezes (cronometrar!)', 'Preparar respostas para perguntas difíceis']
+                },
+                {
+                    id: 4, nome: 'Shark Tank + Feira', desc: 'Semana 4 - Apresentar para banca',
+                    tarefas: ['Pitch de 5 min + 3 min de perguntas da banca', 'Montar stand com protótipo e material visual', 'Interagir com visitantes da Feira', 'Coletar feedback dos visitantes (formulário simples)']
+                },
+                {
+                    id: 5, nome: 'Apresentação Final', desc: 'Avaliação',
+                    tarefas: ['Demonstrar negócio completo', 'Avaliar feedback dos tubarões', 'Documentar aprendizados', 'Avaliar trabalho em equipe']
+                }
+            ],
+            // 7º ANO - 2º SEMESTRE
+            'p7-2A': [ // 🚀 Hackathon da Comunidade
+                {
+                    id: 1, nome: 'Empatia + Definição', desc: 'Semana 1 - Entender problema real',
+                    tarefas: ['Realizar 10 entrevistas de empatia', 'Preencher Mapa de Empatia coletivo', 'Definir problema usando "Como poderíamos..." (How Might We)', 'Validar o problema com mais 5 pessoas']
+                },
+                {
+                    id: 2, nome: 'Ideação', desc: 'Semana 2 - Gerar soluções',
+                    tarefas: ['Brainstorming livre (10 min)', 'SCAMPER sobre as melhores ideias', 'Votação dot-voting (cada um tem 3 votos)', 'Detalhar a ideia vencedora']
+                },
+                {
+                    id: 3, nome: 'Prototipagem + Teste', desc: 'Semana 3 - Construir e testar solução',
+                    tarefas: ['Construir protótipo em 1 aula', 'Testar com 5 pessoas (observar sem ajudar)', 'Coletar feedback estruturado', 'Iterar: ajustar com base no feedback']
+                },
+                {
+                    id: 4, nome: 'Feira', desc: 'Semana 4 - Apresentar processo DT',
+                    tarefas: ['Criar painel: Empatia → Definição → Ideias → Protótipo → Teste', 'Exibir protótipo final', 'Explicar: o que aprenderam que não esperavam?']
+                },
+                {
+                    id: 5, nome: 'Apresentação Final', desc: 'Avaliação',
+                    tarefas: ['Demonstrar solução completa', 'Compartilhar aprendizados', 'Documentar metodologia', 'Avaliar trabalho em equipe']
+                }
+            ],
+            'p7-2B': [ // 📱 Agência de Comunicação CSM
+                {
+                    id: 1, nome: 'Briefing do Cliente', desc: 'Semana 1 - Conhecer o comerciante',
+                    tarefas: ['Visitar o negócio e entrevistar o dono', 'Preencher formulário de briefing', 'Fotografar produtos e fachada', 'Analisar presença digital atual (tem Instagram? Google?)']
+                },
+                {
+                    id: 2, nome: 'Criação de Marca', desc: 'Semana 2 - Desenvolver identidade visual',
+                    tarefas: ['Criar 3 propostas de logo/identidade', 'Apresentar ao cliente e coletar preferência', 'Definir paleta de cores e tipografia', 'Criar template para posts']
+                },
+                {
+                    id: 3, nome: 'Produção de Conteúdo', desc: 'Semana 3 - Criar posts para Instagram',
+                    tarefas: ['Criar calendário de 1 semana de posts', 'Produzir 5-8 artes no Canva', 'Escrever legendas com hashtags', 'Fazer 1 Reels/vídeo curto do negócio']
+                },
+                {
+                    id: 4, nome: 'Entrega + Feira', desc: 'Semana 4 - Entregar material e apresentar',
+                    tarefas: ['Compilar tudo em pasta/portfólio digital', 'Entregar ao cliente com orientações de uso', 'Montar stand: antes/depois + depoimento do cliente', 'Se possível: mostrar métricas reais (seguidores, curtidas)']
+                },
+                {
+                    id: 5, nome: 'Apresentação Final', desc: 'Avaliação',
+                    tarefas: ['Demonstrar portfólio completo', 'Avaliar satisfação do cliente', 'Documentar metodologia', 'Avaliar trabalho em equipe']
+                }
+            ],
+            'p7-2C': [ // 🎙️ TEDx CSM
+                {
+                    id: 1, nome: 'Escolha do Tema + Roteiro', desc: 'Semana 1 - Definir fala única',
+                    tarefas: ['Escolher tema individual', 'Escrever roteiro completo (5 min = ~700 palavras)', 'Feedback cruzado: leia o roteiro do colega e sugira melhorias']
+                },
+                {
+                    id: 2, nome: 'Ensaio', desc: 'Semana 2 - Praticar apresentação',
+                    tarefas: ['Ensaiar 3+ vezes de pé', 'Gravar ensaio no celular e assistir criticamente', 'Receber feedback do grupo (pontuar 1-5 em 5 critérios)', 'Ajustar roteiro e performance']
+                },
+                {
+                    id: 3, nome: 'Gravação', desc: 'Semana 3 - Gravar palestra oficial',
+                    tarefas: ['Montar cenário tipo TED (fundo vermelho/escuro simples)', 'Gravar cada palestra (máx 2 takes cada)', 'Editar: abertura, palestra, créditos finais']
+                },
+                {
+                    id: 4, nome: 'Exibição na Feira', desc: 'Semana 4 - Apresentar para público',
+                    tarefas: ['Criar playlist com todas as palestras', 'Montar espaço de exibição', 'Gerar QR code para acesso online', 'Apresentar ao vivo para visitantes que quiserem']
+                },
+                {
+                    id: 5, nome: 'Apresentação Final', desc: 'Avaliação',
+                    tarefas: ['Avaliar performance completa', 'Compartilhar feedback recebido', 'Documentar evolução', 'Avaliar desenvolvimento pessoal']
+                }
+            ],
+            // 8º ANO - 1º SEMESTRE
+            'p8-1A': [ // 🚀 Startup Weekend Escolar
+                {
+                    id: 1, nome: 'Validação do Problema', desc: 'Semana 1 - Identificar problema real',
+                    tarefas: ['Brainstorming de problemas', 'Entrevistar 15 pessoas (5 perguntas-chave)', 'Criar persona detalhada', 'Calcular: quantas pessoas confirmaram o problema?']
+                },
+                {
+                    id: 2, nome: 'MVP: Landing Page', desc: 'Semana 2-3 - Criar página de captção',
+                    tarefas: ['Escrever texto da landing page (problema + solução + CTA)', 'Criar a página (Carrd.co gratuito ou Google Sites)', 'Configurar formulário de coleta de emails', 'Divulgar: WhatsApp, Instagram, boca a boca']
+                },
+                {
+                    id: 3, nome: 'Métricas e Análise', desc: 'Semana 4 - Analisar resultados',
+                    tarefas: ['Coletar dados: visitas, cadastros, taxa de conversão', 'Calcular CAC simulado', 'Criar dashboard visual (cartolina ou slides)', 'Decidir: pivotariam ou seguiriam em frente? Por quê?']
+                },
+                {
+                    id: 4, nome: 'Feira', desc: 'Semana 5 - Apresentar startup',
+                    tarefas: ['Preparar pitch com dados reais', 'Montar stand: notebook com MVP + painel de métricas', 'Demonstrar ao vivo para visitantes']
+                },
+                {
+                    id: 5, nome: 'Apresentação Final', desc: 'Avaliação',
+                    tarefas: ['Demonstrar startup completa', 'Avaliar métricas obtidas', 'Documentar aprendizados', 'Avaliar trabalho em equipe']
+                }
+            ],
+            'p8-1B': [ // 💳 Fintech da Escola
+                {
+                    id: 1, nome: 'Pesquisa + Persona', desc: 'Semana 1 - Entender problema financeiro',
+                    tarefas: ['Entrevistar 15 adolescentes sobre problemas com dinheiro', 'Criar persona detalhada', 'Definir o problema principal a resolver', 'Benchmarking: analisar 3 apps financeiros existentes']
+                },
+                {
+                    id: 2, nome: 'Wireframes', desc: 'Semana 2 - Desenhar todas as telas',
+                    tarefas: ['Desenhar fluxo de navegação', 'Criar wireframes em papel (todas as telas)', 'Testar fluxo com 3 colegas', 'Digitalizar wireframes (Figma/Canva)']
+                },
+                {
+                    id: 3, nome: 'Protótipo + Teste', desc: 'Semana 3 - Criar versão clicável',
+                    tarefas: ['Criar protótipo clicável', 'Testar com 5 usuários (observar sem ajudar)', 'Documentar: onde travaram? O que confundiu?', 'Iterar: corrigir os 3 maiores problemas']
+                },
+                {
+                    id: 4, nome: 'Feira', desc: 'Semana 4 - Apresentar app',
+                    tarefas: ['Montar stand: celular/notebook com protótipo', 'Criar painel: persona + jornada + wireframes + resultados', 'Deixar visitantes testarem o protótipo']
+                },
+                {
+                    id: 5, nome: 'Apresentação Final', desc: 'Avaliação',
+                    tarefas: ['Demonstrar app completa', 'Avaliar feedback dos testes', 'Documentar aprendizados', 'Avaliar trabalho em equipe']
+                }
+            ],
+            'p8-1C': [ // ♻️ Economia Circular de Limoeiro
+                {
+                    id: 1, nome: 'Diagnóstico de Resíduos', desc: 'Semana 1 - Mapear resíduos',
+                    tarefas: ['Observar lixeiras da escola: o que mais aparece?', 'Entrevistar 3 comerciantes sobre desperdícios', 'Listar 5 resíduos com potencial de transformação', 'Escolher 1 resíduo para trabalhar']
+                },
+                {
+                    id: 2, nome: 'Ideação do Produto', desc: 'Semana 2 - Brainstorming de produtos',
+                    tarefas: ['Brainstorming: 10 ideias de produtos', 'Pesquisar referências online (upcycling, artesanato)', 'Selecionar a ideia: viável, bonita e vendável', 'Calcular custo de produção']
+                },
+                {
+                    id: 3, nome: 'Produção', desc: 'Semana 3 - Criar produtos',
+                    tarefas: ['Coletar matéria-prima (resíduo)', 'Produzir lote-teste (3 unidades)', 'Avaliar qualidade e ajustar', 'Produzir lote final (5-10 unidades)', 'Criar embalagem e etiqueta']
+                },
+                {
+                    id: 4, nome: 'Feira', desc: 'Semana 4 - Vender e mostrar impacto',
+                    tarefas: ['Montar stand: antes (resíduo) → depois (produto)', 'Vender produtos na Feira', 'Calcular DRE real', 'Painel: impacto ambiental (kg de lixo evitados)']
+                },
+                {
+                    id: 5, nome: 'Apresentação Final', desc: 'Avaliação',
+                    tarefas: ['Demonstrar projeto completo', 'Avaliar impacto ambiental', 'Documentar aprendizados', 'Avaliar trabalho em equipe']
+                }
+            ],
+            // 8º ANO - 2º SEMESTRE
+            'p8-2A': [ // 🧠 Lab de Tecnologia Aplicada
+                {
+                    id: 1, nome: 'Escolha da Tecnologia + Pesquisa', desc: 'Semana 1 - Selecionar tecnologia',
+                    tarefas: ['Pesquisa individual de 1 tecnologia cada', 'Apresentação interna (5 min cada)', 'Escolher a tecnologia do projeto', 'Definir: que problema local ela pode resolver?']
+                },
+                {
+                    id: 2, nome: 'Projeto Técnico', desc: 'Semana 2 - Desenhar solução',
+                    tarefas: ['Desenhar arquitetura da solução', 'Listar recursos necessários vs. disponíveis', 'Definir escopo realista (o que dá para fazer em 2 semanas)', 'Criar cronograma detalhado']
+                },
+                {
+                    id: 3, nome: 'Desenvolvimento', desc: 'Semana 3-4 - Construir solução',
+                    tarefas: ['Desenvolver a solução iterativamente', 'Testar a cada dia de trabalho', 'Documentar o processo (fotos, prints)', 'Preparar demonstração funcional']
+                },
+                {
+                    id: 4, nome: 'Feira', desc: 'Semana 5 - Demonstrar tecnologia',
+                    tarefas: ['Montar stand com demonstração interativa', 'Criar painel: O que é a tecnologia? Como funciona? Que problema resolve?', 'Preparar explicação para público leigo', 'Documentar reações dos visitantes']
+                },
+                {
+                    id: 5, nome: 'Apresentação Final', desc: 'Avaliação',
+                    tarefas: ['Demonstrar solução completa', 'Avaliar engajamento do público', 'Documentar aprendizados', 'Avaliar trabalho em equipe']
+                }
+            ],
+            'p8-2B': [ // 🎨 Redesign de Experiência
+                {
+                    id: 1, nome: 'Pesquisa UX', desc: 'Semana 1 - Entender usuário atual',
+                    tarefas: ['Observação silenciosa do serviço (30 min)', 'Entrevistar 10 usuários (5 perguntas)', 'Mapear jornada atual com pain points', 'Criar persona do usuário']
+                },
+                {
+                    id: 2, nome: 'Ideação + Wireframe', desc: 'Semana 2 - Criar nova experiência',
+                    tarefas: ['Brainstorming: Como podemos melhorar cada pain point?', 'Matriz impacto vs. esforço para priorizar', 'Criar wireframes da nova experiência', 'Validar wireframes com 3 usuários']
+                },
+                {
+                    id: 3, nome: 'Protótipo + Teste', desc: 'Semana 3 - Testar solução',
+                    tarefas: ['Criar protótipo testável', 'Teste de usabilidade com 5 pessoas', 'Documentar: métricas + feedback', 'Iterar com base nos resultados']
+                },
+                {
+                    id: 4, nome: 'Feira', desc: 'Semana 4 - Apresentar antes/depois',
+                    tarefas: ['Criar painel visual: jornada antes vs. depois', 'Montar demonstração do protótipo', 'Vídeo: reações dos usuários nos testes', 'Entregar relatório de recomendações ao responsável do serviço']
+                },
+                {
+                    id: 5, nome: 'Apresentação Final', desc: 'Avaliação',
+                    tarefas: ['Demonstrar redesign completo', 'Avaliar impacto potencial', 'Documentar aprendizados', 'Avaliar trabalho em equipe']
+                }
+            ],
+            'p8-2C': [ // 🎧 Podcast Inovação & Futuro
+                {
+                    id: 1, nome: 'Pauta + Roteiro', desc: 'Semana 1 - Definir temas',
+                    tarefas: ['Escolher 3 temas (ex: IA na agricultura, IoT em cidades pequenas, futuro do trabalho)', 'Pesquisar cada tema', 'Escrever roteiro dos 3 episódios', 'Identificar possíveis entrevistados locais']
+                },
+                {
+                    id: 2, nome: 'Gravação Ep. 1 e 2', desc: 'Semana 2 - Gravar episódios',
+                    tarefas: ['Preparar ambiente de gravação (silêncio!)', 'Gravar episódio 1 (15-20 min bruto)', 'Gravar episódio 2 (15-20 min bruto)', 'Se tiver entrevistado: gravar entrevista']
+                },
+                {
+                    id: 3, nome: 'Gravação Ep. 3 + Edição', desc: 'Semana 3 - Finalizar episódios',
+                    tarefas: ['Gravar episódio 3', 'Editar os 3 episódios (cortar, vinheta, música)', 'Criar capa do podcast (Canva)', 'Publicar em plataforma gratuita (Anchor/Spotify for Podcasters)']
+                },
+                {
+                    id: 4, nome: 'Feira', desc: 'Semana 4 - Apresentar podcast',
+                    tarefas: ['Montar mini-estúdio visual', 'QR code para acesso aos episódios', 'Exibir trechos em caixa de som', 'Gravar episódio bônus ao vivo na Feira (entrevistar visitantes)']
+                },
+                {
+                    id: 5, nome: 'Apresentação Final', desc: 'Avaliação',
+                    tarefas: ['Demonstrar podcast completo', 'Avaliar engajamento', 'Documentar aprendizados', 'Avaliar trabalho em equipe']
+                }
+            ],
+            // 9º ANO - 1º SEMESTRE
+            'p9-1A': [ // 🌟 Startup Real: Do Problema ao 1º Cliente
+                {
+                    id: 1, nome: 'Discovery', desc: 'Semana 1-2 - Validar problema',
+                    tarefas: ['Entrevistar 20+ potenciais clientes', 'Criar persona com dados reais', 'Mapear 3-5 concorrentes', 'Validar: o problema é doloroso o suficiente para pagar por uma solução?']
+                },
+                {
+                    id: 2, nome: 'MVP + Lançamento', desc: 'Semana 3-4 - Construir e lançar',
+                    tarefas: ['Definir o MVP mais simples possível', 'Construir em 2 semanas (landing page, serviço manual, produto físico)', 'Lançar e divulgar', 'Consegui pelo menos 1 transação real']
+                },
+                {
+                    id: 3, nome: 'Métricas + Iteração', desc: 'Semana 5 - Analisar resultados',
+                    tarefas: ['Compilar todas as métricas', 'Calcular: CAC, conversão, satisfação (NPS)', 'Criar dashboard financeiro visual', 'Decisão fundamentada: pivotar, perseverar ou encerrar?']
+                },
+                {
+                    id: 4, nome: 'Demo Day na Feira', desc: 'Semana 6 - Apresentar para banca',
+                    tarefas: ['Preparar Pitch Deck com dados REAIS', 'Ensaiar 5+ vezes', 'Montar stand profissional', 'Pitch para banca + interação com visitantes']
+                },
+                {
+                    id: 5, nome: 'Apresentação Final', desc: 'Avaliação',
+                    tarefas: ['Demonstrar startup completa com métricas', 'Avaliar decisão de continuidade', 'Documentar aprendizados', 'Avaliar trabalho em equipe']
+                }
+            ],
+            'p9-1B': [ // 📈 Fundo de Investimento Estudantil
+                {
+                    id: 1, nome: 'Tese de Investimento', desc: 'Semana 1 - Definir estratégia',
+                    tarefas: ['Estudar os tipos de ativos disponíveis', 'Definir tese de investimento (setor, perfil, horizonte)', 'Criar regras do fundo (máximo por ativo, stop loss)', 'Fazer alocação inicial dos R$100K']
+                },
+                {
+                    id: 2, nome: 'Operações Semanais', desc: 'Semana 2-4 - Investir semanalmente',
+                    tarefas: ['Analisar notícias econômicas da semana', 'Decidir movimentações (comprar/vender/manter)', 'Registrar cada operação com justificativa', 'Calcular saldo atualizado']
+                },
+                {
+                    id: 3, nome: 'Relatório Final', desc: 'Semana 4 - Compilar resultados',
+                    tarefas: ['Calcular retorno total do fundo', 'Identificar as 3 melhores e 3 piores decisões', 'Criar gráfico de evolução do patrimônio', 'Escrever relatório: estratégia + resultados + lições']
+                },
+                {
+                    id: 4, nome: 'Feira', desc: 'Semana 5 - Apresentar performance',
+                    tarefas: ['Criar dashboard visual grande (cartolina)', 'Montar timeline das decisões-chave', 'Pitch: nossa tese → nossas decisões → nossos resultados', 'Comparar performance com índice Ibovespa do período']
+                },
+                {
+                    id: 5, nome: 'Apresentação Final', desc: 'Avaliação',
+                    tarefas: ['Demonstrar performance completa', 'Avaliar decisões tomadas', 'Documentar aprendizados', 'Avaliar trabalho em equipe']
+                }
+            ],
+            'p9-1C': [ // ❤️ Incubadora Social
+                {
+                    id: 1, nome: 'Problema Social + Modelo', desc: 'Semana 1-2 - Identificar oportunidade',
+                    tarefas: ['Mapear problemas sociais locais (saúde, educação, meio ambiente)', 'Entrevistar 15+ pessoas afetadas', 'Criar Teoria da Mudança: Se fizermos X → acontece Y → impacto Z', 'Definir modelo de negócio: como gera receita resolvendo o problema?']
+                },
+                {
+                    id: 2, nome: 'MVP de Impacto', desc: 'Semana 3-4 - Construir e medir',
+                    tarefas: ['Construir MVP mínimo', 'Lançar e medir: impacto social + receita', 'Coletar depoimentos dos beneficiários', 'Documentar: antes vs. depois']
+                },
+                {
+                    id: 3, nome: 'Apresentação + Feira', desc: 'Semana 5 - Apresentar incubadora',
+                    tarefas: ['Montar stand: Teoria da Mudança visual + MVP + métricas de impacto', 'Preparar pitch explicando modelo de negócio', 'Demonstrar impacto gerado', 'Interagir com visitantes']
+                },
+                {
+                    id: 4, nome: 'Avaliação de Impacto', desc: 'Medir resultados',
+                    tarefas: ['Calcular métricas de impacto social', 'Avaliar sustentabilidade financeira', 'Documentar aprendizados', 'Planejar continuidade']
+                },
+                {
+                    id: 5, nome: 'Apresentação Final', desc: 'Avaliação',
+                    tarefas: ['Demonstrar projeto completo', 'Avaliar equilíbrio lucro x impacto', 'Documentar aprendizados', 'Avaliar trabalho em equipe']
+                }
+            ],
+            // 9º ANO - 2º SEMESTRE
+            'p9-2A': [ // 🏆 Demo Day — O Grande Pitch
+                {
+                    id: 1, nome: 'Preparação do Evento', desc: 'Semana 1 - Organizar',
+                    tarefas: ['Definir banca avaliadora', 'Selecionar startups participantes', 'Criar evento e cronograma', 'Convidar público e investidores']
+                },
+                {
+                    id: 2, nome: 'Coaching', desc: 'Semana 2 - Apoiar startups',
+                    tarefas: ['Ajustar pitches individuais', 'Ensinar apresentação profissional', 'Simular Q&A', 'Preparar para perguntas difíceis']
+                },
+                {
+                    id: 3, nome: 'Logística', desc: 'Semana 3 - Organizar dia do evento',
+                    tarefas: ['Setup do espaço físico', 'Testar equipamentos de áudio/vídeo', 'Receber investidores confirmados', 'Organizar ordem das apresentações']
+                },
+                {
+                    id: 4, nome: 'Apresentação', desc: 'Semana 4 - Dia do Demo Day',
+                    tarefas: ['Startups apresentam (5 min cada)', 'Investidores fazem perguntas', 'Networking entre participantes', 'Anunciar parcerias e investimentos']
+                },
+                {
+                    id: 5, nome: 'Follow-up', desc: 'Manter momentum pós-evento',
+                    tarefas: ['Acompanhar conversas iniciadas', 'Fechar deals pendentes', 'Documentar resultados do evento', 'Planejar próximo Demo Day']
+                }
+            ],
+            'p9-2B': [ // 🏗️ Limoeiro 2040
+                {
+                    id: 1, nome: 'Visão', desc: 'Semana 1 - Sonhar futuro',
+                    tarefas: ['Pesquisar tendências urbanas e tecnológicas', 'Identificar desafios futuros de Limoeiro', 'Envolver comunidade na visão', 'Criar visão compartilhada para 2040']
+                },
+                {
+                    id: 2, nome: 'Pesquisa', desc: 'Semana 2 - Entender realidade',
+                    tarefas: ['Mapear infraestrutura atual', 'Analisar economia local', 'Entrevistar moradores sobre visões de futuro', 'Coletar dados demográficos e econômicos']
+                },
+                {
+                    id: 3, nome: 'Soluções', desc: 'Semana 3 - Criar propostas',
+                    tarefas: ['Brainstorming de soluções inovadoras', 'Selecionar soluções viáveis e de alto impacto', 'Criar protótipos ou maquetes', 'Testar conceitos com comunidade']
+                },
+                {
+                    id: 4, nome: 'Projeto', desc: 'Semana 4 - Detalhar solução',
+                    tarefas: ['Criar projeto detalhado com cronograma', 'Calcular custos de implementação', 'Identificar parceiros potenciais', 'Criar plano de ação']
+                },
+                {
+                    id: 5, nome: 'Apresentação + Advocacy', desc: 'Apresentar para stakeholders',
+                    tarefas: ['Apresentar para autoridades (prefeitura, câmara)', 'Buscar parceiros para implementação', 'Documentar proposta completa', 'Avaliar próximo passos']
+                }
+            ],
+            'p9-2C': [ // 🎓 Mentor de Futuro
+                {
+                    id: 1, nome: 'Formação', desc: 'Semana 1 - Aprendendo a mentorar',
+                    tarefas: ['Estudar conceitos de mentoria', 'Criar materiais de apoio', 'Receber treinamento de mentores', 'Observar sessões de mentoria']
+                },
+                {
+                    id: 2, nome: 'Conexão', desc: 'Semana 2 - Conhecer mentorados',
+                    tarefas: ['Selecionar alunos mais novos como mentorados', 'Identificar necessidades individuais', 'Criar pairing mentor-mentorado', 'Definir frequência e formato de encontros']
+                },
+                {
+                    id: 3, nome: 'Acompanhamento', desc: 'Semana 3-4 - Mentorar ativamente',
+                    tarefas: ['Realizar reuniões semanais', 'Compartilhar experiência e conhecimento', 'Ajudar em projetos dos mentorados', 'Dar feedback construtivo']
+                },
+                {
+                    id: 4, nome: 'Impacto', desc: 'Semana 4 - Medir resultados',
+                    tarefas: ['Avaliar progresso dos mentorados', 'Ajustar abordagem se necessário', 'Celebrar conquistas alcançadas', 'Documentar casos de sucesso']
+                },
+                {
+                    id: 5, nome: 'Legado', desc: 'Continuidade do programa',
+                    tarefas: ['Passar bastão para próximos mentores', 'Criar programa estruturado de mentoria', 'Manter contato com mentorados', 'Inspirar outros alunos a se tornarem mentores']
+                }
+            ]
+        };
+
+        // Função para obter etapas de um projeto
+        function getEtapasProjeto(projetoId) {
+            return ETAPAS_POR_PROJETO[projetoId] || ETAPAS_POR_PROJETO['p6-1A']; // Default para primeiro projeto
+        }
+
+        async function init() {
+            App.init();
+            populateProjetoSelect();
+            renderStats();
+            renderProjects();
+            await loadGroupsFromSupabase();
+            setupEvents();
+            App.initModalClose();
+
+            // Update professor button state
+            updateProfessorButton();
+
+            // Dashboard is now visible to everyone
+            renderDashboard();
+
+            // Load logs only for professor
+            if (App.isProfessor()) {
+                loadLogs();
+            }
+        }
+
+        // Carregar grupos do Supabase
+        async function loadGroupsFromSupabase() {
+            try {
+                const data = await DB.listarGrupos();
+                grupos = data || [];
+                await loadProgressFromSupabase();
+                renderGroups();
+                renderStats();
+            } catch (e) {
+                console.error('Erro ao carregar grupos:', e);
+                grupos = [];
+                renderGroups();
+            }
+        }
+
+        // Carregar progresso do Supabase
+        async function loadProgressFromSupabase() {
+            try {
+                progressoDetalhado = [];
+                progresso = {};
+
+                for (const g of grupos) {
+                    if (g.projeto_id) {
+                        const data = await DB.buscarProgresso(g.id, g.projeto_id);
+                        progressoDetalhado = [...progressoDetalhado, ...(data || [])];
+
+                        // Calcula progresso em %
+                        const etapasConcluidas = (data || []).filter(p => p.concluida).length;
+                        const totalEtapas = ETAPAS_POR_PROJETO[g.projeto_id] ? ETAPAS_POR_PROJETO[g.projeto_id].length : 5;
+                        progresso[g.projeto_id] = Math.round((etapasConcluidas / totalEtapas) * 100);
+                    }
+                }
+            } catch (e) {
+                console.error('Erro ao carregar progresso:', e);
+            }
+        }
+
+        // Atualizar progresso de uma etapa
+        async function atualizarProgressoEtapa(grupoId, projetoId, etapa, concluida, anotacoes) {
+            try {
+                await DB.atualizarProgresso(grupoId, projetoId, etapa, concluida, anotacoes);
+
+                // Registrar log
+                const grupo = grupos.find(g => g.id === grupoId);
+                const acao = concluida ? `concluiu` : `atualizou`;
+                await DB.registrarLog('atualizacao_progresso', `${grupo?.nome || 'Grupo'}: Etapa ${etapa} ${acao}`, App.session.user || 'Aluno', { entidadeId: projetoId, ano: grupo?.ano });
+
+                // Recarregar progresso e renderizar
+                await loadProgressFromSupabase();
+                renderGroups();
+                renderDashboard();
+                renderProjects();
+
+                App.showToast(concluida ? 'Etapa concluída!' : 'Progresso salvo');
+            } catch (e) {
+                console.error('Erro ao atualizar progresso:', e);
+                App.showToast('Erro ao salvar: ' + e.message);
+            }
+        }
+
+        // Obter status de uma etapa
+        function getEtapaStatus(grupoId, projetoId, etapaNum) {
+            const etapa = progressoDetalhado.find(p =>
+                p.grupo_id === grupoId &&
+                p.projeto_id === projetoId &&
+                p.etapa === etapaNum
+            );
+            return etapa ? etapa.concluida : false;
+        }
+
+        // Obter anotação de uma etapa
+        function getEtapaAnotacao(grupoId, projetoId, etapaNum) {
+            const etapa = progressoDetalhado.find(p =>
+                p.grupo_id === grupoId &&
+                p.projeto_id === projetoId &&
+                p.etapa === etapaNum
+            );
+            return etapa ? etapa.anotacoes || '' : '';
+        }
+
+        function setupEvents() {
+            // Navigation
+            document.querySelectorAll('.nav-btn[data-view]').forEach(btn => {
+                btn.addEventListener('click', () => setView(btn.dataset.view));
+            });
+
+            // Auth - stays on platform page after login
+            document.getElementById('authForm').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const pass = document.getElementById('authPassword').value;
+                App.submitAuth(pass, null);
+                // After auth, update UI without reload
+                setTimeout(() => {
+                    if (App.isProfessor()) {
+                        updateProfessorButton();
+                        renderGroups();
+                        renderDashboard();
+                        App.showToast('Modo professor ativado');
+                    }
+                }, 300);
+            });
+
+            // Group Form - Salvar no Supabase
+            document.getElementById('groupForm').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const form = e.target;
+                const dados = {
+                    nome: form.nome.value,
+                    ano: parseInt(form.ano.value),
+                    projeto: form.projeto.value,
+                    membros: form.membros.value.split('\n').filter(m => m.trim())
+                };
+
+                try {
+                    if (editingGroupId) {
+                        // Atualizar grupo existente
+                        await DB.atualizarGrupo(editingGroupId, {
+                            nome: dados.nome,
+                            projeto_id: dados.projeto,
+                            ano: dados.ano,
+                            membros: dados.membros
+                        });
+                    } else {
+                        // Criar novo grupo
+                        await DB.criarGrupo({
+                            nome: dados.nome,
+                            projeto_id: dados.projeto,
+                            ano: dados.ano,
+                            membros: dados.membros
+                        });
+                        // Registrar log
+                        await DB.registrarLog('criacao_grupo', `Criou grupo "${dados.nome}" - ${dados.ano}º Ano`, App.session.user, { entidadeId: dados.projeto, ano: dados.ano });
+                    }
+
+                    // Recarregar do Supabase
+                    await loadGroupsFromSupabase();
+                    closeModal('groupModal');
+                    form.reset();
+                    App.showToast(editingGroupId ? 'Grupo atualizado!' : 'Grupo criado!');
+                } catch (err) {
+                    alert('Erro ao salvar grupo: ' + err.message);
+                }
+            });
+        }
+
+        function setView(view) {
+            currentView = view;
+            document.querySelectorAll('.view').forEach(v => v.style.display = 'none');
+            document.getElementById(`view-${view}`).style.display = 'block';
+            document.querySelectorAll('.nav-btn[data-view]').forEach(b => {
+                b.classList.toggle('active', b.dataset.view === view);
+            });
+            closeMobileNav();
+        }
+
+        async function refreshData() {
+            App.showToast('🔄 Atualizando...');
+            await loadGroupsFromSupabase();
+            renderGroups();
+            renderDashboard();
+            renderProjects();
+            App.showToast('Dados atualizados!');
+        }
+
+        function handleProfessorClick() {
+            if (App.isProfessor()) {
+                if (confirm('Deseja sair do modo professor?')) {
+                    logoutProfessor();
+                }
+            } else {
+                App.requireAuth('professor', () => {
+                    updateProfessorButton();
+                });
+            }
+        }
+
+        function logoutProfessor() {
+            App.logout();
+            updateProfessorButton();
+            App.showToast('Modo professor encerrado');
+            renderGroups();
+            renderDashboard();
+        }
+
+        function updateProfessorButton() {
+            const btn = document.getElementById('professorBtn');
+            if (App.isProfessor()) {
+                btn.textContent = '🚪 Sair';
+                btn.style.background = 'var(--accent-red)';
+                btn.style.color = '#fff';
+            } else {
+                btn.textContent = 'Professor';
+                btn.style.background = '';
+                btn.style.color = '';
+            }
+        }
+
+        function toggleMobileNav() {
+            const nav = document.getElementById('mainNav');
+            const overlay = document.getElementById('mobileOverlay');
+            const toggle = document.querySelector('.mobile-toggle');
+
+            nav.classList.toggle('open');
+            overlay.classList.toggle('show');
+            toggle.classList.toggle('active');
+            document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+        }
+
+        function closeMobileNav() {
+            const nav = document.getElementById('mainNav');
+            const overlay = document.getElementById('mobileOverlay');
+            const toggle = document.querySelector('.mobile-toggle');
+
+            nav.classList.remove('open');
+            overlay.classList.remove('show');
+            toggle.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function requireAuth(level) {
+            if (App.isProfessor()) {
+                // Already logged in as professor, reload to show delete buttons
+                window.location.reload();
+                return;
+            }
+            App.requireAuth(level, () => {
+                // After successful auth, reload to show delete buttons
+                window.location.reload();
+            });
+        }
+
+        function renderStats() {
+            document.getElementById('landingStats').innerHTML = `
+                <div class="stat-c"><div class="stat-n">${PROJETOS.length}</div><div class="stat-l">projetos</div></div>
+                <div class="stat-c"><div class="stat-n">6º-9º</div><div class="stat-l">anos</div></div>
+                <div class="stat-c"><div class="stat-n">2</div><div class="stat-l">semestres</div></div>
+                <div class="stat-c"><div class="stat-n">${grupos.length}</div><div class="stat-l">grupos</div></div>
+            `;
+        }
+
+        function populateProjetoSelect() {
+            const select = document.getElementById('projetoSelect');
+            select.innerHTML = PROJETOS.map(p =>
+                `<option value="${p.id}">${p.ano}º Ano - ${p.title}</option>`
+            ).join('');
+        }
+
+        function renderProjects() {
+            const filtered = currentFilter === 'all'
+                ? PROJETOS
+                : PROJETOS.filter(p => p.ano === parseInt(currentFilter));
+
+            const container = document.getElementById('projectsGrid');
+
+            if (!filtered.length) {
+                container.innerHTML = App.renderEmpty('Nenhum projeto encontrado');
+                return;
+            }
+
+            container.innerHTML = filtered.map(p => {
+                const projProgress = progresso[p.id] || 0;
+                return `
+                    <div class="project-card" onclick="openProject('${p.id}')">
+                        <div class="project-card-top">
+                            <span class="badge badge-${p.ano}">${p.ano}º Ano</span>
+                            <span class="badge" style="background:var(--bg-surface2);color:var(--text-muted)">${p.sem}º Sem</span>
+                        </div>
+                        <div class="project-title">${p.title}</div>
+                        <div class="project-desc">${p.desc}</div>
+                        <div class="progress-wrap">
+                            <div class="progress-label"><span>Progresso</span><span>${projProgress}%</span></div>
+                            <div class="progress-bar"><div class="progress-fill" style="width:${projProgress}%"></div></div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function renderGroups() {
+            const container = document.getElementById('groupsGrid');
+
+            if (!grupos || !grupos.length) {
+                container.innerHTML = App.renderEmpty('Nenhum grupo criado ainda');
+                return;
+            }
+
+            const isProfessor = App.isProfessor();
+
+            container.innerHTML = grupos.map(g => {
+                // Supabase usa projeto_id, membros é array
+                const projetoId = g.projeto_id;
+                const p = PROJETOS.find(proj => proj.id === projetoId);
+                const membrosArray = Array.isArray(g.membros) ? g.membros : [];
+                const projProgress = progresso[projetoId] || 0;
+                const deleteBtn = isProfessor ? `<button class="btn btn-danger btn-sm" style="margin-left: 0.5rem; background: #dc2626; color: white; padding: 6px 12px; border: none; border-radius: 6px; cursor: pointer;" onclick="event.stopPropagation();deleteGroup('${g.id}')">🗑️ Excluir</button>` : '';
+                return `
+                    <div class="group-card" onclick="openGroup('${g.id}')">
+                        <div class="group-name">${g.nome}</div>
+                        <div class="group-members">
+                            ${membrosArray.map(m => `<span class="member-chip">${m}</span>`).join('')}
+                        </div>
+                        <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+                            ${p ? p.title : 'Projeto não selecionado'} - ${g.ano}º Ano
+                        </div>
+                        <div class="progress-wrap">
+                            <div class="progress-label"><span>Progresso</span><span>${projProgress}%</span></div>
+                            <div class="progress-bar"><div class="progress-fill" style="width:${projProgress}%"></div></div>
+                        </div>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button class="btn btn-secondary btn-sm" onclick="event.stopPropagation();openGroupForm('${g.id}')">Editar</button>
+                            ${deleteBtn}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        async function deleteGroup(id) {
+            if (!confirm('Tem certeza que deseja EXCLUIR este grupo? Esta ação não pode ser desfeita!')) return;
+            const grupo = grupos.find(g => g.id === id);
+            const grupoNome = grupo ? grupo.nome : id;
+            try {
+                await DB.excluirGrupo(id);
+                // Registrar log
+                await DB.registrarLog('exclusao_grupo', `Excluiu grupo "${grupoNome}"`, App.session.user, { ano: grupo?.ano });
+                grupos = grupos.filter(g => g.id !== id);
+                renderGroups();
+                renderDashboard();
+                alert('Grupo excluído com sucesso!');
+            } catch (e) {
+                console.error('Erro ao excluir grupo:', e);
+                // Se falhar no banco, remove localmente
+                grupos = grupos.filter(g => g.id !== id);
+                renderGroups();
+                renderDashboard();
+                alert('Grupo removido da lista.');
+            }
+        }
+
+        // Dashboard Functions
+        let dashboardFilter = 'all';
+
+        function renderDashboard() {
+            const container = document.getElementById('dashboardGrid');
+            const logsSection = document.getElementById('logsSection');
+
+            // Show/hide logs section based on professor status
+            if (logsSection) {
+                logsSection.style.display = App.isProfessor() ? 'block' : 'none';
+            }
+
+            const statsContainer = document.getElementById('dashboardStats');
+
+            // Filter groups
+            let filteredGroups = grupos;
+            if (dashboardFilter !== 'all') {
+                filteredGroups = grupos.filter(g => g.ano === parseInt(dashboardFilter));
+            }
+
+            // Calculate stats
+            const total = filteredGroups.length;
+            const concluidos = filteredGroups.filter(g => {
+                const p = progresso[g.projeto_id] || 0;
+                return p === 100;
+            }).length;
+            const emAndamento = total - concluidos;
+            const mediaProgresso = total > 0
+                ? Math.round(filteredGroups.reduce((acc, g) => acc + (progresso[g.projeto_id] || 0), 0) / total)
+                : 0;
+
+            // Render stats
+            statsContainer.innerHTML = `
+                <div class="stat-c"><div class="stat-n">${total}</div><div class="stat-l">Grupos</div></div>
+                <div class="stat-c"><div class="stat-n" style="color: var(--accent-green);">${concluidos}</div><div class="stat-l">Concluídos</div></div>
+                <div class="stat-c"><div class="stat-n" style="color: var(--csm-gold);">${emAndamento}</div><div class="stat-l">Em Andamento</div></div>
+                <div class="stat-c"><div class="stat-n">${mediaProgresso}%</div><div class="stat-l">Média Progresso</div></div>
+            `;
+
+            if (!filteredGroups || !filteredGroups.length) {
+                container.innerHTML = App.renderEmpty('Nenhum grupo encontrado');
+                return;
+            }
+
+            container.innerHTML = filteredGroups.map(g => {
+                const projetoId = g.projeto_id;
+                const p = PROJETOS.find(proj => proj.id === projetoId);
+                const membrosArray = Array.isArray(g.membros) ? g.membros : [];
+                const projProgress = progresso[projetoId] || 0;
+
+                // Color coding based on progress
+                let progressColor = 'var(--csm-red)';
+                let progressLabel = 'Iniciando';
+                if (projProgress >= 40 && projProgress < 70) {
+                    progressColor = 'var(--csm-gold)';
+                    progressLabel = 'Em Andamento';
+                } else if (projProgress >= 70 && projProgress < 100) {
+                    progressColor = 'var(--accent-blue)';
+                    progressLabel = 'Quase Concluído';
+                } else if (projProgress === 100) {
+                    progressColor = 'var(--accent-green)';
+                    progressLabel = 'Concluído';
+                }
+
+                const etapaAtual = Math.ceil((projProgress / 100) * 5);
+
+                return `
+                    <div class="group-card" onclick="openGroup('${g.id}')" style="border-left: 4px solid ${progressColor};">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                            <div class="group-name">${g.nome}</div>
+                            <span style="font-size: 0.75rem; padding: 2px 8px; border-radius: 10px; background: ${progressColor}20; color: ${progressColor}; font-weight: 600;">${progressLabel}</span>
+                        </div>
+                        <div class="group-members">
+                            ${membrosArray.map(m => `<span class="member-chip">${m}</span>`).join('')}
+                        </div>
+                        <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.5rem;">
+                            ${p ? p.title : 'Projeto não selecionado'} - ${g.ano}º Ano
+                        </div>
+                        <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.5rem;">
+                            📍 Etapa ${etapaAtual} de 5
+                        </div>
+                        <div class="progress-wrap">
+                            <div class="progress-label"><span>Progresso</span><span style="color: ${progressColor}; font-weight: 600;">${projProgress}%</span></div>
+                            <div class="progress-bar"><div class="progress-fill" style="width:${projProgress}%; background: ${progressColor};"></div></div>
+                        </div>
+                        <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
+                            <button class="btn btn-secondary btn-sm" onclick="event.stopPropagation();openGroup('${g.id}')">Ver Detalhes</button>
+                            <button class="btn btn-danger btn-sm" style="background: #dc2626; color: white; padding: 6px 12px; border: none; border-radius: 6px; cursor: pointer;" onclick="event.stopPropagation();deleteGroup('${g.id}')">🗑️</button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function filterDashboard(filter, btn) {
+            dashboardFilter = filter;
+            document.querySelectorAll('#view-dashboard .tabs .tab').forEach(t => t.classList.remove('active'));
+            btn.classList.add('active');
+            renderDashboard();
+        }
+
+        // Log Functions
+        let logFilter = 'all';
+
+        async function loadLogs() {
+            if (!App.isProfessor()) return;
+            try {
+                const logs = await DB.buscarLogs({ limite: 50 });
+                renderLogs(logs);
+            } catch (e) {
+                console.warn('Erro ao carregar logs:', e);
+                document.getElementById('logsContainer').innerHTML = '<p style="color: var(--text-muted);">Erro ao carregar registros.</p>';
+            }
+        }
+
+        async function renderLogs(logs) {
+            const container = document.getElementById('logsContainer');
+
+            if (!logs || logs.length === 0) {
+                container.innerHTML = '<p style="color: var(--text-muted); padding: 1rem;">Nenhum registro encontrado.</p>';
+                return;
+            }
+
+            // Filter logs
+            let filteredLogs = logs;
+            if (logFilter !== 'all') {
+                filteredLogs = logs.filter(l => l.tipo === logFilter);
+            }
+
+            container.innerHTML = filteredLogs.map(log => {
+                let icon = '📝';
+                let color = 'var(--text)';
+                switch (log.tipo) {
+                    case 'login': icon = '🔑'; color = '#3b82f6'; break;
+                    case 'criacao_grupo': icon = '🟢'; color = '#22c55e'; break;
+                    case 'exclusao_grupo': icon = '🔴'; color = '#ef4444'; break;
+                    case 'atualizacao_progresso': icon = '🔵'; color = '#0ea5e9'; break;
+                }
+
+                const data = new Date(log.created_at);
+                const dataFormatada = data.toLocaleDateString('pt-BR');
+                const horaFormatada = data.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+
+                return `
+                    <div style="padding: 0.75rem; margin-bottom: 0.5rem; background: var(--bg-surface); border-radius: 8px; border-left: 3px solid ${color};">
+                        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
+                            <span style="font-size: 0.9rem;">${icon}</span>
+                            <span style="font-size: 0.75rem; color: var(--text-muted);">${dataFormatada} - ${horaFormatada}</span>
+                        </div>
+                        <div style="font-size: 0.85rem;">${log.descricao}</div>
+                        <div style="font-size: 0.7rem; color: var(--text-dim);">Por: ${log.usuario || 'Sistema'}</div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function filterLogs(filter, btn) {
+            logFilter = filter;
+            document.querySelectorAll('#view-dashboard .tabs .tab').forEach(t => t.classList.remove('active'));
+            btn.classList.add('active');
+            loadLogs();
+        }
+
+        function filterProjects(filter, btn) {
+            currentFilter = filter;
+            document.querySelectorAll('.tabs .tab').forEach(t => t.classList.remove('active'));
+            btn.classList.add('active');
+            renderProjects();
+        }
+
+        function openGroupForm(id = null) {
+            editingGroupId = id;
+            const title = document.getElementById('groupModalTitle');
+            const form = document.getElementById('groupForm');
+
+            if (id) {
+                const g = grupos.find(gr => gr.id === id);
+                const membrosArray = Array.isArray(g.membros) ? g.membros : [];
+                title.textContent = 'Editar Grupo';
+                form.nome.value = g.nome;
+                form.ano.value = g.ano;
+                form.projeto.value = g.projeto_id || g.projeto;
+                form.membros.value = membrosArray.join('\n');
+            } else {
+                title.textContent = 'Novo Grupo';
+                form.reset();
+            }
+
+            openModal('groupModal');
+        }
+
+        function openGroup(id) {
+            const g = grupos.find(gr => gr.id === id);
+            const p = PROJETOS.find(proj => proj.id === g.projeto_id);
+            const membrosArray = Array.isArray(g.membros) ? g.membros : [];
+
+            if (!g.projeto_id || !p) {
+                alert('Selecione um projeto para este grupo primeiro!');
+                return;
+            }
+
+            // Determinar tipo de projeto baseado no título
+            const titulo = p.title.toLowerCase();
+            let tipoProjeto = 'default';
+            if (titulo.includes('feira') || titulo.includes('venda') || titulo.includes('loja')) tipoProjeto = 'vendas';
+            else if (titulo.includes('consultoria') || titulo.includes('mapa')) tipoProjeto = 'consultoria';
+            else if (titulo.includes('startup') || titulo.includes('hackathon') || titulo.includes('fintech')) tipoProjeto = 'startup';
+
+            const etapas = getEtapasProjeto(tipoProjeto);
+
+            const etapasHTML = etapas.map(etapa => {
+                const concluida = getEtapaStatus(g.id, g.projeto_id, etapa.id);
+                const anotacao = getEtapaAnotacao(g.id, g.projeto_id, etapa.id);
+                const etapaConcluida = concluida ? '✅ Concluída' : '⏳ Pendente';
+                const checkboxId = `etapa-${etapa.id}`;
+                const textAreaId = `anotacao-${etapa.id}`;
+
+                // Função para gerar detalhes explicativos baseados no título da tarefa
+                const getTaskDetails = (taskTitle) => {
+                    const details = {
+                        'Pesquisar o que os alunos querem comprar': 'Pergunte aos colegas de outras turmas. Anote tudo o que eles gostariam de comprar na feira!',
+                        'Verificar preço de mercado': 'Pesquise em lojas ou internet quanto custa cada produto. Assim você sabe se seu preço está justo.',
+                        'Definir produtos iniciais': 'Escolha 5-10 produtos que você vai vender. Comece com coisas simples e populares.',
+                        'Listar 5 produtos mínimos': 'Faça uma lista com nome, quantidade e preço de custo de cada produto.',
+                        'Calcular custo de cada produto': 'Some tudo: preço de compra, transporte, embalagem. Anote em uma planilha.',
+                        'Definir preço de venda com margem': 'Multiplique o custo por 1,5 ou 2 para ter lucro. Ex: custou R$1,00 → venda R$2,00',
+                        'Calcular lucro esperado': 'Se vender 50 unidades, quanto você vai lucrar? (preço venda - preço custo) × quantidade',
+                        'Criar planilha de custos': 'Use Google Sheets ou caderno para registrar: produto, custo, preço, lucro esperado.',
+                        'Definir local da feira': 'Escolha um lugar de muito movimento na escola. Pergunte à coordenação onde será.',
+                        'Criar décor do stand': 'Use papel colorido, balões, banners. Quanto mais atraente, mais clientes!',
+                        'Preparar sacolas/trocos': 'Leve sacolinhas para as compras e dinheiro troco (R$5, R$10, R$20).',
+                        'Organizar produtos': 'Coloque os produtos em cima da mesa de forma organizada e visível.',
+                        'Atender clientes com sorriso': 'Sorria! Cumprimente bem. Pergunte: "O que você quer comprar hoje?"',
+                        'Dar troco correto': 'Sempre conta duas vezes. Receba o dinheiro, faça a conta, devolva o troco.',
+                        'Anotar vendas': 'A cada venda, anote o produto e valor. Use uma caderneta ou celular.',
+                        'Contar dinheiro final': 'No final, conte quanto entrou. Compare com o esperado. O que vendeu mais?',
+                        'Calcular lucro real': 'Subtraia: Total vendido - Custos = Lucro real. Quanto você ganhou?',
+                        'O que vendeu mais?': 'Analise sua lista. Qual produto foi o mais procurado? Por quê?',
+                        'O que faria diferente?': 'Pense: mudaria produtos? Preços? Organização? Anote as lições.',
+                        'Apresentar resultados': 'Conte para a turma o que aprendeu. Mostre os números!',
+                        'Criar planilha de gastos': 'Abra o Notas do celular ou Google Sheets. Faça colunas: data, item, valor, categoria.',
+                        'Registrar gastos por 1 semana': 'Anote TUDO que gastar: lanche, transporte, jogos. Não pode esquecer nada!',
+                        'Classificar em categorias': 'Agrupe: alimentação, lazer, material, transporte. Quanto gastou em cada?',
+                        'Identificar desperdícios': 'Veja onde você gastou em coisas que não precisava. Anote para melhorar.',
+                        'Criar gráficos de gastos': 'Use cores diferentes para cada categoria. Gráficos de pizza mostram bem a proporção.',
+                        'Identificar padrões': 'Você gasta mais em determinados dias? Sempre compra a mesma coisa? Descubra!',
+                        'Detectar hábitos bons e ruins': 'Bom: economia. Ruim: compras por impulso. Liste os seus hábitos.',
+                        'Comparar com colegas': 'Conversem em grupo. Quem gasta mais? O que podem aprender?',
+                        'Sugerir mudanças práticas': 'Ex: levar lanche de casa, usar transporte público, comprar só o necessário.',
+                        'Calcular economia potencial': 'Se mudar esse hábito, quanto vai economizar por semana? Por mês?',
+                        'Criar alertas de gastos': 'Programe um alarme no celular para lembrar de pensar antes de comprar.',
+                        'Estabelecer metas': 'Defina: "Vou economizar R$20 por semana". Anote e acompanhe!',
+                        'Aplicar novas regras': 'Comece HOJE a colocar em prática as mudanças que você planejou.',
+                        'Acompanhar resultados semanais': 'A cada semana, veja quanto economizou. Está cumprindo a meta?',
+                        'Ajustar estratégias': 'Se algo não está funcionando, mude. O importante é melhorar!',
+                        'Manter disciplina': 'É difícil no início, mas com tempo vira hábito. Não desista!',
+                        'Criar apresentação visual': 'Faça um poster ou slides com seus gráficos e descobertas.',
+                        'Mostrar economia realizada': 'Conte quanto conseguiu economizar. Mostre os números!',
+                        'Dar dicas para outros': 'O que funcionou para você? Ensine os colegas!',
+                        'Documentar aprendizados': 'Escreva um pequeno relatório do que você aprendeu.',
+                        'Escolher tema empreendedorismo': 'Pode ser: orçamento, investimento, criação de empresa, marketing.',
+                        'Definir público-alvo': 'Para quem é o jogo? Colegas da mesma série? Crianças menores?',
+                        'Criar objetivo educativo': 'O que o jogador vai aprender ao final? Ex: "Aprender a calcular lucro".',
+                        'Escolher tipo de jogo': 'Tabuleiro, cartas, RPG, quiz? Pense no que combina com o tema.',
+                        'Criar regras básicas': 'Quantos jogadores? Como ganhar? Quais as regras principais? Escreva!',
+                        'Definir turnos': 'Quem joga primeiro? Quanto tempo por turno? Como passar a vez?',
+                        'Criar cartas ou tabuleiro': 'Desenhe as cartas com perguntas/desafios. Desenhe o tabuleiro.',
+                        'Testar lógica': 'Jogue com seu grupo primeiro. As regras fazem sentido? Está divertido?',
+                        'Montar tabuleiro/cartas': 'Recorte, cole, pinte. Use materiais simples: papelão, cartolina, EVA.',
+                        'Criar peças': 'Pequenos objetos: botões, tampas, peças de LEGO. O importante é funcionar!',
+                        'Definir estética visual': 'Escolha cores, fontes, estilo visual. Tudo precisa parecer coerente.',
+                        'Produzir componentes': 'Faça todas as cartas, organize em categorias. Embalagem conta pontos!',
+                        'Testar com amigos': 'Convide colegas para jogar. Observe o que confunde ou diverte.',
+                        'Ajustar dificuldade': 'Fica fácil demais? Muito difícil? Ajuste as regras.',
+                        'Corrigir regras': 'Se alguém não entendeu algo, melhore a explicação ou a regra.',
+                        'Refinar componentes': 'Se algo quebrou ou ficou feio, conserte agora.',
+                        'Explicar objetivo': 'Conte: o que ensina? Para quem é? Por que é legal?',
+                        'Demonstrar partida': 'Jogue uma rodada rápida mostrando como funciona.',
+                        'Ensinar a jogar': 'Seja paciente. Mostre passo a passo para todos conseguirem jogar.',
+                        'Receber feedback': 'Ouça o que os colegas acharam. Anote sugestões!',
+                        'Observar a escola por 3 dias': 'Anote tudo que parece um problema: coisas quebradas, lentidão, barulho.',
+                        'Listar 10 problemas encontrados': 'Escreva: cantina lotada, biblioteca pequena, falta de bicicletário, etc.',
+                        'Priorizar os mais urgentes': 'Qual problema afeta mais pessoas? Qual é mais fácil de resolver?',
+                        'Escolher 1 problema': 'Selecione UM problema para resolver. Focar em um é melhor!',
+                        'Entrevistar afetados': 'Fale com quem passa pelo problema. Faça perguntas: "O que te incomoda?"',
+                        'Pesquisar soluções existentes': 'Busque na internet: alguém já criou algo parecido? Como resolveram?',
+                        'Analisar causas raiz': 'Pergunte "por quê?" 5 vezes para chegar à causa original do problema.',
+                        'Buscar inspirações': 'Veja inventos similares. YouTube é ótimo para isso!',
+                        'Fazer brainstorming': 'Sem julgamento! Anote todas as ideias, mesmo as malucas.',
+                        'Criar 3 soluções': 'Desenhe 3 formas diferentes de resolver o problema.',
+                        'Escolher melhor solução': 'Qual é mais prática? Mais econômica? Mais divertida? Escolha!',
+                        'Fazer protótipo simples': 'Com materiais simples: caixa, papel, fita. Teste se funciona!',
+                        'Apresentar para afetados': 'Mostre seu protótipo para quem tem o problema. Pedir opinião.',
+                        'Coletar feedback': 'O que acharam? O que melhoraria? Anote tudo!',
+                        'Ajustar protótipo': 'Com as opiniões, melhore seu invento. Iterar é fundamental.',
+                        'Refinar ideia': 'Deixe a solução mais clara e funcional.',
+                        'Criar maquete/protótipo': 'Monte uma versão melhorada. Pode ser em tamanho pequeno.',
+                        'Preparar pitch': 'Fale em 2 minutos: problema, solução, benefícios, custo.',
+                        'Apresentar para banca': 'Demonstre para professor e colegas. Responda perguntas.',
+                        'Documentar processo': 'Escreva ou desenhe como chegou à solução.',
+                        'Pesquisar problemas locais': 'O que falta no bairro? Creche, hospital, abrigo, comida? Pesquise!',
+                        'Escolher causa': 'Selecione UM problema para ajudar. Algo que você se conecta emocionalmente.',
+                        'Entender público-alvo': 'Para quem você vai ajudar? Crianças? Idosos? Animais? Defina.',
+                        'Definir objetivo': 'O que você quer alcançar? Arrecadar dinheiro, doar roupas, conscientização?',
+                        'Definir tipo de campanha': 'Arrecadação? Sensibilização? Trabalho voluntário? Escolha o formato.',
+                        'Criar mensagem': 'Frase de impacto: "Cada alimentodoa, uma vida salva". Seja claro!',
+                        'Planejar canais': 'Como vai atingir as pessoas? Redes sociais, flyers, apresentações?',
+                        'Arrecadar recursos': 'O que precisa: caixas, sacolas, conta bancária, parceiros?',
+                        'Divulgar nas redes': 'Poste fotos, vídeos, stories. Peça para amigos compartilharem!',
+                        'Mobilizar participantes': 'Convide colegas para ajudar. Distribua tarefas.',
+                        'Coletar doações/ajuda': 'Esteja presente nos locais combinados. Receba com alegria!',
+                        'Registrar tudo': 'Fotografe, faça vídeos. Documente para apresentar depois.',
+                        'Quantificar resultados': 'Quantas pessoas ajudadas? Quanto arrecadado? Números importam!',
+                        'Documentar histórias': 'Conte casos reais de quem foi ajudado. Histórias emocionam!',
+                        'Agradecer participantes': 'Mande mensagem, faça certificados. Agradecer é fundamental!',
+                        'Avaliar eficácia': 'O que funcionou? O que melhoraria? Aprenda para próxima vez.',
+                        'Criar apresentação': 'Slides com: causa, processo, resultados, aprendizados.',
+                        'Mostrar impacto gerado': 'Números + histórias = impacto forte!',
+                        'Apresentar à escola': 'Conte para todos na formatura ou reunião.',
+                        'Propor continuidade': 'A campanha pode continuar? Como manter o impacto?',
+                        'Listar possíveis entrevistados': 'Pense em pessoas interessantes: empreendedor local, professor, atleta.',
+                        'Pesquisar histórias': 'Busque informações: onde trabalha? O que fez de especial? Por que inspirar?',
+                        'Fazer convite formal': 'Crie um texto educado explicando o projeto e convidando.',
+                        'Confirmar presença': 'Entre em contato, mande lembretes, combine data/hora/local.',
+                        'Criar roteiro de perguntas': 'Escreva 10-15 perguntas. Inclua: origem, desafios, conquistas, dicas.',
+                        'Definir formato do programa': 'Duração: 15-30 min. Estrutura: abertura, entrevista, perguntas, encerramento.',
+                        'Preparar equipamento': 'Celular com tripé, microfone (opcional), iluminação boa, fundo organizado.',
+                        'Testar áudio/vídeo': 'Grave um teste de 1 minuto. Ouça e veja se está bom!',
+                        'Receber convidado': 'Chegue cedo, organize o espaço, receba com água e café.',
+                        'Conduzir entrevista': 'Siga o roteiro, mas seja flexível. Ouça com atenção. Sorria!',
+                        'Gravar com qualidade': 'Sem movimentos bruscos. Fale claro. Keep o celular parado.',
+                        'Fazer fotos': 'Tire fotos do convidado para usar na thumbnail e divulgação.',
+                        'Editar vídeo': 'Corte partes ruins, junte momentos bons. Use CapCut, InShot ou similar.',
+                        'Adicionar legendas': 'Muitos assistem sem som. Legendas são essenciais!',
+                        'Criar thumbnails': 'Imagem de capa com: foto do convidado + título grande + cores fortes.',
+                        'Publicar em plataforma': 'YouTube, Instagram, TikTok. Escolha onde seu público está.',
+                        'Postar nas redes': 'Stories, feed, grupos. Peça para amigos compartilharem!',
+                        'Enviar para escola': 'Compartilhe com professores e coordenação. Orgulho!',
+                        'Coletar feedback': 'O que acharam? O que melhorar para o próximo episódio?',
+                        'Planejar próximo episódio': 'Quem entrevistar? Qual tema? Já deixe preparado!'
+                    };
+                    return details[taskTitle] || 'Complete esta tarefa com atenção e dedicação.';
+                };
+
+                const tarefasHTML = etapa.tarefas ? etapa.tarefas.map((t, idx) => {
+                    const titulo = typeof t === 'string' ? t : t.titulo;
+                    const detalhe = typeof t === 'string' ? getTaskDetails(titulo) : t.detalhe;
+                    return `<li style="font-size: 0.85rem; margin-bottom: 0.5rem; padding: 0.5rem; background: var(--bg-surface); border-radius: 6px; border-left: 3px solid var(--csm-gold);">
+                        <strong>${idx + 1}. ${titulo}</strong><br>
+                        <span style="color: var(--text-muted); font-size: 0.75rem;">${detalhe}</span>
+                    </li>`;
+                }).join('') : '';
+
+                return `
+                    <div class="etapa-card ${concluida ? 'concluida' : ''}" style="margin-bottom: 1rem; padding: 1rem; background: var(--bg-surface2); border-radius: 8px; border-left: 4px solid ${concluida ? 'var(--accent-green)' : 'var(--bg-surface3)'}">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+                            <div style="flex: 1;">
+                                <strong>Etapa ${etapa.id}: ${etapa.nome}</strong>
+                                <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.5rem;">${etapa.desc}</div>
+                                ${tarefasHTML ? `<div style="background: var(--bg-surface); padding: 0.5rem; border-radius: 6px; margin-top: 0.5rem;"><strong style="font-size: 0.8rem;">Tarefas:</strong><ul style="margin: 0.25rem 0 0 1rem;">${tarefasHTML}</ul></div>` : ''}
+                            </div>
+                            <label for="${checkboxId}" style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; margin-left: 1rem;">
+                                <input type="checkbox" id="${checkboxId}" ${concluida ? 'checked' : ''} 
+                                    onchange="atualizarProgressoEtapa('${g.id}', '${g.projeto_id}', ${etapa.id}, this.checked, document.getElementById('${textAreaId}')?.value || '')">
+                                <span>${etapaConcluida}</span>
+                            </label>
+                        </div>
+                        <div style="margin-top: 0.5rem;">
+                            <label for="${textAreaId}" style="font-size: 0.85rem; color: var(--text-muted);">Anotações:</label>
+                            <textarea id="${textAreaId}" rows="2" style="width: 100%; margin-top: 0.25rem; padding: 0.5rem; background: var(--bg-surface); border: 1px solid var(--border); border-radius: 6px; color: var(--text);" 
+                                placeholder="O que você fez nesta etapa?" onchange="atualizarProgressoEtapa('${g.id}', '${g.projeto_id}', ${etapa.id}, document.getElementById('${checkboxId}').checked, this.value)">${anotacao}</textarea>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            const modalContent = `
+                <div style="max-width: 600px;">
+                    <h2 style="margin-bottom: 0.5rem;">${g.nome}</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 1rem;">
+                        <strong>Projeto:</strong> ${p.title} | 
+                        <strong>Ano:</strong> ${g.ano}º | 
+                        <strong>Membros:</strong> ${membrosArray.join(', ')}
+                    </p>
+                    
+                    <div style="margin-bottom: 1.5rem;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span>Progresso Total</span>
+                            <span>${progresso[g.projeto_id] || 0}%</span>
+                        </div>
+                        <div style="background: var(--bg-surface3); height: 12px; border-radius: 6px; overflow: hidden;">
+                            <div style="background: linear-gradient(90deg, var(--accent-green), var(--accent-blue)); height: 100%; width: ${progresso[g.projeto_id] || 0}%; transition: width 0.3s;"></div>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin-bottom: 1rem;">Etapas do Projeto</h3>
+                    ${etapasHTML}
+                    
+                    <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border);">
+                        <button type="button" class="btn btn-primary" style="width: 100%;" onclick="fecharProgressoModal()">
+                            💾 Salvar Progresso
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('progressoModalContent').innerHTML = modalContent;
+            openModal('progressoModal');
+        }
+
+        function fecharProgressoModal() {
+            closeModal('progressoModal');
+            App.showToast('Progresso salvo!');
+        }
+
+        function openProject(id) {
+            const p = PROJETOS.find(proj => proj.id === id);
+            alert(`Projeto: ${p.title}\nAno: ${p.ano}º\nSemestre: ${p.sem}º\n\nEm breve você podrá acompanhar o progresso deste projeto.`);
+        }
+
+        function toggleTheme() {
+            App.toggleTheme();
+        }
+
+        function closeModal(id) {
+            App.closeModal(id);
+        }
+
+        function openModal(id) {
+            App.openModal(id);
+        }
+
+        // Iniciar
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+    <script src="../js/theme-toggle.js"></script>
+</body>
+
+</html>

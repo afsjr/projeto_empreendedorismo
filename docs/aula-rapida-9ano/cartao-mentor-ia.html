@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartão Mentor IA — Startup Sprint 9º Ano</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #7c3aed;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+            z-index: 1000;
+        }
+
+        .print-button:hover { background: #6d28d9; }
+
+        .cartao {
+            background: white;
+            border: 3px solid #7c3aed;
+            border-radius: 16px;
+            padding: 25px;
+            max-width: 210mm;
+            margin: 0 auto 30px;
+            page-break-after: always;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .cartao-header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #f59e0b;
+        }
+
+        .cartao-header h1 {
+            font-size: 28px;
+            color: #7c3aed;
+            font-weight: 800;
+        }
+
+        .cartao-header p {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .introducao {
+            background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .introducao h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .introducao p {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .perguntas-section {
+            margin-bottom: 20px;
+        }
+
+        .perguntas-section h3 {
+            font-size: 18px;
+            color: #7c3aed;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .pergunta-box {
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 15px;
+            background: #fafafa;
+        }
+
+        .pergunta-box h4 {
+            font-size: 14px;
+            color: #7c3aed;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pergunta-box p {
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .pergunta-box .linha {
+            border-bottom: 1.5px dashed #ccc;
+            min-height: 25px;
+            margin-top: 5px;
+        }
+
+        .prompt-section {
+            background: #fef3c7;
+            border: 2px solid #f59e0b;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .prompt-section h3 {
+            color: #d97706;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .prompt-box {
+            background: #1a1a2e;
+            color: #22c55e;
+            border-radius: 8px;
+            padding: 15px;
+            font-family: monospace;
+            font-size: 12px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .prompt-example {
+            border: 2px dashed #d97706;
+            border-radius: 8px;
+            padding: 15px;
+            background: white;
+        }
+
+        .prompt-example h4 {
+            font-size: 13px;
+            color: #d97706;
+            margin-bottom: 10px;
+        }
+
+        .prompt-example p {
+            font-size: 12px;
+            font-style: italic;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .dicas-box {
+            background: #d1fae5;
+            border: 2px solid #10b981;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .dicas-box h3 {
+            color: #059669;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .dicas-box ul {
+            padding-left: 20px;
+        }
+
+        .dicas-box li {
+            margin-bottom: 8px;
+            font-size: 13px;
+            color: #333;
+        }
+
+        .metodologias-box {
+            background: #e0e7ff;
+            border: 2px solid #6366f1;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .metodologias-box h3 {
+            color: #4338ca;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .metodo-item {
+            background: white;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 10px;
+        }
+
+        .metodo-item h4 {
+            font-size: 14px;
+            color: #4338ca;
+            margin-bottom: 5px;
+        }
+
+        .metodo-item p {
+            font-size: 12px;
+            color: #555;
+        }
+
+        .footer-box {
+            background: #f5f3ff;
+            border: 2px dashed #7c3aed;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .footer-box p {
+            font-size: 14px;
+            color: #6d28d9;
+            font-weight: 600;
+        }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .print-button { display: none; }
+            .cartao {
+                box-shadow: none;
+                margin: 0;
+                padding: 15px;
+                border: 2px solid #7c3aed;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-button" onclick="window.print()">🖨️ Imprimir Cartão</button>
+
+    <div class="cartao">
+        <div class="cartao-header">
+            <h1>🤖 CARTÃO MENTOR IA</h1>
+            <p>9º Ano | Startup Sprint | CSM 2026</p>
+        </div>
+
+        <div class="introducao">
+            <h2>🚀 Seu Consultor Estratégico</h2>
+            <p>Use o AI (ChatGPT, Claude, Gemini) para inspirar ideias, validar conceitos e melhorar sua startup durante o desafio!</p>
+        </div>
+
+        <div class="perguntas-section">
+            <h3>💡 Perguntas Prontas para o Mentor IA</h3>
+
+            <div class="pergunta-box">
+                <h4>🎯 Sobre Problemas</h4>
+                <p>"Quais problemas reais os adolescentes [14-15 anos] enfrentam no dia a dia na escola/comunidade que poderiam ser resolvidos com uma solução inovadora?"</p>
+            </div>
+
+            <div class="pergunta-box">
+                <h4>💡 Sobre Soluções</h4>
+                <p>"Como criar uma solução inovadora para [problema] que seja diferente do que já existe no mercado?"</p>
+            </div>
+
+            <div class="pergunta-box">
+                <h4>💎 Sobre Proposta de Valor</h4>
+                <p>"Como formular uma proposta de valor clara para [público] que precisa de [benefício]?"</p>
+            </div>
+
+            <div class="pergunta-box">
+                <h4>🏗️ Sobre MVP</h4>
+                <p>"Qual seria o menor produto viável (MVP) suficiente para testar se [solução] resolve [problema]?"</p>
+            </div>
+
+            <div class="pergunta-box">
+                <h4>💰 Sobre Modelo de Receita</h4>
+                <p>"Quais são os modelos de receita mais comuns para startups de [setor]? Qual faria mais sentido para [público]?"</p>
+            </div>
+
+            <div class="pergunta-box">
+                <h4>✅ Sobre Validação</h4>
+                <p>"Que perguntas deveria fazer para validar se [solução] realmente resolve o problema de [público]?"</p>
+            </div>
+        </div>
+
+        <div class="prompt-section">
+            <h3>📝 Prompts Prontos para Copiar e Colar</h3>
+
+            <div class="prompt-box">
+// Prompt 1: Gerar ideias de problemas
+"Atue como empreendedor especialista. Liste 5 problemas reais que adolescentes de 14-15 anos enfrentam na escola brasileira que podrían ser resolvidos com uma startup."
+
+// Prompt 2: Validar solução
+"Atue como consultor de startups. Analise esta ideia: [descreva]. Diga se resolves um problema real e por quê."
+
+// Prompt 3: Melhorar proposta de valor
+"Atua como especialista em marketing. Melhore esta proposta de valor: 'Para [público], minha solução é [produto] que [benefício]'. Made it mais compelling."
+
+// Prompt 4: Criar modelo de receita
+"Atua como consultor financeiro. Liste 3 modelos de receita possíveis para uma startup que resolve [problema], com pros e contras de cada."
+            </div>
+
+            <div class="prompt-example">
+                <h4>💡 Exemplo de uso:</h4>
+                <p>"Atue como empreendedor. Quais são os 5 maiores problemas que alunos do 9º ano enfrentam no dia a dia na escola?"</p>
+            </div>
+        </div>
+
+        <div class="dicas-box">
+            <h3>⚡ Dicas para Usar o Mentor IA</h3>
+            <ul>
+                <li><strong>Seja específico:</strong> Diga "alunos do 9º ano" em vez de "jovens"</li>
+                <li><strong>Itere:</strong> Use a resposta para gerar novas perguntas</li>
+                <li><strong>Valide:</strong> Não aceite tudo — use seu julgamento crítico</li>
+                <li><strong>Contexto:</strong> Lembre que é para contexto educacional, não comercial</li>
+                <li><strong>Criatividade:</strong> Use para inspirations, não para copiar ideias</li>
+            </ul>
+        </div>
+
+        <div class="metodologias-box">
+            <h3>📚 Conceitos-Chave para Consulta</h3>
+
+            <div class="metodo-item">
+                <h4>🎯 Design Thinking</h4>
+                <p>Empatizar → Definir → Idealizar → Prototipar → Testar</p>
+            </div>
+
+            <div class="metodo-item">
+                <h4>🚀 Lean Startup</h4>
+                <p>Build → Measure → Learn (construir, medir, aprender)</p>
+            </div>
+
+            <div class="metodo-item">
+                <h4>🏗️ MVP (Minimum Viable Product)</h4>
+                <p>Menor versão do produto que resolve o problema core</p>
+            </div>
+
+            <div class="metodo-item">
+                <h4>💎 Proposta de Valor</h4>
+                <p>Por que cliente paga? Qual benefício único?</p>
+            </div>
+        </div>
+
+        <div class="footer-box">
+            <p>🤖 Lembre-se: O Mentor IA é uma ferramenta para inspirar — o trabalho criativo é seu!</p>
+            <p style="font-size: 12px; margin-top: 10px; color: #666;">Imprima este cartão e tenha ele acessível durante o desafio</p>
+        </div>
+    </div>
+
+</body>
+</html>

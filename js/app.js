@@ -1,0 +1,454 @@
+// ========================================
+// APP JS - Lógica Principal
+// Empreendedores CSM
+// ========================================
+
+const App = {
+    // Configurações
+    config: {
+        anoAtual: '2026',
+        turmas: ['6º Ano', '7º Ano', '8º Ano', '9º Ano'],
+        anos: [6, 7, 8, 9],
+        StorageKey: 'ee_csm_data',
+        SessionKey: 'ee_csm_session'
+    },
+
+    // Estado da sessão
+    session: {
+        level: null, // 'aluno', 'professor', 'master'
+        user: null
+    },
+
+    // ========================================
+    // INICIALIZAÇÃO
+    // ========================================
+    
+    init() {
+        this.loadSession();
+        this.initTheme();
+        this.updateThemeButton();
+        this.initTabs();
+        this.initMobileMenu();
+        this.initModalClose();
+        console.log('✅ App inicializado');
+    },
+
+    // ========================================
+    // SESSÃO
+    // ========================================
+
+    loadSession() {
+        try {
+            const data = JSON.parse(sessionStorage.getItem(this.config.SessionKey));
+            if (data && (Date.now() - data.t) < 1800000) {
+                this.session = { level: data.l, user: data.u };
+            }
+        } catch (e) {
+            this.session = { level: null, user: null };
+        }
+    },
+
+    saveSession(level, user = null) {
+        sessionStorage.setItem(this.config.SessionKey, JSON.stringify({
+            l: level,
+            u: user,
+            t: Date.now()
+        }));
+        this.session = { level, user };
+    },
+
+    clearSession() {
+        sessionStorage.removeItem(this.config.SessionKey);
+        this.session = { level: null, user: null };
+    },
+
+    isLogged() {
+        return this.session.level !== null;
+    },
+
+    isProfessor() {
+        return this.session.level === 'professor' || this.session.level === 'master';
+    },
+
+    isMaster() {
+        return this.session.level === 'master';
+    },
+
+    // ========================================
+    // TEMA
+    // ========================================
+
+    initTheme() {
+        const theme = localStorage.getItem('ee_csm_theme') || 'dark';
+        if (theme === 'light') {
+            document.body.classList.add('light');
+        } else if (theme === 'neo') {
+            this.setNeoTheme(true, false);
+        } else if (theme === 'neo-dark') {
+            this.setNeoTheme(true, true);
+        }
+        this.createThemeButton();
+    },
+
+    createThemeButton() {
+        if (document.querySelector('.theme-toggle')) return;
+        
+        const btn = document.createElement('button');
+        btn.className = 'theme-toggle';
+        btn.onclick = () => this.toggleTheme();
+        btn.style.cssText = 'position:fixed;bottom:20px;right:20px;z-index:9999;width:50px;height:50px;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 4px 12px rgba(0,0,0,0.2);';
+        
+        document.body.appendChild(btn);
+        this.updateThemeButton();
+    },
+
+    setNeoTheme(active, isDark = false) {
+        if (active) {
+            document.body.classList.add('neo-mode');
+            if (isDark) document.body.classList.add('dark-neo');
+            else document.body.classList.remove('dark-neo');
+
+            if (!document.getElementById('neo-styles')) {
+                const link = document.createElement('link');
+                link.id = 'neo-styles';
+                link.rel = 'stylesheet';
+                const isSubpage = window.location.pathname.includes('/pages/');
+                link.href = isSubpage ? '../css/styles-neo.css' : 'css/styles-neo.css';
+                document.head.appendChild(link);
+            }
+        } else {
+            document.body.classList.remove('neo-mode');
+            document.body.classList.remove('dark-neo');
+            const link = document.getElementById('neo-styles');
+            if (link) link.remove();
+        }
+    },
+
+    toggleTheme() {
+        const current = localStorage.getItem('ee_csm_theme') || 'dark';
+        let next = 'dark';
+        
+        if (current === 'dark') next = 'light';
+        else if (current === 'light') next = 'neo';
+        else if (current === 'neo') next = 'neo-dark';
+        else next = 'dark';
+        
+        // Reset all
+        document.body.classList.remove('light');
+        this.setNeoTheme(false);
+        
+        // Set next
+        if (next === 'light') {
+            document.body.classList.add('light');
+        } else if (next === 'neo') {
+            this.setNeoTheme(true, false);
+        } else if (next === 'neo-dark') {
+            this.setNeoTheme(true, true);
+        }
+        
+        localStorage.setItem('ee_csm_theme', next);
+        this.updateThemeButton();
+    },
+
+    updateThemeButton() {
+        const btn = document.querySelector('.theme-toggle');
+        if (!btn) return;
+        
+        const theme = localStorage.getItem('ee_csm_theme') || 'dark';
+        if (theme === 'light') btn.textContent = '☀️';
+        else if (theme === 'neo') btn.textContent = '⚡';
+        else if (theme === 'neo-dark') btn.textContent = '🕶️';
+        else btn.textContent = '🌙';
+    },
+
+    // ========================================
+    // TABS
+    // ========================================
+
+    initTabs() {
+        document.querySelectorAll('.tabs').forEach(tabs => {
+            const buttons = tabs.querySelectorAll('.tab');
+            const contents = tabs.parentElement.querySelectorAll('.tab-content');
+            
+            buttons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const target = btn.dataset.tab;
+                    
+                    buttons.forEach(b => b.classList.remove('active'));
+                    contents.forEach(c => c.classList.remove('active'));
+                    
+                    btn.classList.add('active');
+                    const content = document.getElementById(target);
+                    if (content) content.classList.add('active');
+                });
+            });
+        });
+    },
+
+    // ========================================
+    // MOBILE MENU
+    // ========================================
+
+    initMobileMenu() {
+        const toggle = document.querySelector('.mobile-toggle');
+        const sidebar = document.querySelector('.sidebar');
+        const overlay = document.querySelector('.overlay');
+        
+        if (toggle && sidebar) {
+            toggle.addEventListener('click', () => {
+                sidebar.classList.toggle('open');
+                if (overlay) overlay.classList.toggle('show');
+            });
+            
+            if (overlay) {
+                overlay.addEventListener('click', () => {
+                    sidebar.classList.remove('open');
+                    overlay.classList.remove('show');
+                });
+            }
+        }
+    },
+
+    // ========================================
+    // MODAIS
+    // ========================================
+
+    openModal(id) {
+        const modal = document.getElementById(id);
+        if (modal) modal.classList.add('active');
+    },
+
+    closeModal(id) {
+        const modal = document.getElementById(id);
+        if (modal) modal.classList.remove('active');
+    },
+
+    // Fechar modal ao clicar fora
+    initModalClose() {
+        document.querySelectorAll('.modal-overlay').forEach(overlay => {
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) {
+                    overlay.classList.remove('active');
+                }
+            });
+        });
+    },
+
+    // ========================================
+    // AUTENTICAÇÃO SIMPLES
+    // ========================================
+
+    authCallback: null,
+
+    requireAuth(level, callback) {
+        const required = level || 'professor';
+        
+        if (required === 'professor' && this.isProfessor()) {
+            callback();
+            return;
+        }
+        if (required === 'master' && this.isMaster()) {
+            callback();
+            return;
+        }
+        
+        this.authCallback = callback;
+        this.openModal('authModal');
+    },
+
+    submitAuth(password, redirectUrl = 'pages/admin.html') {
+        const MASTER_PASS = 'empreendedorismocsm2026';
+        const PROF_PASS = 'adelino_csm@santamonicaceq';
+        
+        if (password === MASTER_PASS) {
+            this.saveSession('master', 'Admin Master');
+            this.closeModal('authModal');
+            if (window.DB && window.DB.registrarLog) {
+                window.DB.registrarLog('login', 'Login como Admin Master', 'Admin Master');
+            }
+            if (this.authCallback) {
+                this.authCallback();
+                this.authCallback = null;
+            } else if (redirectUrl) {
+                window.location.href = redirectUrl;
+            }
+        } else if (password === PROF_PASS) {
+            this.saveSession('professor', 'Professor');
+            this.closeModal('authModal');
+            if (window.DB && window.DB.registrarLog) {
+                window.DB.registrarLog('login', 'Login como Professor', 'Professor');
+            }
+            if (this.authCallback) {
+                this.authCallback();
+                this.authCallback = null;
+            } else if (redirectUrl) {
+                window.location.href = redirectUrl;
+            }
+        } else {
+            const error = document.getElementById('authError');
+            if (error) {
+                error.style.display = 'block';
+                error.textContent = 'Senha incorreta. Tente novamente.';
+            }
+        }
+    },
+
+    logout() {
+        this.clearSession();
+    },
+
+    // ========================================
+    // FORMULÁRIOS
+    // ========================================
+
+    getFormData(formId) {
+        const form = document.getElementById(formId);
+        if (!form) return {};
+        
+        const data = {};
+        new FormData(form).forEach((value, key) => {
+            data[key] = value;
+        });
+        return data;
+    },
+
+    // ========================================
+    // DADOS LOCAIS (LOCALSTORAGE)
+    // ========================================
+
+    loadLocalData() {
+        try {
+            return JSON.parse(localStorage.getItem(this.config.StorageKey)) || {};
+        } catch (e) {
+            return {};
+        }
+    },
+
+    saveLocalData(data) {
+        try {
+            localStorage.setItem(this.config.StorageKey, JSON.stringify(data));
+        } catch (e) {
+            console.error('Erro ao salvar dados:', e);
+        }
+    },
+
+    // ========================================
+    // RENDERIZAÇÃO
+    // ========================================
+
+    renderSpinner() {
+        return `<div class="loading"><div class="spinner"></div><p>Carregando...</p></div>`;
+    },
+
+    renderEmpty(message = 'Nenhum dado encontrado') {
+        return `<div class="empty-state">
+            <div class="empty-state-icon">📭</div>
+            <h3 class="empty-state-title">Nada aqui ainda</h3>
+            <p class="empty-state-text">${message}</p>
+            <button class="btn btn-primary" onclick="App.refreshData && App.refreshData()">Tentar Novamente</button>
+        </div>`;
+    },
+
+    renderSkeleton(count = 3) {
+        return `<div class="skeleton-card" style="margin-bottom: 1rem;">
+            ${Array(count).fill('<div class="skeleton skeleton-card"></div>').join('')}
+        </div>`;
+    },
+
+    renderError(message) {
+        return `<div class="empty-state">
+            <div class="empty-state-icon">⚠️</div>
+            <h3 class="empty-state-title">Algo deu errado</h3>
+            <p class="empty-state-text">${message}</p>
+            <button class="btn btn-primary" onclick="location.reload()">Recarregar Página</button>
+        </div>`;
+    },
+
+    // ========================================
+    // DATA/HORA
+    // ========================================
+
+    formatDate(timestamp) {
+        if (!timestamp) return '-';
+        const date = new Date(timestamp);
+        return date.toLocaleDateString('pt-BR', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric'
+        });
+    },
+
+    formatDateTime(timestamp) {
+        if (!timestamp) return '-';
+        const date = new Date(timestamp);
+        return date.toLocaleDateString('pt-BR') + ' ' + 
+               date.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+    },
+
+    // ========================================
+    // NOTIFICAÇÕES
+    // ========================================
+
+    showToast(message, type = 'info') {
+        let container = document.getElementById('toastContainer');
+        if (!container) {
+            container = document.createElement('div');
+            container.id = 'toastContainer';
+            container.className = 'toast-container';
+            document.body.appendChild(container);
+        }
+        
+        const toast = document.createElement('div');
+        const icons = {
+            info: 'ℹ️',
+            success: '✅',
+            error: '❌',
+            warning: '⚠️'
+        };
+        toast.className = `toast toast-${type}`;
+        toast.innerHTML = `<span>${icons[type] || icons.info}</span><span>${message}</span>`;
+        
+        container.appendChild(toast);
+        
+        setTimeout(() => {
+            toast.classList.add('hiding');
+            setTimeout(() => toast.remove(), 300);
+        }, 3000);
+    },
+
+    // ========================================
+    // EXPORTAR
+    // ========================================
+
+    exportToCSV(data, filename) {
+        if (!data.length) return;
+        
+        const headers = Object.keys(data[0]);
+        const csv = [
+            headers.join(','),
+            ...data.map(row => headers.map(h => JSON.stringify(row[h] || '')).join(','))
+        ].join('\n');
+        
+        const blob = new Blob([csv], { type: 'text/csv' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        a.click();
+    }
+};
+
+// Inicializar quando DOM estiver pronto
+document.addEventListener('DOMContentLoaded', () => {
+    App.init();
+    
+    // Registrar Service Worker
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js')
+            .then((reg) => console.log('[SW] Registered:', reg.scope))
+            .catch((err) => console.warn('[SW] Failed:', err));
+    }
+});
+
+// Exportar para uso global
+window.App = App;

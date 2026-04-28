@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade Startup — Para Você! 🎯</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Dyslexic:wght@400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Open Dyslexic', 'Outfit', sans-serif;
+            background: #f0fdf4;
+            padding: 20px;
+            line-height: 1.8;
+        }
+
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #16a34a;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .cartao {
+            background: white;
+            border: 4px solid #16a34a;
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 210mm;
+            margin: 0 auto 30px;
+            page-break-after: always;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 4px dashed #16a34a;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            color: #16a34a;
+            font-weight: 800;
+        }
+
+        .header p {
+            font-size: 16px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .nome-section {
+            background: #d1fae5;
+            border: 3px solid #10b981;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .nome-section label {
+            font-size: 18px;
+            font-weight: 700;
+            color: #059669;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .linha {
+            border-bottom: 3px dotted #10b981;
+            min-height: 40px;
+            padding: 5px;
+            font-size: 18px;
+        }
+
+        .etapa {
+            background: #fef3c7;
+            border: 3px solid #f59e0b;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .etapa-numero {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: #f59e0b;
+            color: white;
+            border-radius: 50%;
+            font-weight: 800;
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        .etapa-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #d97706;
+            display: inline;
+            vertical-align: middle;
+        }
+
+        .etapa-tempo {
+            display: block;
+            background: #f59e0b;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 10px;
+            width: fit-content;
+        }
+
+        .etapa-instrucao {
+            font-size: 16px;
+            color: #333;
+            margin-top: 15px;
+            margin-left: 55px;
+        }
+
+        .opcoes {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin: 15px 0 15px 55px;
+        }
+
+        .opcao {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .opcao .emoji {
+            font-size: 32px;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .opcao .texto {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .resposta {
+            margin-left: 55px;
+            margin-top: 15px;
+        }
+
+        .resposta label {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .resposta .linha {
+            border-bottom: 3px solid #f59e0b;
+            min-height: 40px;
+            padding: 5px;
+        }
+
+        .dica {
+            background: #e0f2fe;
+            border-left: 5px solid #0ea5e9;
+            border-radius: 0 10px 10px 0;
+            padding: 15px;
+            margin: 15px 0 15px 55px;
+        }
+
+        .dica .icone {
+            font-size: 24px;
+            margin-right: 5px;
+        }
+
+        .dica .texto {
+            font-size: 14px;
+            color: #0369a1;
+        }
+
+        .mvp-box {
+            background: #f5f3ff;
+            border: 3px solid #7c3aed;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0 20px 55px;
+        }
+
+        .mvp-box h3 {
+            color: #6d28d9;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .mvp-exemplos {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .mvp-item {
+            background: white;
+            border: 2px dashed #7c3aed;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            font-size: 14px;
+            color: #6d28d9;
+        }
+
+        .bonus {
+            background: #fce7f3;
+            border: 3px dashed #ec4899;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .bonus h3 {
+            color: #be1857;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .bonus .pergunta {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .bonus .linha {
+            border-bottom: 3px dotted #ec4899;
+        }
+
+        .estrelas {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 32px;
+        }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .print-button { display: none; }
+            .cartao { box-shadow: none; padding: 20px; }
+        }
+
+        @media (max-width: 768px) {
+            .opcoes { grid-template-columns: 1fr; }
+            .mvp-exemplos { grid-template-columns: 1fr; }
+            .etapa-instrucao, .resposta, .dica, .mvp-box { margin-left: 0; }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-button" onclick="window.print()">🖨️ Imprimir</button>
+
+    <div class="cartao">
+        <div class="header">
+            <h1>🚀 MINHA STARTUP</h1>
+            <p>Feito por você! ✨ | 9º Ano | CSM</p>
+        </div>
+
+        <div class="nome-section">
+            <label>👤 Meu nome:</label>
+            <div class="linha"></div>
+        </div>
+
+        <div class="nome-section">
+            <label>🚀 Nome da minha startup:</label>
+            <div class="linha"></div>
+        </div>
+
+        <!-- ETAPA 1: Problema -->
+        <div class="etapa">
+            <span class="etapa-numero">1</span>
+            <span class="etapa-title">Qual problema?</span>
+            <span class="etapa-tempo">⏱️ 3 minutos</span>
+            
+            <p class="etapa-instrucao">Pense em um problema que você conhece na escola ou em casa:</p>
+            
+            <div class="opcoes">
+                <div class="opcao">
+                    <span class="emoji">🍎</span>
+                    <span class="texto">Fome na escola</span>
+                </div>
+                <div class="opcao">
+                    <span class="emoji">📚</span>
+                    <span class="texto">Falta de livros</span>
+                </div>
+                <div class="opcao">
+                    <span class="emoji">🚌</span>
+                    <span class="texto">Transporte difícil</span>
+                </div>
+                <div class="opcao">
+                    <span class="emoji">💤</span>
+                    <span class="texto">Cansaço</span>
+                </div>
+            </div>
+
+            <div class="resposta">
+                <label>Eu vou resolver o problema de:</label>
+                <div class="linha"></div>
+            </div>
+
+            <div class="resposta">
+                <label>Esse problema é:</label>
+                <div class="linha"></div>
+            </div>
+
+            <div class="dica">
+                <span class="icone">💡</span>
+                <span class="texto">Dica: Escolha um problema que você conhece bem!</span>
+            </div>
+        </div>
+
+        <!-- ETAPA 2: Solução -->
+        <div class="etapa">
+            <span class="etapa-numero">2</span>
+            <span class="etapa-title">Qual solução?</span>
+            <span class="etapa-tempo">⏱️ 4 minutos</span>
+            
+            <p class="etapa-instrucao">Como você vai resolver esse problema?</p>
+
+            <div class="resposta">
+                <label>Minha solução é:</label>
+                <div class="linha"></div>
+            </div>
+
+            <div class="resposta">
+                <label>Algo diferente que ela faz:</label>
+                <div class="linha"></div>
+            </div>
+
+            <div class="dica">
+                <span class="icone">💡</span>
+                <span class="texto">Dica: Pense em algo que você gostaria de usar!</span>
+            </div>
+        </div>
+
+        <!-- ETAPA 3: Produto -->
+        <div class="etapa">
+            <span class="etapa-numero">3</span>
+            <span class="etapa-title">Como seria o produto?</span>
+            <span class="etapa-tempo">⏱️ 4 minutos</span>
+            
+            <p class="etapa-instrucao">Desenhe ou descreva seu produto:</p>
+
+            <div class="mvp-box">
+                <h3>🏗️ Exemplos de produto (MVP):</h3>
+                <div class="mvp-exemplos">
+                    <div class="mvp-item">📱 App no celular</div>
+                    <div class="mvp-item">📄 Cartaz/Poster</div>
+                    <div class="mvp-item">🎒 Caixa/Bolsa</div>
+                    <div class="mvp-item">🥪 Lanche/Bebida</div>
+                </div>
+            </div>
+
+            <div class="resposta">
+                <label>Meu produto seria:</label>
+                <div class="linha"></div>
+                <div class="linha"></div>
+            </div>
+        </div>
+
+        <!-- ETAPA 4: Por que pagar? -->
+        <div class="etapa">
+            <span class="etapa-numero">4</span>
+            <span class="etapa-title">Por que alguém pagaria?</span>
+            <span class="etapa-tempo">⏱️ 3 minutos</span>
+            
+            <div class="resposta">
+                <label>As pessoas pagariam porque:</label>
+                <div class="linha"></div>
+            </div>
+
+            <div class="resposta">
+                <label>Quanto custaria para fazer?</label>
+                <div class="linha">R$</div>
+            </div>
+
+            <div class="resposta">
+                <label>Quanto cobraria?</label>
+                <div class="linha">R$</div>
+            </div>
+        </div>
+
+        <!-- Bônus -->
+        <div class="bonus">
+            <h3>⭐ Bônus! (+25 pontos)</h3>
+            <p class="pergunta">Se você tivesse R$ 50,00, como usaria para melhorar sua startup?</p>
+            <div class="linha"></div>
+            <div class="linha"></div>
+        </div>
+
+        <div class="estrelas">
+            <p>Você consegue! 🌟</p>
+        </div>
+    </div>
+
+</body>
+</html>

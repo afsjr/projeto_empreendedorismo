@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startup Sprint Acessível — Versão Neurodiversa</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Open+Dyslexic&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Open Dyslexic', 'Outfit', sans-serif;
+            background: #f0fdf4;
+            padding: 30px;
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            border: 4px solid #16a34a;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 4px solid #16a34a;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            color: #16a34a;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .header .emoji {
+            font-size: 60px;
+            margin-bottom: 10px;
+        }
+
+        .info-box {
+            background: #d1fae5;
+            border: 3px solid #10b981;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .info-box h2 {
+            color: #059669;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .info-box p {
+            font-size: 18px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .objetivos-box {
+            background: #fef3c7;
+            border: 3px solid #f59e0b;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .objetivos-box h2 {
+            color: #d97706;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .objetivos-box ol {
+            padding-left: 25px;
+        }
+
+        .objetivos-box li {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .tempo-section {
+            background: #e0e7ff;
+            border: 3px solid #6366f1;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .tempo-section h2 {
+            color: #4338ca;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .tempo-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+        }
+
+        .tempo-item .emoji {
+            font-size: 36px;
+        }
+
+        .tempo-item .texto {
+            font-size: 16px;
+        }
+
+        .tempo-item .duracao {
+            background: #6366f1;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .apoio-section {
+            background: #fce7f3;
+            border: 3px solid #ec4899;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .apoio-section h2 {
+            color: #be1857;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .apoio-section ul {
+            padding-left: 20px;
+        }
+
+        .apoio-section li {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #16a34a;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(22, 163, 74, 0.3);
+            z-index: 1000;
+        }
+
+        .print-button:hover {
+            background: #15803d;
+        }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .print-button { display: none; }
+            .container { box-shadow: none; padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-button" onclick="window.print()">🖨️ Imprimir</button>
+
+    <div class="container">
+        <div class="header">
+            <div class="emoji">🚀</div>
+            <h1>STARTUP SPRINT ACESSÍVEL</h1>
+            <p style="font-size: 18px; color: #666;">Versão especial para você brilhar! ✨</p>
+        </div>
+
+        <div class="info-box">
+            <h2>📅 Quando é a aula?</h2>
+            <p>30 minutos | 9º Ano | Com ajuda do(a) auxiliar(a) 📚</p>
+        </div>
+
+        <div class="objetivos-box">
+            <h2>🎯 O que você vai aprender?</h2>
+            <ol>
+                <li>Identificar <strong>um problema</strong> real do dia a dia</li>
+                <li>Criar uma <strong>solução</strong> criativa para esse problema</li>
+                <li>Desenhar como seria o <strong>produto</strong> (MVP)</li>
+                <li>Contar sua ideia no <strong>pitch</strong> (1 minuto)</li>
+            </ol>
+        </div>
+
+        <div class="tempo-section">
+            <h2>⏱️ Como vai funcionar o tempo?</h2>
+
+            <div class="tempo-item">
+                <span class="emoji">🎬</span>
+                <span class="texto">Abertura — O professor conta a história</span>
+                <span class="duracao">3 min</span>
+            </div>
+
+            <div class="tempo-item">
+                <span class="emoji">💡</span>
+                <span class="texto">Você trabalha no seu projeto com ajuda</span>
+                <span class="duracao">17 min</span>
+            </div>
+
+            <div class="tempo-item">
+                <span class="emoji">🎤</span>
+                <span class="texto">Apresentar sua ideia para a turma</span>
+                <span class="duracao">7 min</span>
+            </div>
+
+            <div class="tempo-item">
+                <span class="emoji">🏆</span>
+                <span class="texto">Premiação e elogios!</span>
+                <span class="duracao">3 min</span>
+            </div>
+        </div>
+
+        <div class="apoio-section">
+            <h2>🤝 Como o(a) auxiliar(a) vai ajudar?</h2>
+            <ul>
+                <li>Ler as perguntas para você</li>
+                <li>Escrever suas respostas se preciso</li>
+                <li>Ajudar a escolher o problema</li>
+                <li>Te apoiar se sentir dificuldade</li>
+                <li>Te acompanhar na apresentação</li>
+                <li><strong>Never reemplazar suas ideias</strong> — elas são suas! 💪</li>
+            </ul>
+        </div>
+
+        <div style="background: #16a34a; color: white; border-radius: 15px; padding: 20px; text-align: center;">
+            <h2 style="font-size: 20px; margin-bottom: 10px;">🌟 Você vai conseguir!</h2>
+            <p style="font-size: 16px;">Não precisa ser perfeito. O importante é tentar e se divertirl!</p>
+            <p style="font-size: 36px; margin-top: 15px;">💚</p>
+        </div>
+    </div>
+</body>
+</html>

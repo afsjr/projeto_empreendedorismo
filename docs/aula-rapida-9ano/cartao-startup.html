@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Startup Sprint — 9º Ano CSM</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #7c3aed;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+            z-index: 1000;
+        }
+
+        .print-button:hover {
+            background: #6d28d9;
+            transform: translateY(-2px);
+        }
+
+        .cartao {
+            background: white;
+            border: 3px solid #7c3aed;
+            border-radius: 16px;
+            padding: 25px;
+            max-width: 210mm;
+            margin: 0 auto 30px;
+            page-break-after: always;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .cartao:last-child {
+            page-break-after: avoid;
+        }
+
+        .cartao-header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #f59e0b;
+        }
+
+        .cartao-header h1 {
+            font-size: 26px;
+            color: #7c3aed;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        .cartao-header h2 {
+            font-size: 16px;
+            color: #f59e0b;
+            font-weight: 600;
+        }
+
+        .cartao-header .subtitle {
+            font-size: 13px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .grupo-info {
+            background: #f5f3ff;
+            border: 2px dashed #7c3aed;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .grupo-info label {
+            display: block;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .grupo-info .linha {
+            border-bottom: 2px dotted #ccc;
+            min-height: 30px;
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+
+        .missao-box {
+            background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .missao-box h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .missao-box p {
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .timer-box {
+            background: #f59e0b;
+            color: #1a1a2e;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .etapa-section {
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 15px;
+            background: #fafafa;
+        }
+
+        .etapa-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .etapa-numero {
+            width: 35px;
+            height: 35px;
+            background: #7c3aed;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 18px;
+        }
+
+        .etapa-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #7c3aed;
+        }
+
+        .campo {
+            margin-bottom: 8px;
+        }
+
+        .campo label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #555;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .campo .linha-resposta {
+            border-bottom: 1.5px solid #ccc;
+            min-height: 25px;
+            padding: 3px;
+        }
+
+        .problema-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            margin: 10px 0;
+        }
+
+        .problema-item {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .problema-item .emoji {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .problema-item .nome {
+            font-size: 13px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .canvas-box {
+            background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+            border: 2px solid #7c3aed;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 15px;
+        }
+
+        .canvas-box h4 {
+            color: #6d28d9;
+            font-size: 18px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .canvas-item {
+            margin-bottom: 10px;
+        }
+
+        .canvas-item label {
+            font-size: 12px;
+            font-weight: 700;
+            color: #6d28d9;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .canvas-item .linha {
+            border-bottom: 1.5px solid #ccc;
+            min-height: 22px;
+            padding: 3px;
+        }
+
+        .mvp-box {
+            background: #fef3c7;
+            border: 2px solid #f59e0b;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        .mvp-box h4 {
+            color: #d97706;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .mvp-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+
+        .mvp-item {
+            background: white;
+            border: 1.5px solid #d97706;
+            border-radius: 6px;
+            padding: 8px;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .validacao-box {
+            background: #d1fae5;
+            border: 2px solid #10b981;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        .validacao-box h4 {
+            color: #059669;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .pontuacao-box {
+            background: #f5f3ff;
+            border: 2px solid #7c3aed;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        .pontuacao-box h4 {
+            color: #6d28d9;
+            font-size: 18px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .pontuacao-tabela {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .pontuacao-tabela th,
+        .pontuacao-tabela td {
+            border: 1.5px solid #7c3aed;
+            padding: 8px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        .pontuacao-tabela th {
+            background: #7c3aed;
+            color: white;
+            font-weight: 700;
+        }
+
+        .pontuacao-tabela td {
+            background: white;
+        }
+
+        .total-box {
+            background: #7c3aed;
+            color: white;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            margin-top: 15px;
+            font-size: 22px;
+            font-weight: 800;
+        }
+
+        .dica-box {
+            background: #e0f2fe;
+            border-left: 4px solid #0ea5e9;
+            border-radius: 8px;
+            padding: 12px;
+            margin: 10px 0;
+        }
+
+        .dica-box p {
+            font-size: 13px;
+            color: #0369a1;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .print-button {
+                display: none;
+            }
+
+            .cartao {
+                box-shadow: none;
+                margin: 0;
+                padding: 20px;
+                page-break-after: always;
+                border: 2px solid #7c3aed;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-button" onclick="window.print()">🖨️ Imprimir Cartões</button>
+
+    <!-- GRUPO 1 -->
+    <div class="cartao">
+        <div class="cartao-header">
+            <h1>🚀 STARTUP SPRINT</h1>
+            <h2>Desafio Rápido — Grupo 1</h2>
+            <p class="subtitle">9º Ano | Startup Real | CSM 2026</p>
+        </div>
+
+        <div class="grupo-info">
+            <label>👥 Nomes dos fundadores:</label>
+            <div class="linha"></div>
+            <div class="linha"></div>
+            <div class="linha"></div>
+            <div class="linha"></div>
+            <label>🚀 Nome da Startup:</label>
+            <div class="linha"></div>
+        </div>
+
+        <div class="missao-box">
+            <h3>🎯 SUA MISSÃO</h3>
+            <p>Vocês têm <strong>15 minutos</strong> para criar uma startup: identificar problema real, criar solução, definir proposta de valor, desenhar MVP e validar!</p>
+        </div>
+
+        <div class="timer-box">
+            ⏱️ TEMPO: 15 MINUTOS — VALER!
+        </div>
+
+        <!-- ETAPA 1: Problema -->
+        <div class="etapa-section">
+            <div class="etapa-header">
+                <div class="etapa-numero">1</div>
+                <div class="etapa-title">Identificar Problema (3 min)</div>
+            </div>
+            <p style="font-size: 13px; color: #666; margin-bottom: 10px;">Escolham UM problema real que podem resolver:</p>
+            
+            <div class="problema-options">
+                <div class="problema-item">
+                    <div class="emoji">🍎</div>
+                    <div class="nome">Fome na escola</div>
+                </div>
+                <div class="problema-item">
+                    <div class="emoji">📚</div>
+                    <div class="nome">Falta de materiais</div>
+                </div>
+                <div class="problema-item">
+                    <div class="emoji">🚌</div>
+                    <div class="nome">Transporte ruim</div>
+                </div>
+                <div class="problema-item">
+                    <div class="emoji">♻️</div>
+                    <div class="nome">Lixo reciclável</div>
+                </div>
+            </div>
+
+            <div class="campo">
+                <label>Problema identificado:</label>
+                <div class="linha-resposta"></div>
+            </div>
+            <div class="campo">
+                <label>Quem sofre com esse problema? (público):</label>
+                <div class="linha-resposta"></div>
+            </div>
+
+            <div class="dica-box">
+                <p>💡 <strong>Dica:</strong> Problema deve ser específico e real. "Fome" não resolved — "Alunos famintos às 10h" sim!</p>
+            </div>
+        </div>
+
+        <!-- ETAPA 2: Solução -->
+        <div class="etapa-section">
+            <div class="etapa-header">
+                <div class="etapa-numero">2</div>
+                <div class="etapa-title">Criar Solução (3 min)</div>
+            </div>
+            <p style="font-size: 13px; color: #666; margin-bottom: 10px;">Como sua startup resolve esse problema?</p>
+            
+            <div class="campo">
+                <label>Solução proposta:</label>
+                <div class="linha-resposta"></div>
+            </div>
+            <div class="campo">
+                <label>O que é único/inovador na solução?</label>
+                <div class="linha-resposta"></div>
+            </div>
+
+            <div class="dica-box">
+                <p>💡 <strong>Dica:</strong> Solução deve ser algo que não existe ainda ou que mejora существующее.</p>
+            </div>
+        </div>
+
+        <!-- ETAPA 3: Proposta de Valor -->
+        <div class="etapa-section">
+            <div class="etapa-header">
+                <div class="etapa-numero">3</div>
+                <div class="etapa-title">Proposta de Valor (3 min)</div>
+            </div>
+            <p style="font-size: 13px; color: #666; margin-bottom: 10px;">Por que alguém pagaria pela sua solução?</p>
+            
+            <div class="campo">
+                <label>Proposta de valor (complete):</label>
+                <div class="linha-resposta"><strong>Para [público]</strong> que precisa de <strong>[necessidade]</strong>, minha solução é <strong>[produto/serviço]</strong> que <strong>[benefício]</strong>.</div>
+            </div>
+
+            <div class="dica-box">
+                <p>💡 <strong>Exemplo:</strong> "Para alunos famintos que precisam de energia, minha máquina é um delivery de snacks saudáveis que entrega em 5 minutos."</p>
+            </div>
+        </div>
+
+        <!-- ETAPA 4: MVP -->
+        <div class="etapa-section">
+            <div class="etapa-header">
+                <div class="etapa-numero">4</div>
+                <div class="etapa-title">Desenhar MVP (3 min)</div>
+            </div>
+            <p style="font-size: 13px; color: #666; margin-bottom: 10px;">MVP = Minimum Viable Product (menor versão que resolve o problema)</p>
+            
+            <div class="campo">
+                <label>O que seria o MVP?</label>
+                <div class="linha-resposta"></div>
+            </div>
+            <div class="campo">
+                <label>quanto custaria criar?</label>
+                <div class="linha-resposta">R$</div>
+            </div>
+
+            <div class="mvp-box">
+                <h4>🎨 MVP pode ser:</h4>
+                <div class="mvp-options">
+                    <div class="mvp-item">Protótipo no papel</div>
+                    <div class="mvp-item">Simulação digital</div>
+                    <div class="mvp-item">Demo em vídeo</div>
+                    <div class="mvp-item">Teste com 1 usuário</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ETAPA 5: Validação -->
+        <div class="etapa-section">
+            <div class="etapa-header">
+                <div class="etapa-numero">5</div>
+                <div class="etapa-title">Validar com Cliente (3 min)</div>
+            </div>
+            
+            <div class="validacao-box">
+                <h4>✅ VALIDAÇÃO RÁPIDA</h4>
+                <div class="campo">
+                    <label>Apresentem para OUTRO grupo (cliente simulado)</label>
+                </div>
+                <div class="campo">
+                    <label>pergunta feita:</label>
+                    <div class="linha-resposta"></div>
+                </div>
+                <div class="campo">
+                    <label>Resposta do "cliente":</label>
+                    <div class="linha-resposta"></div>
+                </div>
+                <div class="campo">
+                    <label>Ele pagaria? (1-10)</label>
+                    <div class="linha-resposta" style="width: 80px;">__ pontos</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bônus -->
+        <div class="etapa-section" style="background: #f5f3ff; border-color: #7c3aed;">
+            <div class="etapa-header">
+                <div class="etapa-numero" style="background: #f59e0b;">💰</div>
+                <div class="etapa-title">DESAFIO BÔNUS (+25 pontos!)</div>
+            </div>
+            <p style="font-size: 14px; color: #333; margin-bottom: 10px;"><strong>Modelo de Receita:</strong> Como sua startup ganha dinheiro?</p>
+            <div class="linha-resposta" style="min-height: 40px; margin-top: 10px; border-bottom: 2px dotted #ccc;"></div>
+            <div class="linha-resposta" style="min-height: 40px; margin-top: 10px; border-bottom: 2px dotted #ccc;"></div>
+        </div>
+
+        <!-- Pontuação -->
+        <div class="pontuacao-box">
+            <h4>📊 TABELA DE PONTUAÇÃO</h4>
+            <table class="pontuacao-tabela">
+                <tr>
+                    <th>Critério</th>
+                    <th>Pontos</th>
+                    <th>Seus pontos</th>
+                </tr>
+                <tr>
+                    <td>Problema identificado + justificativa</td>
+                    <td>15 pts</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Solução inovadora</td>
+                    <td>15 pts</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Proposta de valor clara</td>
+                    <td>15 pts</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>MVP definido</td>
+                    <td>15 pts</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Validação com outro grupo</td>
+                    <td>10 pts</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Modelo de receita (bônus)</td>
+                    <td>+25 pts</td>
+                    <td></td>
+                </tr>
+            </table>
+            <div class="total-box">TOTAL DE PONTOS: _______</div>
+        </div>
+    </div>
+
+    <!-- GRUPO 2 -->
+    <div class="cartao">
+        <div class="cartao-header">
+            <h1>🚀 STARTUP SPRINT</h1>
+            <h2>Desafio Rápido — Grupo 2</h2>
+            <p class="subtitle">9º Ano | Startup Real | CSM 2026</p>
+        </div>
+
+        <div class="grupo-info">
+            <label>👥 Nomes dos fundadores:</label>
+            <div class="linha"></div><div class="linha"></div><div class="linha"></div><div class="linha"></div>
+            <label>🚀 Nome da Startup:</label>
+            <div class="linha"></div>
+        </div>
+
+        <div class="missao-box">
+            <h3>🎯 SUA MISSÃO</h3>
+            <p><strong>15 minutos</strong> para criar uma startup: problema → solução → proposta de valor → MVP → validação!</p>
+        </div>
+
+        <div class="timer-box">⏱️ TEMPO: 15 MINUTOS — VALER!</div>
+
+        <div class="etapa-section">
+            <div class="etapa-header">
+                <div class="etapa-numero">1</div>
+                <div class="etapa-title">Identificar Problema (3 min)</div>
+            </div>
+            <div class="problema-options">
+                <div class="problema-item"><div class="emoji">💤</div><div class="nome">Sono/DESCO)</div></div>
+                <div class="problema-item"><div class="emoji">🧘</div><div class="nome">Stress/Burnout</div></div>
+                <div class="problema-item"><div class="emoji">💻</div><div class="nome">Tecnologia</div></div>
+                <div class="problema-item"><div class="emoji">🌱</div><div class="nome">Meio ambiente</div></div>
+            </div>
+            <div class="campo"><label>Problema:</label><div class="linha-resposta"></div></div>
+            <div class="campo"><label>Quem sofre:</label><div class="linha-resposta"></div></div>
+        </div>
+
+        <div class="etapa-section">
+            <div class="etapa-header">
+                <div class="etapa-numero">2</div>
+                <div class="etapa-title">Solução (3 min)</div>
+            </div>
+            <div class="campo"><label>Solução:</label><div class="linha-resposta"></div></div>
+            <div class="campo"><label>O que é único:</label><div class="linha-resposta"></div></div>
+        </div>
+
+        <div class="etapa-section">
+            <div class="etapa-header">
+                <div class="etapa-numero">3</div>
+                <div class="etapa-title">Proposta de Valor (3 min)</div>
+            </div>
+            <div class="campo"><label>Para [público] que precisa de [necessidade], minha solução é [produto] que [benefício].</label><div class="linha-resposta"></div></div>
+        </div>
+
+        <div class="etapa-section">
+            <div class="etapa-header">
+                <div class="etapa-numero">4</div>
+                <div class="etapa-title">MVP (3 min)</div>
+            </div>
+            <div class="campo"><label>O que seria o MVP:</label><div class="linha-resposta"></div></div>
+            <div class="campo"><label>Custo para criar:</label><div class="linha-resposta">R$</div></div>
+        </div>
+
+        <div class="etapa-section">
+            <div class="etapa-header">
+                <div class="etapa-numero">5</div>
+                <div class="etapa-title">Validação (3 min)</div>
+            </div>
+            <div class="validacao-box">
+                <div class="campo"><label>Pergunta ao cliente:</label><div class="linha-resposta"></div></div>
+                <div class="campo"><label>Resposta:</label><div class="linha-resposta"></div></div>
+                <div class="campo"><label>Nota (1-10):</label><div class="linha-resposta">__</div></div>
+            </div>
+        </div>
+
+        <div class="etapa-section" style="background: #f5f3ff; border-color: #7c3aed;">
+            <div class="etapa-header">
+                <div class="etapa-numero" style="background: #f59e0b;">💰</div>
+                <div class="etapa-title">BÔNUS (+25 pts)</div>
+            </div>
+            <p style="font-size: 14px; color: #333;">Modelo de receita:</p>
+            <div class="linha-resposta" style="min-height: 40px; margin-top: 10px; border-bottom: 2px dotted #ccc;"></div>
+            <div class="linha-resposta" style="min-height: 40px; margin-top: 10px; border-bottom: 2px dotted #ccc;"></div>
+        </div>
+
+        <div class="pontuacao-box">
+            <h4>📊 PONTUAÇÃO</h4>
+            <table class="pontuacao-tabela">
+                <tr><th>Critério</th><th>Pontos</th><th>Seus</th></tr>
+                <tr><td>Problema + justificativa</td><td>15</td><td></td></tr>
+                <tr><td>Solução inovadora</td><td>15</td><td></td></tr>
+                <tr><td>Proposta de valor</td><td>15</td><td></td></tr>
+                <tr><td>MVP definido</td><td>15</td><td></td></tr>
+                <tr><td>Validação</td><td>10</td><td></td></tr>
+                <tr><td>Modelo de receita</td><td>+25</td><td></td></tr>
+            </table>
+            <div class="total-box">TOTAL: _______</div>
+        </div>
+    </div>
+
+    <!-- GRUPO 3 -->
+    <div class="cartao">
+        <div class="cartao-header">
+            <h1>🚀 STARTUP SPRINT</h1>
+            <h2>Desafio Rápido — Grupo 3</h2>
+            <p class="subtitle">9º Ano | Startup Real | CSM 2026</p>
+        </div>
+
+        <div class="grupo-info">
+            <label>👥 Fundadores:</label>
+            <div class="linha"></div><div class="linha"></div><div class="linha"></div><div class="linha"></div>
+            <label>🚀 Nome:</label>
+            <div class="linha"></div>
+        </div>
+
+        <div class="missao-box">
+            <h3>🎯 MISSÃO</h3>
+            <p><strong>15 minutos</strong> — Problema → Solução → Proposta → MVP → Validação!</p>
+        </div>
+
+        <div class="timer-box">⏱️ 15 MINUTOS — VALER!</div>
+
+        <div class="etapa-section">
+            <div class="etapa-header">
+                <div class="etapa-numero">1</div>
+                <div class="etapa-title">Problema (3 min)</div>
+            </div>
+            <div class="problema-options">
+                <div class="problema-item"><div class="emoji">👫</div><div class="nome">Solitude/Amizade</div></div>
+                <div class="problema-item"><div class="emoji">💰</div><div class="nome">Dinheiro</div></div>
+                <div class="problema-item"><div class="emoji">🏠</div><div class="nome">Moradia</div></div>
+                <div class="problema-item"><div class="emoji">🎓</div><div class="nome">Educação</div></div>
+            </div>
+            <div class="campo"><label>Problema:</label><div class="linha-resposta"></div></div>
+            <div class="campo"><label>Público:</label><div class="linha-resposta"></div></div>
+        </div>
+
+        <div class="etapa-section">
+            <div class="etapa-header">
+                <div class="etapa-numero">2</div>
+                <div class="etapa-title">Solução (3 min)</div>
+            </div>
+            <div class="campo"><label>Solução:</label><div class="linha-resposta"></div></div>
+            <div class="campo"><label>Inovação:</label><div class="linha-resposta"></div></div>
+        </div>
+
+        <div class="etapa-section">
+            <div class="etapa-header">
+                <div class="etapa-numero">3</div>
+                <div class="etapa-title">Proposta de Valor (3 min)</div>
+            </div>
+            <div class="campo"><label>Para [...] que precisa de [...], minha solução é [...] que [...].</label><div class="linha-resposta"></div></div>
+        </div>
+
+        <div class="etapa-section">
+            <div class="etapa-header">
+                <div class="etapa-numero">4</div>
+                <div class="etapa-title">MVP (3 min)</div>
+            </div>
+            <div class="campo"><label>MVP:</label><div class="linha-resposta"></div></div>
+            <div class="campo"><label>Custo:</label><div class="linha-resposta">R$</div></div>
+        </div>
+
+        <div class="etapa-section">
+            <div class="etapa-header">
+                <div class="etapa-numero">5</div>
+                <div class="etapa-title">Validação (3 min)</div>
+            </div>
+            <div class="validacao-box">
+                <div class="campo"><label>Pergunta:</label><div class="linha-resposta"></div></div>
+                <div class="campo"><label>Resposta:</label><div class="linha-resposta"></div></div>
+                <div class="campo"><label>Nota:</label><div class="linha-resposta">__</div></div>
+            </div>
+        </div>
+
+        <div class="etapa-section" style="background: #f5f3ff; border-color: #7c3aed;">
+            <div class="etapa-header">
+                <div class="etapa-numero" style="background: #f59e0b;">💰</div>
+                <div class="etapa-title">BÔNUS (+25 pts)</div>
+            </div>
+            <div class="linha-resposta" style="min-height: 40px; margin-top: 10px; border-bottom: 2px dotted #ccc;"></div>
+            <div class="linha-resposta" style="min-height: 40px; margin-top: 10px; border-bottom: 2px dotted #ccc;"></div>
+        </div>
+
+        <div class="pontuacao-box">
+            <h4>📊 PONTUAÇÃO</h4>
+            <table class="pontuacao-tabela">
+                <tr><th>Critério</th><th>Pts</th><th>Seus</th></tr>
+                <tr><td>Problema</td><td>15</td><td></td></tr>
+                <tr><td>Solução</td><td>15</td><td></td></tr>
+                <tr><td>Proposta</td><td>15</td><td></td></tr>
+                <tr><td>MVP</td><td>15</td><td></td></tr>
+                <tr><td>Validação</td><td>10</td><td></td></tr>
+                <tr><td>Bônus</td><td>+25</td><td></td></tr>
+            </table>
+            <div class="total-box">TOTAL: _______</div>
+        </div>
+    </div>
+
+    <!-- GRUPO 4 -->
+    <div class="cartao">
+        <div class="cartao-header">
+            <h1>🚀 STARTUP SPRINT</h1>
+            <h2>Desafio Rápido — Grupo 4</h2>
+            <p class="subtitle">9º Ano | Startup Real | CSM 2026</p>
+        </div>
+
+        <div class="grupo-info">
+            <label>👥 Fundadores:</label>
+            <div class="linha"></div><div class="linha"></div><div class="linha"></div><div class="linha"></div>
+            <label>🚀 Nome:</label>
+            <div class="linha"></div>
+        </div>
+
+        <div class="missao-box">
+            <h3>🎯 MISSÃO</h3>
+            <p><strong>15 minutos</strong> — Criem uma startup completa!</p>
+        </div>
+
+        <div class="timer-box">⏱️ 15 MIN — VALER!</div>
+
+        <div class="etapa-section">
+            <div class="etapa-header">
+                <div class="etapa-numero">1</div>
+                <div class="etapa-title">Problema (3 min)</div>
+            </div>
+            <div class="problema-options">
+                <div class="problema-item"><div class="emoji">🚗</div><div class="nome">Mobilidade</div></div>
+                <div class="problema-item"><div class="emoji">🏥</div><div class="nome">Saúde</div></div>
+                <div class="problema-item"><div class="emoji">🎮</div><div class="nome">Entretenimento</div></div>
+                <div class="problema-item"><div class="emoji">👔</div><div class="nome">Emprego</div></div>
+            </div>
+            <div class="campo"><label>Problema:</label><div class="linha-resposta"></div></div>
+            <div class="campo"><label>Público:</label><div class="linha-resposta"></div></div>
+        </div>
+
+        <div class="etapa-section">
+            <div class="etapa-header">
+                <div class="etapa-numero">2</div>
+                <div class="etapa-title">Solução (3 min)</div>
+            </div>
+            <div class="campo"><label>Solução:</label><div class="linha-resposta"></div></div>
+            <div class="campo"><label>Inovação:</label><div class="linha-resposta"></div></div>
+        </div>
+
+        <div class="etapa-section">
+            <div class="etapa-header">
+                <div class="etapa-numero">3</div>
+                <div class="etapa-title">Proposta (3 min)</div>
+            </div>
+            <div class="campo"><label>Para [...] que precisa de [...], minha solução é [...] que [...].</label><div class="linha-resposta"></div></div>
+        </div>
+
+        <div class="etapa-section">
+            <div class="etapa-header">
+                <div class="etapa-numero">4</div>
+                <div class="etapa-title">MVP (3 min)</div>
+            </div>
+            <div class="campo"><label>MVP:</label><div class="linha-resposta"></div></div>
+            <div class="campo"><label>Custo:</label><div class="linha-resposta">R$</div></div>
+        </div>
+
+        <div class="etapa-section">
+            <div class="etapa-header">
+                <div class="etapa-numero">5</div>
+                <div class="etapa-title">Validação (3 min)</div>
+            </div>
+            <div class="validacao-box">
+                <div class="campo"><label>Pergunta:</label><div class="linha-resposta"></div></div>
+                <div class="campo"><label>Resposta:</label><div class="linha-resposta"></div></div>
+                <div class="campo"><label>Nota:</label><div class="linha-resposta">__</div></div>
+            </div>
+        </div>
+
+        <div class="etapa-section" style="background: #f5f3ff; border-color: #7c3aed;">
+            <div class="etapa-header">
+                <div class="etapa-numero" style="background: #f59e0b;">💰</div>
+                <div class="etapa-title">BÔNUS (+25 pts)</div>
+            </div>
+            <div class="linha-resposta" style="min-height: 40px; margin-top: 10px; border-bottom: 2px dotted #ccc;"></div>
+            <div class="linha-resposta" style="min-height: 40px; margin-top: 10px; border-bottom: 2px dotted #ccc;"></div>
+        </div>
+
+        <div class="pontuacao-box">
+            <h4>📊 PONTUAÇÃO</h4>
+            <table class="pontuacao-tabela">
+                <tr><th>Critério</th><th>Pts</th><th>Seus</th></tr>
+                <tr><td>Problema</td><td>15</td><td></td></tr>
+                <tr><td>Solução</td><td>15</td><td></td></tr>
+                <tr><td>Proposta</td><td>15</td><td></td></tr>
+                <tr><td>MVP</td><td>15</td><td></td></tr>
+                <tr><td>Validação</td><td>10</td><td></td></tr>
+                <tr><td>Bônus</td><td>+25</td><td></td></tr>
+            </table>
+            <div class="total-box">TOTAL: _______</div>
+        </div>
+    </div>
+
+</body>
+</html>

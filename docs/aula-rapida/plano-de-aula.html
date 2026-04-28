@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano de Aula — Missão Detetive Empreendedor (30 min)</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #f5f5f5;
+            padding: 30px;
+            line-height: 1.6;
+        }
+
+        .plano-container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .plano-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 4px solid #d32f2f;
+        }
+
+        .plano-header h1 {
+            font-size: 32px;
+            color: #d32f2f;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .plano-header h2 {
+            font-size: 20px;
+            color: #ffc107;
+            font-weight: 600;
+        }
+
+        .plano-header .subtitle {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .info-card {
+            background: #fff9e6;
+            border: 2px solid #ffc107;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .info-card h3 {
+            font-size: 14px;
+            color: #d97706;
+            margin-bottom: 5px;
+        }
+
+        .info-card p {
+            font-size: 18px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .objetivo-box {
+            background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .objetivo-box h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .objetivo-box ul {
+            padding-left: 20px;
+        }
+
+        .objetivo-box li {
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .materiais-box {
+            background: #f3e8ff;
+            border-left: 5px solid #7c3aed;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .materiais-box h3 {
+            color: #5b21b6;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .materiais-box ul {
+            padding-left: 20px;
+        }
+
+        .materiais-box li {
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .timeline-box {
+            margin-bottom: 30px;
+        }
+
+        .timeline-box h3 {
+            font-size: 22px;
+            color: #d32f2f;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 5px solid;
+        }
+
+        .timeline-item.abertura {
+            background: #fee2e2;
+            border-color: #ef4444;
+        }
+
+        .timeline-item.acao {
+            background: #fef3c7;
+            border-color: #f59e0b;
+        }
+
+        .timeline-item.socializacao {
+            background: #d1fae5;
+            border-color: #10b981;
+        }
+
+        .timeline-item.premiacao {
+            background: #e0e7ff;
+            border-color: #6366f1;
+        }
+
+        .timeline-tempo {
+            min-width: 80px;
+            text-align: center;
+        }
+
+        .timeline-tempo .numero {
+            font-size: 32px;
+            font-weight: 800;
+            color: #333;
+        }
+
+        .timeline-tempo .label {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .timeline-content h4 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .timeline-content p {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        .timeline-content ul {
+            padding-left: 20px;
+        }
+
+        .timeline-content li {
+            margin-bottom: 5px;
+            font-size: 13px;
+        }
+
+        .dicas-professor {
+            background: #e0f2fe;
+            border: 2px solid #0ea5e9;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .dicas-professor h3 {
+            color: #0369a1;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .dicas-professor ol {
+            padding-left: 20px;
+        }
+
+        .dicas-professor li {
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .pontuacao-final {
+            background: linear-gradient(135deg, #ffc107 0%, #f59e0b 100%);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .pontuacao-final h3 {
+            font-size: 22px;
+            color: #1a1a2e;
+            margin-bottom: 15px;
+        }
+
+        .pontuacao-tabela {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .pontuacao-tabela th,
+        .pontuacao-tabela td {
+            border: 1.5px solid #f59e0b;
+            padding: 12px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        .pontuacao-tabela th {
+            background: #f59e0b;
+            color: white;
+            font-weight: 700;
+        }
+
+        .badge-box {
+            background: #fef3c7;
+            border: 3px dashed #f59e0b;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .badge-box h4 {
+            color: #d97706;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .badge-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .badge-item {
+            background: white;
+            border: 2px solid #f59e0b;
+            border-radius: 10px;
+            padding: 15px;
+        }
+
+        .badge-item .icon {
+            font-size: 36px;
+            margin-bottom: 5px;
+        }
+
+        .badge-item .nome {
+            font-size: 14px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .badge-item .desc {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .conexao-projeto {
+            background: #f0fdf4;
+            border: 2px solid #22c55e;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .conexao-projeto h3 {
+            color: #16a34a;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .conexao-projeto p {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #d32f2f;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
+            z-index: 1000;
+        }
+
+        .print-button:hover {
+            background: #b71c1c;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .print-button {
+                display: none;
+            }
+
+            .plano-container {
+                box-shadow: none;
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .badge-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-button" onclick="window.print()">🖨️ Imprimir Plano</button>
+
+    <div class="plano-container">
+        <div class="plano-header">
+            <h1>🕵️ MISSÃO DETETIVE EMPREENDEDOR</h1>
+            <h2>Plano de Aula Rápida — 30 Minutos</h2>
+            <p class="subtitle">7º Ano | Empreendedores Exponenciais | Colégio Santa Mônica</p>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>⏱️ Duração</h3>
+                <p>30 minutos</p>
+            </div>
+            <div class="info-card">
+                <h3>👥 Público</h3>
+                <p>7º Ano (10-11 anos)</p>
+            </div>
+            <div class="info-card">
+                <h3>🎯 Formato</h3>
+                <p>Grupos de 3-4 alunos</p>
+            </div>
+        </div>
+
+        <div class="objetivo-box">
+            <h3>🎯 OBJETIVOS DA AULA</h3>
+            <ul>
+                <li>Desenvolver <strong>visão empreendedora</strong> sobre o território local</li>
+                <li>Praticar <strong>observação e análise</strong> de negócios reais</li>
+                <li>Identificar <strong>oportunidades de mercado</strong> no entorno da escola</li>
+                <li>Usar <strong>tecnologia (Mentor IA)</strong> como ferramenta de apoio</li>
+                <li>Trabalhar em <strong>equipe sob pressão de tempo</strong> (gamificação)</li>
+            </ul>
+        </div>
+
+        <div class="materiais-box">
+            <h3>📦 MATERIAIS NECESSÁRIOS</h3>
+            <ul>
+                <li>📄 <strong>Cartões de Exploração</strong> — 1 por grupo (imprimir de <code>cartoes-exploracao.html</code>)</li>
+                <li>🗺️ <strong>Mapa de Exploração</strong> — 1 por grupo ou 1 grande no quadro (imprimir de <code>mapa-exploracao.html</code>)</li>
+                <li>🤖 <strong>Cartão Mentor IA</strong> — 1 por grupo (imprimir de <code>cartao-mentor-ia.html</code>)</li>
+                <li>🖊️ Canetas coloridas (4 cores diferentes por grupo)</li>
+                <li>⏱️ Timer visível (projetor ou celular)</li>
+                <li>📱 Celular ou computador para acessar o Mentor IA (opcional — 1 por grupo)</li>
+                <li>🏅 Adesivos ou carimbos para badges (opcional)</li>
+            </ul>
+        </div>
+
+        <div class="timeline-box">
+            <h3>📋 CRONOGRAMA DA AULA (30 MIN)</h3>
+
+            <!-- ABERTURA -->
+            <div class="timeline-item abertura">
+                <div class="timeline-tempo">
+                    <div class="numero">3</div>
+                    <div class="label">minutos</div>
+                </div>
+                <div class="timeline-content">
+                    <h4>🚀 ABERTURA — Lançamento da Missão</h4>
+                    <p><strong>Professor(a):</strong> Apresente a atividade como uma "missão secreta":</p>
+                    <ul>
+                        <li>"Vocês foram escolhidos para uma <strong>missão de detetives empreendedores</strong>!"</li>
+                        <li>"Em <strong>15 minutos</strong>, seus grupos precisam mapear o máximo de negócios ao redor do CSM"</li>
+                        <li>"Vocês podem usar o <strong>Mentor IA</strong> como assistente inteligente"</li>
+                        <li>"O grupo com mais pontos ganha <strong>badges especiais</strong>!"</li>
+                    </ul>
+                    <p><strong>Ação:</strong> Distribua os Cartões de Exploração + Mapa + Cartão Mentor IA para cada grupo.</p>
+                </div>
+            </div>
+
+            <!-- AÇÃO -->
+            <div class="timeline-item acao">
+                <div class="timeline-tempo">
+                    <div class="numero">17</div>
+                    <div class="label">minutos</div>
+                </div>
+                <div class="timeline-content">
+                    <h4>🕵️ AÇÃO — Mapeamento em Grupos</h4>
+                    <p><strong>O que os alunos fazem:</strong></p>
+                    <ul>
+                        <li>⏱️ <strong>Min 0-15:</strong> Preenchem o Cartão de Exploração com negócios que lembram</li>
+                        <li>🗺️ Marcam os negócios no Mapa com código de cores</li>
+                        <li>🤖 <strong>Usam o Mentor IA</strong> para:
+                            <ul>
+                                <li>Perguntar sobre tipos de negócios que esquecem</li>
+                                <li>Pedir inspiração de negócios criativos</li>
+                                <li>Entender o que faz um negócio ser inovador</li>
+                            </ul>
+                        </li>
+                        <li>⭐ Dão notas de criatividade (1-5 estrelas)</li>
+                        <li>🌟 Preenchem a <strong>Missão Bônus</strong> (negócio que falta no bairro)</li>
+                    </ul>
+                    <p><strong>Professor(a):</strong></p>
+                    <ul>
+                        <li>⏱️ Projete um timer regressivo de 15 minutos</li>
+                        <li>📢 Anuncie: "10 minutos!", "5 minutos!", "1 minuto!"</li>
+                        <li>🚶 Circule entre os grupos ajudando e incentivando</li>
+                        <li>💡 Se um grupo travar, sugira: "Pensem no caminho que vocês vêm pra escola..."</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- SOCIALIZAÇÃO -->
+            <div class="timeline-item socializacao">
+                <div class="timeline-tempo">
+                    <div class="numero">7</div>
+                    <div class="label">minutos</div>
+                </div>
+                <div class="timeline-content">
+                    <h4>🗣️ SOCIALIZAÇÃO — Compartilhamento das Descobertas</h4>
+                    <p><strong>Formato:</strong> Cada grupo tem <strong>1 minuto</strong> para compartilhar:</p>
+                    <ul>
+                        <li>📍 <strong>2 negócios</strong> que mapearam (nome + o que faz)</li>
+                        <li>⭐ O negócio mais <strong>criativo</strong> que encontraram</li>
+                        <li>🌟 <strong>1 ideia de negócio</strong> que falta no bairro (Missão Bônus)</li>
+                    </ul>
+                    <p><strong>Professor(a):</strong></p>
+                    <ul>
+                        <li>⏱️ Cronometre 1 min por grupo (use timer visível)</li>
+                        <li>🗺️ Marque os negócios mencionados no <strong>mapa coletivo</strong> (quadro ou mapa grande)</li>
+                        <li>💬 Faça 1 pergunta rápida por grupo: "Por que vocês acham que esse negócio dá certo?"</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- PREMIAÇÃO -->
+            <div class="timeline-item premiacao">
+                <div class="timeline-tempo">
+                    <div class="numero">3</div>
+                    <div class="label">minutos</div>
+                </div>
+                <div class="timeline-content">
+                    <h4>🏆 PREMIAÇÃO — Contagem de Pontos + Badges</h4>
+                    <p><strong>Contagem rápida (professor + alunos juntos):</strong></p>
+                    <ul>
+                        <li>Cada grupo conta quantos negócios mapeou</li>
+                        <li>Some os bônus (nomes de donos + oportunidade)</li>
+                        <li>Professor anuncia o <strong>vencedor</strong></li>
+                    </ul>
+                    <p><strong>Entregue os badges:</strong></p>
+                    <ul>
+                        <li>🥇 <strong>Grupo com mais pontos</strong> → Badge "Detetives Mestres"</li>
+                        <li>⭐ <strong>Negócio mais criativo</strong> → Badge "Exploradores da Inovação"</li>
+                        <li>🌟 <strong>Melhor ideia bônus</strong> → Badge "Visionários do Futuro"</li>
+                    </ul>
+                    <p><strong>Fechamento:</strong> "Hoje vocês foram detetives! Na próxima aula, vamos aprofundar o Projeto Mapa Empreendedor de Limoeiro — esse foi só o começo!"</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="dicas-professor">
+            <h3>💡 DICAS IMPORTANTES PARA O(A) PROFESSOR(A)</h3>
+            <ol>
+                <li><strong>Energia alta!</strong> Essa aula funciona melhor com entusiasmo — trate como uma "missão de verdade". Não seja tímido(a)!</li>
+                <li><strong>Timer visível é essencial:</strong> Projete um countdown no telão ou use um timer grande. A pressão de tempo é o que gamifica.</li>
+                <li><strong>Não corrija durante a ação:</strong> Se um grupo colocar algo "errado", anote e deixe fluir. Corrija depois, na socialização.</li>
+                <li><strong>Mentor IA é opcional:</strong> Se não tiver celular/computador, a atividade funciona 100% analógica. O cartão Mentor serve como inspiração.</li>
+                <li><strong>Adapte ao espaço:</strong> Se não puder sair da sala, os alunos mapeiam de memória — funciona muito bem!</li>
+                <li><strong>Conecte com o projeto grande:</strong> No final, diga que isso é parte do "Mapa Empreendedor de Limoeiro" (projeto de 4 semanas do 7º ano).</li>
+            </ol>
+        </div>
+
+        <div class="pontuacao-final">
+            <h3>📊 SISTEMA DE PONTUAÇÃO</h3>
+            <table class="pontuacao-tabela">
+                <tr>
+                    <th>Critério</th>
+                    <th>Pontos</th>
+                    <th>Exemplo</th>
+                </tr>
+                <tr>
+                    <td>Cada negócio mapeado</td>
+                    <td><strong>10 pts</strong></td>
+                    <td>Padaria do Seu João = 10 pts</td>
+                </tr>
+                <tr>
+                    <td>Nome do dono(a) descoberto</td>
+                    <td><strong>+5 pts</strong></td>
+                    <td>"Seu João" = +5 pts</td>
+                </tr>
+                <tr>
+                    <td>Missão Bônus (oportunidade)</td>
+                    <td><strong>+20 pts</strong></td>
+                    <td>"Falta uma lan house" = +20 pts</td>
+                </tr>
+                <tr>
+                    <td>Negócio mais criativo do grupo</td>
+                    <td><strong>+15 pts</strong></td>
+                    <td>Aluno que vende bolo de pote customizado = +15 pts</td>
+                </tr>
+                <tr>
+                    <td>Uso do Mentor IA (desafio extra)</td>
+                    <td><strong>+10 pts</strong></td>
+                    <td>Perguntou "o que faz um negócio ser criativo?" = +10 pts</td>
+                </tr>
+            </table>
+
+            <div class="badge-box">
+                <h4>🏅 BADGES DA ATIVIDADE</h4>
+                <div class="badge-grid">
+                    <div class="badge-item">
+                        <div class="icon">🥇</div>
+                        <div class="nome">Detetives Mestres</div>
+                        <div class="desc">Grupo com mais pontos</div>
+                    </div>
+                    <div class="badge-item">
+                        <div class="icon">⭐</div>
+                        <div class="nome">Exploradores da Inovação</div>
+                        <div class="desc">Negócio mais criativo</div>
+                    </div>
+                    <div class="badge-item">
+                        <div class="icon">🌟</div>
+                        <div class="nome">Visionários do Futuro</div>
+                        <div class="desc">Melhor ideia de negócio que falta</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="conexao-projeto">
+            <h3>🔗 CONEXÃO COM O PROJETO GRANDE</h3>
+            <p>Esta aula é uma <strong>versão rápida e gamificada</strong> do projeto <strong>"🗺️ Mapa Empreendedor de Limoeiro"</strong> (7º Ano, 1º Semestre, Opção B) que está documentado no <code>detalhe_projetos.md</code>.</p>
+            <p><strong>Projeto completo:</strong> 4 semanas (8 aulas) com pesquisa de campo real, mapa ilustrado A1, relatório de oportunidades e apresentação na Feira.</p>
+            <p><strong>Esta aula rápida serve para:</strong></p>
+            <ul style="padding-left: 20px; margin-top: 10px;">
+                <li>✅ <strong>Aquecer</strong> o interesse dos alunos antes de iniciar o projeto completo</li>
+                <li>✅ <strong>Avaliar</strong> o conhecimento prévio dos alunos sobre negócios locais</li>
+                <li>✅ <strong>Engajar</strong> com gamificação antes de mergulhar no trabalho de campo real</li>
+                <li>✅ <strong>Introduzir</strong> o Mentor IA como ferramenta de aprendizagem</li>
+            </ul>
+            <p style="margin-top: 15px; font-size: 13px; color: #666;">
+                <strong>Arquivos desta aula:</strong><br>
+                📄 <code>docs/aula-rapida/cartoes-exploracao.html</code> — Cartões imprimíveis por grupo<br>
+                🗺️ <code>docs/aula-rapida/mapa-exploracao.html</code> — Mapa base do entorno CSM<br>
+                🤖 <code>docs/aula-rapida/cartao-mentor-ia.html</code> — Guia de uso do Mentor IA<br>
+                📋 <code>docs/aula-rapida/plano-de-aula.html</code> — Este plano de aula
+            </p>
+        </div>
+    </div>
+</body>
+</html>

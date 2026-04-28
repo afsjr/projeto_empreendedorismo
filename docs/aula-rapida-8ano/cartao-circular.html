@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Economia Circular — 8º Ano</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body { font-family: 'Outfit', sans-serif; background: #f5f5f5; padding: 20px; }
+
+        .print-button {
+            position: fixed; top: 20px; right: 20px;
+            background: #0891b2; color: white;
+            border: none; padding: 15px 30px;
+            border-radius: 10px; font-size: 18px; font-weight: 700;
+            cursor: pointer; z-index: 1000;
+        }
+
+        .cartao {
+            background: white;
+            border: 3px solid #0891b2;
+            border-radius: 16px;
+            padding: 25px;
+            max-width: 210mm;
+            margin: 0 auto 30px;
+            page-break-after: always;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .cartao-header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px dashed #0891b2;
+        }
+
+        .cartao-header h1 { font-size: 26px; color: #0891b2; font-weight: 800; }
+        .cartao-header h2 { font-size: 16px; color: #f59e0b; font-weight: 600; }
+        .cartao-header p { font-size: 13px; color: #666; margin-top: 5px; }
+
+        .grupo-info {
+            background: #cffafe;
+            border: 2px dashed #0891b2;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .grupo-info label {
+            font-weight: 600; color: #333;
+            display: block; margin-bottom: 5px;
+        }
+
+        .linha {
+            border-bottom: 2px dotted #ccc;
+            min-height: 30px;
+            margin-bottom: 10px;
+        }
+
+        .missao-box {
+            background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .missao-box h3 { font-size: 22px; margin-bottom: 10px; }
+        .missao-box p { font-size: 15px; }
+
+        .timer-box {
+            background: #f59e0b;
+            color: #1a1a2e;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .etapa-section {
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 15px;
+            background: #fafafa;
+        }
+
+        .etapa-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .etapa-numero {
+            width: 35px; height: 35px;
+            background: #0891b2;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 18px;
+        }
+
+        .etapa-title { font-size: 16px; font-weight: 700; color: #0891b2; }
+
+        .campo { margin-bottom: 10px; }
+
+        .campo label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #555;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .campo .linha-resposta {
+            border-bottom: 1.5px solid #ccc;
+            min-height: 25px;
+        }
+
+        .material-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            margin: 10px 0;
+        }
+
+        .material-item {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .material-item .emoji { font-size: 24px; margin-bottom: 5px; }
+        .material-item .nome { font-size: 13px; font-weight: 600; color: #333; }
+
+        .produto-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            margin: 10px 0;
+        }
+
+        .produto-item {
+            background: #d1fae5;
+            border: 2px solid #10b981;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .produto-item .emoji { font-size: 24px; display: block; margin-bottom: 5px; }
+        .produto-item .nome { font-size: 13px; font-weight: 600; color: #065f46; }
+
+        .dre-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 2px solid #f59e0b;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 15px;
+        }
+
+        .dre-box h4 { color: #d97706; font-size: 16px; margin-bottom: 15px; text-align: center; }
+
+        .dre-linha {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 10px;
+            border-bottom: 1px dashed #e5e7eb;
+            font-size: 14px;
+        }
+
+        .dre-linha:last-child { border-bottom: none; }
+        .dre-linha.total { background: #0891b2; color: white; border-radius: 8px; font-weight: 700; margin-top: 10px; }
+
+        .dica-box {
+            background: #e0f2fe;
+            border-left: 4px solid #0ea5e9;
+            border-radius: 8px;
+            padding: 12px;
+            margin: 10px 0;
+        }
+
+        .dica-box p { font-size: 13px; color: #0369a1; }
+
+        .pontuacao-box {
+            background: #cffafe;
+            border: 2px solid #0891b2;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        .pontuacao-box h4 { color: #0e7490; font-size: 16px; text-align: center; }
+
+        .pontuacao-tabela { width: 100%; border-collapse: collapse; margin-top: 10px; }
+
+        .pontuacao-tabela th, .pontuacao-tabela td {
+            border: 1.5px solid #0891b2;
+            padding: 8px;
+            text-align: left;
+            font-size: 13px;
+        }
+
+        .pontuacao-tabela th { background: #0891b2; color: white; }
+
+        .total-box {
+            background: #0891b2;
+            color: white;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            margin-top: 15px;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .bonus-box {
+            background: #fce7f3;
+            border: 3px dashed #ec4899;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .bonus-box h4 { color: #be1857; font-size: 16px; margin-bottom: 10px; }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .print-button { display: none; }
+            .cartao { box-shadow: none; margin: 0; padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-button" onclick="window.print()">🖨️ Imprimir</button>
+
+    <!-- GRUPO 1 -->
+    <div class="cartao">
+        <div class="cartao-header">
+            <h1>♻️ DESAFIO: DO LIXO AO LUCRO</h1>
+            <h2>Grupo 1</h2>
+            <p>8º Ano | Economia Circular | CSM 2026</p>
+        </div>
+
+        <div class="grupo-info">
+            <label>👥 Nomes:</label>
+            <div class="linha"></div>
+            <div class="linha"></div>
+            <label>♻️ Nome da Empresa Circular:</label>
+            <div class="linha"></div>
+        </div>
+
+        <div class="missao-box">
+            <h3>🎯 SUA MISSÃO</h3>
+            <p>Transforme <strong>materiais recyclados</strong> em um produto vendável!</p>
+        </div>
+
+        <div class="timer-box">⏱️ TEMPO: 15 MINUTOS</div>
+
+        <!-- ETAPA 1: Material -->
+        <div class="etapa-section">
+            <div class="etapa-header">
+                <div class="etapa-numero">1</div>
+                <div class="etapa-title">Escolher Material (3 min)</div>
+            </div>
+            <p style="font-size: 13px; color: #666; margin-bottom: 10px;">Escolham UM material que seria lixo:</p>
+            
+            <div class="material-options">
+                <div class="material-item">
+                    <div class="emoji">🧴</div>
+                    <div class="nome">Garrafa PET</div>
+                </div>
+                <div class="material-item">
+                    <div class="emoji">🥫</div>
+                    <div class="nome">Lata de alumínio</div>
+                </div>
+                <div class="material-item">
+                    <div class="emoji">📦</div>
+                    <div class="nome">Papelão</div>
+                </div>
+                <div class="material-item">
+                    <div class="emoji">🧢</div>
+                    <div class="nome">Tecido</div>
+                </div>
+            </div>
+
+            <div class="campo">
+                <label>Material escolhido:</label>
+                <div class="linha-resposta"></div>
+            </div>
+            <div class="campo">
+                <label>De onde vem? (lixo):</label>
+                <div class="linha-resposta"></div>
+            </div>
+        </div>
+
+        <!-- ETAPA 2: Produto -->
+        <div class="etapa-section">
+            <div class="etapa-header">
+                <div class="etapa-numero">2</div>
+                <div class="etapa-title">Criar Produto (4 min)</div>
+            </div>
+            <p style="font-size: 13px; color: #666; margin-bottom: 10px;">O que podem criar com esse material?</p>
+            
+            <div class="produto-options">
+                <div class="produto-item">
+                    <div class="emoji">🪴</div>
+                    <div class="nome">Vaso de planta</div>
+                </div>
+                <div class="produto-item">
+                    <div class="emoji">🗑️</div>
+                    <div class="nome">Organizador</div>
+                </div>
+                <div class="produto-item">
+                    <div class="emoji">💡</div>
+                    <div class="nome">Luminária</div>
+                </div>
+                <div class="produto-item">
+                    <div class="emoji">🎨</div>
+                    <div class="nome">Artesanato</div>
+                </div>
+            </div>
+
+            <div class="campo">
+                <label>Produto criado:</label>
+                <div class="linha-resposta"></div>
+            </div>
+            <div class="campo">
+                <label>Como é feito?</label>
+                <div class="linha-resposta"></div>
+            </div>
+        </div>
+
+        <!-- ETAPA 3: Custo e Preço -->
+        <div class="etapa-section">
+            <div class="etapa-header">
+                <div class="etapa-numero">3</div>
+                <div class="etapa-title">Custo e Preço (4 min)</div>
+            </div>
+            
+            <div class="dica-box">
+                <p>💡 <strong>Dica:</strong> Material reciclável = R$ 0! Custo = só cola, fita, tinta...</p>
+            </div>
+
+            <div class="campo">
+                <label>Custo de material extra:</label>
+                <div class="linha-resposta" style="width: 100px;">R$</div>
+            </div>
+            <div class="campo">
+                <label>Preço de venda:</label>
+                <div class="linha-resposta" style="width: 100px;">R$</div>
+            </div>
+
+            <div class="dre-box">
+                <h4>📊 CÁLCULO</h4>
+                <div class="dre-linha">
+                    <span>💰 Preço de venda:</span>
+                    <span>R$</span>
+                </div>
+                <div class="dre-linha">
+                    <span>📦 Custo extra:</span>
+                    <span>(R$)</span>
+                </div>
+                <div class="dre-linha total">
+                    <span>🎉 LUCRO:</span>
+                    <span>R$</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ETAPA 4: Marketing -->
+        <div class="etapa-section">
+            <div class="etapa-header">
+                <div class="etapa-numero">4</div>
+                <div class="etapa-title">Nome + Slogan (4 min)</div>
+            </div>
+            
+            <div class="campo">
+                <label>Nome da marca:</label>
+                <div class="linha-resposta"></div>
+            </div>
+            <div class="campo">
+                <label>Slogan (frase):</label>
+                <div class="linha-resposta"></div>
+            </div>
+
+            <div class="dica-box">
+                <p>💡 <strong>Exemplo:</strong> "Do lixo, nascem flores!"</p>
+            </div>
+        </div>
+
+        <!-- Bônus -->
+        <div class="bonus-box">
+            <h4>⭐ BÔNUS (+20 pontos!)</h4>
+            <p>Quanto de lixo foi salvo do aterro?</p>
+            <div class="linha-resposta"></div>
+        </div>
+
+        <!-- Pontuação -->
+        <div class="pontuacao-box">
+            <h4>📊 PONTUAÇÃO</h4>
+            <table class="pontuacao-tabela">
+                <tr><th>Critério</th><th>Pts</th><th>Seu</th></tr>
+                <tr><td>Material reciclável</td><td>10</td><td></td></tr>
+                <tr><td>Produto criativo</td><td>20</td><td></td></tr>
+                <tr><td>Custo + Preço</td><td>15</td><td></td></tr>
+                <tr><td>Nome + slogan</td><td>10</td><td></td></tr>
+                <tr><td>Bônus sustentabilidade</td><td>+20</td><td></td></tr>
+            </table>
+            <div class="total-box">TOTAL: _______</div>
+        </div>
+    </div>
+
+    <!-- GRUPO 2 -->
+    <div class="cartao">
+        <div class="cartao-header">
+            <h1>♻️ DO LIXO AO LUCRO</h1>
+            <h2>Grupo 2</h2>
+            <p>8º Ano | CSM</p>
+        </div>
+
+        <div class="grupo-info">
+            <label>Nomes:</label>
+            <div class="linha"></div><div class="linha"></div>
+            <label>Empresa:</label>
+            <div class="linha"></div>
+        </div>
+
+        <div class="missao-box"><p>15 min: Material → Produto → Custo → Nome!</p></div>
+        <div class="timer-box">⏱️ 15 MIN</div>
+
+        <div class="etapa-section">
+            <div class="etapa-header"><div class="etapa-numero">1</div><div class="etapa-title">Material (3 min)</div></div>
+            <div class="material-options">
+                <div class="material-item"><div class="emoji">🥤</div><div class="nome">Copo</div></div>
+                <div class="material-item"><div class="emoji">🧴</div><div class="nome">Tampa</div></div>
+                <div class="material-item"><div class="emoji">📰</div><div class="nome">Jornal</div></div>
+                <div class="material-item"><div class="emoji">🧽</div><div class="nome">Esponja</div></div>
+            </div>
+            <div class="campo"><label>Material:</label><div class="linha-resposta"></div></div>
+            <div class="campo"><label>Origem:</label><div class="linha-resposta"></div></div>
+        </div>
+
+        <div class="etapa-section">
+            <div class="etapa-header"><div class="etapa-numero">2</div><div class="etapa-title">Produto (4 min)</div></div>
+            <div class="produto-options">
+                <div class="produto-item"><div class="emoji">🖼️</div><div class="nome">Quadro</div></div>
+                <div class="produto-item"><div class="emoji">📱</div><div class="nome">Porta-objeto</div></div>
+                <div class="produto-item"><div class="emoji">🧸</div><div class="nome">Brinquedo</div></div>
+                <div class="produto-item"><div class="emoji">👜</div><div class="nome">Bolsa</div></div>
+            </div>
+            <div class="campo"><label>Produto:</label><div class="linha-resposta"></div></div>
+        </div>
+
+        <div class="etapa-section">
+            <div class="etapa-header"><div class="etapa-numero">3</div><div class="etapa-title">Custo (4 min)</div></div>
+            <div class="campo"><label>Custo:</label><div class="linha-resposta">R$</div></div>
+            <div class="campo"><label>Venda:</label><div class="linha-resposta">R$</div></div>
+            <div class="dre-box">
+                <h4>LUCRO = R$</h4>
+            </div>
+        </div>
+
+        <div class="etapa-section">
+            <div class="etapa-header"><div class="etapa-numero">4</div><div class="etapa-title">Nome (4 min)</div></div>
+            <div class="campo"><label>Nome:</label><div class="linha-resposta"></div></div>
+            <div class="campo"><label>Slogan:</label><div class="linha-resposta"></div></div>
+        </div>
+
+        <div class="bonus-box">
+            <h4>BÔNUS (+20)</h4>
+            <div class="linha-resposta"></div>
+        </div>
+
+        <div class="pontuacao-box">
+            <h4>PONTOS</h4>
+            <table class="pontuacao-tabela">
+                <tr><th>Item</th><th>Pts</th><th>OK</th></tr>
+                <tr><td>Material</td><td>10</td><td></td></tr>
+                <tr><td>Produto</td><td>20</td><td></td></tr>
+                <tr><td>Custo</td><td>15</td><td></td></tr>
+                <tr><td>Nome</td><td>10</td><td></td></tr>
+                <tr><td>Bônus</td><td>+20</td><td></td></tr>
+            </table>
+            <div class="total-box">TOTAL: _______</div>
+        </div>
+    </div>
+
+    <!-- GRUPO 3 -->
+    <div class="cartao">
+        <div class="cartao-header">
+            <h1>♻️ DO LIXO AO LUCRO</h1>
+            <h2>Grupo 3</h2>
+            <p>8º Ano | CSM</p>
+        </div>
+
+        <div class="grupo-info">
+            <label>Nomes:</label>
+            <div class="linha"></div><div class="linha"></div>
+            <label>Empresa:</label>
+            <div class="linha"></div>
+        </div>
+
+        <div class="missao-box"><p>Transforme lixo em lucro!</p></div>
+        <div class="timer-box">⏱️ 15 MIN</div>
+
+        <div class="etapa-section">
+            <div class="etapa-header"><div class="etapa-numero">1</div><div class="etapa-title">Material</div></div>
+            <div class="material-options">
+                <div class="material-item"><div class="emoji">🥡</div><div class="nome">Caixa</div></div>
+                <div class="material-item"><div class="emoji">🧵</div><div class="nome">Fio</div></div>
+                <div class="material-item"><div class="emoji">🍾</div><div class="nome">Vidro</div></div>
+                <div class="material-item"><div class="emoji">🧱</div><div class="nome">Tijolo</div></div>
+            </div>
+            <div class="campo"><label>Escolhido:</label><div class="linha-resposta"></div></div>
+        </div>
+
+        <div class="etapa-section">
+            <div class="etapa-header"><div class="etapa-numero">2</div><div class="etapa-title">Produto</div></div>
+            <div class="produto-options">
+                <div class="produto-item"><div class="emoji">🏺</div><div class="nome">Vaso</div></div>
+                <div class="produto-item"><div class="emoji">🖌️</div><div class="nome">Pincel</div></div>
+                <div class="produto-item"><div class="emoji">🎭</div><div class="nome">Mascara</div></div>
+                <div class="produto-item"><div class="emoji">🌂</div><div class="nome">Sombrinha</div></div>
+            </div>
+            <div class="campo"><label>Produto:</label><div class="linha-resposta"></div></div>
+        </div>
+
+        <div class="etapa-section">
+            <div class="etapa-header"><div class="etapa-numero">3</div><div class="etapa-title">Valor</div></div>
+            <div class="campo"><label>Custo:</label><div class="linha-resposta">R$</div></div>
+            <div class="campo"><label>Venda:</label><div class="linha-resposta">R$</div></div>
+            <div class="dre-box"><h4>LUCRO = R$</h4></div>
+        </div>
+
+        <div class="etapa-section">
+            <div class="etapa-header"><div class="etapa-numero">4</div><div class="etapa-title">Marca</div></div>
+            <div class="campo"><label>Nome:</label><div class="linha-resposta"></div></div>
+            <div class="campo"><label>Slogan:</label><div class="linha-resposta"></div></div>
+        </div>
+
+        <div class="bonus-box"><h4>BÔNUS</h4><div class="linha-resposta"></div></div>
+
+        <div class="pontuacao-box">
+            <h4>PONTOS</h4>
+            <table class="pontuacao-tabela">
+                <tr><th></th><th>Pts</th><th></th></tr>
+                <tr><td>Mat</td><td>10</td><td></td></tr>
+                <tr><td>Prod</td><td>20</td><td></td></tr>
+                <tr><td>$</td><td>15</td><td></td></tr>
+                <tr><td>Nome</td><td>10</td><td></td></tr>
+                <tr><td>Bon</td><td>+20</td><td></td></tr>
+            </table>
+            <div class="total-box">TOTAL</div>
+        </div>
+    </div>
+
+    <!-- GRUPO 4 -->
+    <div class="cartao">
+        <div class="cartao-header">
+            <h1>♻️ DO LIXO AO LUCRO</h1>
+            <h2>Grupo 4</h2>
+            <p>8º Ano | CSM</p>
+        </div>
+
+        <div class="grupo-info">
+            <label>Nomes:</label>
+            <div class="linha"></div><div class="linha"></div>
+            <label>Empresa:</label>
+            <div class="linha"></div>
+        </div>
+
+        <div class="missao-box"><p>15 min: Material → Produto → Lucro!</p></div>
+        <div class="timer-box">⏱️ 15 MIN</div>
+
+        <div class="etapa-section">
+            <div class="etapa-header"><div class="etapa-numero">1</div><div class="etapa-title">Material</div></div>
+            <div class="material-options">
+                <div class="material-item"><div class="emoji">🔧</div><div class="nome">Metal</div></div>
+                <div class="material-item"><div class="emoji">🪵</div><div class="nome">Madeira</div></div>
+                <div class="material-item"><div class="emoji">🧱</div><div class="nome">Tijolo</div></div>
+                <div class="material-item"><div class="emoji">🎋</div><div class="nome">Bamboo</div></div>
+            </div>
+            <div class="campo"><label>Escolhido:</label><div class="linha-resposta"></div></div>
+        </div>
+
+        <div class="etapa-section">
+            <div class="etapa-header"><div class="etapa-numero">2</div><div class="etapa-title">Produto</div></div>
+            <div class="produto-options">
+                <div class="produto-item"><div class="emoji">🪑</div><div class="nome">Banco</div></div>
+                <div class="produto-item"><div class="emoji">🏗️</div><div class="nome">Prateleira</div></div>
+                <div class="produto-item"><div class="emoji">🐦</div><div class="nome">Casa passaro</div></div>
+                <div class="produto-item"><div class="emoji">⛺</div><div class="nome">Comedouro</div></div>
+            </div>
+            <div class="campo"><label>Produto:</label><div class="linha-resposta"></div></div>
+        </div>
+
+        <div class="etapa-section">
+            <div class="etapa-header"><div class="etapa-numero">3</div><div class="etapa-title">Valor</div></div>
+            <div class="campo"><label>Custo:</label><div class="linha-resposta">R$</div></div>
+            <div class="campo"><label>Venda:</label><div class="linha-resposta">R$</div></div>
+            <div class="dre-box"><h4>LUCRO = R$</h4></div>
+        </div>
+
+        <div class="etapa-section">
+            <div class="etapa-header"><div class="etapa-numero">4</div><div class="etapa-title">Marca</div></div>
+            <div class="campo"><label>Nome:</label><div class="linha-resposta"></div></div>
+            <div class="campo"><label>Slogan:</label><div class="linha-resposta"></div></div>
+        </div>
+
+        <div class="bonus-box"><h4>BÔNUS</h4><div class="linha-resposta"></div></div>
+
+        <div class="pontuacao-box">
+            <h4>PONTOS</h4>
+            <table class="pontuacao-tabela">
+                <tr><th></th><th>Pts</th><th></th></tr>
+                <tr><td>Mat</td><td>10</td><td></td></tr>
+                <tr><td>Prod</td><td>20</td><td></td></tr>
+                <tr><td>$</td><td>15</td><td></td></tr>
+                <tr><td>Nome</td><td>10</td><td></td></tr>
+                <tr><td>Bon</td><td>+20</td><td></td></tr>
+            </table>
+            <div class="total-box">TOTAL</div>
+        </div>
+    </div>
+
+</body>
+</html>

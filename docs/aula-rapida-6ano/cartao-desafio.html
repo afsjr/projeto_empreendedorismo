@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Mini-Empresa Relâmpago — 6º Ano CSM</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #16a34a;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(22, 163, 74, 0.3);
+            z-index: 1000;
+        }
+
+        .print-button:hover {
+            background: #15803d;
+            transform: translateY(-2px);
+        }
+
+        .cartao {
+            background: white;
+            border: 3px solid #16a34a;
+            border-radius: 16px;
+            padding: 25px;
+            max-width: 210mm;
+            margin: 0 auto 30px;
+            page-break-after: always;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .cartao:last-child {
+            page-break-after: avoid;
+        }
+
+        .cartao-header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #ffc107;
+        }
+
+        .cartao-header h1 {
+            font-size: 26px;
+            color: #16a34a;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        .cartao-header h2 {
+            font-size: 16px;
+            color: #ffc107;
+            font-weight: 600;
+        }
+
+        .cartao-header .subtitle {
+            font-size: 13px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .grupo-info {
+            background: #f0fdf4;
+            border: 2px dashed #16a34a;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .grupo-info label {
+            display: block;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .grupo-info .linha {
+            border-bottom: 2px dotted #ccc;
+            min-height: 30px;
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+
+        .missao-box {
+            background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .missao-box h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .missao-box p {
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .timer-box {
+            background: #ffc107;
+            color: #1a1a2e;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .etapa-section {
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 15px;
+            background: #fafafa;
+        }
+
+        .etapa-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .etapa-numero {
+            width: 35px;
+            height: 35px;
+            background: #16a34a;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 18px;
+        }
+
+        .etapa-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #16a34a;
+        }
+
+        .campo {
+            margin-bottom: 8px;
+        }
+
+        .campo label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #555;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .campo .linha-resposta {
+            border-bottom: 1.5px solid #ccc;
+            min-height: 25px;
+            padding: 3px;
+        }
+
+        .produto-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            margin: 10px 0;
+        }
+
+        .produto-item {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .produto-item .emoji {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .produto-item .nome {
+            font-size: 13px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .custos-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+
+        .custos-table th,
+        .custos-table td {
+            border: 1.5px solid #e5e7eb;
+            padding: 8px;
+            text-align: left;
+            font-size: 13px;
+        }
+
+        .custos-table th {
+            background: #16a34a;
+            color: white;
+            font-weight: 700;
+        }
+
+        .custos-table td {
+            background: white;
+        }
+
+        .dre-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 2px solid #f59e0b;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 15px;
+        }
+
+        .dre-box h4 {
+            color: #d97706;
+            font-size: 18px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .dre-linha {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 10px;
+            border-bottom: 1px dashed #e5e7eb;
+            font-size: 14px;
+        }
+
+        .dre-linha:last-child {
+            border-bottom: none;
+        }
+
+        .dre-linha.total {
+            background: #16a34a;
+            color: white;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .pontuacao-box {
+            background: #fef3c7;
+            border: 2px solid #f59e0b;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        .pontuacao-box h4 {
+            color: #d97706;
+            font-size: 18px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .pontuacao-tabela {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .pontuacao-tabela th,
+        .pontuacao-tabela td {
+            border: 1.5px solid #f59e0b;
+            padding: 8px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        .pontuacao-tabela th {
+            background: #f59e0b;
+            color: white;
+            font-weight: 700;
+        }
+
+        .pontuacao-tabela td {
+            background: white;
+        }
+
+        .total-box {
+            background: #16a34a;
+            color: white;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            margin-top: 15px;
+            font-size: 22px;
+            font-weight: 800;
+        }
+
+        .dica-box {
+            background: #e0f2fe;
+            border-left: 4px solid #0ea5e9;
+            border-radius: 8px;
+            padding: 12px;
+            margin: 10px 0;
+        }
+
+        .dica-box p {
+            font-size: 13px;
+            color: #0369a1;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .print-button {
+                display: none;
+            }
+
+            .cartao {
+                box-shadow: none;
+                margin: 0;
+                padding: 20px;
+                page-break-after: always;
+                border: 2px solid #16a34a;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-button" onclick="window.print()">🖨️ Imprimir Cartões</button>
+
+    <!-- GRUPO 1 -->
+    <div class="cartao">
+        <div class="cartao-header">
+            <h1>💰 MINI-EMPRESA RELÂMPAGO</h1>
+            <h2>Desafio Rápido — Grupo 1</h2>
+            <p class="subtitle">6º Ano | Feira do Centavo Consciente | CSM 2026</p>
+        </div>
+
+        <div class="grupo-info">
+            <label>👥 Nomes dos integrantes:</label>
+            <div class="linha"></div>
+            <div class="linha"></div>
+            <div class="linha"></div>
+            <div class="linha"></div>
+            <label>🏢 Nome da Mini-Empresa:</label>
+            <div class="linha"></div>
+        </div>
+
+        <div class="missao-box">
+            <h3>🎯 SUA MISSÃO</h3>
+            <p>Vocês têm <strong>15 minutos</strong> para criar uma mini-empresa completa: escolher produto, calcular custos, definir preço e projetar lucro!</p>
+        </div>
+
+        <div class="timer-box">
+            ⏱️ TEMPO: 15 MINUTOS — VALER!
+        </div>
+
+        <!-- ETAPA 1: Produto -->
+        <div class="etapa-section">
+            <div class="etapa-header">
+                <div class="etapa-numero">1</div>
+                <div class="etapa-title">Escolha do Produto (3 min)</div>
+            </div>
+            <p style="font-size: 13px; color: #666; margin-bottom: 10px;">Vocês vão vender na escola! Escolham UM produto simples:</p>
+            
+            <div class="produto-options">
+                <div class="produto-item">
+                    <div class="emoji">🧁</div>
+                    <div class="nome">Brigadeiro</div>
+                </div>
+                <div class="produto-item">
+                    <div class="emoji">📿</div>
+                    <div class="nome">Pulseira</div>
+                </div>
+                <div class="produto-item">
+                    <div class="emoji">🎨</div>
+                    <div class="nome">Marca-página</div>
+                </div>
+                <div class="produto-item">
+                    <div class="emoji">🍿</div>
+                    <div class="nome">Pipoca doce</div>
+                </div>
+            </div>
+
+            <div class="campo">
+                <label>Produto escolhido:</label>
+                <div class="linha-resposta"></div>
+            </div>
+            <div class="campo">
+                <label>Por que escolheram este? (motivo):</label>
+                <div class="linha-resposta"></div>
+            </div>
+            <div class="campo">
+                <label>Quem compraria? (público):</label>
+                <div class="linha-resposta"></div>
+            </div>
+
+            <div class="dica-box">
+                <p>💡 <strong>Dica:</strong> Pensem: é fácil de fazer? É barato? Os alunos da escola gostariam?</p>
+            </div>
+        </div>
+
+        <!-- ETAPA 2: Custos -->
+        <div class="etapa-section">
+            <div class="etapa-header">
+                <div class="etapa-numero">2</div>
+                <div class="etapa-title">Calculando Custos (5 min)</div>
+            </div>
+            <p style="font-size: 13px; color: #666; margin-bottom: 10px;">Quanto custa fazer 10 unidades do produto?</p>
+            
+            <table class="custos-table">
+                <tr>
+                    <th>Material</th>
+                    <th>Custo estimado (R$)</th>
+                </tr>
+                <tr><td></td><td>R$</td></tr>
+                <tr><td></td><td>R$</td></tr>
+                <tr><td></td><td>R$</td></tr>
+                <tr><td></td><td>R$</td></tr>
+                <tr><td></td><td>R$</td></tr>
+                <tr style="background: #f0fdf4; font-weight: 700;">
+                    <td><strong>TOTAL DE CUSTOS:</strong></td>
+                    <td><strong>R$</strong></td>
+                </tr>
+            </table>
+
+            <div class="campo">
+                <label>Custo de CADA unidade (total ÷ 10):</label>
+                <div class="linha-resposta" style="width: 150px;">R$</div>
+            </div>
+        </div>
+
+        <!-- ETAPA 3: Preço e Lucro -->
+        <div class="etapa-section">
+            <div class="etapa-header">
+                <div class="etapa-numero">3</div>
+                <div class="etapa-title">Preço de Venda e Lucro (4 min)</div>
+            </div>
+            
+            <div class="campo">
+                <label>Preço de venda de cada unidade:</label>
+                <div class="linha-resposta" style="width: 150px;">R$</div>
+            </div>
+            <div class="campo">
+                <label>Quantas unidades querem vender?</label>
+                <div class="linha-resposta" style="width: 150px;"></div>
+            </div>
+
+            <div class="dica-box">
+                <p>💡 <strong>Regra de ouro:</strong> Preço de venda = Custo × 2 ou × 3 (para ter lucro!)</p>
+            </div>
+
+            <!-- Mini DRE -->
+            <div class="dre-box">
+                <h4>📊 MINI DRE — Demonstrativo de Resultados</h4>
+                <div class="dre-linha">
+                    <span>💰 Receita (preço × quantidade vendida):</span>
+                    <span>R$</span>
+                </div>
+                <div class="dre-linha">
+                    <span>📦 Custos totais:</span>
+                    <span>(R$)</span>
+                </div>
+                <div class="dre-linha total">
+                    <span>🎉 LUCRO (receita - custos):</span>
+                    <span>R$</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ETAPA 4: Marketing -->
+        <div class="etapa-section">
+            <div class="etapa-header">
+                <div class="etapa-numero">4</div>
+                <div class="etapa-title">Marketing + Slogan (3 min)</div>
+            </div>
+            
+            <div class="campo">
+                <label>Slogan da empresa (frase chamativa):</label>
+                <div class="linha-resposta"></div>
+            </div>
+            <div class="campo">
+                <label>Como vão atrair clientes? (1 ideia):</label>
+                <div class="linha-resposta"></div>
+            </div>
+
+            <div class="dica-box">
+                <p>💡 <strong>Exemplo de slogan:</strong> "Brigadeiro da Felicidade — doce por fora, felicidade por dentro!"</p>
+            </div>
+        </div>
+
+        <!-- Bônus -->
+        <div class="etapa-section" style="background: #f0fdf4; border-color: #16a34a;">
+            <div class="etapa-header">
+                <div class="etapa-numero" style="background: #f59e0b;">⭐</div>
+                <div class="etapa-title">DESAFIO BÔNUS (+25 pontos!)</div>
+            </div>
+            <p style="font-size: 14px; color: #333; margin-bottom: 10px;"><strong>Pergunta:</strong> Se vocês tivessem R$ 50,00 para investir, como usariam esse dinheiro para melhorar a empresa?</p>
+            <div class="linha-resposta" style="min-height: 40px; margin-top: 10px; border-bottom: 2px dotted #ccc;"></div>
+            <div class="linha-resposta" style="min-height: 40px; margin-top: 10px; border-bottom: 2px dotted #ccc;"></div>
+        </div>
+
+        <!-- Pontuação -->
+        <div class="pontuacao-box">
+            <h4>📊 TABELA DE PONTUAÇÃO</h4>
+            <table class="pontuacao-tabela">
+                <tr>
+                    <th>Critério</th>
+                    <th>Pontos</th>
+                    <th>Seus pontos</th>
+                </tr>
+                <tr>
+                    <td>Produto escolhido + motivo</td>
+                    <td>10 pts</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Custos calculados</td>
+                    <td>15 pts</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Preço definido (com margem de lucro)</td>
+                    <td>15 pts</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Mini DRE preenchido</td>
+                    <td>20 pts</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Slogan criativo</td>
+                    <td>10 pts</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Desafio bônus (investimento R$ 50)</td>
+                    <td>+25 pts</td>
+                    <td></td>
+                </tr>
+            </table>
+            <div class="total-box">TOTAL DE PONTOS: _______</div>
+        </div>
+    </div>
+
+    <!-- GRUPO 2 -->
+    <div class="cartao">
+        <div class="cartao-header">
+            <h1>💰 MINI-EMPRESA RELÂMPAGO</h1>
+            <h2>Desafio Rápido — Grupo 2</h2>
+            <p class="subtitle">6º Ano | Feira do Centavo Consciente | CSM 2026</p>
+        </div>
+
+        <div class="grupo-info">
+            <label>👥 Nomes dos integrantes:</label>
+            <div class="linha"></div><div class="linha"></div><div class="linha"></div><div class="linha"></div>
+            <label>🏢 Nome da Mini-Empresa:</label>
+            <div class="linha"></div>
+        </div>
+
+        <div class="missao-box">
+            <h3>🎯 SUA MISSÃO</h3>
+            <p>Vocês têm <strong>15 minutos</strong> para criar uma mini-empresa completa: escolher produto, calcular custos, definir preço e projetar lucro!</p>
+        </div>
+
+        <div class="timer-box">⏱️ TEMPO: 15 MINUTOS — VALER!</div>
+
+        <div class="etapa-section">
+            <div class="etapa-header">
+                <div class="etapa-numero">1</div>
+                <div class="etapa-title">Escolha do Produto (3 min)</div>
+            </div>
+            <p style="font-size: 13px; color: #666; margin-bottom: 10px;">Vocês vão vender na escola! Escolham UM produto simples:</p>
+            <div class="produto-options">
+                <div class="produto-item"><div class="emoji">🍪</div><div class="nome">Cookie</div></div>
+                <div class="produto-item"><div class="emoji">🎀</div><div class="nome">Laço de cabelo</div></div>
+                <div class="produto-item"><div class="emoji">📝</div><div class="nome">Bloco de notas</div></div>
+                <div class="produto-item"><div class="emoji">🥜</div><div class="nome">Mix de nuts</div></div>
+            </div>
+            <div class="campo"><label>Produto escolhido:</label><div class="linha-resposta"></div></div>
+            <div class="campo"><label>Por que escolheram este?</label><div class="linha-resposta"></div></div>
+            <div class="campo"><label>Quem compraria? (público):</label><div class="linha-resposta"></div></div>
+            <div class="dica-box"><p>💡 <strong>Dica:</strong> É fácil de fazer? É barato? Os alunos gostariam?</p></div>
+        </div>
+
+        <div class="etapa-section">
+            <div class="etapa-header">
+                <div class="etapa-numero">2</div>
+                <div class="etapa-title">Calculando Custos (5 min)</div>
+            </div>
+            <p style="font-size: 13px; color: #666; margin-bottom: 10px;">Quanto custa fazer 10 unidades?</p>
+            <table class="custos-table">
+                <tr><th>Material</th><th>Custo estimado (R$)</th></tr>
+                <tr><td></td><td>R$</td></tr>
+                <tr><td></td><td>R$</td></tr>
+                <tr><td></td><td>R$</td></tr>
+                <tr><td></td><td>R$</td></tr>
+                <tr><td></td><td>R$</td></tr>
+                <tr style="background: #f0fdf4; font-weight: 700;"><td><strong>TOTAL DE CUSTOS:</strong></td><td><strong>R$</strong></td></tr>
+            </table>
+            <div class="campo"><label>Custo de CADA unidade (total ÷ 10):</label><div class="linha-resposta" style="width: 150px;">R$</div></div>
+        </div>
+
+        <div class="etapa-section">
+            <div class="etapa-header">
+                <div class="etapa-numero">3</div>
+                <div class="etapa-title">Preço de Venda e Lucro (4 min)</div>
+            </div>
+            <div class="campo"><label>Preço de venda de cada unidade:</label><div class="linha-resposta" style="width: 150px;">R$</div></div>
+            <div class="campo"><label>Quantas unidades querem vender?</label><div class="linha-resposta" style="width: 150px;"></div></div>
+            <div class="dica-box"><p>💡 <strong>Regra de ouro:</strong> Preço de venda = Custo × 2 ou × 3</p></div>
+            <div class="dre-box">
+                <h4>📊 MINI DRE — Demonstrativo de Resultados</h4>
+                <div class="dre-linha"><span>💰 Receita (preço × quantidade):</span><span>R$</span></div>
+                <div class="dre-linha"><span>📦 Custos totais:</span><span>(R$)</span></div>
+                <div class="dre-linha total"><span>🎉 LUCRO:</span><span>R$</span></div>
+            </div>
+        </div>
+
+        <div class="etapa-section">
+            <div class="etapa-header">
+                <div class="etapa-numero">4</div>
+                <div class="etapa-title">Marketing + Slogan (3 min)</div>
+            </div>
+            <div class="campo"><label>Slogan da empresa:</label><div class="linha-resposta"></div></div>
+            <div class="campo"><label>Como vão atrair clientes?</label><div class="linha-resposta"></div></div>
+        </div>
+
+        <div class="etapa-section" style="background: #f0fdf4; border-color: #16a34a;">
+            <div class="etapa-header">
+                <div class="etapa-numero" style="background: #f59e0b;">⭐</div>
+                <div class="etapa-title">DESAFIO BÔNUS (+25 pontos!)</div>
+            </div>
+            <p style="font-size: 14px; color: #333; margin-bottom: 10px;"><strong>Pergunta:</strong> Se tivessem R$ 50,00 para investir, como usariam?</p>
+            <div class="linha-resposta" style="min-height: 40px; margin-top: 10px; border-bottom: 2px dotted #ccc;"></div>
+            <div class="linha-resposta" style="min-height: 40px; margin-top: 10px; border-bottom: 2px dotted #ccc;"></div>
+        </div>
+
+        <div class="pontuacao-box">
+            <h4>📊 PONTUAÇÃO</h4>
+            <table class="pontuacao-tabela">
+                <tr><th>Critério</th><th>Pontos</th><th>Seus pontos</th></tr>
+                <tr><td>Produto + motivo</td><td>10 pts</td><td></td></tr>
+                <tr><td>Custos calculados</td><td>15 pts</td><td></td></tr>
+                <tr><td>Preço com margem de lucro</td><td>15 pts</td><td></td></tr>
+                <tr><td>Mini DRE preenchido</td><td>20 pts</td><td></td></tr>
+                <tr><td>Slogan criativo</td><td>10 pts</td><td></td></tr>
+                <tr><td>Desafio bônus</td><td>+25 pts</td><td></td></tr>
+            </table>
+            <div class="total-box">TOTAL: _______</div>
+        </div>
+    </div>
+
+    <!-- GRUPO 3 -->
+    <div class="cartao">
+        <div class="cartao-header">
+            <h1>💰 MINI-EMPRESA RELÂMPAGO</h1>
+            <h2>Desafio Rápido — Grupo 3</h2>
+            <p class="subtitle">6º Ano | Feira do Centavo Consciente | CSM 2026</p>
+        </div>
+
+        <div class="grupo-info">
+            <label>👥 Nomes:</label>
+            <div class="linha"></div><div class="linha"></div><div class="linha"></div><div class="linha"></div>
+            <label>🏢 Nome da Mini-Empresa:</label>
+            <div class="linha"></div>
+        </div>
+
+        <div class="missao-box">
+            <h3>🎯 MISSÃO</h3>
+            <p><strong>15 minutos</strong> para criar uma mini-empresa: produto, custos, preço e lucro!</p>
+        </div>
+
+        <div class="timer-box">⏱️ 15 MINUTOS — VALER!</div>
+
+        <div class="etapa-section">
+            <div class="etapa-header">
+                <div class="etapa-numero">1</div>
+                <div class="etapa-title">Produto (3 min)</div>
+            </div>
+            <div class="produto-options">
+                <div class="produto-item"><div class="emoji">🍫</div><div class="nome">Trufa</div></div>
+                <div class="produto-item"><div class="emoji">🧢</div><div class="nome">Chaveiro</div></div>
+                <div class="produto-item"><div class="emoji">📚</div><div class="nome">Bookmark artesanal</div></div>
+                <div class="produto-item"><div class="emoji">🍬</div><div class="nome">Balas gourmet</div></div>
+            </div>
+            <div class="campo"><label>Produto:</label><div class="linha-resposta"></div></div>
+            <div class="campo"><label>Por quê?</label><div class="linha-resposta"></div></div>
+            <div class="campo"><label>Público:</label><div class="linha-resposta"></div></div>
+        </div>
+
+        <div class="etapa-section">
+            <div class="etapa-header">
+                <div class="etapa-numero">2</div>
+                <div class="etapa-title">Custos (5 min)</div>
+            </div>
+            <table class="custos-table">
+                <tr><th>Material</th><th>Custo (R$)</th></tr>
+                <tr><td></td><td>R$</td></tr>
+                <tr><td></td><td>R$</td></tr>
+                <tr><td></td><td>R$</td></tr>
+                <tr><td></td><td>R$</td></tr>
+                <tr style="background: #f0fdf4; font-weight: 700;"><td><strong>TOTAL:</strong></td><td><strong>R$</strong></td></tr>
+            </table>
+            <div class="campo"><label>Custo por unidade (÷ 10):</label><div class="linha-resposta" style="width: 150px;">R$</div></div>
+        </div>
+
+        <div class="etapa-section">
+            <div class="etapa-header">
+                <div class="etapa-numero">3</div>
+                <div class="etapa-title">Preço + Lucro (4 min)</div>
+            </div>
+            <div class="campo"><label>Preço de venda:</label><div class="linha-resposta" style="width: 150px;">R$</div></div>
+            <div class="campo"><label>Meta de vendas:</label><div class="linha-resposta" style="width: 150px;"></div></div>
+            <div class="dre-box">
+                <h4>📊 MINI DRE</h4>
+                <div class="dre-linha"><span>💰 Receita:</span><span>R$</span></div>
+                <div class="dre-linha"><span>📦 Custos:</span><span>(R$)</span></div>
+                <div class="dre-linha total"><span>🎉 LUCRO:</span><span>R$</span></div>
+            </div>
+        </div>
+
+        <div class="etapa-section">
+            <div class="etapa-header">
+                <div class="etapa-numero">4</div>
+                <div class="etapa-title">Slogan (3 min)</div>
+            </div>
+            <div class="campo"><label>Slogan:</label><div class="linha-resposta"></div></div>
+            <div class="campo"><label>Como atrair clientes?</label><div class="linha-resposta"></div></div>
+        </div>
+
+        <div class="etapa-section" style="background: #f0fdf4; border-color: #16a34a;">
+            <div class="etapa-header">
+                <div class="etapa-numero" style="background: #f59e0b;">⭐</div>
+                <div class="etapa-title">BÔNUS (+25 pts)</div>
+            </div>
+            <p style="font-size: 14px; color: #333;">Com R$ 50,00 de investimento, o que fariam?</p>
+            <div class="linha-resposta" style="min-height: 40px; margin-top: 10px; border-bottom: 2px dotted #ccc;"></div>
+            <div class="linha-resposta" style="min-height: 40px; margin-top: 10px; border-bottom: 2px dotted #ccc;"></div>
+        </div>
+
+        <div class="pontuacao-box">
+            <h4>📊 PONTUAÇÃO</h4>
+            <table class="pontuacao-tabela">
+                <tr><th>Critério</th><th>Pontos</th><th>Seus</th></tr>
+                <tr><td>Produto + motivo</td><td>10 pts</td><td></td></tr>
+                <tr><td>Custos</td><td>15 pts</td><td></td></tr>
+                <tr><td>Preço + lucro</td><td>15 pts</td><td></td></tr>
+                <tr><td>DRE</td><td>20 pts</td><td></td></tr>
+                <tr><td>Slogan</td><td>10 pts</td><td></td></tr>
+                <tr><td>Bônus</td><td>+25 pts</td><td></td></tr>
+            </table>
+            <div class="total-box">TOTAL: _______</div>
+        </div>
+    </div>
+
+    <!-- GRUPO 4 -->
+    <div class="cartao">
+        <div class="cartao-header">
+            <h1>💰 MINI-EMPRESA RELÂMPAGO</h1>
+            <h2>Desafio Rápido — Grupo 4</h2>
+            <p class="subtitle">6º Ano | Feira do Centavo Consciente | CSM 2026</p>
+        </div>
+
+        <div class="grupo-info">
+            <label>👥 Nomes:</label>
+            <div class="linha"></div><div class="linha"></div><div class="linha"></div><div class="linha"></div>
+            <label>🏢 Nome da Empresa:</label>
+            <div class="linha"></div>
+        </div>
+
+        <div class="missao-box">
+            <h3>🎯 MISSÃO</h3>
+            <p><strong>15 minutos</strong> — Criem uma mini-empresa completa!</p>
+        </div>
+
+        <div class="timer-box">⏱️ 15 MIN — VALER!</div>
+
+        <div class="etapa-section">
+            <div class="etapa-header">
+                <div class="etapa-numero">1</div>
+                <div class="etapa-title">Produto (3 min)</div>
+            </div>
+            <div class="produto-options">
+                <div class="produto-item"><div class="emoji">🧃</div><div class="nome">Suco natural</div></div>
+                <div class="produto-item"><div class="emoji">✏️</div><div class="nome">Lapis decorado</div></div>
+                <div class="produto-item"><div class="emoji">🎯</div><div class="nome">Jogo simples</div></div>
+                <div class="produto-item"><div class="emoji">🍭</div><div class="nome">Pirulito gourmet</div></div>
+            </div>
+            <div class="campo"><label>Produto:</label><div class="linha-resposta"></div></div>
+            <div class="campo"><label>Por quê?</label><div class="linha-resposta"></div></div>
+            <div class="campo"><label>Público:</label><div class="linha-resposta"></div></div>
+        </div>
+
+        <div class="etapa-section">
+            <div class="etapa-header">
+                <div class="etapa-numero">2</div>
+                <div class="etapa-title">Custos (5 min)</div>
+            </div>
+            <table class="custos-table">
+                <tr><th>Material</th><th>Custo (R$)</th></tr>
+                <tr><td></td><td>R$</td></tr><tr><td></td><td>R$</td></tr>
+                <tr><td></td><td>R$</td></tr><tr><td></td><td>R$</td></tr>
+                <tr style="background: #f0fdf4; font-weight: 700;"><td><strong>TOTAL:</strong></td><td><strong>R$</strong></td></tr>
+            </table>
+            <div class="campo"><label>Custo/unidade (÷10):</label><div class="linha-resposta" style="width: 150px;">R$</div></div>
+        </div>
+
+        <div class="etapa-section">
+            <div class="etapa-header">
+                <div class="etapa-numero">3</div>
+                <div class="etapa-title">Preço + Lucro (4 min)</div>
+            </div>
+            <div class="campo"><label>Preço venda:</label><div class="linha-resposta" style="width: 150px;">R$</div></div>
+            <div class="campo"><label>Meta:</label><div class="linha-resposta" style="width: 150px;"></div></div>
+            <div class="dre-box">
+                <h4>📊 MINI DRE</h4>
+                <div class="dre-linha"><span>💰 Receita:</span><span>R$</span></div>
+                <div class="dre-linha"><span>📦 Custos:</span><span>(R$)</span></div>
+                <div class="dre-linha total"><span>🎉 LUCRO:</span><span>R$</span></div>
+            </div>
+        </div>
+
+        <div class="etapa-section">
+            <div class="etapa-header">
+                <div class="etapa-numero">4</div>
+                <div class="etapa-title">Slogan (3 min)</div>
+            </div>
+            <div class="campo"><label>Slogan:</label><div class="linha-resposta"></div></div>
+            <div class="campo"><label>Como atrair clientes?</label><div class="linha-resposta"></div></div>
+        </div>
+
+        <div class="etapa-section" style="background: #f0fdf4; border-color: #16a34a;">
+            <div class="etapa-header">
+                <div class="etapa-numero" style="background: #f59e0b;">⭐</div>
+                <div class="etapa-title">BÔNUS (+25 pts)</div>
+            </div>
+            <p style="font-size: 14px; color: #333;">Com R$ 50,00, o que fariam?</p>
+            <div class="linha-resposta" style="min-height: 40px; margin-top: 10px; border-bottom: 2px dotted #ccc;"></div>
+            <div class="linha-resposta" style="min-height: 40px; margin-top: 10px; border-bottom: 2px dotted #ccc;"></div>
+        </div>
+
+        <div class="pontuacao-box">
+            <h4>📊 PONTUAÇÃO</h4>
+            <table class="pontuacao-tabela">
+                <tr><th>Critério</th><th>Pontos</th><th>Seus</th></tr>
+                <tr><td>Produto</td><td>10</td><td></td></tr>
+                <tr><td>Custos</td><td>15</td><td></td></tr>
+                <tr><td>Preço</td><td>15</td><td></td></tr>
+                <tr><td>DRE</td><td>20</td><td></td></tr>
+                <tr><td>Slogan</td><td>10</td><td></td></tr>
+                <tr><td>Bônus</td><td>+25</td><td></td></tr>
+            </table>
+            <div class="total-box">TOTAL: _______</div>
+        </div>
+    </div>
+
+</body>
+</html>

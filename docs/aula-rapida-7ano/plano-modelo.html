@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano de Aula — [TÍTULO] (7º Ano, 50 min)</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #f5f5f5;
+            padding: 30px;
+            line-height: 1.6;
+        }
+
+        .plano-container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .plano-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 4px solid #ef4444;
+        }
+
+        .plano-header h1 { font-size: 30px; color: #ef4444; font-weight: 800; margin-bottom: 10px; }
+        .plano-header h2 { font-size: 20px; color: #f59e0b; font-weight: 600; }
+        .plano-header .subtitle { font-size: 14px; color: #666; margin-top: 5px; }
+
+        .info-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 30px; }
+
+        .info-card {
+            background: #fef2f2;
+            border: 2px solid #ef4444;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .info-card h3 { font-size: 12px; color: #dc2626; margin-bottom: 5px; }
+        .info-card p { font-size: 16px; font-weight: 700; color: #333; }
+
+        .objetivo-box {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .objetivo-box h3 { font-size: 18px; margin-bottom: 10px; }
+        .objetivo-box ul { padding-left: 20px; }
+        .objetivo-box li { margin-bottom: 5px; font-size: 14px; }
+
+        .materiais-box {
+            background: #fef3c7;
+            border-left: 5px solid #f59e0b;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .materiais-box h3 { color: #d97706; font-size: 18px; margin-bottom: 15px; }
+        .materiais-box ul { padding-left: 20px; }
+        .materiais-box li { margin-bottom: 8px; font-size: 14px; }
+
+        .timeline-box { margin-bottom: 30px; }
+        .timeline-box h3 { font-size: 22px; color: #ef4444; margin-bottom: 20px; text-align: center; }
+
+        .timeline-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 5px solid;
+        }
+
+        .timeline-item.abertura { background: #fee2e2; border-color: #ef4444; }
+        .timeline-item.teoria { background: #e0e7ff; border-color: #6366f1; }
+        .timeline-item.pratica { background: #fef3c7; border-color: #f59e0b; }
+        .timeline-item.fechamento { background: #d1fae5; border-color: #10b981; }
+
+        .timeline-tempo { min-width: 70px; text-align: center; }
+        .timeline-tempo .numero { font-size: 28px; font-weight: 800; color: #333; }
+        .timeline-tempo .label { font-size: 11px; color: #666; }
+
+        .timeline-content h4 { font-size: 18px; color: #333; margin-bottom: 10px; }
+        .timeline-content p { font-size: 14px; color: #555; margin-bottom: 8px; }
+        .timeline-content ul { padding-left: 20px; }
+        .timeline-content li { margin-bottom: 5px; font-size: 13px; }
+
+        .dicas-professor {
+            background: #e0f2fe;
+            border: 2px solid #0ea5e9;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .dicas-professor h3 { color: #0369a1; font-size: 18px; margin-bottom: 15px; }
+        .dicas-professor ol { padding-left: 20px; }
+        .dicas-professor li { margin-bottom: 8px; font-size: 14px; }
+
+        .conexao-projeto {
+            background: #fef2f2;
+            border: 2px solid #ef4444;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .conexao-projeto h3 { color: #ef4444; font-size: 18px; margin-bottom: 10px; }
+        .conexao-projeto p { font-size: 14px; color: #555; margin-bottom: 10px; }
+
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #ef4444;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+            z-index: 1000;
+        }
+
+        .print-button:hover { background: #dc2626; }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .print-button { display: none; }
+            .plano-container { box-shadow: none; padding: 20px; }
+        }
+
+        @media (max-width: 768px) {
+            .info-grid { grid-template-columns: repeat(2, 1fr); }
+            .timeline-item { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-button" onclick="window.print()">🖨️ Imprimir Plano</button>
+
+    <div class="plano-container">
+        <div class="plano-header">
+            <h1>[TÍTULO DA AULA]</h1>
+            <h2>Plano de Aula — 50 Minutos</h2>
+            <p class="subtitle">7º Ano | [Módulo] | Empreendedores Exponenciais | CSM Limoeiro</p>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>⏱️ Duração</h3>
+                <p>50 minutos</p>
+            </div>
+            <div class="info-card">
+                <h3>👥 Público</h3>
+                <p>7º Ano (12-13 anos)</p>
+            </div>
+            <div class="info-card">
+                <h3>📚 Módulo</h3>
+                <p>[Nome do Módulo]</p>
+            </div>
+            <div class="info-card">
+                <h3>🎯 Formato</h3>
+                <p>Individual/Em grupo</p>
+            </div>
+        </div>
+
+        <div class="objetivo-box">
+            <h3>🎯 OBJETIVOS DA AULA</h3>
+            <ul>
+                <li><strong>[Objetivo 1]</strong> — [descrição]</li>
+                <li><strong>[Objetivo 2]</strong> — [descrição]</li>
+                <li><strong>[Objetivo 3]</strong> — [descrição]</li>
+            </ul>
+        </div>
+
+        <div class="materiais-box">
+            <h3>📦 MATERIAIS NECESSÁRIOS</h3>
+            <ul>
+                <li>[Material 1]</li>
+                <li>[Material 2]</li>
+                <li>[Material 3]</li>
+            </ul>
+        </div>
+
+        <div class="timeline-box">
+            <h3>📋 CRONOGRAMA DA AULA (50 MIN)</h3>
+
+            <!-- ABERTURA -->
+            <div class="timeline-item abertura">
+                <div class="timeline-tempo">
+                    <div class="numero">5</div>
+                    <div class="label">minutos</div>
+                </div>
+                <div class="timeline-content">
+                    <h4>🚀 ABERTURA — Gancho e Contextualização</h4>
+                    <p><strong>Pergunta disparadora:</strong> [Pergunta que desperte curiosidade]</p>
+                    <p><strong>Exemplo:</strong> "Vocês sabiam que o Nubank começou numa mesa de restaurante?"</p>
+                    <p><strong>Ação:</strong> Ouça 2-3 respostas rápidas. Conecte com o tema da aula.</p>
+                </div>
+            </div>
+
+            <!-- TEORIA -->
+            <div class="timeline-item teoria">
+                <div class="timeline-tempo">
+                    <div class="numero">10</div>
+                    <div class="label">minutos</div>
+                </div>
+                <div class="timeline-content">
+                    <h4>📚 TEORIA — Conceitos Essenciais</h4>
+                    <p><strong>Conceito-chave:</strong> [Definição clara e curta]</p>
+                    <p><strong>Exemplo prático:</strong> [Caso real ou exemplo do dia a dia]</p>
+                    <p><strong>Por que importa:</strong> [Conexão com empreendedorismo]</p>
+                    <p><strong>Professor:</strong> Explique com suas palavras. Use 1-2 exemplos visuais.</p>
+                </div>
+            </div>
+
+            <!-- PRÁTICA -->
+            <div class="timeline-item pratica">
+                <div class="timeline-tempo">
+                    <div class="numero">25</div>
+                    <div class="label">minutos</div>
+                </div>
+                <div class="timeline-content">
+                    <h4>✋ ATIVIDADE PRÁTICA — Mão na Massa</h4>
+                    <p><strong>Instrução:</strong> [O que os alunos devem fazer]</p>
+                    <ul>
+                        <li><strong>Min 0-5:</strong> [Etapa 1]</li>
+                        <li><strong>Min 5-15:</strong> [Etapa 2]</li>
+                        <li><strong>Min 15-25:</strong> [Etapa 3]</li>
+                    </ul>
+                    <p><strong>Professor(a):</strong> Circule, observe, faça perguntas. Ajude quem travou.</p>
+                </div>
+            </div>
+
+            <!-- FECHAMENTO -->
+            <div class="timeline-item fechamento">
+                <div class="timeline-tempo">
+                    <div class="numero">10</div>
+                    <div class="label">minutos</div>
+                </div>
+                <div class="timeline-content">
+                    <h4>🎯 FECHAMENTO — Síntese e Tarefa</h4>
+                    <p><strong>Synthese:</strong> "O que aprendemos hoje?" — Ouça 2-3 alunos.</p>
+                    <p><strong>Tarefa de casa:</strong> [Descrição da tarefa]</p>
+                    <p><strong>Próxima aula:</strong> [Antecipação do próximo conteúdo]</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="dicas-professor">
+            <h3>💡 DICAS PARA O(A) PROFESSOR(A)</h3>
+            <ol>
+                <li><strong>Energia:</strong> 7º ano adora desafios e competição. Use isso a seu favor!</li>
+                <li><strong>Tempo:</strong> 25 min de prática é muito. Cronometre e alerte nos 5 min finais.</li>
+                <li><strong>Exemplos:</strong> Use casos brasileiros (Nubank, Magazine Luiza, 99) e locais.</li>
+                <li><strong>Conecte:</strong> Relacione sempre com o projeto que farão na feira.</li>
+            </ol>
+        </div>
+
+        <div class="conexao-projeto">
+            <h3>🔗 CONEXÃO COM O PROJETO DO SEMESTRE</h3>
+            <p>Esta aula faz parte do módulo <strong>[Nome do Módulo]</strong> que conecta diretamente com o projeto <strong>[Nome do Projeto]</strong> do 1º ou 2º Semestre.</p>
+            <p><strong>Conceitos aplicados:</strong></p>
+            <ul style="padding-left: 20px; margin-top: 10px;">
+                <li>[Conceito 1]</li>
+                <li>[Conceito 2]</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

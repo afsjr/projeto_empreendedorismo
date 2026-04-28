@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano de Aula — Geração de Valor (7º Ano, 50 min)</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Outfit', sans-serif; background: #f5f5f5; padding: 30px; line-height: 1.6; }
+        .plano-container { max-width: 210mm; margin: 0 auto; background: white; border-radius: 16px; padding: 40px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        .plano-header { text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 4px solid #ef4444; }
+        .plano-header h1 { font-size: 26px; color: #ef4444; font-weight: 800; margin-bottom: 8px; }
+        .plano-header h2 { font-size: 18px; color: #f59e0b; font-weight: 600; }
+        .plano-header .subtitle { font-size: 13px; color: #666; margin-top: 5px; }
+        .info-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 25px; }
+        .info-card { background: #fef2f2; border: 2px solid #ef4444; border-radius: 10px; padding: 12px; text-align: center; }
+        .info-card h3 { font-size: 11px; color: #dc2626; margin-bottom: 4px; }
+        .info-card p { font-size: 14px; font-weight: 700; color: #333; }
+        .objetivo-box { background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); color: white; border-radius: 12px; padding: 18px; margin-bottom: 25px; }
+        .objetivo-box h3 { font-size: 16px; margin-bottom: 10px; }
+        .objetivo-box ul { padding-left: 20px; }
+        .objetivo-box li { margin-bottom: 5px; font-size: 13px; }
+        .materiais-box { background: #fef3c7; border-left: 5px solid #f59e0b; border-radius: 10px; padding: 18px; margin-bottom: 25px; }
+        .materiais-box h3 { color: #d97706; font-size: 16px; margin-bottom: 12px; }
+        .materiais-box ul { padding-left: 20px; }
+        .materiais-box li { margin-bottom: 6px; font-size: 13px; }
+        .timeline-box { margin-bottom: 25px; }
+        .timeline-box h3 { font-size: 20px; color: #ef4444; margin-bottom: 15px; text-align: center; }
+        .timeline-item { display: flex; gap: 15px; margin-bottom: 15px; padding: 15px; border-radius: 10px; border-left: 5px solid; }
+        .timeline-item.abertura { background: #fee2e2; border-color: #ef4444; }
+        .timeline-item.teoria { background: #e0e7ff; border-color: #6366f1; }
+        .timeline-item.pratica { background: #fef3c7; border-color: #f59e0b; }
+        .timeline-item.fechamento { background: #d1fae5; border-color: #10b981; }
+        .timeline-tempo { min-width: 55px; text-align: center; }
+        .timeline-tempo .numero { font-size: 24px; font-weight: 800; color: #333; }
+        .timeline-tempo .label { font-size: 10px; color: #666; }
+        .timeline-content h4 { font-size: 15px; color: #333; margin-bottom: 8px; }
+        .timeline-content p { font-size: 13px; color: #555; margin-bottom: 6px; }
+        .timeline-content ul { padding-left: 18px; }
+        .timeline-content li { margin-bottom: 4px; font-size: 12px; }
+        .dicas-professor { background: #e0f2fe; border: 2px solid #0ea5e9; border-radius: 10px; padding: 18px; margin-bottom: 25px; }
+        .dicas-professor h3 { color: #0369a1; font-size: 16px; margin-bottom: 12px; }
+        .dicas-professor ol { padding-left: 20px; }
+        .dicas-professor li { margin-bottom: 6px; font-size: 13px; }
+        .conexao-projeto { background: #fef2f2; border: 2px solid #ef4444; border-radius: 10px; padding: 18px; }
+        .conexao-projeto h3 { color: #ef4444; font-size: 16px; margin-bottom: 10px; }
+        .conexao-projeto p { font-size: 13px; color: #555; margin-bottom: 8px; }
+        .print-button { position: fixed; top: 20px; right: 20px; background: #ef4444; color: white; border: none; padding: 12px 24px; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 15px rgba(239,68,68,0.3); z-index: 1000; }
+        .print-button:hover { background: #dc2626; }
+        @media print { body { background: white; padding: 0; } .print-button { display: none; } .plano-container { box-shadow: none; padding: 20px; } }
+        @media (max-width: 768px) { .info-grid { grid-template-columns: repeat(2, 1fr); } .timeline-item { flex-direction: column; } }
+    </style>
+</head>
+<body>
+    <button class="print-button" onclick="window.print()">🖨️ Imprimir</button>
+    <div class="plano-container">
+        <div class="plano-header">
+            <h1>💎 GERAÇÃO DE VALOR</h1>
+            <h2>7º Ano | Módulo 1: Negócios | Lição 1</h2>
+            <p class="subtitle">Empreendedores Exponenciais | CSM Limoeiro</p>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-card"><h3>⏱️ Duração</h3><p>50 min</p></div>
+            <div class="info-card"><h3>👥 Público</h3><p>7º Ano</p></div>
+            <div class="info-card"><h3>📚 Módulo</h3><p>Negócios</p></div>
+            <div class="info-card"><h3>📄 Página</h3><p>84</p></div>
+        </div>
+
+        <div class="objetivo-box">
+            <h3>🎯 OBJETIVOS DA AULA</h3>
+            <ul>
+                <li>Compreender o conceito de <strong>valor</strong> e seus diferentes tipos (funcional, emocional, social, econômico)</li>
+                <li>Identificar a <strong>proposta de valor</strong> de negócios conhecidos</li>
+                <li>Criar uma <strong>proposta de valor</strong> para um problema real</li>
+            </ul>
+        </div>
+
+        <div class="materiais-box">
+            <h3>📦 MATERIAIS NECESSÁRIOS</h3>
+            <ul>
+                <li>Quadro ou projetor</li>
+                <li>Post-its coloridos (3 cores por grupo)</li>
+                <li>Folhas de papel A4</li>
+            </ul>
+        </div>
+
+        <div class="timeline-box">
+            <h3>📋 CRONOGRAMA (50 MIN)</h3>
+
+            <div class="timeline-item abertura">
+                <div class="timeline-tempo"><div class="numero">5</div><div class="label">min</div></div>
+                <div class="timeline-content">
+                    <h4>🚀 ABERTURA — O Que é Valor?</h4>
+                    <p><strong>Pergunta:</strong> "O que faz vocês comprarem UM produto e não OUTRO que faz a mesma coisa?"</p>
+                    <p><strong>Exemplo:</strong> Por que alguém paga R$ 30 num hambúrguer gourmet se o da lanchonete custa R$ 12?</p>
+                    <p><strong>Ação:</strong> Ouça 3-4 respostas. Introduza: "Isso é o que chamamos de VALOR!"</p>
+                </div>
+            </div>
+
+            <div class="timeline-item teoria">
+                <div class="timeline-tempo"><div class="numero">12</div><div class="label">min</div></div>
+                <div class="timeline-content">
+                    <h4>📚 TEORIA — Tipos de Valor</h4>
+                    <p><strong>4 tipos de valor:</strong></p>
+                    <ul>
+                        <li>💪 <b>Funcional:</b> Resolve um problema (guarda-chuva protege da chuva)</li>
+                        <li>❤️ <b>Emocional:</b> Gera sentimentos (chocolate traz prazer)</li>
+                        <li>⭐ <b>Social:</b> Concede status (tenis de marca)</li>
+                        <li>💰 <b>Econômico:</b> Economiza dinheiro/tempo (transporte público)</li>
+                    </ul>
+                    <p><strong>Proposta de Valor:</strong> "Por que o cliente escolhe VOCÊ ao invés da concorrência?"</p>
+                    <p><strong>Exemplo Nubank:</strong> "Banco sem tarifas + atendimento humanizado + app fácil"</p>
+                </div>
+            </div>
+
+            <div class="timeline-item pratica">
+                <div class="timeline-tempo"><div class="numero">23</div><div class="label">min</div></div>
+                <div class="timeline-content">
+                    <h4>✋ ATIVIDADE — Mapa de Valor</h4>
+                    <p><strong>Min 0-5:</strong> Grupos de 4. Escolham um produto/serviço da escola (cantina, loja, serviços).</p>
+                    <p><strong>Min 5-15:</strong> Preencham o mapa: 1) Que problema resolve? 2) Que tipos de valor gera? 3) Proposta de valor em 1 frase.</p>
+                    <p><strong>Min 15-23:</strong> Escrevam a proposta de valor num post-it VERDE e colem no quadro.</p>
+                    <p><strong>Professor:</strong> Circule entre grupos. "Vocês estão vendendo o que exactly?"</p>
+                </div>
+            </div>
+
+            <div class="timeline-item fechamento">
+                <div class="timeline-tempo"><div class="numero">10</div><div class="label">min</div></div>
+                <div class="timeline-content">
+                    <h4>🎯 FECHAMENTO — Síntese</h4>
+                    <p><strong>Discussão:</strong> Qual proposta de valor é mais clara? Qual é mais diferente?</p>
+                    <p><strong>Tarefa:</strong> Escolha um negócio que você frequenta. Identifique: Que tipos de valor ele gera? Qual sua proposta de valor?</p>
+                    <p><strong>Próxima aula:</strong> CCEs — Características Comportamentais Empreendedoras</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="dicas-professor">
+            <h3>💡 DICAS</h3>
+            <ol>
+                <li><strong>Exemplos locais:</strong> Use a cantina da escola,药店 local, salão de beleza.</li>
+                <li><strong>Analogia:</strong> "Valor é como贿賂 que você dá para o cliente escolher você."</li>
+                <li><strong>Premio:</strong> Grupo com proposta de valor mais clara ganha "Badge de Analista de Valor".</li>
+            </ol>
+        </div>
+
+        <div class="conexao-projeto">
+            <h3>🔗 PROJETO DO SEMESTRE</h3>
+            <p>Conecta com <strong>Shark Tank CSM</strong> (7º Ano, 1º Semestre) — onde cada grupoará criar uma proposta de valor para seu negócio fictício.</p>
+        </div>
+    </div>
+</body>
+</html>

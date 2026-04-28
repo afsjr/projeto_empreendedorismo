@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia do(Auxiliar) — Startup Acessível</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Dyslexic:wght@400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Open Dyslexic', 'Outfit', sans-serif;
+            background: #fef3c7;
+            padding: 20px;
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            border: 4px solid #f59e0b;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 4px dashed #f59e0b;
+        }
+
+        .header h1 {
+            font-size: 26px;
+            color: #d97706;
+            font-weight: 800;
+        }
+
+        .header p {
+            font-size: 16px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .importante {
+            background: #fef3c7;
+            border: 3px solid #f59e0b;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .importante h2 {
+            color: #d97706;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .importante p {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .destaque {
+            background: #fee2e2;
+            border: 3px solid #ef4444;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .destaque h2 {
+            color: #dc2626;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .destaque ul {
+            padding-left: 20px;
+        }
+
+        .destaque li {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .regra {
+            background: #d1fae5;
+            border-left: 6px solid #10b981;
+            border-radius: 0 15px 15px 0;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+
+        .regra .icone {
+            font-size: 28px;
+            margin-right: 10px;
+        }
+
+        .regra .texto {
+            font-size: 16px;
+            color: #059669;
+            font-weight: 600;
+        }
+
+        .etapas-section {
+            background: #f5f3ff;
+            border: 3px solid #7c3aed;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .etapas-section h2 {
+            color: #6d28d9;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .etapa-item {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 12px;
+        }
+
+        .etapa-item .numero {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            background: #7c3aed;
+            color: white;
+            border-radius: 50%;
+            font-weight: 700;
+            margin-right: 10px;
+        }
+
+        .etapa-item .titulo {
+            font-size: 16px;
+            font-weight: 700;
+            color: #6d28d9;
+        }
+
+        .etapa-item .acao {
+            font-size: 14px;
+            color: #555;
+            margin-top: 5px;
+            margin-left: 45px;
+        }
+
+        .apoio-section {
+            background: #e0e7ff;
+            border: 3px solid #6366f1;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .apoio-section h2 {
+            color: #4338ca;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .apoio-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .apoio-item .icone {
+            font-size: 24px;
+        }
+
+        .apoio-item .texto {
+            font-size: 15px;
+            color: #333;
+        }
+
+        .estrategias-box {
+            background: #fce7f3;
+            border: 3px solid #ec4899;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .estrategias-box h2 {
+            color: #be1857;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .estrategia {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+        }
+
+        .estrategia h3 {
+            font-size: 16px;
+            color: #be1857;
+            margin-bottom: 5px;
+        }
+
+        .estrategia p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .timer-tips {
+            background: #16a34a;
+            color: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .timer-tips h2 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .timer-tips ul {
+            padding-left: 20px;
+        }
+
+        .timer-tips li {
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #f59e0b;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .print-button { display: none; }
+            .container { box-shadow: none; padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-button" onclick="window.print()">🖨️ Imprimir</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>🤝 GUIA DO(A) AUXILIAR(A)</h1>
+            <p>Como ajudar o aluno neurodiverso na aula de Startup Sprint</p>
+        </div>
+
+        <div class="destaque">
+            <h2>⚠️ REGRA DE OURO — NÃO FAÇA POR ELE!</h2>
+            <ul>
+                <li><strong>SUAS ideias, não as minhas.</strong> Ele é o empreendedor!</li>
+                <li><strong>Eu guio, ele crea.</strong> Meu papel é apoiar, não fazer.</li>
+                <li><strong>Errar é aprender.</strong> Deixa ele tentar e aprender!</li>
+            </ul>
+        </div>
+
+        <div class="importante">
+            <h2>🎯 OBJETA PRINCIPAL</h2>
+            <p>Garantir que ele participe, se sinta incluído e tenha uma experiência positiva — não que faça "certo"!</p>
+        </div>
+
+        <div class="etapas-section">
+            <h2>⏱️ COMO VAI FUNCIONAR (30 min)</h2>
+
+            <div class="etapa-item">
+                <span class="numero">1</span>
+                <span class="titulo">3 min — Abertura</span>
+                <p class="acao">Fique perto. mostre entusiasmo. confirme que ele entendeu.</p>
+            </div>
+
+            <div class="etapa-item">
+                <span class="numero">2</span>
+                <span class="titulo">17 min — Trabalho</span>
+                <p class="acao">Sente ao lado. Ajude conforme precisa. Leia as perguntas.</p>
+            </div>
+
+            <div class="etapa-item">
+                <span class="numero">3</span>
+                <span class="titulo">7 min — Apresentação</span>
+                <p class="acao">Ofereça para apresentar juntos ou deixe só se ele quiser.</p>
+            </div>
+
+            <div class="etapa-item">
+                <span class="numero">4</span>
+                <span class="titulo">3 min — Premiação</span>
+                <p class="acao">Celebre! Qualquer participação conta!</p>
+            </div>
+        </div>
+
+        <div class="apoio-section">
+            <h2>🤝 COMO APOIAR (quando necessário)</h2>
+
+            <div class="apoio-item">
+                <span class="icone">📖</span>
+                <span class="texto"><strong>Ler as perguntas</strong> — Pode ser difícil ler?</span>
+            </div>
+
+            <div class="apoio-item">
+                <span class="icone">✍️</span>
+                <span class="texto"><strong>Escrever o que ele dicta</strong> — Mão cansada?</span>
+            </div>
+
+            <div class="apoio-item">
+                <span class="icone">💭</span>
+                <span class="texto"><strong>Dar ideias</strong> — "Que tal isso?" mas deixar escolher</span>
+            </div>
+
+            <div class="apoio-item">
+                <span class="icone">⏱️</span>
+                <span class="texto"><strong>Gerenciar tempo</strong> — "Faltam 5 minutos!"</span>
+            </div>
+
+            <div class="apoio-item">
+                <span class="icone">💪</span>
+                <span class="texto"><strong>Animar</strong> — "Você está indo muito bem!"</span>
+            </div>
+        </div>
+
+        <div class="estrategias-box">
+            <h2>🧠 ESTRATÉGIAS POR SITUAÇÃO</h2>
+
+            <div class="estrategia">
+                <h3>😰 Ansioso(a)/Inseguro(a)</h3>
+                <p>"Não tem problema errar. Todo mundo está aprendendo. Vamos tentar!"</p>
+            </div>
+
+            <div class="estrategia">
+                <h3>🤔 Não sabe o que escrever</h3>
+                <p>"Vamos olhar as opções. Qual você acha mais legal?"</p>
+            </div>
+
+            <div class="estrategia">
+                <h3>😴 Desinteressado/Desmotivado</h3>
+                <p>"E se a gente fizesse de um jeito diferente? Você decide!"</p>
+            </div>
+
+            <div class="estrategia">
+                <h3>😤 Frustrado(a) com dificuldade</h3>
+                <p>"Pausa? Vamos respirar e continuar depois."</p>
+            </div>
+        </div>
+
+        <div class="timer-tips">
+            <h2>⏰ DICAS DE TEMPO</h2>
+            <ul>
+                <li><strong>Avise antes:</strong> "Faltam 10 minutos!"</li>
+                <li><strong>Avise mais:</strong> "Faltam 5 minutos!"</li>
+                <li><strong>Avise finale:</strong> "2 minutos!"</li>
+                <li>Não precisa terminar tudo — o que conseguir já é suficiente!</li>
+            </ul>
+        </div>
+
+        <div class="regra">
+            <span class="icone">🌟</span>
+            <span class="texto">O mais importante: ele se sentir включен e orgulhoso do que criou!</span>
+        </div>
+    </div>
+
+</body>
+</html>
