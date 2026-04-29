@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia do Professor — Fluxo de Caixa (8º Ano)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --violet: #8b5cf6; --purple: #7c3aed; --indigo: #6366f1; --bg: #f8fafc; --text: #1e293b; --text-light: #64748b; }
+        body { font-family: 'Outfit', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        .header { background: linear-gradient(135deg, var(--violet), var(--purple)); color: white; padding: 30px; border-radius: 16px; margin-bottom: 20px; }
+        .header-badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 5px 15px; border-radius: 20px; font-size: 12px; font-weight: 600; margin-bottom: 15px; }
+        .header h1 { font-size: 28px; font-weight: 800; margin-bottom: 8px; }
+        .header .meta { display: flex; gap: 20px; font-size: 14px; opacity: 0.9; }
+        .info-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 25px; }
+        .info-card { background: white; border-radius: 12px; padding: 20px; text-align: center; border: 2px solid #e2e8f0; }
+        .info-card .icon { font-size: 28px; margin-bottom: 8px; }
+        .info-card h3 { font-size: 11px; color: var(--text-light); text-transform: uppercase; }
+        .info-card p { font-size: 20px; font-weight: 700; }
+        .objetivos { background: #ede9fe; border: 2px solid var(--violet); border-radius: 12px; padding: 20px; margin-bottom: 25px; }
+        .objetivos h2 { font-size: 16px; color: #6d28d9; margin-bottom: 12px; }
+        .objetivos ul { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .objetivos li { font-size: 14px; padding-left: 20px; position: relative; }
+        .objetivos li::before { content: '✓'; position: absolute; left: 0; color: var(--violet); font-weight: 700; }
+        .section { background: white; border-radius: 12px; padding: 25px; margin-bottom: 20px; border: 1px solid #e2e8f0; }
+        .section-title { font-size: 18px; font-weight: 700; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        .section-title .num { background: var(--violet); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .script-item { margin-bottom: 20px; padding: 20px; border-radius: 10px; border-left: 4px solid; }
+        .script-item.abertura { background: #ede9fe; border-color: var(--violet); }
+        .script-item.teoria { background: #e0e7ff; border-color: var(--indigo); }
+        .script-item.pratica { background: #fef3c7; border-color: #f59e0b; }
+        .script-item.fechamento { background: #ede9fe; border-color: var(--violet); }
+        .script-time { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; }
+        .script-time .clock { background: white; padding: 8px 15px; border-radius: 8px; font-weight: 700; font-size: 14px; }
+        .script-time h4 { font-size: 16px; }
+        .script-dialogue { background: white; border-radius: 8px; padding: 15px; margin-bottom: 12px; }
+        .script-dialogue .label { font-size: 11px; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600; }
+        .script-dialogue p { font-size: 15px; font-style: italic; }
+        .script-note { background: #ede9fe; border: 1px solid #ddd6fe; border-radius: 8px; padding: 12px; font-size: 13px; display: flex; align-items: flex-start; gap: 10px; }
+        .script-note .icon { font-size: 18px; }
+        .activity-step { display: flex; gap: 15px; padding: 15px; background: #f8fafc; border-radius: 10px; margin-bottom: 10px; }
+        .activity-step .step-num { background: var(--violet); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0; }
+        .activity-step .step-content h4 { font-size: 15px; margin-bottom: 5px; }
+        .activity-step .step-content p { font-size: 13px; color: var(--text-light); }
+        .questions-box { background: #ede9fe; border: 2px solid var(--violet); border-radius: 12px; padding: 20px; }
+        .questions-box h3 { font-size: 15px; color: #6d28d9; margin-bottom: 15px; }
+        .question-item { background: white; border-radius: 8px; padding: 15px; margin-bottom: 10px; }
+        .question-item .Q { font-weight: 700; color: var(--violet); margin-bottom: 5px; }
+        .question-item .expected { font-size: 13px; color: var(--text-light); margin-top: 8px; padding-top: 8px; border-top: 1px dashed #e2e8f0; }
+        .question-item .expected strong { color: #6d28d9; }
+        .tips-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .tip-card { background: #ede9fe; border-radius: 10px; padding: 15px; border-left: 4px solid var(--violet); }
+        .tip-card h4 { font-size: 14px; color: #6d28d9; margin-bottom: 8px; }
+        .tip-card p { font-size: 13px; }
+        .conexao { background: #ede9fe; border: 2px solid var(--violet); border-radius: 12px; padding: 20px; display: flex; align-items: center; gap: 20px; }
+        .conexao .icon { font-size: 40px; }
+        .conexao h3 { font-size: 16px; color: #6d28d9; margin-bottom: 8px; }
+        .conexao p { font-size: 14px; }
+        .print-btn { position: fixed; bottom: 20px; right: 20px; background: var(--violet); color: white; border: none; padding: 15px 30px; border-radius: 30px; font-size: 14px; font-weight: 700; cursor: pointer; }
+        @media (max-width: 768px) { .info-grid { grid-template-columns: repeat(2, 1fr); } .objetivos ul { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <button class="print-btn" onclick="window.print()">🖨️ Imprimir Guia</button>
+    <div class="container">
+        <header class="header">
+            <div class="header-badge">GUIA DO PROFESSOR</div>
+            <h1>Fluxo de Caixa</h1>
+            <div class="meta"><span>📅 8º Ano</span><span>⏱️ 50 min</span><span>📚 Módulo 2: Finanças</span></div>
+        </header>
+        <div class="info-grid">
+            <div class="info-card"><div class="icon">⏱️</div><h3>Duração</h3><p>50 min</p></div>
+            <div class="info-card"><div class="icon">👥</div><h3>Grupo</h3><p>Turma Inteira</p></div>
+            <div class="info-card"><div class="icon">📝</div><h3>Atividade</h3><p>Registro + Prática</p></div>
+            <div class="info-card"><div class="icon">📖</div><h3>Material</h3><p>Quadro + Tabela</p></div>
+        </div>
+        <div class="objetivos">
+            <h2>🎯 Objetivos de Aprendizagem</h2>
+            <ul>
+                <li>Entender <strong>fluxo de caixa</strong></li>
+                <li>Registrar <strong>entradas</strong> e <strong>saídas</strong></li>
+                <li>Controlar <strong>saldo</strong></li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2 class="section-title"><span class="num">1</span> Script de Aula</h2>
+            <div class="script-item abertura">
+                <div class="script-time"><span class="clock">5 min</span><h4>ABERTURA — Dinheiro Vivo</h4></div>
+                <div class="script-dialogue">
+                    <div class="label">🗣️ Professor diz:</div>
+                    <p>"Quanto dinheiro você tem agora? E quanto vai ter amanhã? Fluxo de caixa é saber exatamente quanto entra e sai."</p>
+                </div>
+                <div class="script-note"><span class="icon">💡</span><div><strong>Estimule:</strong> Pergunte aos alunos se eles sabem quanto gastaram ontem e quanto receberam.</div></div>
+            </div>
+            <div class="script-item teoria">
+                <div class="script-time"><span class="clock">12 min</span><h4>TEORIA — Fluxo de Caixa</h4></div>
+                <div class="script-dialogue">
+                    <div class="label">🗣️ Professor diz:</div>
+                    <p>"Fluxo de caixa é o registro dia a dia de todo dinheiro que entra e sai do negócio."</p>
+                </div>
+                <div class="script-dialogue">
+                    <div class="label">💡 Conceitos:</div>
+                    <p><strong>Entradas:</strong> Vendas, recebimentos<br>
+                    <strong>Saídas:</strong> Custos, despesas, pagamentos<br>
+                    <strong>Saldo:</strong> Entradas - Saídas = quanto sobra</p>
+                </div>
+            </div>
+            <div class="script-item pratica">
+                <div class="script-time"><span class="clock">25 min</span><h4>ATIVIDADE — Registrar Fluxo de Caixa</h4></div>
+                <div class="activity-step">
+                    <span class="step-num">1</span>
+                    <div class="step-content">
+                        <h4>Cenário</h4>
+                        <p>Semana de vendas de uma lanchonete escolar. Registrar todas as transações diárias.</p>
+                    </div>
+                </div>
+                <div class="activity-step">
+                    <span class="step-num">2</span>
+                    <div class="step-content">
+                        <h4>Registrar</h4>
+                        <p>Preencher tabela de fluxo de caixa com datas, descrições, entradas e saídas.</p>
+                    </div>
+                </div>
+                <div class="activity-step">
+                    <span class="step-num">3</span>
+                    <div class="step-content">
+                        <h4>Calcular</h4>
+                        <p>Calcular saldo final da semana. Identificar se houve superávit ou déficit.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="script-item fechamento">
+                <div class="script-time"><span class="clock">8 min</span><h4>FECHAMENTO</h4></div>
+                <div class="script-dialogue">
+                    <div class="label">🗣️ Professor diz:</div>
+                    <p>"Resumo: Controle de caixa = sobrevivência do negócio. Saldo negativo é alerta vermelho!<br><br><strong>Desafio:</strong> Registrar gastos e ganhos de 1 semana pessoal.</p>
+                </div>
+            </div>
+        </div>
+        <div class="questions-box">
+            <h3>❓ Perguntas Provocadoras</h3>
+            <div class="question-item">
+                <div class="Q">P: Fluxo de caixa negativo é sempre ruim?</div>
+                <div class="expected"><strong>R:</strong> No curto prazo, pode ser normal (investimentos iniciais). Mas no longo prazo, indica problemas graves.</div>
+            </div>
+            <div class="question-item">
+                <div class="Q">P: Qual a diferença entre lucro e fluxo de caixa?</div>
+                <div class="expected"><strong>R:</strong> Lucro é contábil (pode ter vendas a prazo). Fluxo de caixa é dinheiro real que entra e sai da conta.</div>
+            </div>
+            <div class="question-item">
+                <div class="Q">P: Com que frequência atualizar?</div>
+                <div class="expected"><strong>R:</strong> Idealmente todo dia. Registros diários evitam esquecimentos e dão controle real.</div>
+            </div>
+        </div>
+        <div class="section">
+            <h2 class="section-title"><span class="num">2</span> Dicas do Professor</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h4>📅 Diário</h4>
+                    <p>Ensine que fluxo de caixa deve ser registrado todo dia, mesmo que não tenha movimento. O hábito é fundamental.</p>
+                </div>
+                <div class="tip-card">
+                    <h4>🚨 Negativo</h4>
+                    <p>Saldo negativo no fluxo de caixa é alerta imediato. O negócio não pode gastar o que não tem.</p>
+                </div>
+            </div>
+        </div>
+        <div class="conexao">
+            <div class="icon">🔗</div>
+            <div><h3>Conecta com: REVISÃO MÓDULO 2</h3><p>Próxima aula é um quiz para revisar todos os conceitos de finanças aprendidos.</p></div>
+        </div>
+    </div>
+</body>
+</html>

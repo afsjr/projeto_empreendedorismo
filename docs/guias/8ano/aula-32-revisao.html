@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia do Professor — Revisão Módulo 4 (8º Ano)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --violet: #8b5cf6; --purple: #7c3aed; --indigo: #6366f1; --bg: #f8fafc; --text: #1e293b; --text-light: #64748b; }
+        body { font-family: 'Outfit', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        .header { background: linear-gradient(135deg, var(--violet), var(--purple)); color: white; padding: 30px; border-radius: 16px; margin-bottom: 20px; }
+        .header-badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 5px 15px; border-radius: 20px; font-size: 12px; font-weight: 600; margin-bottom: 15px; }
+        .header h1 { font-size: 28px; font-weight: 800; margin-bottom: 8px; }
+        .header .meta { display: flex; gap: 20px; font-size: 14px; opacity: 0.9; }
+        .info-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 25px; }
+        .info-card { background: white; border-radius: 12px; padding: 20px; text-align: center; border: 2px solid #e2e8f0; }
+        .info-card .icon { font-size: 28px; margin-bottom: 8px; }
+        .info-card h3 { font-size: 11px; color: var(--text-light); text-transform: uppercase; }
+        .info-card p { font-size: 20px; font-weight: 700; }
+        .objetivos { background: #ede9fe; border: 2px solid var(--violet); border-radius: 12px; padding: 20px; margin-bottom: 25px; }
+        .objetivos h2 { font-size: 16px; color: #6d28d9; margin-bottom: 12px; }
+        .objetivos ul { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .objetivos li { font-size: 14px; padding-left: 20px; position: relative; }
+        .objetivos li::before { content: '✓'; position: absolute; left: 0; color: var(--violet); font-weight: 700; }
+        .section { background: white; border-radius: 12px; padding: 25px; margin-bottom: 20px; border: 1px solid #e2e8f0; }
+        .section-title { font-size: 18px; font-weight: 700; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        .section-title .num { background: var(--violet); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .script-item { margin-bottom: 20px; padding: 20px; border-radius: 10px; border-left: 4px solid; }
+        .script-item.abertura { background: #ede9fe; border-color: var(--violet); }
+        .script-item.pratica { background: #fef3c7; border-color: #f59e0b; }
+        .script-item.fechamento { background: #ede9fe; border-color: var(--violet); }
+        .script-time { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; }
+        .script-time .clock { background: white; padding: 8px 15px; border-radius: 8px; font-weight: 700; font-size: 14px; }
+        .script-time h4 { font-size: 16px; }
+        .script-dialogue { background: white; border-radius: 8px; padding: 15px; margin-bottom: 12px; }
+        .script-dialogue .label { font-size: 11px; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600; }
+        .script-dialogue p { font-size: 15px; font-style: italic; }
+        .script-note { background: #ede9fe; border: 1px solid #ddd6fe; border-radius: 8px; padding: 12px; font-size: 13px; display: flex; align-items: flex-start; gap: 10px; }
+        .script-note .icon { font-size: 18px; }
+        .activity-step { display: flex; gap: 15px; padding: 15px; background: #f8fafc; border-radius: 10px; margin-bottom: 10px; }
+        .activity-step .step-num { background: var(--violet); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0; }
+        .activity-step .step-content h4 { font-size: 15px; margin-bottom: 5px; }
+        .activity-step .step-content p { font-size: 13px; color: var(--text-light); }
+        .questions-box { background: #ede9fe; border: 2px solid var(--violet); border-radius: 12px; padding: 20px; }
+        .questions-box h3 { font-size: 15px; color: #6d28d9; margin-bottom: 15px; }
+        .question-item { background: white; border-radius: 8px; padding: 15px; margin-bottom: 10px; }
+        .question-item .Q { font-weight: 700; color: var(--violet); margin-bottom: 5px; }
+        .question-item .expected { font-size: 13px; color: var(--text-light); margin-top: 8px; padding-top: 8px; border-top: 1px dashed #e2e8f0; }
+        .question-item .expected strong { color: #6d28d9; }
+        .tips-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .tip-card { background: #ede9fe; border-radius: 10px; padding: 15px; border-left: 4px solid var(--violet); }
+        .tip-card h4 { font-size: 14px; color: #6d28d9; margin-bottom: 8px; }
+        .tip-card p { font-size: 13px; }
+        .conexao { background: #ede9fe; border: 2px solid var(--violet); border-radius: 12px; padding: 20px; display: flex; align-items: center; gap: 20px; }
+        .conexao .icon { font-size: 40px; }
+        .conexao h3 { font-size: 16px; color: #6d28d9; margin-bottom: 8px; }
+        .conexao p { font-size: 14px; }
+        .print-btn { position: fixed; bottom: 20px; right: 20px; background: var(--violet); color: white; border: none; padding: 15px 30px; border-radius: 30px; font-size: 14px; font-weight: 700; cursor: pointer; }
+        @media (max-width: 768px) { .info-grid { grid-template-columns: repeat(2, 1fr); } .objetivos ul { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <button class="print-btn" onclick="window.print()">🖨️ Imprimir Guia</button>
+    <div class="container">
+        <header class="header">
+            <div class="header-badge">GUIA DO PROFESSOR</div>
+            <h1>Quiz — Revisão Módulo 4</h1>
+            <div class="meta"><span>📅 8º Ano</span><span>⏱️ 50 min</span><span>📚 Módulo 4: Pessoas</span></div>
+        </header>
+        <div class="info-grid">
+            <div class="info-card"><div class="icon">⏱️</div><h3>Duração</h3><p>50 min</p></div>
+            <div class="info-card"><div class="icon">👥</div><h3>Grupo</h3><p>Turma Inteira</p></div>
+            <div class="info-card"><div class="icon">📝</div><h3>Atividade</h3><p>Quiz</p></div>
+            <div class="info-card"><div class="icon">📋</div><h3>Material</h3><p>Quiz impresso</p></div>
+        </div>
+        <div class="objetivos">
+            <h2>🎯 Objetivos de Aprendizagem</h2>
+            <ul>
+                <li><strong>Revisar</strong> conceitos do módulo</li>
+                <li>Aplicar <strong>conhecimento</strong></li>
+                <li>Consolidar <strong>aprendizagem</strong></li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2 class="section-title"><span class="num">1</span> Script de Aula</h2>
+            <div class="script-item abertura">
+                <div class="script-time"><span class="clock">5 min</span><h4>ABERTURA — Quiz</h4></div>
+                <div class="script-dialogue">
+                    <div class="label">🗣️ Professor diz:</div>
+                    <p>"Vamos testar seus conhecimentos sobre o Módulo 4: Pessoas! Preparem-se para o quiz e mostrem tudo o que aprenderam sobre comunicação, feedback, confiança e mais!"</p>
+                </div>
+                <div class="script-note"><span class="icon">💡</span><div><strong>Estimule:</strong> Crie um clima de desafio saudável. Pergunte quem acha que vai acertar todas as questões. Explique que o quiz serve para identificar o que precisa ser reforçado.</div></div>
+            </div>
+            <div class="script-item pratica">
+                <div class="script-time"><span class="clock">35 min</span><h4>ATIVIDADE — Quiz</h4></div>
+                <div class="activity-step">
+                    <span class="step-num">1</span>
+                    <div class="step-content">
+                        <h4>Aplicar Quiz</h4>
+                        <p>10 perguntas cobrindo: Comunicação, Feedback, Confiança, Trabalho em equipe, Gestão de conflitos, Reuniões e Rede de contatos.</p>
+                    </div>
+                </div>
+                <div class="activity-step">
+                    <span class="step-num">2</span>
+                    <div class="step-content">
+                        <h4>Modo Grupo (Opcional)</h4>
+                        <p>Os alunos podem trabalhar em duplas ou trios para discutir as respostas, promovendo a troca de conhecimento.</p>
+                    </div>
+                </div>
+                <div class="activity-step">
+                    <span class="step-num">3</span>
+                    <div class="step-content">
+                        <h4>Monitorar</h4>
+                        <p>Circule pela sala ajudando quem tiver dúvidas e observando quais temas geram mais dificuldade.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="script-item fechamento">
+                <div class="script-time"><span class="clock">10 min</span><h4>FECHAMENTO</h4></div>
+                <div class="script-dialogue">
+                    <div class="label">🗣️ Professor diz:</div>
+                    <p>"Vamos corrigir juntos! Discutam as respostas em grupo.<br><br><strong>Correção:</strong> Esclarecer dúvidas sobre questões erradas.<br><strong>Próxima:</strong> Módulo 5: Projetos!</p>
+                </div>
+            </div>
+        </div>
+        <div class="questions-box">
+            <h3>❓ Perguntas Provocadoras (Exemplos do Quiz)</h3>
+            <div class="question-item">
+                <div class="Q">P: Qual a diferença entre comunicação verbal e não-verbal?</div>
+                <div class="expected"><strong>R:</strong> Verbal usa palavras faladas ou escritas. Não-verbal inclui gestos, expressões faciais, postura e tom de voz. A não-verbal muitas vezes comunica mais que a verbal.</div>
+            </div>
+            <div class="question-item">
+                <div class="Q">P: Como o feedback "sanduíche" funciona?</div>
+                <div class="expected"><strong>R:</strong> Começa com algo positivo, traz a crítica construtiva no meio, e termina com outro ponto positivo. Isso ajuda a reduzir a defensividade de quem recebe o feedback.</div>
+            </div>
+            <div class="question-item">
+                <div class="Q">P: Por que a confiança é fundamental no trabalho em equipe?</div>
+                <div class="expected"><strong>R:</strong> Sem confiança, os membros não se sentem seguros para compartilhar ideias, admitir erros ou pedir ajuda. A confiança permite colaboração genuína e maior produtividade.</div>
+            </div>
+        </div>
+        <div class="section">
+            <h2 class="section-title"><span class="num">2</span> Dicas do Professor</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h4>🤝 Equipa</h4>
+                    <p>Permita que façam o quiz em grupos pequenos. A discussão entre pares ajuda a consolidar o conhecimento e revela diferentes perspectivas sobre os conceitos.</p>
+                </div>
+                <div class="tip-card">
+                    <h4>💬 Discussão</h4>
+                    <p>Na correção, não dê apenas a resposta correta. Pergunte por que a turma escolheu determinada alternativa e use isso para reforçar os conceitos do módulo.</p>
+                </div>
+            </div>
+        </div>
+        <div class="conexao">
+            <div class="icon">🔗</div>
+            <div><h3>Conecta com: PROJETO FINAL</h3><p>Os conhecimentos revisados serão aplicados no projeto final, onde os alunos criarão sua startup completa usando tudo o que aprenderam.</p></div>
+        </div>
+    </div>
+</body>
+</html>

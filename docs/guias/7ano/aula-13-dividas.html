@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia do Professor — Dívidas e Crédito (7º Ano)</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Outfit', sans-serif; background: #f5f5f5; padding: 30px; line-height: 1.6; }
+        .guia-container { max-width: 210mm; margin: 0 auto; background: white; border-radius: 16px; padding: 40px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        .guia-header { text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 4px solid #f97316; }
+        .guia-header h1 { font-size: 26px; color: #f97316; font-weight: 800; margin-bottom: 8px; }
+        .guia-header h2 { font-size: 18px; color: #fb923c; font-weight: 600; }
+        .guia-header .subtitle { font-size: 13px; color: #666; margin-top: 5px; }
+        .info-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 25px; }
+        .info-card { background: #fff7ed; border: 2px solid #f97316; border-radius: 10px; padding: 12px; text-align: center; }
+        .info-card h3 { font-size: 11px; color: #ea580c; margin-bottom: 4px; }
+        .info-card p { font-size: 14px; font-weight: 700; color: #333; }
+        .objetivo-box { background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); color: white; border-radius: 12px; padding: 18px; margin-bottom: 25px; }
+        .objetivo-box h3 { font-size: 16px; margin-bottom: 10px; }
+        .objetivo-box ul { padding-left: 20px; }
+        .objetivo-box li { margin-bottom: 5px; font-size: 13px; }
+        .materiais-box { background: #fef3c7; border-left: 5px solid #fb923c; border-radius: 10px; padding: 18px; margin-bottom: 25px; }
+        .materiais-box h3 { color: #d97706; font-size: 16px; margin-bottom: 12px; }
+        .materiais-box ul { padding-left: 20px; }
+        .materiais-box li { margin-bottom: 6px; font-size: 13px; }
+        .timeline-box { margin-bottom: 25px; }
+        .timeline-box h3 { font-size: 20px; color: #f97316; margin-bottom: 15px; text-align: center; }
+        .timeline-item { display: flex; gap: 15px; margin-bottom: 15px; padding: 15px; border-radius: 10px; border-left: 5px solid; }
+        .timeline-item.abertura { background: #ffedd5; border-color: #f97316; }
+        .timeline-item.teoria { background: #e0e7ff; border-color: #6366f1; }
+        .timeline-item.pratica { background: #fef3c7; border-color: #f59e0b; }
+        .timeline-item.fechamento { background: #d1fae5; border-color: #10b981; }
+        .timeline-tempo { min-width: 55px; text-align: center; }
+        .timeline-tempo .numero { font-size: 24px; font-weight: 800; color: #333; }
+        .timeline-tempo .label { font-size: 10px; color: #666; }
+        .timeline-content h4 { font-size: 15px; color: #333; margin-bottom: 8px; }
+        .timeline-content p { font-size: 13px; color: #555; margin-bottom: 6px; }
+        .timeline-content ul { padding-left: 18px; }
+        .timeline-content li { margin-bottom: 4px; font-size: 12px; }
+        .guia-professor { background: #fff7ed; border: 2px solid #f97316; border-radius: 10px; padding: 18px; margin-bottom: 25px; }
+        .guia-professor h3 { color: #ea580c; font-size: 16px; margin-bottom: 12px; }
+        .guia-professor ol { padding-left: 20px; }
+        .guia-professor li { margin-bottom: 6px; font-size: 13px; }
+        .observacoes-box { background: #f0f9ff; border: 2px solid #0ea5e9; border-radius: 10px; padding: 18px; margin-bottom: 25px; }
+        .observacoes-box h3 { color: #0369a1; font-size: 16px; margin-bottom: 12px; }
+        .observacoes-box ul { padding-left: 20px; }
+        .observacoes-box li { margin-bottom: 6px; font-size: 13px; }
+        .conexao-projeto { background: #fff7ed; border: 2px solid #f97316; border-radius: 10px; padding: 18px; }
+        .conexao-projeto h3 { color: #f97316; font-size: 16px; margin-bottom: 10px; }
+        .conexao-projeto p { font-size: 13px; color: #555; margin-bottom: 8px; }
+        .print-button { position: fixed; top: 20px; right: 20px; background: #f97316; color: white; border: none; padding: 12px 24px; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 15px rgba(249,115,22,0.3); z-index: 1000; }
+        .print-button:hover { background: #ea580c; }
+        @media print { body { background: white; padding: 0; } .print-button { display: none; } .guia-container { box-shadow: none; padding: 20px; } }
+        @media (max-width: 768px) { .info-grid { grid-template-columns: repeat(2, 1fr); } .timeline-item { flex-direction: column; } }
+    </style>
+</head>
+<body>
+    <button class="print-button" onclick="window.print()">🖨️ Imprimir</button>
+    <div class="guia-container">
+        <div class="guia-header">
+            <h1>💳 GUIA DO PROFESSOR — DÍVIDAS E CRÉDITO</h1>
+            <h2>7º Ano | Módulo 2: Educação Financeira | Lição 5</h2>
+            <p class="subtitle">Empreendedores Exponenciais | CSM Limoeiro</p>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-card"><h3>⏱️ Duração</h3><p>50 min</p></div>
+            <div class="info-card"><h3>👥 Público</h3><p>7º Ano</p></div>
+            <div class="info-card"><h3>📚 Módulo</h3><p>Finanças</p></div>
+            <div class="info-card"><h3>📄 Página</h3><p>114</p></div>
+        </div>
+
+        <div class="objetivo-box">
+            <h3>🎯 OBJETIVOS DA AULA</h3>
+            <ul>
+                <li>Entender como funciona o <strong>crédito</strong></li>
+                <li>Compreender os <strong>juros do cartão</strong> de crédito</li>
+                <li>Aprender a evitar dívidas</li>
+            </ul>
+        </div>
+
+        <div class="materiais-box">
+            <h3>📦 MATERIAIS NECESSÁRIOS</h3>
+            <ul>
+                <li>Quadro ou projetor</li>
+                <li>Calculadora</li>
+            </ul>
+        </div>
+
+        <div class="timeline-box">
+            <h3>📋 CRONOGRAMA (50 MIN)</h3>
+
+            <div class="timeline-item abertura">
+                <div class="timeline-tempo"><div class="numero">5</div><div class="label">min</div></div>
+                <div class="timeline-content">
+                    <h4>🚀 ABERTURA — História da Juliana</h4>
+                    <p>"Juliana comprou um celular de R$2.000 no cartão. Pagou só R$100 por mês. Depois de 2 anos, pagou R$3.200. Por que isso aconteceu?"</p>
+                </div>
+            </div>
+
+            <div class="timeline-item teoria">
+                <div class="timeline-tempo"><div class="numero">12</div><div class="label">min</div></div>
+                <div class="timeline-content">
+                    <h4>📚 TEORIA — Crédito e Juros</h4>
+                    <p><strong>Crédito:</strong> Dinheiro emprestado para pagar depois</p>
+                    <p><strong>Juros do cartão:</strong> Em média 5% ao mês!</p>
+                    <p><strong>Parcelamento:</strong> Parece barato, mas sai caro</p>
+                    <p><strong>Regra de ouro:</strong> Não compre se não puder pagar à vista</p>
+                </div>
+            </div>
+
+            <div class="timeline-item pratica">
+                <div class="timeline-tempo"><div class="numero">25</div><div class="label">min</div></div>
+                <div class="timeline-content">
+                    <h4>✋ ATIVIDADE — Quanto Custa a Parcela?</h4>
+                    <p><strong>Cenário 1:</strong> R$1.000 no cartão, 10% ao mês, pagando R$100/mês = quanto de juros?</p>
+                    <p><strong>Cenário 2:</strong> R$500 à vista ou 6x R$100 = qual é melhor?</p>
+                    <p><strong>Cenário 3:</strong> Você quer um relógio de R$300. Mesada R$50. Quanto tempo para comprar à vista?</p>
+                </div>
+            </div>
+
+            <div class="timeline-item fechamento">
+                <div class="timeline-tempo"><div class="numero">8</div><div class="label">min</div></div>
+                <div class="timeline-content">
+                    <h4>🎯 FECHAMENTO</h4>
+                    <p><strong>Pergunta:</strong> Por que é melhor esperar e juntar do que comprar parcelado?</p>
+                    <p><strong>Resposta:</strong> Juros tornam o produto mais caro</p>
+                    <p><strong>Tarefa:</strong> Calcule quanto você pagaria a mais em uma compra de R$500 em 10x</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="guia-professor">
+            <h3>💡 ORIENTAÇÕES PEDAGÓGICAS</h3>
+            <ol>
+                <li><strong>Exemplo real:</strong> Mostre uma fatura real de cartão (dados ocultos) para ilustrar os juros.</li>
+                <li><strong>Regra 10%:</strong> Explique que o juro médio do cartão gira em torno de 10% ao mês — isso dobra a dívida em menos de um ano.</li>
+                <li><strong>Analogia:</strong> "Comprar parcelado é como alugar o produto para o banco — você paga para usar o que ainda não é seu."</li>
+                <li><strong>Dificuldades esperadas:</strong> Alunos podem achar que parcelar é "grátis". Reforce que cada parcela inclui juros.</li>
+                <li><strong>Inclusão:</strong> Use exemplos de produtos que os alunos desejam (celular, tênis, videogame).</li>
+            </ol>
+        </div>
+
+        <div class="observacoes-box">
+            <h3>📝 NOTAS DE AVALIAÇÃO</h3>
+            <ul>
+                <li>Observe se os alunos conseguem calcular o valor total pago em compras parceladas.</li>
+                <li>Avalie se compreendem a diferença entre preço à vista e a prazo.</li>
+                <li>Verifique se a tarefa de cálculo traz o valor correto dos juros.</li>
+                <li>Prepare um exercício na próxima aula comparando três opções de pagamento diferentes.</li>
+            </ul>
+        </div>
+
+        <div class="conexao-projeto">
+            <h3>🔗 PROJETO DO SEMESTRE</h3>
+            <p>No <strong>Consultoria Financeira Mirim</strong>, os grupos alertarão as famílias sobre os perigos das dívidas e darão dicas para evitar o crédito caro.</p>
+        </div>
+    </div>
+</body>
+</html>

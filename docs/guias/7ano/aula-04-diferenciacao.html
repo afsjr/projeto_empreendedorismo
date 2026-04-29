@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia do Professor — Diferenciação e Proposta de Valor (7º Ano)</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Outfit', sans-serif; background: #f5f5f5; padding: 30px; line-height: 1.6; }
+        .guia-container { max-width: 210mm; margin: 0 auto; background: white; border-radius: 16px; padding: 40px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        .guia-header { text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 4px solid #f97316; }
+        .guia-header h1 { font-size: 26px; color: #f97316; font-weight: 800; margin-bottom: 8px; }
+        .guia-header h2 { font-size: 18px; color: #fb923c; font-weight: 600; }
+        .guia-header .subtitle { font-size: 13px; color: #666; margin-top: 5px; }
+        .info-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 25px; }
+        .info-card { background: #fff7ed; border: 2px solid #f97316; border-radius: 10px; padding: 12px; text-align: center; }
+        .info-card h3 { font-size: 11px; color: #ea580c; margin-bottom: 4px; }
+        .info-card p { font-size: 14px; font-weight: 700; color: #333; }
+        .objetivo-box { background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); color: white; border-radius: 12px; padding: 18px; margin-bottom: 25px; }
+        .objetivo-box h3 { font-size: 16px; margin-bottom: 10px; }
+        .objetivo-box ul { padding-left: 20px; }
+        .objetivo-box li { margin-bottom: 5px; font-size: 13px; }
+        .materiais-box { background: #fef3c7; border-left: 5px solid #fb923c; border-radius: 10px; padding: 18px; margin-bottom: 25px; }
+        .materiais-box h3 { color: #d97706; font-size: 16px; margin-bottom: 12px; }
+        .materiais-box ul { padding-left: 20px; }
+        .materiais-box li { margin-bottom: 6px; font-size: 13px; }
+        .timeline-box { margin-bottom: 25px; }
+        .timeline-box h3 { font-size: 20px; color: #f97316; margin-bottom: 15px; text-align: center; }
+        .timeline-item { display: flex; gap: 15px; margin-bottom: 15px; padding: 15px; border-radius: 10px; border-left: 5px solid; }
+        .timeline-item.abertura { background: #ffedd5; border-color: #f97316; }
+        .timeline-item.teoria { background: #e0e7ff; border-color: #6366f1; }
+        .timeline-item.pratica { background: #fef3c7; border-color: #f59e0b; }
+        .timeline-item.fechamento { background: #d1fae5; border-color: #10b981; }
+        .timeline-tempo { min-width: 55px; text-align: center; }
+        .timeline-tempo .numero { font-size: 24px; font-weight: 800; color: #333; }
+        .timeline-tempo .label { font-size: 10px; color: #666; }
+        .timeline-content h4 { font-size: 15px; color: #333; margin-bottom: 8px; }
+        .timeline-content p { font-size: 13px; color: #555; margin-bottom: 6px; }
+        .timeline-content ul { padding-left: 18px; }
+        .timeline-content li { margin-bottom: 4px; font-size: 12px; }
+        .guia-professor { background: #fff7ed; border: 2px solid #f97316; border-radius: 10px; padding: 18px; margin-bottom: 25px; }
+        .guia-professor h3 { color: #ea580c; font-size: 16px; margin-bottom: 12px; }
+        .guia-professor ol { padding-left: 20px; }
+        .guia-professor li { margin-bottom: 6px; font-size: 13px; }
+        .observacoes-box { background: #f0f9ff; border: 2px solid #0ea5e9; border-radius: 10px; padding: 18px; margin-bottom: 25px; }
+        .observacoes-box h3 { color: #0369a1; font-size: 16px; margin-bottom: 12px; }
+        .observacoes-box ul { padding-left: 20px; }
+        .observacoes-box li { margin-bottom: 6px; font-size: 13px; }
+        .conexao-projeto { background: #fff7ed; border: 2px solid #f97316; border-radius: 10px; padding: 18px; }
+        .conexao-projeto h3 { color: #f97316; font-size: 16px; margin-bottom: 10px; }
+        .conexao-projeto p { font-size: 13px; color: #555; margin-bottom: 8px; }
+        .print-button { position: fixed; top: 20px; right: 20px; background: #f97316; color: white; border: none; padding: 12px 24px; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 15px rgba(249,115,22,0.3); z-index: 1000; }
+        .print-button:hover { background: #ea580c; }
+        @media print { body { background: white; padding: 0; } .print-button { display: none; } .guia-container { box-shadow: none; padding: 20px; } }
+        @media (max-width: 768px) { .info-grid { grid-template-columns: repeat(2, 1fr); } .timeline-item { flex-direction: column; } }
+    </style>
+</head>
+<body>
+    <button class="print-button" onclick="window.print()">🖨️ Imprimir</button>
+    <div class="guia-container">
+        <div class="guia-header">
+            <h1>📘 GUIA DO PROFESSOR — DIFERENCIAÇÃO E PROPOSTA DE VALOR</h1>
+            <h2>7º Ano | Módulo 1: Negócios | Lição 4</h2>
+            <p class="subtitle">Empreendedores Exponenciais | CSM Limoeiro</p>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-card"><h3>⏱️ Duração</h3><p>50 min</p></div>
+            <div class="info-card"><h3>👥 Público</h3><p>7º Ano</p></div>
+            <div class="info-card"><h3>📚 Módulo</h3><p>Negócios</p></div>
+            <div class="info-card"><h3>📄 Página</h3><p>90</p></div>
+        </div>
+
+        <div class="objetivo-box">
+            <h3>🎯 OBJETIVOS DA AULA</h3>
+            <ul>
+                <li>Compreender os diferentes <strong>tipos de diferenciação</strong></li>
+                <li>Aprender a criar uma <strong>proposta de valor clara</strong></li>
+                <li>Conhecer o conceito de <strong>Oceano Azul vs. Oceano Vermelho</strong></li>
+            </ul>
+        </div>
+
+        <div class="materiais-box">
+            <h3>📦 MATERIAIS NECESSÁRIOS</h3>
+            <ul>
+                <li>Quadro ou projetor</li>
+                <li>Folhas A4 com quadro comparativo (1 por grupo)</li>
+            </ul>
+        </div>
+
+        <div class="timeline-box">
+            <h3>📋 CRONOGRAMA (50 MIN)</h3>
+
+            <div class="timeline-item abertura">
+                <div class="timeline-tempo"><div class="numero">5</div><div class="label">min</div></div>
+                <div class="timeline-content">
+                    <h4>🚀 ABERTURA — Por Que Você Escolhe Uma Marca?</h4>
+                    <p><strong>Pergunta:</strong> "Por que vocês escolhem Coca-Cola em vez de Pepsi? As duas são refrigerantes!"</p>
+                    <p><strong>Discussão:</strong> Não é só o produto — é a DIFERENÇA que a marca cria.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item teoria">
+                <div class="timeline-tempo"><div class="numero">12</div><div class="label">min</div></div>
+                <div class="timeline-content">
+                    <h4>📚 TEORIA — Tipos de Diferenciação + Oceano Azul</h4>
+                    <p><strong>Tipos de Diferenciação:</strong></p>
+                    <ul>
+                        <li>💎 <b>Por Produto:</b> Qualidade, design único</li>
+                        <li>🤝 <b>Por Serviço:</b> Atendimento excepcional</li>
+                        <li>💰 <b>Por Preço:</b> Mais barato ou premium</li>
+                        <li>✨ <b>Por Experiência:</b> Como o cliente se sente</li>
+                        <li>🚀 <b>Por Valores:</b> Sustentabilidade, causa social</li>
+                    </ul>
+                    <p><strong>Oceano Azul vs. Vermelho:</strong></p>
+                    <ul>
+                        <li>🔴 <b>Vermelho:</b> Mercado lotado, guerra de preços</li>
+                        <li>🔵 <b>Azul:</b> Espaço novo, sem concorrência</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item pratica">
+                <div class="timeline-tempo"><div class="numero">23</div><div class="label">min</div></div>
+                <div class="timeline-content">
+                    <h4>✋ ATIVIDADE — Jogo do Oceano Azul</h4>
+                    <p><strong>Min 0-5:</strong> Grupos de 4. Recebam um mercado saturado: (A) Lanchonete, (B) Papelaria, (C) Academia.</p>
+                    <p><strong>Min 5-15:</strong> Apliquem a estratégia ERCC:</p>
+                    <ul>
+                        <li>❌ O que <b>ELIMINAR</b>?</li>
+                        <li>📉 O que <b>REDUZIR</b>?</li>
+                        <li>📈 O que <b>AUMENTAR</b>?</li>
+                        <li>✨ O que <b>CRIAR</b> que nunca existiu?</li>
+                    </ul>
+                    <p><strong>Min 15-23:</strong> Desenhem a versão "Oceano Azul" do negócio no papel. Apresente!</p>
+                </div>
+            </div>
+
+            <div class="timeline-item fechamento">
+                <div class="timeline-tempo"><div class="numero">10</div><div class="label">min</div></div>
+                <div class="timeline-content">
+                    <h4>🎯 FECHAMENTO — Síntese</h4>
+                    <p><strong>Discussão:</strong> Qual grupo criou o Oceano Azul mais inovador?</p>
+                    <p><strong>Tarefa:</strong> Escolha um produto que você compra frequentemente. Como seria sua versão "Oceano Azul"? O que você eliminaria, aumentaria e criaria?</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="guia-professor">
+            <h3>💡 ORIENTAÇÕES PEDAGÓGICAS</h3>
+            <ol>
+                <li><strong>Exemplo clássico:</strong> Cirque du Soleil é o exemplo perfeito de Oceano Azul (eliminou animais, aumentou arte cênica).</li>
+                <li><strong>Contexto local:</strong> "Que negócio de Limoeiro poderia criar um Oceano Azul?" Estimula pensamento inovador regional.</li>
+                <li><strong>Facilitação:</strong> Durante a atividade ERCC, circule e faça perguntas provocativas: "Isso já existe? Como ficar diferente?"</li>
+                <li><strong>Dificuldades esperadas:</strong> Alunos podem confundir "criar" com "melhorar". Reforce que Oceano Azul é algo NOVO.</li>
+                <li><strong>Visual:</strong> Peça para desenharem! Isso ajuda a materializar a ideia de Oceano Azul.</li>
+            </ol>
+        </div>
+
+        <div class="observacoes-box">
+            <h3>📝 NOTAS DE AVALIAÇÃO</h3>
+            <ul>
+                <li>Avalie se os grupos compreenderam o conceito de mercado saturado (Oceano Vermelho).</li>
+                <li>Observe a criatividade na aplicação da estratégia ERCC — não deve ser apenas melhoria incremental.</li>
+                <li>Os desenhos/variantes de Oceano Azul devem ser entregues como evidência da atividade.</li>
+                <li>A tarefa individual pode ser discutida brevemente na aula seguinte como aquecimento.</li>
+            </ul>
+        </div>
+
+        <div class="conexao-projeto">
+            <h3>🔗 PROJETO DO SEMESTRE</h3>
+            <p>No <strong>Shark Tank CSM</strong>, vocês precisam explicar como seu negócio se diferencia da concorrência.</p>
+        </div>
+    </div>
+</body>
+</html>

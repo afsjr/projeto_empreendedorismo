@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia do Professor — Projeto Final (8º Ano)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --violet: #8b5cf6; --purple: #7c3aed; --indigo: #6366f1; --bg: #f8fafc; --text: #1e293b; --text-light: #64748b; }
+        body { font-family: 'Outfit', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        .header { background: linear-gradient(135deg, var(--violet), var(--purple)); color: white; padding: 30px; border-radius: 16px; margin-bottom: 20px; }
+        .header-badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 5px 15px; border-radius: 20px; font-size: 12px; font-weight: 600; margin-bottom: 15px; }
+        .header h1 { font-size: 28px; font-weight: 800; margin-bottom: 8px; }
+        .header .meta { display: flex; gap: 20px; font-size: 14px; opacity: 0.9; }
+        .info-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 25px; }
+        .info-card { background: white; border-radius: 12px; padding: 20px; text-align: center; border: 2px solid #e2e8f0; }
+        .info-card .icon { font-size: 28px; margin-bottom: 8px; }
+        .info-card h3 { font-size: 11px; color: var(--text-light); text-transform: uppercase; }
+        .info-card p { font-size: 20px; font-weight: 700; }
+        .objetivos { background: #ede9fe; border: 2px solid var(--violet); border-radius: 12px; padding: 20px; margin-bottom: 25px; }
+        .objetivos h2 { font-size: 16px; color: #6d28d9; margin-bottom: 12px; }
+        .objetivos ul { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .objetivos li { font-size: 14px; padding-left: 20px; position: relative; }
+        .objetivos li::before { content: '✓'; position: absolute; left: 0; color: var(--violet); font-weight: 700; }
+        .section { background: white; border-radius: 12px; padding: 25px; margin-bottom: 20px; border: 1px solid #e2e8f0; }
+        .section-title { font-size: 18px; font-weight: 700; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        .section-title .num { background: var(--violet); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .script-item { margin-bottom: 20px; padding: 20px; border-radius: 10px; border-left: 4px solid; }
+        .script-item.abertura { background: #ede9fe; border-color: var(--violet); }
+        .script-item.pratica { background: #fef3c7; border-color: #f59e0b; }
+        .script-item.fechamento { background: #ede9fe; border-color: var(--violet); }
+        .script-time { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; }
+        .script-time .clock { background: white; padding: 8px 15px; border-radius: 8px; font-weight: 700; font-size: 14px; }
+        .script-time h4 { font-size: 16px; }
+        .script-dialogue { background: white; border-radius: 8px; padding: 15px; margin-bottom: 12px; }
+        .script-dialogue .label { font-size: 11px; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600; }
+        .script-dialogue p { font-size: 15px; font-style: italic; }
+        .script-note { background: #ede9fe; border: 1px solid #ddd6fe; border-radius: 8px; padding: 12px; font-size: 13px; display: flex; align-items: flex-start; gap: 10px; }
+        .script-note .icon { font-size: 18px; }
+        .activity-step { display: flex; gap: 15px; padding: 15px; background: #f8fafc; border-radius: 10px; margin-bottom: 10px; }
+        .activity-step .step-num { background: var(--violet); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0; }
+        .activity-step .step-content h4 { font-size: 15px; margin-bottom: 5px; }
+        .activity-step .step-content p { font-size: 13px; color: var(--text-light); }
+        .questions-box { background: #ede9fe; border: 2px solid var(--violet); border-radius: 12px; padding: 20px; }
+        .questions-box h3 { font-size: 15px; color: #6d28d9; margin-bottom: 15px; }
+        .question-item { background: white; border-radius: 8px; padding: 15px; margin-bottom: 10px; }
+        .question-item .Q { font-weight: 700; color: var(--violet); margin-bottom: 5px; }
+        .question-item .expected { font-size: 13px; color: var(--text-light); margin-top: 8px; padding-top: 8px; border-top: 1px dashed #e2e8f0; }
+        .question-item .expected strong { color: #6d28d9; }
+        .tips-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .tip-card { background: #ede9fe; border-radius: 10px; padding: 15px; border-left: 4px solid var(--violet); }
+        .tip-card h4 { font-size: 14px; color: #6d28d9; margin-bottom: 8px; }
+        .tip-card p { font-size: 13px; }
+        .conexao { background: #ede9fe; border: 2px solid var(--violet); border-radius: 12px; padding: 20px; display: flex; align-items: center; gap: 20px; }
+        .conexao .icon { font-size: 40px; }
+        .conexao h3 { font-size: 16px; color: #6d28d9; margin-bottom: 8px; }
+        .conexao p { font-size: 14px; }
+        .print-btn { position: fixed; bottom: 20px; right: 20px; background: var(--violet); color: white; border: none; padding: 15px 30px; border-radius: 30px; font-size: 14px; font-weight: 700; cursor: pointer; }
+        @media (max-width: 768px) { .info-grid { grid-template-columns: repeat(2, 1fr); } .objetivos ul { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <button class="print-btn" onclick="window.print()">🖨️ Imprimir Guia</button>
+    <div class="container">
+        <header class="header">
+            <div class="header-badge">GUIA DO PROFESSOR</div>
+            <h1>Projeto Final</h1>
+            <div class="meta"><span>📅 8º Ano</span><span>⏱️ 50 min</span><span>📚 Módulo 5: Projetos</span></div>
+        </header>
+        <div class="info-grid">
+            <div class="info-card"><div class="icon">⏱️</div><h3>Duração</h3><p>50 min</p></div>
+            <div class="info-card"><div class="icon">👥</div><h3>Grupo</h3><p>Equipes</p></div>
+            <div class="info-card"><div class="icon">🚀</div><h3>Atividade</h3><p>Startup Completa</p></div>
+            <div class="info-card"><div class="icon">📋</div><h3>Material</h3><p>Notas do semestre</p></div>
+        </div>
+        <div class="objetivos">
+            <h2>🎯 Objetivos de Aprendizagem</h2>
+            <ul>
+                <li>Aplicar todo <strong>conhecimento</strong></li>
+                <li>Criar <strong>startup completa</strong></li>
+                <li>Preparar <strong>Apresentação</strong></li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2 class="section-title"><span class="num">1</span> Script de Aula</h2>
+            <div class="script-item abertura">
+                <div class="script-time"><span class="clock">5 min</span><h4>ABERTURA — Revisão</h4></div>
+                <div class="script-dialogue">
+                    <div class="label">🗣️ Professor diz:</div>
+                    <p>"O que aprendemos este semestre? De mindset empreendedor a reuniões eficazes, passamos por muitos conceitos. Hoje vamos juntar tudo e criar nossa startup completa!"</p>
+                </div>
+                <div class="script-note"><span class="icon">💡</span><div><strong>Estimule:</strong> Faça um rápido raio-x do semestre pedindo para os alunos lembrarem os principais conceitos aprendidos. Isso ajuda a ativar o conhecimento prévio antes do projeto.</div></div>
+            </div>
+            <div class="script-item pratica">
+                <div class="script-time"><span class="clock">35 min</span><h4>ATIVIDADE — Montar Projeto</h4></div>
+                <div class="activity-step">
+                    <span class="step-num">1</span>
+                    <div class="step-content">
+                        <h4>Canvas (Problema e Solução)</h4>
+                        <p>Definir claramente o problema que a startup resolve e qual a solução oferecida. Usar as notas das primeiras aulas.</p>
+                    </div>
+                </div>
+                <div class="activity-step">
+                    <span class="step-num">2</span>
+                    <div class="step-content">
+                        <h4>MVP (Protótipo)</h4>
+                        <p>Criar ou desenhar o protótipo mínimo viável do produto/serviço. Pode ser esboço em papel ou descrição detalhada.</p>
+                    </div>
+                </div>
+                <div class="activity-step">
+                    <span class="step-num">3</span>
+                    <div class="step-content">
+                        <h4>Precificação e Marketing</h4>
+                        <p>Definir preço usando markup e criar plano de marketing com canais de divulgação e personas.</p>
+                    </div>
+                </div>
+                <div class="activity-step">
+                    <span class="step-num">4</span>
+                    <div class="step-content">
+                        <h4>Apresentação (Pitch)</h4>
+                        <p>Estruturar um pitch de 2 minutos que apresente a startup de forma convincente e atrativa.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="script-item fechamento">
+                <div class="script-time"><span class="clock">10 min</span><h4>FECHAMENTO</h4></div>
+                <div class="script-dialogue">
+                    <div class="label">🗣️ Professor diz:</div>
+                    <p>"Preparem o pitch de 2 minutos para a apresentação final!<br><br><strong>Próxima:</strong> Apresentação final do Startup Mirim. Estejam prontos para apresentar para a turma!</p>
+                </div>
+            </div>
+        </div>
+        <div class="questions-box">
+            <h3>❓ Perguntas Provocadoras</h3>
+            <div class="question-item">
+                <div class="Q">P: Por que é importante ter um MVP antes de lançar o produto completo?</div>
+                <div class="expected"><strong>R:</strong> O MVP permite testar a aceitação do mercado com baixo custo e risco. O feedback dos primeiros usuários ajuda a melhorar o produto antes de investir recursos pesados na versão final.</div>
+            </div>
+            <div class="question-item">
+                <div class="Q">P: Como a precificação correta influencia o sucesso da startup?</div>
+                <div class="expected"><strong>R:</strong> Preço muito baixo pode não cobrir custos e gerar prejuízo. Muito alto pode afastar clientes. O equilíbrio usando markup adequado garante margem de lucro e competitividade.</div>
+            </div>
+            <div class="question-item">
+                <div class="Q">P: O que torna um pitch de 2 minutos eficaz?</div>
+                <div class="expected"><strong>R:</strong> Clareza na proposta de valor, saber o problema e solução, entusiasmo, e saber o que torna a startup diferente das outras. Menos é mais: foque no essencial.</div>
+            </div>
+        </div>
+        <div class="section">
+            <h2 class="section-title"><span class="num">2</span> Dicas do Professor</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h4>🤝 Equipe</h4>
+                    <p>Garanta que todos participam da criação. Distribua tarefas de acordo com as forças de cada um: criatividade, organização, apresentação, números.</p>
+                </div>
+                <div class="tip-card">
+                    <h4>🎨 Visual</h4>
+                    <p>Use recursos visuais no pitch: desenhos do produto, gráficos simples, cores que representem a marca. Visual ajuda a prender a atenção e torna a apresentação mais profissional.</p>
+                </div>
+            </div>
+        </div>
+        <div class="conexao">
+            <div class="icon">🔗</div>
+            <div><h3>Conecta com: APRESENTAÇÃO FINAL</h3><p>Este projeto será apresentado formalmente na próxima aula, encerrando o ciclo do Startup Mirim com a aplicação prática de todo o aprendizado.</p></div>
+        </div>
+    </div>
+</body>
+</html>

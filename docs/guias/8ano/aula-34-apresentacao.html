@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia do Professor — Apresentação Final (8º Ano)</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Outfit', sans-serif; background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%); padding: 30px; }
+        .guia-container { max-width: 210mm; margin: 0 auto; background: white; border-radius: 16px; padding: 40px; box-shadow: 0 8px 30px rgba(139,92,246,0.15); }
+        .guia-header { text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 4px solid #8b5cf6; }
+        .guia-header h1 { font-size: 26px; color: #8b5cf6; font-weight: 800; margin-bottom: 8px; }
+        .guia-header h2 { font-size: 16px; color: #6d28d9; font-weight: 600; }
+        .guia-header .badge { display: inline-block; background: linear-gradient(135deg, #8b5cf6, #6d28d9); color: white; padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: 700; margin-top: 10px; }
+        .info-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 25px; }
+        .info-card { background: #f5f3ff; border: 2px solid #8b5cf6; border-radius: 10px; padding: 12px; text-align: center; }
+        .info-card h3 { font-size: 10px; color: #6d28d9; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+        .info-card p { font-size: 14px; font-weight: 700; color: #333; }
+        .secao { margin-bottom: 25px; }
+        .secao-titulo { font-size: 16px; color: #8b5cf6; font-weight: 700; margin-bottom: 12px; padding-left: 12px; border-left: 4px solid #8b5cf6; }
+        .objetivos-box { background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%); color: white; border-radius: 12px; padding: 18px; }
+        .objetivos-box ul { list-style: none; }
+        .objetivos-box li { padding: 4px 0; font-size: 13px; }
+        .objetivos-box li::before { content: "✓ "; font-weight: 700; }
+        .materiais-box { background: #fef3c7; border-left: 4px solid #f59e0b; border-radius: 10px; padding: 16px; }
+        .materiais-box ul { padding-left: 18px; }
+        .materiais-box li { font-size: 13px; margin-bottom: 4px; color: #555; }
+        .passo-a-passo { background: #f5f3ff; border: 2px solid #8b5cf6; border-radius: 12px; padding: 20px; }
+        .passo-item { display: flex; gap: 14px; margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px dashed #c4b5fd; }
+        .passo-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .passo-num { min-width: 32px; height: 32px; background: #8b5cf6; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 14px; }
+        .passo-content h4 { font-size: 14px; color: #333; margin-bottom: 4px; }
+        .passo-content p { font-size: 12px; color: #555; line-height: 1.5; }
+        .passo-content ul { padding-left: 18px; margin-top: 6px; }
+        .passo-content li { font-size: 11px; color: #555; margin-bottom: 2px; }
+        .timeline-box { background: #f5f3ff; border: 2px solid #8b5cf6; border-radius: 12px; padding: 20px; }
+        .timeline-item { display: flex; gap: 12px; margin-bottom: 14px; padding: 12px; border-radius: 8px; }
+        .timeline-item.abertura { background: #ede9fe; border-left: 4px solid #8b5cf6; }
+        .timeline-item.pratica { background: #fef3c7; border-left: 4px solid #f59e0b; }
+        .timeline-item.fechamento { background: #ede9fe; border-left: 4px solid #7c3aed; }
+        .timeline-tempo { min-width: 50px; text-align: center; }
+        .timeline-tempo .numero { font-size: 24px; font-weight: 800; color: #333; }
+        .timeline-tempo .label { font-size: 9px; color: #666; }
+        .timeline-content h4 { font-size: 14px; color: #333; margin-bottom: 4px; }
+        .timeline-content p { font-size: 12px; color: #555; }
+        .timeline-content ul { padding-left: 18px; margin-top: 6px; }
+        .timeline-content li { font-size: 11px; color: #555; margin-bottom: 2px; }
+        .dicas-box { background: #e0f2fe; border: 2px solid #0ea5e9; border-radius: 12px; padding: 18px; }
+        .dicas-box h3 { color: #0369a1; font-size: 14px; margin-bottom: 10px; }
+        .dicas-box ol { padding-left: 18px; }
+        .dicas-box li { font-size: 12px; color: #555; margin-bottom: 6px; }
+        .projeto-box { background: linear-gradient(135deg, #ede9fe 0%, #f5f3ff 100%); border: 2px solid #8b5cf6; border-radius: 12px; padding: 18px; text-align: center; }
+        .projeto-box h3 { color: #8b5cf6; font-size: 14px; margin-bottom: 8px; }
+        .projeto-box p { font-size: 13px; color: #555; }
+        .footer-guia { text-align: center; margin-top: 30px; padding-top: 15px; border-top: 2px solid #ede9fe; color: #8b5cf6; font-size: 11px; font-weight: 600; }
+        .print-button { position: fixed; top: 20px; right: 20px; background: #8b5cf6; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 12px rgba(139,92,246,0.3); }
+        .print-button:hover { background: #7c3aed; }
+        @media print { .print-button { display: none; } body { background: white; padding: 0; } .guia-container { box-shadow: none; } }
+    </style>
+</head>
+<body>
+    <button class="print-button" onclick="window.print()">Imprimir / Salvar PDF</button>
+    <div class="guia-container">
+        <div class="guia-header">
+            <h1>GUIA DO PROFESSOR</h1>
+            <h2>8º Ano | Módulo 5: Projetos | Lição 34</h2>
+            <div class="badge">APRESENTAÇÃO FINAL</div>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-card"><h3>Duração</h3><p>50 min</p></div>
+            <div class="info-card"><h3>Público</h3><p>8º Ano</p></div>
+            <div class="info-card"><h3>Módulo</h3><p>Projetos</p></div>
+            <div class="info-card"><h3>Página</h3><p>99</p></div>
+        </div>
+
+        <div class="secao">
+            <div class="secao-titulo">OBJETIVOS DA AULA</div>
+            <div class="objetivos-box">
+                <ul>
+                    <li>Apresentar a startup completa desenvolvida pelas equipes</li>
+                    <li>Receber e registrar feedback construtivo</li>
+                    <li>Celebrar as conquistas e o aprendizado do projeto</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="secao">
+            <div class="secao-titulo">MATERIAIS NECESSÁRIOS</div>
+            <div class="materiais-box">
+                <ul>
+                    <li>Projetos montados (pitch deck, protótipo, etc.)</li>
+                    <li>Equipamento audiovisual (projetor, som)</li>
+                    <li>Cronômetro visível para controle do tempo</li>
+                    <li>Fichas de feedback (opcional)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="secao">
+            <div class="secao-titulo">PASSO A PASSO PARA O PROFESSOR</div>
+            <div class="passo-a-passo">
+                <div class="passo-item">
+                    <div class="passo-num">1</div>
+                    <div class="passo-content">
+                        <h4>Preparação (antes da aula)</h4>
+                        <p>Organize a ordem das apresentações. Teste o equipamento audiovisual. Prepare um espaço onde todas as equipes possam ver e ouvir bem.</p>
+                    </div>
+                </div>
+                <div class="passo-item">
+                    <div class="passo-num">2</div>
+                    <div class="passo-content">
+                        <h4>Abertura — 2 min</h4>
+                        <p>Parabenize as equipes pelo trabalho realizado. Relembre a estrutura da apresentação e o critério de tempo (5 min por equipe).</p>
+                    </div>
+                </div>
+                <div class="passo-item">
+                    <div class="passo-num">3</div>
+                    <div class="passo-content">
+                        <h4>Pitch Final — 40 min</h4>
+                        <p>Cada equipe apresenta sua startup seguindo a estrutura:</p>
+                        <ul>
+                            <li><strong>Problema</strong> (30s) — O que motivou a ideia</li>
+                            <li><strong>Solução</strong> (30s) — Como a startup resolve o problema</li>
+                            <li><strong>MVP</strong> (1 min) — Demonstração do produto/serviço</li>
+                            <li><strong>Mercado</strong> (1 min) — Público-alvo e concorrência</li>
+                            <li><strong>Equipe</strong> (1 min) — Papéis e responsabilidades</li>
+                            <li><strong>Perguntas</strong> (1 min) — Feedback da turma</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="passo-item">
+                    <div class="passo-num">4</div>
+                    <div class="passo-content">
+                        <h4>Fechamento — 8 min</h4>
+                        <p>Encerre com felicitações a todas as equipes. Peça que registrem o que aprenderam. Celebre o fim do projeto Startup Mirim!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="secao">
+            <div class="secao-titulo">CRONOGRAMA (50 MIN)</div>
+            <div class="timeline-box">
+                <div class="timeline-item abertura">
+                    <div class="timeline-tempo"><div class="numero">2</div><div class="label">min</div></div>
+                    <div class="timeline-content">
+                        <h4>ABERTURA — Boas-vindas</h4>
+                        <p>"Parabéns pelo trabalho! Hoje é o dia de apresentar sua startup."</p>
+                    </div>
+                </div>
+                <div class="timeline-item pratica">
+                    <div class="timeline-tempo"><div class="numero">40</div><div class="label">min</div></div>
+                    <div class="timeline-content">
+                        <h4>ATIVIDADE — Pitch Final</h4>
+                        <p><strong>Apresentação:</strong> Cada equipe tem 5 minutos</p>
+                        <p><strong>Estrutura:</strong></p>
+                        <ul>
+                            <li>Problema (30s)</li>
+                            <li>Solução (30s)</li>
+                            <li>MVP (1 min)</li>
+                            <li>Mercado (1 min)</li>
+                            <li>Equipe (1 min)</li>
+                            <li>Perguntas (1 min)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item fechamento">
+                    <div class="timeline-tempo"><div class="numero">8</div><div class="label">min</div></div>
+                    <div class="timeline-content">
+                        <h4>FECHAMENTO</h4>
+                        <p><strong>Encerramento:</strong> Felicitações a todas as equipes</p>
+                        <p><strong>Feedback:</strong> Documente o que foi aprendido</p>
+                        <p><strong>Fim:</strong> Parabéns! Projeto concluído!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="secao">
+            <div class="secao-titulo">DICAS PARA O PROFESSOR</div>
+            <div class="dicas-box">
+                <ol>
+                    <li><strong>Aplausos:</strong> Celebre cada apresentação com aplausos da turma</li>
+                    <li><strong>Fotos:</strong> Registre o momento das apresentações</li>
+                    <li><strong>Tempo:</strong> Use um cronômetro visível para as equipes controlarem o tempo</li>
+                    <li><strong>Feedback:</strong> Incentive perguntas construtivas da plateia</li>
+                    <li><strong>Celebração:</strong> Considere um pequeno reconhecimento simbólico para todas as equipes</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="secao">
+            <div class="secao-titulo">CONEXÃO COM O PROJETO</div>
+            <div class="projeto-box">
+                <h3>PROJETO STARTUP MIRIM</h3>
+                <p>Esta é a <strong>aula final</strong> do projeto Startup Mirim para o 8º ano. As equipes apresentam tudo o que construíram ao longo das lições anteriores.</p>
+            </div>
+        </div>
+
+        <div class="footer-guia">
+            Projeto Empreendedorismo — 8º Ano — Lição 34 de 34 — Módulo 5: Projetos
+        </div>
+    </div>
+</body>
+</html>

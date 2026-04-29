@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia do Professor — Pontes de Inovação (7º Ano)</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Outfit', sans-serif; background: #f5f5f5; padding: 30px; line-height: 1.6; }
+        .guia-container { max-width: 210mm; margin: 0 auto; background: white; border-radius: 16px; padding: 40px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        .guia-header { text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 4px solid #f97316; }
+        .guia-header h1 { font-size: 26px; color: #f97316; font-weight: 800; margin-bottom: 8px; }
+        .guia-header h2 { font-size: 18px; color: #fb923c; font-weight: 600; }
+        .guia-header .subtitle { font-size: 13px; color: #666; margin-top: 5px; }
+        .info-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 25px; }
+        .info-card { background: #fff7ed; border: 2px solid #f97316; border-radius: 10px; padding: 12px; text-align: center; }
+        .info-card h3 { font-size: 11px; color: #ea580c; margin-bottom: 4px; }
+        .info-card p { font-size: 14px; font-weight: 700; color: #333; }
+        .objetivo-box { background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); color: white; border-radius: 12px; padding: 18px; margin-bottom: 25px; }
+        .objetivo-box h3 { font-size: 16px; margin-bottom: 10px; }
+        .objetivo-box ul { padding-left: 20px; }
+        .objetivo-box li { margin-bottom: 5px; font-size: 13px; }
+        .materiais-box { background: #fef3c7; border-left: 5px solid #fb923c; border-radius: 10px; padding: 18px; margin-bottom: 25px; }
+        .materiais-box h3 { color: #d97706; font-size: 16px; margin-bottom: 12px; }
+        .materiais-box ul { padding-left: 20px; }
+        .materiais-box li { margin-bottom: 6px; font-size: 13px; }
+        .timeline-box { margin-bottom: 25px; }
+        .timeline-box h3 { font-size: 20px; color: #f97316; margin-bottom: 15px; text-align: center; }
+        .timeline-item { display: flex; gap: 15px; margin-bottom: 15px; padding: 15px; border-radius: 10px; border-left: 5px solid; }
+        .timeline-item.abertura { background: #ffedd5; border-color: #f97316; }
+        .timeline-item.teoria { background: #e0e7ff; border-color: #6366f1; }
+        .timeline-item.pratica { background: #fef3c7; border-color: #f59e0b; }
+        .timeline-item.fechamento { background: #d1fae5; border-color: #10b981; }
+        .timeline-tempo { min-width: 55px; text-align: center; }
+        .timeline-tempo .numero { font-size: 24px; font-weight: 800; color: #333; }
+        .timeline-tempo .label { font-size: 10px; color: #666; }
+        .timeline-content h4 { font-size: 15px; color: #333; margin-bottom: 8px; }
+        .timeline-content p { font-size: 13px; color: #555; margin-bottom: 6px; }
+        .timeline-content ul { padding-left: 18px; }
+        .timeline-content li { margin-bottom: 4px; font-size: 12px; }
+        .guia-professor { background: #fff7ed; border: 2px solid #f97316; border-radius: 10px; padding: 18px; margin-bottom: 25px; }
+        .guia-professor h3 { color: #ea580c; font-size: 16px; margin-bottom: 12px; }
+        .guia-professor ol { padding-left: 20px; }
+        .guia-professor li { margin-bottom: 6px; font-size: 13px; }
+        .observacoes-box { background: #f0f9ff; border: 2px solid #0ea5e9; border-radius: 10px; padding: 18px; margin-bottom: 25px; }
+        .observacoes-box h3 { color: #0369a1; font-size: 16px; margin-bottom: 12px; }
+        .observacoes-box ul { padding-left: 20px; }
+        .observacoes-box li { margin-bottom: 6px; font-size: 13px; }
+        .conexao-projeto { background: #fff7ed; border: 2px solid #f97316; border-radius: 10px; padding: 18px; }
+        .conexao-projeto h3 { color: #f97316; font-size: 16px; margin-bottom: 10px; }
+        .conexao-projeto p { font-size: 13px; color: #555; margin-bottom: 8px; }
+        .print-button { position: fixed; top: 20px; right: 20px; background: #f97316; color: white; border: none; padding: 12px 24px; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 15px rgba(249,115,22,0.3); z-index: 1000; }
+        .print-button:hover { background: #ea580c; }
+        @media print { body { background: white; padding: 0; } .print-button { display: none; } .guia-container { box-shadow: none; padding: 20px; } }
+        @media (max-width: 768px) { .info-grid { grid-template-columns: repeat(2, 1fr); } .timeline-item { flex-direction: column; } }
+    </style>
+</head>
+<body>
+    <button class="print-button" onclick="window.print()">🖨️ Imprimir</button>
+    <div class="guia-container">
+        <div class="guia-header">
+            <h1>🌉 GUIA DO PROFESSOR — PONTES DE INOVAÇÃO</h1>
+            <h2>7º Ano | Módulo 3: Inovação | Lição 6</h2>
+            <p class="subtitle">Empreendedores Exponenciais | CSM Limoeiro</p>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-card"><h3>⏱️ Duração</h3><p>50 min</p></div>
+            <div class="info-card"><h3>👥 Público</h3><p>7º Ano</p></div>
+            <div class="info-card"><h3>📚 Módulo</h3><p>Inovação</p></div>
+            <div class="info-card"><h3>📄 Página</h3><p>141</p></div>
+        </div>
+
+        <div class="objetivo-box">
+            <h3>🎯 OBJETIVOS DA AULA</h3>
+            <ul>
+                <li>Conhecer as <strong>pontes para o futuro</strong></li>
+                <li>Identificar <strong>tendências</strong> de inovação</li>
+                <li>Conectar soluções a <strong>oportunidades emergentes</strong></li>
+            </ul>
+        </div>
+
+        <div class="materiais-box">
+            <h3>📦 MATERIAIS NECESSÁRIOS</h3>
+            <ul>
+                <li>Quadro ou projetor</li>
+                <li>Revistas/jornais para pesquisa de tendências</li>
+            </ul>
+        </div>
+
+        <div class="timeline-box">
+            <h3>📋 CRONOGRAMA (50 MIN)</h3>
+
+            <div class="timeline-item abertura">
+                <div class="timeline-tempo"><div class="numero">5</div><div class="label">min</div></div>
+                <div class="timeline-content">
+                    <h4>🚀 ABERTURA — Tendências</h4>
+                    <p>"O que você acha que vai mudar no mundo nos próximos 10 anos?"</p>
+                </div>
+            </div>
+
+            <div class="timeline-item teoria">
+                <div class="timeline-tempo"><div class="numero">12</div><div class="label">min</div></div>
+                <div class="timeline-content">
+                    <h4>📚 TEORIA — Pontes de Inovação</h4>
+                    <p><strong>Economia 4.0:</strong> Digital, automatizada e conectada</p>
+                    <p><strong>Sustentabilidade:</strong> Economia Verde e Circular</p>
+                    <p><strong>Sociedade 5.0:</strong> Integração Humano + Tecnologia</p>
+                    <p><strong>Objetivo:</strong> Conectar o presente ao futuro</p>
+                </div>
+            </div>
+
+            <div class="timeline-item pratica">
+                <div class="timeline-tempo"><div class="numero">25</div><div class="label">min</div></div>
+                <div class="timeline-content">
+                    <h4>✋ ATIVIDADE — Projeto Futuro 2035</h4>
+                    <p><strong>Desafio:</strong> Criar solução para o ano 2035</p>
+                    <p><strong>Ponte 1:</strong> Identificar tendência tecnológica</p>
+                    <p><strong>Ponte 2:</strong> Como sua solução se conecta?</p>
+                    <p><strong>Draft:</strong> Desenhar a ponte entre hoje e o futuro</p>
+                </div>
+            </div>
+
+            <div class="timeline-item fechamento">
+                <div class="timeline-tempo"><div class="numero">8</div><div class="label">min</div></div>
+                <div class="timeline-content">
+                    <h4>🎯 FECHAMENTO</h4>
+                    <p><strong>Pergunta:</strong> Por que pensar no futuro hoje?</p>
+                    <p><strong>Resposta:</strong> Para estar preparado para as oportunidades</p>
+                    <p><strong>Tarefa:</strong> Pesquisar tendências tecnológicas</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="guia-professor">
+            <h3>💡 ORIENTAÇÕES PEDAGÓGICAS</h3>
+            <ol>
+                <li><strong>Visão de Futuro:</strong> Incentive os alunos a sonhar grande e pensar sem limites.</li>
+                <li><strong>Conexões:</strong> Mostre que tudo está interconectado — tecnologia, meio ambiente e sociedade.</li>
+                <li><strong>Tendências:</strong> Ajude os alunos a distinguir entre modismo passageiro e tendência real.</li>
+                <li><strong>Sustentabilidade:</strong> Reforce a importância de soluções que respeitem o planeta.</li>
+                <li><strong>Relevância:</strong> Conecte as tendências ao cotidiano dos alunos para facilitar a compreensão.</li>
+            </ol>
+        </div>
+
+        <div class="observacoes-box">
+            <h3>📝 NOTAS DE AVALIAÇÃO</h3>
+            <ul>
+                <li>Observe se os alunos conseguem identificar tendências reais de inovação.</li>
+                <li>Avalie se as soluções propostas têm conexão lógica com as tendências apresentadas.</li>
+                <li>Verifique se os alunos conseguem pensar a longo prazo (10+ anos).</li>
+                <li>Prepare os alunos para criarem projetos inovadores no Startup Mirim.</li>
+            </ul>
+        </div>
+
+        <div class="conexao-projeto">
+            <h3>🔗 PROJETO DO SEMESTRE</h3>
+            <p>No <strong>Startup Mirim</strong>, os grupos criarão soluções inovadoras que conectam tendências atuais a problemas reais, construindo pontes entre o presente e o futuro em seus projetos.</p>
+        </div>
+    </div>
+</body>
+</html>

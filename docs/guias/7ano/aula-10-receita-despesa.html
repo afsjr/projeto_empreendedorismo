@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia do Professor — Receita, Despesa e Lucro (7º Ano)</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Outfit', sans-serif; background: #f5f5f5; padding: 30px; line-height: 1.6; }
+        .guia-container { max-width: 210mm; margin: 0 auto; background: white; border-radius: 16px; padding: 40px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        .guia-header { text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 4px solid #f97316; }
+        .guia-header h1 { font-size: 26px; color: #f97316; font-weight: 800; margin-bottom: 8px; }
+        .guia-header h2 { font-size: 18px; color: #fb923c; font-weight: 600; }
+        .guia-header .subtitle { font-size: 13px; color: #666; margin-top: 5px; }
+        .info-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 25px; }
+        .info-card { background: #fff7ed; border: 2px solid #f97316; border-radius: 10px; padding: 12px; text-align: center; }
+        .info-card h3 { font-size: 11px; color: #ea580c; margin-bottom: 4px; }
+        .info-card p { font-size: 14px; font-weight: 700; color: #333; }
+        .objetivo-box { background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); color: white; border-radius: 12px; padding: 18px; margin-bottom: 25px; }
+        .objetivo-box h3 { font-size: 16px; margin-bottom: 10px; }
+        .objetivo-box ul { padding-left: 20px; }
+        .objetivo-box li { margin-bottom: 5px; font-size: 13px; }
+        .materiais-box { background: #fef3c7; border-left: 5px solid #fb923c; border-radius: 10px; padding: 18px; margin-bottom: 25px; }
+        .materiais-box h3 { color: #d97706; font-size: 16px; margin-bottom: 12px; }
+        .materiais-box ul { padding-left: 20px; }
+        .materiais-box li { margin-bottom: 6px; font-size: 13px; }
+        .timeline-box { margin-bottom: 25px; }
+        .timeline-box h3 { font-size: 20px; color: #f97316; margin-bottom: 15px; text-align: center; }
+        .timeline-item { display: flex; gap: 15px; margin-bottom: 15px; padding: 15px; border-radius: 10px; border-left: 5px solid; }
+        .timeline-item.abertura { background: #ffedd5; border-color: #f97316; }
+        .timeline-item.teoria { background: #e0e7ff; border-color: #6366f1; }
+        .timeline-item.pratica { background: #fef3c7; border-color: #f59e0b; }
+        .timeline-item.fechamento { background: #d1fae5; border-color: #10b981; }
+        .timeline-tempo { min-width: 55px; text-align: center; }
+        .timeline-tempo .numero { font-size: 24px; font-weight: 800; color: #333; }
+        .timeline-tempo .label { font-size: 10px; color: #666; }
+        .timeline-content h4 { font-size: 15px; color: #333; margin-bottom: 8px; }
+        .timeline-content p { font-size: 13px; color: #555; margin-bottom: 6px; }
+        .timeline-content ul { padding-left: 18px; }
+        .timeline-content li { margin-bottom: 4px; font-size: 12px; }
+        .guia-professor { background: #fff7ed; border: 2px solid #f97316; border-radius: 10px; padding: 18px; margin-bottom: 25px; }
+        .guia-professor h3 { color: #ea580c; font-size: 16px; margin-bottom: 12px; }
+        .guia-professor ol { padding-left: 20px; }
+        .guia-professor li { margin-bottom: 6px; font-size: 13px; }
+        .observacoes-box { background: #f0f9ff; border: 2px solid #0ea5e9; border-radius: 10px; padding: 18px; margin-bottom: 25px; }
+        .observacoes-box h3 { color: #0369a1; font-size: 16px; margin-bottom: 12px; }
+        .observacoes-box ul { padding-left: 20px; }
+        .observacoes-box li { margin-bottom: 6px; font-size: 13px; }
+        .conexao-projeto { background: #fff7ed; border: 2px solid #f97316; border-radius: 10px; padding: 18px; }
+        .conexao-projeto h3 { color: #f97316; font-size: 16px; margin-bottom: 10px; }
+        .conexao-projeto p { font-size: 13px; color: #555; margin-bottom: 8px; }
+        .print-button { position: fixed; top: 20px; right: 20px; background: #f97316; color: white; border: none; padding: 12px 24px; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 15px rgba(249,115,22,0.3); z-index: 1000; }
+        .print-button:hover { background: #ea580c; }
+        @media print { body { background: white; padding: 0; } .print-button { display: none; } .guia-container { box-shadow: none; padding: 20px; } }
+        @media (max-width: 768px) { .info-grid { grid-template-columns: repeat(2, 1fr); } .timeline-item { flex-direction: column; } }
+    </style>
+</head>
+<body>
+    <button class="print-button" onclick="window.print()">🖨️ Imprimir</button>
+    <div class="guia-container">
+        <div class="guia-header">
+            <h1>💰 GUIA DO PROFESSOR — RECEITA, DESPESA E LUCRO</h1>
+            <h2>7º Ano | Módulo 2: Educação Financeira | Lição 2</h2>
+            <p class="subtitle">Empreendedores Exponenciais | CSM Limoeiro</p>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-card"><h3>⏱️ Duração</h3><p>50 min</p></div>
+            <div class="info-card"><h3>👥 Público</h3><p>7º Ano</p></div>
+            <div class="info-card"><h3>📚 Módulo</h3><p>Finanças</p></div>
+            <div class="info-card"><h3>📄 Página</h3><p>105</p></div>
+        </div>
+
+        <div class="objetivo-box">
+            <h3>🎯 OBJETIVOS DA AULA</h3>
+            <ul>
+                <li>Distinguir <strong>receita</strong>, despesa e lucro</li>
+                <li>Compreender que <strong>lucro = receita - despesas</strong></li>
+                <li>Aplicar o conceito em um <strong>miniempreendimento</strong></li>
+            </ul>
+        </div>
+
+        <div class="materiais-box">
+            <h3>📦 MATERIAIS NECESSÁRIOS</h3>
+            <ul>
+                <li>Quadro/projetor</li>
+                <li>Calculadora (opcional)</li>
+            </ul>
+        </div>
+
+        <div class="timeline-box">
+            <h3>📋 CRONOGRAMA (50 MIN)</h3>
+
+            <div class="timeline-item abertura">
+                <div class="timeline-tempo"><div class="numero">5</div><div class="label">min</div></div>
+                <div class="timeline-content">
+                    <h4>🚀 ABERTURA — Caso do Seu João</h4>
+                    <p>"Seu João vende salgados. No mês passado, faturou R$2.000, mas gastou R$1.700 em ingredientes, gás e transporte. Sobrou quanto?"</p>
+                </div>
+            </div>
+
+            <div class="timeline-item teoria">
+                <div class="timeline-tempo"><div class="numero">12</div><div class="label">min</div></div>
+                <div class="timeline-content">
+                    <h4>📚 TEORIA — Conceitos-Chave</h4>
+                    <p><strong>Receita:</strong> Dinheiro que entra (vendas)</p>
+                    <p><strong>Despesa:</strong> Dinheiro que sai (custos)</p>
+                    <p><strong>Lucro:</strong> O que sobra (receita - despesas)</p>
+                    <p><strong>Fórmula:</strong> <em>Receita - Despesas = Lucro</em></p>
+                    <p><strong>Se receita < despesa:</strong> = PREJUÍZO (negativo!)</p>
+                </div>
+            </div>
+
+            <div class="timeline-item pratica">
+                <div class="timeline-tempo"><div class="numero">25</div><div class="label">min</div></div>
+                <div class="timeline-content">
+                    <h4>✋ ATIVIDADE — Calculadora de Lucros</h4>
+                    <p><strong>Cenário 1:</strong> Vende brigadeiro: receita R$150, custos R$80 → Lucro?</p>
+                    <p><strong>Cenário 2:</strong> Vende laranja: receita R$500, custos R$450 → Lucro?</p>
+                    <p><strong>Cenário 3:</strong> Seu negócio: receita R$300, custos R$350 → Lucro?</p>
+                    <p><strong>Desafio:</strong> Crie seu próprio negócio e calcule margem de lucro (lucro ÷ receita × 100)</p>
+                </div>
+            </div>
+
+            <div class="timeline-item fechamento">
+                <div class="timeline-tempo"><div class="numero">8</div><div class="label">min</div></div>
+                <div class="timeline-content">
+                    <h4>🎯 FECHAMENTO</h4>
+                    <p><strong>Pergunta:</strong> Uma empresa pode ter receita alta mas ainda dar prejuízo? Como?</p>
+                    <p><strong>Resposta:</strong> Quando despesas são maiores que receita.</p>
+                    <p><strong>Tarefa:</strong> Anote 3 despesas que você tem por mês (custos) e calcule seu "lucro" (sobra).</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="guia-professor">
+            <h3>💡 ORIENTAÇÕES PEDAGÓGICAS</h3>
+            <ol>
+                <li><strong>Exemplo tangível:</strong> Use venda de pipoca ou limonada como exemplo.</li>
+                <li><strong>Margem:</strong> Mostre que 50% de margem é excelente!</li>
+                <li><strong>Analogia:</strong> "Receita é água entrando no balde, despesa é água saindo. Lucro é o que sobra."</li>
+                <li><strong>Dificuldades esperadas:</strong> Alunos confundem receita (faturamento) com lucro. Reforce a diferença.</li>
+                <li><strong>Inclusão:</strong> Use exemplos do bairro (venda de açaí, brigadeiro, etc).</li>
+            </ol>
+        </div>
+
+        <div class="observacoes-box">
+            <h3>📝 NOTAS DE AVALIAÇÃO</h3>
+            <ul>
+                <li>Observe se os alunos calculam corretamente receita - despesas = lucro.</li>
+                <li>Avalie se compreendem que receita alta não garante lucro.</li>
+                <li>Verifique se a margem de lucro calculada está correta.</li>
+                <li>Prepare um quiz rápido na próxima aula sobre diferença entre receita e faturamento.</li>
+            </ul>
+        </div>
+
+        <div class="conexao-projeto">
+            <h3>🔗 PROJETO DO SEMESTRE</h3>
+            <p>No <strong>Consultoria Financeira Mirim</strong>, os grupos calcularão orçamentos familiares e identificarão onde a família pode aumentar seu lucro mensal.</p>
+        </div>
+    </div>
+</body>
+</html>

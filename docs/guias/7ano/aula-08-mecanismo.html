@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia do Professor — Mecanismo de Mercado (7º Ano)</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Outfit', sans-serif; background: #f5f5f5; padding: 30px; line-height: 1.6; }
+        .guia-container { max-width: 210mm; margin: 0 auto; background: white; border-radius: 16px; padding: 40px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        .guia-header { text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 4px solid #f97316; }
+        .guia-header h1 { font-size: 26px; color: #f97316; font-weight: 800; margin-bottom: 8px; }
+        .guia-header h2 { font-size: 18px; color: #fb923c; font-weight: 600; }
+        .guia-header .subtitle { font-size: 13px; color: #666; margin-top: 5px; }
+        .info-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 25px; }
+        .info-card { background: #fff7ed; border: 2px solid #f97316; border-radius: 10px; padding: 12px; text-align: center; }
+        .info-card h3 { font-size: 11px; color: #ea580c; margin-bottom: 4px; }
+        .info-card p { font-size: 14px; font-weight: 700; color: #333; }
+        .objetivo-box { background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); color: white; border-radius: 12px; padding: 18px; margin-bottom: 25px; }
+        .objetivo-box h3 { font-size: 16px; margin-bottom: 10px; }
+        .objetivo-box ul { padding-left: 20px; }
+        .objetivo-box li { margin-bottom: 5px; font-size: 13px; }
+        .materiais-box { background: #fef3c7; border-left: 5px solid #fb923c; border-radius: 10px; padding: 18px; margin-bottom: 25px; }
+        .materiais-box h3 { color: #d97706; font-size: 16px; margin-bottom: 12px; }
+        .materiais-box ul { padding-left: 20px; }
+        .materiais-box li { margin-bottom: 6px; font-size: 13px; }
+        .timeline-box { margin-bottom: 25px; }
+        .timeline-box h3 { font-size: 20px; color: #f97316; margin-bottom: 15px; text-align: center; }
+        .timeline-item { display: flex; gap: 15px; margin-bottom: 15px; padding: 15px; border-radius: 10px; border-left: 5px solid; }
+        .timeline-item.abertura { background: #ffedd5; border-color: #f97316; }
+        .timeline-item.teoria { background: #e0e7ff; border-color: #6366f1; }
+        .timeline-item.pratica { background: #fef3c7; border-color: #f59e0b; }
+        .timeline-item.fechamento { background: #d1fae5; border-color: #10b981; }
+        .timeline-tempo { min-width: 55px; text-align: center; }
+        .timeline-tempo .numero { font-size: 24px; font-weight: 800; color: #333; }
+        .timeline-tempo .label { font-size: 10px; color: #666; }
+        .timeline-content h4 { font-size: 15px; color: #333; margin-bottom: 8px; }
+        .timeline-content p { font-size: 13px; color: #555; margin-bottom: 6px; }
+        .timeline-content ul { padding-left: 18px; }
+        .timeline-content li { margin-bottom: 4px; font-size: 12px; }
+        .guia-professor { background: #fff7ed; border: 2px solid #f97316; border-radius: 10px; padding: 18px; margin-bottom: 25px; }
+        .guia-professor h3 { color: #ea580c; font-size: 16px; margin-bottom: 12px; }
+        .guia-professor ol { padding-left: 20px; }
+        .guia-professor li { margin-bottom: 6px; font-size: 13px; }
+        .observacoes-box { background: #f0f9ff; border: 2px solid #0ea5e9; border-radius: 10px; padding: 18px; margin-bottom: 25px; }
+        .observacoes-box h3 { color: #0369a1; font-size: 16px; margin-bottom: 12px; }
+        .observacoes-box ul { padding-left: 20px; }
+        .observacoes-box li { margin-bottom: 6px; font-size: 13px; }
+        .conexao-projeto { background: #fff7ed; border: 2px solid #f97316; border-radius: 10px; padding: 18px; }
+        .conexao-projeto h3 { color: #f97316; font-size: 16px; margin-bottom: 10px; }
+        .conexao-projeto p { font-size: 13px; color: #555; margin-bottom: 8px; }
+        .print-button { position: fixed; top: 20px; right: 20px; background: #f97316; color: white; border: none; padding: 12px 24px; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 15px rgba(249,115,22,0.3); z-index: 1000; }
+        .print-button:hover { background: #ea580c; }
+        @media print { body { background: white; padding: 0; } .print-button { display: none; } .guia-container { box-shadow: none; padding: 20px; } }
+        @media (max-width: 768px) { .info-grid { grid-template-columns: repeat(2, 1fr); } .timeline-item { flex-direction: column; } }
+    </style>
+</head>
+<body>
+    <button class="print-button" onclick="window.print()">🖨️ Imprimir</button>
+    <div class="guia-container">
+        <div class="guia-header">
+            <h1>⚙️ GUIA DO PROFESSOR — MECANISMO DE MERCADO</h1>
+            <h2>7º Ano | Módulo 1: Negócios | Lição 8</h2>
+            <p class="subtitle">Empreendedores Exponenciais | CSM Limoeiro</p>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-card"><h3>⏱️ Duração</h3><p>50 min</p></div>
+            <div class="info-card"><h3>👥 Público</h3><p>7º Ano</p></div>
+            <div class="info-card"><h3>📚 Módulo</h3><p>Negócios</p></div>
+            <div class="info-card"><h3>📄 Página</h3><p>110</p></div>
+        </div>
+
+        <div class="objetivo-box">
+            <h3>🎯 OBJETIVOS DA AULA</h3>
+            <ul>
+                <li>Compreender como a <strong>oferta e demanda</strong> determinam preços</li>
+                <li>Identificar os <strong>fatores</strong> que mudam preços no mercado</li>
+                <li>Simular um <strong>mercado</strong> e observar mudanças de preço</li>
+            </ul>
+        </div>
+
+        <div class="materiais-box">
+            <h3>📦 MATERIAIS NECESSÁRIOS</h3>
+            <ul>
+                <li>Post-its coloridos (azul para demanda, vermelho para oferta)</li>
+                <li>Folhas de papel A4</li>
+                <li>Gráfico de oferta e demanda desenhado no quadro</li>
+                <li>Objetos para simulação (lápis, borrachas)</li>
+            </ul>
+        </div>
+
+        <div class="timeline-box">
+            <h3>📋 CRONOGRAMA (50 MIN)</h3>
+
+            <div class="timeline-item abertura">
+                <div class="timeline-tempo"><div class="numero">5</div><div class="label">min</div></div>
+                <div class="timeline-content">
+                    <h4>🚀 ABERTURA — O Preço Mágico</h4>
+                    <p><strong>Pergunta:</strong> "Por que a mesma coca-cola custa R$ 5 no mercado e R$ 12 no cinema?"</p>
+                    <p><strong>Exemplo:</strong> Preços de máscaras na pandemia — subiram muito, depois caíram.</p>
+                    <p><strong>Introdução:</strong> "Isso é o MECANISMO DE MERCADO em ação!"</p>
+                </div>
+            </div>
+
+            <div class="timeline-item teoria">
+                <div class="timeline-tempo"><div class="numero">12</div><div class="label">min</div></div>
+                <div class="timeline-content">
+                    <h4>📚 TEORIA — Oferta e Demanda</h4>
+                    <p><strong>Demanda:</strong> Quantidade que os clientes QUEREM comprar a cada preço.</p>
+                    <p><strong>Oferta:</strong> Quantidade que os vendedores QUEREM vender a cada preço.</p>
+                    <p><strong>Equilíbrio:</strong> Ponto onde oferta = demanda (preço de mercado).</p>
+                    <p><strong>Lei da Demanda:</strong> Se preço SOBE, demanda DIMINUI (e vice-versa).</p>
+                    <p><strong>Lei da Oferta:</strong> Se preço SOBE, oferta AUMENTA (e vice-versa).</p>
+                    <p><strong>Exemplo:</strong> Chuva → demanda por guarda-chuvas sobe → preço sobe!</p>
+                </div>
+            </div>
+
+            <div class="timeline-item pratica">
+                <div class="timeline-tempo"><div class="numero">23</div><div class="label">min</div></div>
+                <div class="timeline-content">
+                    <h4>✋ ATIVIDADE — Leilão da Sala</h4>
+                    <p><strong>Min 0-5:</strong> Metade da sala = VENDEDORES (oferta), metade = COMPRADORES (demanda).</p>
+                    <p><strong>Min 5-15:</strong> Leilão de lápis: vendedores propõem preços, compradores decidem comprar.</p>
+                    <p><strong>Min 15-20:</strong> Mude a oferta: "Agora só 5 lápis disponíveis!" (escassez → preço sobe).</p>
+                    <p><strong>Min 20-23:</strong> Mude a demanda: "Agora TODO mundo quer lápis!" (alta demanda → preço sobe).</p>
+                    <p><strong>Professor:</strong> Registre os preços no quadro para mostrar o gráfico.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item fechamento">
+                <div class="timeline-tempo"><div class="numero">10</div><div class="label">min</div></div>
+                <div class="timeline-content">
+                    <h4>🎯 FECHAMENTO — Síntese</h4>
+                    <p><strong>Discussão:</strong> "O que faz o preço subir? O que faz o preço descer?"</p>
+                    <p><strong>Tarefa:</strong> Observe 3 produtos no supermercado. Anote preço e tente explicar por que custam isso.</p>
+                    <p><strong>Próxima aula:</strong> Revisão de Negócios — consolidando tudo o que aprendemos!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="guia-professor">
+            <h3>💡 ORIENTAÇÕES PEDAGÓGICAS</h3>
+            <ol>
+                <li><strong>Gráfico visual:</strong> Desenhe o gráfico de oferta e demanda no quadro antes da atividade prática.</li>
+                <li><strong>Analogia:</strong> "Preço é como um termômetro — sobe quando está 'quente' (muita demanda) e desce quando está 'frio' (pouca demanda)."</li>
+                <li><strong>Exemplos locais:</strong> Use preços de itens que os alunos conhecem (lanche, transporte, jogos).</li>
+                <li><strong>Dificuldades esperadas:</strong> Alunos podem achar que vendedores controlam preços sozinhos. Reforce a demanda.</li>
+                <li><strong>Inclusão:</strong> Permita que alunos usem exemplos do bairro (preço de frutas na feira vs. supermercado).</li>
+            </ol>
+        </div>
+
+        <div class="observacoes-box">
+            <h3>📝 NOTAS DE AVALIAÇÃO</h3>
+            <ul>
+                <li>Observe se os alunos entendem a relação inversa entre preço e demanda.</li>
+                <li>Avalie se o grupo consegue explicar por que o preço mudou no leilão.</li>
+                <li>Verifique se a tarefa de casa demonstra observação crítica de preços reais.</li>
+                <li>Prepare um quiz rápido na próxima aula para revisar oferta e demanda.</li>
+            </ul>
+        </div>
+
+        <div class="conexao-projeto">
+            <h3>🔗 PROJETO DO SEMESTRE</h3>
+            <p>No <strong>Shark Tank CSM</strong>, os grupos devem definir o preço do seu produto baseado em oferta, demanda e concorrência. Justifique o preço escolhido!</p>
+        </div>
+    </div>
+</body>
+</html>
