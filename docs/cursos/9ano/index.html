@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9º Ano — Cursos | CSM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root { --teal: #0d9488; --bg: #0f172a; --text: #f8fafc; --text-muted: #94a3b8; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Outfit', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; padding: 30px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .header { text-align: center; margin-bottom: 30px; }
+        .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+        .back { display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); text-decoration: none; padding: 10px 20px; background: #1e293b; border-radius: 10px; margin-bottom: 20px; }
+        .section-title { font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: var(--teal); margin-bottom: 15px; }
+        .modulo { background: #1e293b; border-radius: 12px; padding: 20px; margin-bottom: 15px; border: 1px solid #334155; }
+        .modulo h3 { font-size: 18px; margin-bottom: 10px; }
+        .modulo .badge { font-size: 11px; background: var(--teal); padding: 3px 10px; border-radius: 20px; }
+        .aulas-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+        .aula-link { background: #0f172a; border-radius: 8px; padding: 15px; text-decoration: none; color: var(--text); transition: all 0.2s; }
+        .aula-link:hover { background: #1e293b; transform: translateX(5px); }
+        .aula-link .num { font-size: 12px; color: var(--teal); margin-bottom: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../../index.html" class="back">← Voltar</a>
+        <div class="header">
+            <h1>📚 9º Ano — Negócio Real</h1>
+            <p>Conteúdo das aulas</p>
+        </div>
+
+        <div class="section-title">Módulo 1 — Estrutura</div>
+        <div class="modulo">
+            <h3>🏢 Estrutura do Negócio <span class="badge">8 aulas</span></h3>
+            <div class="aulas-grid">
+                <a href="aula-01-legal.html" class="aula-link"><span class="num">Aula 01</span><h4>Estrutura Legal</h4></a>
+                <a href="aula-02-estrutura.html" class="aula-link"><span class="num">Aula 02</span><h4>Sociedade</h4></a>
+                <a href="aula-03-marca.html" class="aula-link"><span class="num">Aula 03</span><h4>Marca</h4></a>
+                <a href="aula-04-logos.html" class="aula-link"><span class="num">Aula 04</span><h4>Logotipo</h4></a>
+                <a href="aula-05-plano.html" class="aula-link"><span class="num">Aula 05</span><h4>Plano</h4></a>
+                <a href="aula-06-legal.html" class="aula-link"><span class="num">Aula 06</span><h4>Questões Legais</h4></a>
+                <a href="aula-07-glossario.html" class="aula-link"><span class="num">Aula 07</span><h4>Glossário</h4></a>
+                <a href="aula-08-revisao.html" class="aula-link"><span class="num">Aula 08</span><h4>Revisão</h4></a>
+            </div>
+        </div>
+
+        <div class="section-title">Módulo 2 — Finanças</div>
+        <div class="modulo">
+            <h3>💰 Finanças Avançadas <span class="badge">8 aulas</span></h3>
+            <div class="aulas-grid">
+                <a href="aula-09-investimento.html" class="aula-link"><span class="num">Aula 09</span><h4>Investimento</h4></a>
+                <a href="aula-10-roi.html" class="aula-link"><span class="num">Aula 10</span><h4>ROI</h4></a>
+                <a href="aula-11-dre.html" class="aula-link"><span class="num">Aula 11</span><h4>DRE</h4></a>
+                <a href="aula-12-vendas.html" class="aula-link"><span class="num">Aula 12</span><h4>Projeção</h4></a>
+                <a href="aula-13-escala.html" class="aula-link"><span class="num">Aula 13</span><h4>Escala</h4></a>
+                <a href="aula-14-kpis.html" class="aula-link"><span class="num">Aula 14</span><h4>KPIs</h4></a>
+                <a href="aula-15-burn.html" class="aula-link"><span class="num">Aula 15</span><h4>Burn Rate</h4></a>
+                <a href="aula-16-revisao.html" class="aula-link"><span class="num">Aula 16</span><h4>Revisão</h4></a>
+            </div>
+        </div>
+
+        <div class="section-title">Módulo 3 — Crescimento</div>
+        <div class="modulo">
+            <h3>📈 Crescimento <span class="badge">8 aulas</span></h3>
+            <div class="aulas-grid">
+                <a href="aula-17-growth.html" class="aula-link"><span class="num">Aula 17</span><h4>Growth</h4></a>
+                <a href="aula-18-cac.html" class="aula-link"><span class="num">Aula 18</span><h4>CAC</h4></a>
+                <a href="aula-19-ltv.html" class="aula-link"><span class="num">Aula 19</span><h4>LTV</h4></a>
+                <a href="aula-20-funil.html" class="aula-link"><span class="num">Aula 20</span><h4>Funil</h4></a>
+                <a href="aula-21-conversao.html" class="aula-link"><span class="num">Aula 21</span><h4>Conversão</h4></a>
+                <a href="aula-22-retencao.html" class="aula-link"><span class="num">Aula 22</span><h4>Retenção</h4></a>
+                <a href="aula-23-viral.html" class="aula-link"><span class="num">Aula 23</span><h4>Viral</h4></a>
+                <a href="aula-24-revisao.html" class="aula-link"><span class="num">Aula 24</span><h4>Revisão</h4></a>
+            </div>
+        </div>
+
+        <div class="section-title">Módulo 4 — Investidores</div>
+        <div class="modulo">
+            <h3>🤝 Investidores <span class="badge">10 aulas</span></h3>
+            <div class="aulas-grid">
+                <a href="aula-25-seed.html" class="aula-link"><span class="num">Aula 25</span><h4>Seed</h4></a>
+                <a href="aula-26-valuation.html" class="aula-link"><span class="num">Aula 26</span><h4>Valuation</h4></a>
+                <a href="aula-27-deck.html" class="aula-link"><span class="num">Aula 27</span><h4>Deck</h4></a>
+                <a href="aula-28-pitch.html" class="aula-link"><span class="num">Aula 28</span><h4>Pitch</h4></a>
+                <a href="aula-29-diligence.html" class="aula-link"><span class="num">Aula 29</span><h4>Due Dil.</h4></a>
+                <a href="aula-30-terms.html" class="aula-link"><span class="num">Aula 30</span><h4>Term Sheet</h4></a>
+                <a href="aula-31-fechamento.html" class="aula-link"><span class="num">Aula 31</span><h4>Fechamento</h4></a>
+                <a href="aula-32-revisao.html" class="aula-link"><span class="num">Aula 32</span><h4>Revisão</h4></a>
+                <a href="aula-33-projeto.html" class="aula-link"><span class="num">Aula 33</span><h4>Projeto</h4></a>
+                <a href="aula-34-apresentacao.html" class="aula-link"><span class="num">Aula 34</span><h4>Apresentação</h4></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

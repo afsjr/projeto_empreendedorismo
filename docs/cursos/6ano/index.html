@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6º Ano — Cursos | CSM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --green: #16a34a; --bg: #0f172a; --text: #f8fafc; --text-muted: #94a3b8; }
+        body { font-family: 'Outfit', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; padding: 30px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .header { text-align: center; margin-bottom: 30px; }
+        .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+        .header p { color: var(--text-muted); }
+        .back { display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); text-decoration: none; padding: 10px 20px; background: #1e293b; border-radius: 10px; margin-bottom: 20px; }
+        .back:hover { color: var(--text); }
+        .section { margin-bottom: 30px; }
+        .section-title { font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: var(--green); margin-bottom: 15px; }
+        .modulo { background: #1e293b; border-radius: 12px; padding: 20px; margin-bottom: 15px; border: 1px solid #334155; }
+        .modulo h3 { font-size: 18px; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+        .modulo .badge { font-size: 11px; background: var(--green); padding: 3px 10px; border-radius: 20px; }
+        .aulas-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+        .aula-link { background: #0f172a; border-radius: 8px; padding: 15px; text-decoration: none; color: var(--text); transition: all 0.2s; }
+        .aula-link:hover { background: #1e293b; transform: translateX(5px); }
+        .aula-link .num { font-size: 12px; color: var(--green); margin-bottom: 5px; }
+        .aula-link h4 { font-size: 14px; }
+        .aula-link p { font-size: 12px; color: var(--text-muted); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../../index.html" class="back">← Voltar</a>
+        
+        <div class="header">
+            <h1>📚 6º Ano — Empreendedorismo</h1>
+            <p>Conteúdo das aulas do programa</p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Módulo 1 — Empreendedorismo</div>
+            <div class="modulo">
+                <h3>🎯 Primeiros Passos <span class="badge">7 aulas</span></h3>
+                <div class="aulas-grid">
+                    <a href="modulo-01-aula-01-empreendedor.html" class="aula-link"><span class="num">Aula 01</span><h4>O Que É Ser Empreendedor?</h4><p>Introdução ao empreendedorismo</p></a>
+                    <a href="modulo-01-aula-02-conhecer.html" class="aula-link"><span class="num">Aula 02</span><h4>Conhecer a Si Mesmo</h4><p>Autoconhecimento</p></a>
+                    <a href="modulo-01-aula-03-inteligencia.html" class="aula-link"><span class="num">Aula 03</span><h4>Inteligência Emocional</h4><p>Entendendo emoções</p></a>
+                    <a href="modulo-01-aula-04-pensamento.html" class="aula-link"><span class="num">Aula 04</span><h4>Pensamento Crítico</h4><p>Análise e lógica</p></a>
+                    <a href="modulo-01-aula-05-coragem.html" class="aula-link"><span class="num">Aula 05</span><h4>Coragem e Resiliência</h4><p>Persistência</p></a>
+                    <a href="modulo-01-aula-06-lideranca.html" class="aula-link"><span class="num">Aula 06</span><h4>Liderança</h4><p>Proatividade</p></a>
+                    <a href="modulo-01-revisao.html" class="aula-link"><span class="num">Aula 07</span><h4>Revisão</h4><p>Quiz</p></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Módulo 2 — Finanças</div>
+            <div class="modulo">
+                <h3>💰 Finanças Básicas <span class="badge">5 aulas</span></h3>
+                <div class="aulas-grid">
+                    <a href="modulo-02-aula-01-dinheiro.html" class="aula-link"><span class="num">Aula 08</span><h4>Dinheiro</h4><p>O que é dinheiro</p></a>
+                    <a href="modulo-02-aula-03-poupanca.html" class="aula-link"><span class="num">Aula 09</span><h4>Poupança</h4><p>Guardar dinheiro</p></a>
+                    <a href="modulo-02-aula-04-investimentos.html" class="aula-link"><span class="num">Aula 10</span><h4>Investimentos</h4><p>Fazer dinheiro render</p></a>
+                    <a href="modulo-02-financas-basico.html" class="aula-link"><span class="num">Aula 11</span><h4>Finanças Básicas</h4><p>Resumo</p></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
