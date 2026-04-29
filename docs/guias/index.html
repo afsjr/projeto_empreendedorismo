@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root { --green: #16a34a; --yellow: #f59e0b; --blue: #3b82f6; --purple: #8b5cf6; --pink: #ec4899; --bg: #0f172a; --text: #f1f5f9; --text2: #94a3b8; }
+        :root { --green: #16a34a; --yellow: #f59e0b; --orange: #ea580c; --blue: #3b82f6; --violet: #8b5cf6; --teal: #0d9488; --bg: #0f172a; --text: #f1f5f9; --text2: #94a3b8; }
         body { font-family: 'Outfit', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; padding: 30px; }
         .container { max-width: 900px; margin: 0 auto; }
         
@@ -17,20 +17,13 @@
         
         .section { margin-bottom: 40px; }
         .section-title { font-size: 24px; font-weight: 700; margin-bottom: 25px; display: flex; align-items: center; gap: 12px; }
-        .section-title::before { content: ''; width: 4px; height: 28px; background: var(--green); border-radius: 2px; }
         
-        .year-card { background: #1e293b; border-radius: 16px; padding: 25px; margin-bottom: 15px; border: 1px solid #334155; }
-        .year-card:hover { border-color: var(--green); }
+        .year-card { background: #1e293b; border-radius: 16px; padding: 25px; margin-bottom: 15px; border: 1px solid #334155; transition: all 0.2s; text-decoration: none; color: var(--text); display: block; }
+        .year-card:hover { border-color: var(--green); transform: translateX(5px); }
         .year-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
-        .year-header h3 { font-size: 22px; font-weight: 700; }
-        .year-header .badge { background: #16a34a; padding: 5px 15px; border-radius: 20px; font-size: 12px; }
-        
-        .lessons-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; }
-        .lesson-link { background: #0f172a; border-radius: 10px; padding: 15px; text-decoration: none; color: var(--text); display: flex; align-items: center; gap: 12px; transition: all 0.2s; }
-        .lesson-link:hover { background: #1e293b; transform: translateX(5px); }
-        .lesson-link .num { background: var(--green); width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0; }
-        .lesson-link .info h4 { font-size: 15px; margin-bottom: 3px; }
-        .lesson-link .info p { font-size: 12px; color: var(--text2); }
+        .year-header h3 { font-size: 22px; font-weight: 700; margin: 0; }
+        .year-header .badge { background: var(--green); padding: 5px 15px; border-radius: 20px; font-size: 12px; }
+        .year-card .meta { color: var(--text2); font-size: 14px; }
         
         .back { display: inline-flex; align-items: center; gap: 8px; color: var(--text2); text-decoration: none; padding: 10px 20px; background: #1e293b; border-radius: 10px; margin-bottom: 30px; }
         .back:hover { color: var(--text); }
@@ -38,7 +31,7 @@
         .stat { text-align: center; padding: 20px; background: #1e293b; border-radius: 12px; margin-top: 30px; }
         .stat p { color: var(--text2); }
         .stat .num { font-size: 36px; font-weight: 700; color: var(--green); }
-        
+
         @media (max-width: 600px) { .header h1 { font-size: 26px; } }
     </style>
 </head>
@@ -48,89 +41,61 @@
         
         <div class="header">
             <h1>📚 Guias do Professor</h1>
-            <p>Roteiros completos para lecionar o Módulo 1</p>
+            <p>Roteiros completos para todas as séries</p>
         </div>
         
         <!-- 6º Ano -->
         <div class="section">
-            <h2 class="section-title">6º Ano — Módulo 1: Negócios</h2>
-            <div class="year-card">
+            <h2 class="section-title" style="color: var(--green);">6º Ano — Educação Financeira</h2>
+            <a href="guias/6ano/index.html" class="year-card">
                 <div class="year-header">
-                    <h3>Aulas Neurodiversas</h3>
-                    <span class="badge">9 aulas</span>
+                    <h3>Módulos 1 e 2</h3>
+                    <span class="badge">12 aulas</span>
                 </div>
-                <div class="lessons-grid">
-                    <a href="6ano/modulo-01-aula-01-empreendedor.html" class="lesson-link">
-                        <span class="num">1</span>
-                        <div class="info">
-                            <h4>O Que É Ser Empreendedor?</h4>
-                            <p>50 min • Introdução</p>
-                        </div>
-                    </a>
-                    <a href="6ano/modulo-01-aula-02-conhecer.html" class="lesson-link">
-                        <span class="num">2</span>
-                        <div class="info">
-                            <h4>Conhecer a Si Mesmo</h4>
-                            <p>50 min • Autoconhecimento</p>
-                        </div>
-                    </a>
-                    <a href="6ano/modulo-01-aula-03-inteligencia.html" class="lesson-link">
-                        <span class="num">3</span>
-                        <div class="info">
-                            <h4>Inteligência Emocional</h4>
-                            <p>50 min • Emoções</p>
-                        </div>
-                    </a>
-                    <a href="6ano/modulo-01-aula-04-pensamento.html" class="lesson-link">
-                        <span class="num">4</span>
-                        <div class="info">
-                            <h4>Pensamento Crítico e Empatia</h4>
-                            <p>50 min • Análise</p>
-                        </div>
-                    </a>
-                    <a href="6ano/modulo-01-aula-05-coragem.html" class="lesson-link">
-                        <span class="num">5</span>
-                        <div class="info">
-                            <h4>Coragem e Resiliência</h4>
-                            <p>50 min • Persistência</p>
-                        </div>
-                    </a>
-                    <a href="6ano/modulo-01-aula-06-lideranca.html" class="lesson-link">
-                        <span class="num">6</span>
-                        <div class="info">
-                            <h4>Liderança e Proatividade</h4>
-                            <p>50 min • Ação</p>
-                        </div>
-                    </a>
-                    <a href="6ano/modulo-01-aula-07-equipe.html" class="lesson-link">
-                        <span class="num">7</span>
-                        <div class="info">
-                            <h4>Trabalho em Equipe</h4>
-                            <p>50 min • Colaboração</p>
-                        </div>
-                    </a>
-                    <a href="6ano/modulo-01-aula-08-inovacao.html" class="lesson-link">
-                        <span class="num">8</span>
-                        <div class="info">
-                            <h4>Inovação e Criatividade</h4>
-                            <p>50 min • Criação</p>
-                        </div>
-                    </a>
-                    <a href="6ano/modulo-01-revisao.html" class="lesson-link">
-                        <span class="num">9</span>
-                        <div class="info">
-                            <h4>Revisão do Módulo</h4>
-                            <p>50 min • Quiz</p>
-                        </div>
-                    </a>
+                <p class="meta">Negócios, Empreendedorismo e Finanças Básicas</p>
+            </a>
+        </div>
+        
+        <!-- 7º Ano -->
+        <div class="section">
+            <h2 class="section-title" style="color: var(--yellow);">7º Ano — Modelo de Negócio</h2>
+            <a href="guias/7ano/index.html" class="year-card">
+                <div class="year-header">
+                    <h3>Módulos 1-4</h3>
+                    <span class="badge" style="background: var(--yellow); color: #000;">24 aulas</span>
                 </div>
-            </div>
+                <p class="meta">Valor, Modelo de Negócio e Inovação</p>
+            </a>
+        </div>
+        
+        <!-- 8º Ano -->
+        <div class="section">
+            <h2 class="section-title" style="color: var(--violet);">8º Ano — Startup</h2>
+            <a href="guias/8ano/index.html" class="year-card">
+                <div class="year-header">
+                    <h3>Módulos 1-4</h3>
+                    <span class="badge" style="background: var(--violet);">34 aulas</span>
+                </div>
+                <p class="meta">Startup, Finanças, Marketing e Operações</p>
+            </a>
+        </div>
+        
+        <!-- 9º Ano -->
+        <div class="section">
+            <h2 class="section-title" style="color: var(--teal);">9º Ano — Negócio Real</h2>
+            <a href="guias/9ano/index.html" class="year-card">
+                <div class="year-header">
+                    <h3>Módulos 1-4</h3>
+                    <span class="badge" style="background: var(--teal);">34 aulas</span>
+                </div>
+                <p class="meta">Estrutura Legal, Finanças, Crescimento e Investidores</p>
+            </a>
         </div>
         
         <div class="stat">
             <p>Total de Guias:</p>
-            <div class="num">9</div>
-            <p>Guias do Professor disponíveis para 6º Ano</p>
+            <div class="num">104</div>
+            <p>Aulas disponíveis para todas as séries</p>
         </div>
     </div>
 </body>

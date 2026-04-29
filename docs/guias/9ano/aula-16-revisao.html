@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia do Professor — Revisão Módulo 2 (9º Ano)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --teal: #0d9488; --cyan: #0891b2; --bg: #f8fafc; --text: #1e293b; }
+        body { font-family: 'Outfit', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        .header { background: linear-gradient(135deg, var(--teal), var(--cyan)); color: white; padding: 30px; border-radius: 16px; margin-bottom: 20px; }
+        .info-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
+        .info-card { background: white; border-radius: 12px; padding: 20px; text-align: center; border: 2px solid #e2e8f0; }
+        .info-card h3 { font-size: 11px; color: #64748b; text-transform: uppercase; }
+        .info-card p { font-size: 20px; font-weight: 700; }
+        .section { background: white; border-radius: 12px; padding: 25px; margin-bottom: 20px; }
+        .section-title { font-size: 18px; font-weight: 700; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        .section-title .num { background: var(--teal); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .quiz-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .quiz-card { background: #f8fafc; border-radius: 10px; padding: 15px; border: 1px solid #e2e8f0; }
+        .quiz-card .Q { font-weight: 700; color: var(--teal); margin-bottom: 10px; font-size: 14px; }
+        .quiz-card .options { display: flex; flex-direction: column; gap: 5px; }
+        .quiz-card .option { font-size: 13px; padding: 8px; background: white; border-radius: 5px; }
+        .quiz-card .option:hover { background: #ccfbf1; }
+        .activity-step { display: flex; gap: 15px; padding: 15px; background: #f8fafc; border-radius: 10px; margin-bottom: 10px; }
+        .activity-step .step-num { background: var(--teal); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+        .tips-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .tip-card { background: #ccfbf1; border-radius: 10px; padding: 15px; border-left: 4px solid var(--teal); }
+        .tip-card h4 { font-size: 14px; color: #0f766e; margin-bottom: 8px; }
+        .conexao { background: #ccfbf1; border: 2px solid var(--teal); border-radius: 12px; padding: 20px; display: flex; align-items: center; gap: 20px; }
+        .print-btn { position: fixed; bottom: 20px; right: 20px; background: var(--teal); color: white; border: none; padding: 15px 30px; border-radius: 30px; font-size: 14px; font-weight: 700; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <button class="print-btn" onclick="window.print()">🖨️ Imprimir</button>
+    <div class="container">
+        <header class="header">
+            <div class="header-badge">GUIA DO PROFESSOR</div>
+            <h1>Revisão — Módulo 2</h1>
+            <div class="meta"><span>📅 9º Ano</span><span>⏱️ 50 min</span><span>📚 Módulo 2: Finanças</span></div>
+        </header>
+        <div class="info-grid">
+            <div class="info-card"><h3>Duração</h3><p>50 min</p></div>
+            <div class="info-card"><h3>Grupo</h3><p>Equipes</p></div>
+            <div class="info-card"><h3>Atividade</h3><p>Quiz + Apresentação</p></div>
+            <div class="info-card"><h3>Material</h3><p>Impresso</p></div>
+        </div>
+        <div class="section">
+            <h2 class="section-title"><span class="num">1</span> Quiz</h2>
+            <div class="quiz-grid">
+                <div class="quiz-card">
+                    <div class="Q">1. O que é ROI?</div>
+                    <div class="options">
+                        <div class="option">a) Receita total</div>
+                        <div class="option">b) Retorno sobre Investimento</div>
+                        <div class="option">c) Custo fixo</div>
+                    </div>
+                </div>
+                <div class="quiz-card">
+                    <div class="Q">2. O que é DRE?</div>
+                    <div class="options">
+                        <div class="option">a) Démonstração de Resultado</div>
+                        <div class="option">b) Dívida</div>
+                        <div class="option">c) Depósito</div>
+                    </div>
+                </div>
+                <div class="quiz-card">
+                    <div class="Q">3. O que é burn rate?</div>
+                    <div class="options">
+                        <div class="option">a) Receita</div>
+                        <div class="option">b) Gasto mensal</div>
+                        <div class="option">c) Lucro</div>
+                    </div>
+                </div>
+                <div class="quiz-card">
+                    <div class="Q">4. Runway =?</div>
+                    <div class="options">
+                        <div class="option">a) Pista</div>
+                        <div class="option">b) Dinheiro / Burn Rate</div>
+                        <div class="option">c) Venda</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <h2 class="section-title"><span class="num">2</span> Apresentação Financeira</h2>
+            <div class="activity-step">
+                <span class="step-num">1</span>
+                <div class="step-content"><h4>Cada Equipe</h4><p>Apresentar DRE + ROI do negócio.</p></div>
+            </div>
+            <div class="activity-step">
+                <span class="step-num">2</span>
+                <div class="step-content"><h4>Feedback</h4><p>Colegas avaliam.</p></div>
+            </div>
+        </div>
+        <div class="tips-grid">
+            <div class="tip-card"><h4>🏆 Prêmio</h4><p>Melhor DRE ganha.</p></div>
+            <div class="tip-card"><h4>🔄 Próximo</h4><p>Módulo 3: Crescimento.</p></div>
+        </div>
+        <div class="conexao">
+            <div class="icon">🔗</div>
+            <div><h3>Próxima:</h3><p>Módulo 3 = Growth Hacking.</p></div>
+        </div>
+    </div>
+</body>
+</html>

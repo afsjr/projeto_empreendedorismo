@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia do Professor — Escala (9º Ano)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --teal: #0d9488; --cyan: #0891b2; --bg: #f8fafc; --text: #1e293b; --text-light: #64748b; }
+        body { font-family: 'Outfit', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        .header { background: linear-gradient(135deg, var(--teal), var(--cyan)); color: white; padding: 30px; border-radius: 16px; margin-bottom: 20px; }
+        .info-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
+        .info-card { background: white; border-radius: 12px; padding: 20px; text-align: center; border: 2px solid #e2e8f0; }
+        .info-card h3 { font-size: 11px; color: var(--text-light); text-transform: uppercase; }
+        .info-card p { font-size: 20px; font-weight: 700; }
+        .objetivos { background: #ccfbf1; border: 2px solid var(--teal); border-radius: 12px; padding: 20px; margin-bottom: 25px; }
+        .objetivos h2 { font-size: 16px; color: #0f766e; margin-bottom: 12px; }
+        .objetivos ul { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .objetivos li { font-size: 14px; padding-left: 20px; position: relative; }
+        .objetivos li::before { content: '✓'; position: absolute; left: 0; color: var(--teal); }
+        .section { background: white; border-radius: 12px; padding: 25px; margin-bottom: 20px; border: 1px solid #e2e8f0; }
+        .section-title { font-size: 18px; font-weight: 700; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        .section-title .num { background: var(--teal); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .script-item { margin-bottom: 20px; padding: 20px; border-radius: 10px; border-left: 4px solid; }
+        .script-item.abertura { background: #ccfbf1; border-color: var(--teal); }
+        .script-item.teoria { background: #e0f2fe; border-color: var(--cyan); }
+        .script-item.pratica { background: #fef3c7; border-color: #f59e0b; }
+        .script-item.fechamento { background: #ccfbf1; border-color: var(--teal); }
+        .script-time { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; }
+        .script-time .clock { background: white; padding: 8px 15px; border-radius: 8px; font-weight: 700; }
+        .script-dialogue { background: white; border-radius: 8px; padding: 15px; margin-bottom: 12px; }
+        .script-dialogue .label { font-size: 11px; color: var(--text-light); text-transform: uppercase; margin-bottom: 8px; font-weight: 600; }
+        .activity-step { display: flex; gap: 15px; padding: 15px; background: #f8fafc; border-radius: 10px; margin-bottom: 10px; }
+        .activity-step .step-num { background: var(--teal); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+        .activity-step .step-content h4 { font-size: 15px; margin-bottom: 5px; }
+        .activity-step .step-content p { font-size: 13px; color: var(--text-light); }
+        .questions-box { background: #ccfbf1; border: 2px solid var(--teal); border-radius: 12px; padding: 20px; }
+        .question-item { background: white; border-radius: 8px; padding: 15px; margin-bottom: 10px; }
+        .question-item .Q { font-weight: 700; color: var(--teal); }
+        .question-item .expected { font-size: 13px; color: var(--text-light); margin-top: 8px; }
+        .tips-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .tip-card { background: #ccfbf1; border-radius: 10px; padding: 15px; border-left: 4px solid var(--teal); }
+        .tip-card h4 { font-size: 14px; color: #0f766e; margin-bottom: 8px; }
+        .conexao { background: #ccfbf1; border: 2px solid var(--teal); border-radius: 12px; padding: 20px; display: flex; align-items: center; gap: 20px; }
+        .print-btn { position: fixed; bottom: 20px; right: 20px; background: var(--teal); color: white; border: none; padding: 15px 30px; border-radius: 30px; font-size: 14px; font-weight: 700; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <button class="print-btn" onclick="window.print()">🖨️ Imprimir</button>
+    <div class="container">
+        <header class="header">
+            <div class="header-badge">GUIA DO PROFESSOR</div>
+            <h1>Escala — Crescimento</h1>
+            <div class="meta"><span>📅 9º Ano</span><span>⏱️ 50 min</span><span>📚 Módulo 2</span></div>
+        </header>
+        <div class="info-grid">
+            <div class="info-card"><h3>Duração</h3><p>50 min</p></div>
+            <div class="info-card"><h3>Grupo</h3><p>Turma</p></div>
+            <div class="info-card"><h3>Atividade</h3><p>Discussão</p></div>
+            <div class="info-card"><h3>Material</h3><p>Nenhum</p></div>
+        </div>
+        <div class="objetivos">
+            <h2>🎯 Objetivos</h2>
+            <ul>
+                <li>Entender <strong>o que é escala</strong></li>
+                <li>Identificar <strong>modelos de escala</strong></li>
+                <li>Compreender <strong> leverage</strong></li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2 class="section-title"><span class="num">1</span> Script</h2>
+            <div class="script-item abertura">
+                <div class="script-time"><span class="clock">5 min</span><h4>ABERTURA</h4></div>
+                <div class="script-dialogue">
+                    <div class="label">🗣️ Professor:</div>
+                    <p>"O que acontece quando 1→10→100 lo间歇s?"</p>
+                </div>
+            </div>
+            <div class="script-item teoria">
+                <div class="script-time"><span class="clock">15 min</span><h4>TEORIA</h4></div>
+                <div class="script-dialogue">
+                    <div class="label">💡 Tipos:</div>
+                    <p>• <strong>Linear</strong>: mais pessoas = mais vendas<br>
+                    • <strong>Geopolygrowth</strong>: multiply without more cost<br>
+                    • <strong>Platform</strong>: connect sides</p>
+                </div>
+            </div>
+            <div class="script-item pratica">
+                <div class="script-time"><span class="clock">22 min</span><h4>ATIVIDADE</h4></div>
+                <div class="activity-step">
+                    <span class="step-num">1</span>
+                    <div class="step-content"><h4>Exemplo</h4><p>Netflix escala? Uber escala?</p></div>
+                </div>
+                <div class="activity-step">
+                    <span class="step-num">2</span>
+                    <div class="step-content"><h4>Discussão</h4><p>Qual escala seu negócio pode ter?</p></div>
+                </div>
+            </div>
+            <div class="script-item fechamento">
+                <div class="script-time"><span class="clock">8 min</span><h4>FECHAMENTO</h4></div>
+                <div class="script-dialogue">
+                    <div class="label">🗣️ Professor:</div>
+                    <p>"Escala = fazer mais com menos."</p>
+                </div>
+            </div>
+        </div>
+        <div class="tips-grid">
+            <div class="tip-card"><h4>📈 Exemplo</h4><p>Software escala melhor que serviço.</p></div>
+            <div class="tip-card"><h4>⚠️ Custo</h4><p>Scale precisa de processo.</p></div>
+        </div>
+        <div class="conexao">
+            <div class="icon">🔗</div>
+            <div><h3>Próxima:</h3><p>Aula 14 = KPIs.</p></div>
+        </div>
+    </div>
+</body>
+</html>
