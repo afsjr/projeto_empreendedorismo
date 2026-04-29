@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia do Professor — Dinheiro e Consumo (6º Ano)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --amber: #f59e0b; --orange: #ea580c; --yellow: #fbbf24; --bg: #f8fafc; --text: #1e293b; --text-light: #64748b; }
+        body { font-family: 'Outfit', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        .header { background: linear-gradient(135deg, var(--amber), var(--orange)); color: white; padding: 30px; border-radius: 16px; margin-bottom: 20px; }
+        .header-badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 5px 15px; border-radius: 20px; font-size: 12px; font-weight: 600; margin-bottom: 15px; }
+        .header h1 { font-size: 28px; font-weight: 800; margin-bottom: 8px; }
+        .header .meta { display: flex; gap: 20px; font-size: 14px; opacity: 0.9; }
+        .info-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 25px; }
+        .info-card { background: white; border-radius: 12px; padding: 20px; text-align: center; border: 2px solid #e2e8f0; }
+        .info-card .icon { font-size: 28px; margin-bottom: 8px; }
+        .info-card h3 { font-size: 11px; color: var(--text-light); text-transform: uppercase; }
+        .info-card p { font-size: 20px; font-weight: 700; }
+        .objetivos { background: #fef3c7; border: 2px solid var(--amber); border-radius: 12px; padding: 20px; margin-bottom: 25px; }
+        .objetivos h2 { font-size: 16px; color: #b45309; margin-bottom: 12px; }
+        .objetivos ul { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .objetivos li { font-size: 14px; padding-left: 20px; position: relative; }
+        .objetivos li::before { content: '✓'; position: absolute; left: 0; color: var(--amber); font-weight: 700; }
+        .section { background: white; border-radius: 12px; padding: 25px; margin-bottom: 20px; border: 1px solid #e2e8f0; }
+        .section-title { font-size: 18px; font-weight: 700; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        .section-title .num { background: var(--amber); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .script-item { margin-bottom: 20px; padding: 20px; border-radius: 10px; border-left: 4px solid; }
+        .script-item.abertura { background: #fef3c7; border-color: var(--amber); }
+        .script-item.teoria { background: #fefce8; border-color: var(--yellow); }
+        .script-item.pratica { background: #f0fdf4; border-color: #22c55e; }
+        .script-item.fechamento { background: #fef3c7; border-color: var(--amber); }
+        .script-time { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; }
+        .script-time .clock { background: white; padding: 8px 15px; border-radius: 8px; font-weight: 700; font-size: 14px; }
+        .script-time h4 { font-size: 16px; }
+        .script-dialogue { background: white; border-radius: 8px; padding: 15px; margin-bottom: 12px; }
+        .script-dialogue .label { font-size: 11px; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600; }
+        .script-dialogue p { font-size: 15px; font-style: italic; }
+        .script-note { background: #fefce8; border: 1px solid #fde047; border-radius: 8px; padding: 12px; font-size: 13px; display: flex; align-items: flex-start; gap: 10px; }
+        .script-note .icon { font-size: 18px; }
+        .activity-step { display: flex; gap: 15px; padding: 15px; background: #f8fafc; border-radius: 10px; margin-bottom: 10px; }
+        .activity-step .step-num { background: var(--amber); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0; }
+        .activity-step .step-content h4 { font-size: 15px; margin-bottom: 5px; }
+        .activity-step .step-content p { font-size: 13px; color: var(--text-light); }
+        .questions-box { background: #fef3c7; border: 2px solid var(--amber); border-radius: 12px; padding: 20px; }
+        .questions-box h3 { font-size: 15px; color: #b45309; margin-bottom: 15px; }
+        .question-item { background: white; border-radius: 8px; padding: 15px; margin-bottom: 10px; }
+        .question-item .Q { font-weight: 700; color: var(--amber); margin-bottom: 5px; }
+        .question-item .expected { font-size: 13px; color: var(--text-light); margin-top: 8px; padding-top: 8px; border-top: 1px dashed #e2e8f0; }
+        .question-item .expected strong { color: #b45309; }
+        .tips-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .tip-card { background: #fef3c7; border-radius: 10px; padding: 15px; border-left: 4px solid var(--amber); }
+        .tip-card h4 { font-size: 14px; color: #b45309; margin-bottom: 8px; }
+        .tip-card p { font-size: 13px; }
+        .conexao { background: #fef3c7; border: 2px solid var(--amber); border-radius: 12px; padding: 20px; display: flex; align-items: center; gap: 20px; }
+        .conexao .icon { font-size: 40px; }
+        .conexao h3 { font-size: 16px; color: #b45309; margin-bottom: 8px; }
+        .conexao p { font-size: 14px; }
+        .print-btn { position: fixed; bottom: 20px; right: 20px; background: var(--amber); color: white; border: none; padding: 15px 30px; border-radius: 30px; font-size: 14px; font-weight: 700; cursor: pointer; }
+        @media (max-width: 768px) { .info-grid { grid-template-columns: repeat(2, 1fr); } .objetivos ul { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <button class="print-btn" onclick="window.print()">🖨️ Imprimir Guia</button>
+    <div class="container">
+        <header class="header">
+            <div class="header-badge">GUIA DO PROFESSOR</div>
+            <h1>Dinheiro e Consumo</h1>
+            <div class="meta"><span>📅 6º Ano</span><span>⏱️ 50 min</span><span>📚 Módulo 2: Educação Financeira</span></div>
+        </header>
+        <div class="info-grid">
+            <div class="info-card"><div class="icon">⏱️</div><h3>Duração</h3><p>50 min</p></div>
+            <div class="info-card"><div class="icon">👥</div><h3>Grupo</h3><p>Turma Inteira</p></div>
+            <div class="info-card"><div class="icon">📝</div><h3>Atividade</h3><p>Discussão + Prática</p></div>
+            <div class="info-card"><div class="icon">📖</div><h3>Material</h3><p>Papel + Caneta</p></div>
+        </div>
+        <div class="objetivos">
+            <h2>🎯 Objetivos de Aprendizagem</h2>
+            <ul>
+                <li>Compreender oque é <strong>dinheiro</strong> ea função</li>
+                <li>Identificar diferentes <strong>formas de pagamento</strong></li>
+                <li>Desenvolver <strong>consumo consciente</strong></li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2 class="section-title"><span class="num">1</span> Script de Aula</h2>
+            <div class="script-item abertura">
+                <div class="script-time"><span class="clock">5 min</span><h4>ABERTURA — O Que É Dinheiro?</h4></div>
+                <div class="script-dialogue">
+                    <div class="label">��️ Professor diz:</div>
+                    <p>"Para que serve dinheiro? Vocês usam para quê? Vamos falar sobre isso hoje!"</p>
+                </div>
+                <div class="script-note"><span class="icon">💡</span><div><strong>Estimule:</strong> "O que vocês compram? O que precisam?".</div></div>
+            </div>
+            <div class="script-item teoria">
+                <div class="script-time"><span class="clock">12 min</span><h4>EXPLICAÇÃO — Historia e Funções do Dinheiro</h4></div>
+                <div class="script-dialogue">
+                    <div class="label">🗣️ Professor diz:</div>
+                    <p>"Dinheiro existe há milênios! Antes, as pessoas trocavam (escambo). Comodoll, facilitou as trocas."</p>
+                </div>
+                <div class="script-dialogue">
+                    <div class="label">💡 Funções do Dinheiro:</div>
+                    <p>• <strong>Meio de troca</strong> - facilita comprar<br>
+                    • <strong>Reserva de valor</strong> - guardar para depois<br>
+                    • <strong>Unidade de conta</strong> - comparar preços</p>
+                </div>
+            </div>
+            <div class="script-item pratica">
+                <div class="script-time"><span class="clock">25 min</span><h4>ATIVIDADE — Minha Lista de Consumo</h4></div>
+                <div class="activity-step">
+                    <span class="step-num">1</span>
+                    <div class="step-content">
+                        <h4>O Que Eu Compro?</h4>
+                        <p>Lista de coisas que você (ou sua familia) compra regularmente. Separar em: necessidades vs desejos.</p>
+                    </div>
+                </div>
+                <div class="activity-step">
+                    <span class="step-num">2</span>
+                    <div class="step-content">
+                        <h4>Priorizar</h4>
+                        <p>Quais são essenciais? Quais são "querer" mas não "precisar"?</p>
+                    </div>
+                </div>
+                <div class="activity-step">
+                    <span class="step-num">3</span>
+                    <div class="step-content">
+                        <h4>Orçar</h4>
+                        <p>Se você tivesse R$100 por mês para gastar, em quoi gastaria? Por quê?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="script-item fechamento">
+                <div class="script-time"><span class="clock">8 min</span><h4>FECHAMENTO</h4></div>
+                <div class="script-dialogue">
+                    <div class="label">🗣️ Professor diz:</div>
+                    <p>"Resumo: Dinheiro = ferramenta. Usar bem = saber diferencia necessidade de deseo.<br><br><strong>Desafio:</strong> Esta semanaobserv como você e sua familia escolhem o que comprar."</p>
+                </div>
+            </div>
+        </div>
+        <div class="questions-box">
+            <h3>❓ Perguntas Provocadoras</h3>
+            <div class="question-item">
+                <div class="Q">P: Dinheiro traz felicidade?</div>
+                <div class="expected"><strong>R:</strong> Dinheiro ajuda a满足 necessidades básicas. Masfelicidade real vem de relações, não de coisas.</div>
+            </div>
+            <div class="question-item">
+                <div class="Q">P: É errado querer coisas caras?</div>
+                <div class="expected"><strong>R:</strong> Não! Mas é importante distinguir "querer" de "precisar" e planejar.</div>
+            </div>
+            <div class="question-item">
+                <div class="Q">P: Sem dinheiro não compra nada?</div>
+                <div class="expected"><strong>R:</strong> Existem outras formas: troca, cooperação, uso de objetos usados. Nem tudo precisa de dinheiro.</div>
+            </div>
+        </div>
+        <div class="section">
+            <h2 class="section-title"><span class="num">2</span> Dicas do Professor</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h4>💰 Sem Exigir Valores</h4>
+                    <p>Não peçaque os alunos digam valores específicos defamília. Foque em conceitos.</p>
+                </div>
+                <div class="tip-card">
+                    <h4>🎯 Necessidade vs Desejo</h4>
+                    <p>Ensine a diferença. Água = necessidade. Sorvete = deseo (mas satisfaz!).</p>
+                </div>
+            </div>
+        </div>
+        <div class="conexao">
+            <div class="icon">🔗</div>
+            <div><h3>Conecta com: PRÓXIMA AULA</h3><p>Próxima aula = Orçamento Familiar. Esta aula prépara o conceito de planejar gastos.</p></div>
+        </div>
+    </div>
+</body>
+</html>

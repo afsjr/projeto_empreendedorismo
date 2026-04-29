@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia do Professor — Investimentos Básicos (6º Ano)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --blue: #2563eb; --indigo: #4f46e5; --sky: #0ea5e9; --bg: #f8fafc; --text: #1e293b; --text-light: #64748b; }
+        body { font-family: 'Outfit', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        .header { background: linear-gradient(135deg, var(--blue), var(--indigo)); color: white; padding: 30px; border-radius: 16px; margin-bottom: 20px; }
+        .header-badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 5px 15px; border-radius: 20px; font-size: 12px; font-weight: 600; margin-bottom: 15px; }
+        .header h1 { font-size: 28px; font-weight: 800; margin-bottom: 8px; }
+        .header .meta { display: flex; gap: 20px; font-size: 14px; opacity: 0.9; }
+        .info-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 25px; }
+        .info-card { background: white; border-radius: 12px; padding: 20px; text-align: center; border: 2px solid #e2e8f0; }
+        .info-card .icon { font-size: 28px; margin-bottom: 8px; }
+        .info-card h3 { font-size: 11px; color: var(--text-light); text-transform: uppercase; }
+        .info-card p { font-size: 20px; font-weight: 700; }
+        .objetivos { background: #dbeafe; border: 2px solid var(--blue); border-radius: 12px; padding: 20px; margin-bottom: 25px; }
+        .objetivos h2 { font-size: 16px; color: #1d4ed8; margin-bottom: 12px; }
+        .objetivos ul { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .objetivos li { font-size: 14px; padding-left: 20px; position: relative; }
+        .objetivos li::before { content: '✓'; position: absolute; left: 0; color: var(--blue); font-weight: 700; }
+        .section { background: white; border-radius: 12px; padding: 25px; margin-bottom: 20px; border: 1px solid #e2e8f0; }
+        .section-title { font-size: 18px; font-weight: 700; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        .section-title .num { background: var(--blue); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .script-item { margin-bottom: 20px; padding: 20px; border-radius: 10px; border-left: 4px solid; }
+        .script-item.abertura { background: #dbeafe; border-color: var(--blue); }
+        .script-item.teoria { background: #eff6ff; border-color: var(--sky); }
+        .script-item.pratica { background: #eff6ff; border-color: var(--blue); }
+        .script-item.fechamento { background: #dbeafe; border-color: var(--blue); }
+        .script-time { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; }
+        .script-time .clock { background: white; padding: 8px 15px; border-radius: 8px; font-weight: 700; font-size: 14px; }
+        .script-time h4 { font-size: 16px; }
+        .script-dialogue { background: white; border-radius: 8px; padding: 15px; margin-bottom: 12px; }
+        .script-dialogue .label { font-size: 11px; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600; }
+        .script-dialogue p { font-size: 15px; font-style: italic; }
+        .script-note { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px; font-size: 13px; display: flex; align-items: flex-start; gap: 10px; }
+        .script-note .icon { font-size: 18px; }
+        .activity-step { display: flex; gap: 15px; padding: 15px; background: #f8fafc; border-radius: 10px; margin-bottom: 10px; }
+        .activity-step .step-num { background: var(--blue); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0; }
+        .activity-step .step-content h4 { font-size: 15px; margin-bottom: 5px; }
+        .activity-step .step-content p { font-size: 13px; color: var(--text-light); }
+        .questions-box { background: #dbeafe; border: 2px solid var(--blue); border-radius: 12px; padding: 20px; }
+        .questions-box h3 { font-size: 15px; color: #1d4ed8; margin-bottom: 15px; }
+        .question-item { background: white; border-radius: 8px; padding: 15px; margin-bottom: 10px; }
+        .question-item .Q { font-weight: 700; color: var(--blue); margin-bottom: 5px; }
+        .question-item .expected { font-size: 13px; color: var(--text-light); margin-top: 8px; padding-top: 8px; border-top: 1px dashed #e2e8f0; }
+        .question-item .expected strong { color: #1d4ed8; }
+        .tips-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .tip-card { background: #dbeafe; border-radius: 10px; padding: 15px; border-left: 4px solid var(--blue); }
+        .tip-card h4 { font-size: 14px; color: #1d4ed8; margin-bottom: 8px; }
+        .tip-card p { font-size: 13px; }
+        .conexao { background: #dbeafe; border: 2px solid var(--blue); border-radius: 12px; padding: 20px; display: flex; align-items: center; gap: 20px; }
+        .conexao .icon { font-size: 40px; }
+        .conexao h3 { font-size: 16px; color: #1d4ed8; margin-bottom: 8px; }
+        .conexao p { font-size: 14px; }
+        .print-btn { position: fixed; bottom: 20px; right: 20px; background: var(--blue); color: white; border: none; padding: 15px 30px; border-radius: 30px; font-size: 14px; font-weight: 700; cursor: pointer; }
+        @media (max-width: 768px) { .info-grid { grid-template-columns: repeat(2, 1fr); } .objetivos ul { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <button class="print-btn" onclick="window.print()">🖨️ Imprimir Guia</button>
+    <div class="container">
+        <header class="header">
+            <div class="header-badge">GUIA DO PROFESSOR</div>
+            <h1>Investimentos Básicos</h1>
+            <div class="meta"><span>📅 6º Ano</span><span>⏱️ 50 min</span><span>📚 Módulo 2: Educação Financeira</span></div>
+        </header>
+        <div class="info-grid">
+            <div class="info-card"><div class="icon">⏱️</div><h3>Duração</h3><p>50 min</p></div>
+            <div class="info-card"><div class="icon">👥</div><h3>Grupo</h3><p>Turma Inteira</p></div>
+            <div class="info-card"><div class="icon">📝</div><h3>Atividade</h3><p>Discussão + Jogo</p></div>
+            <div class="info-card"><div class="icon">📖</div><h3>Material</h3><p>Papel + Caneta</p></div>
+        </div>
+        <div class="objetivos">
+            <h2>🎯 Objetivos de Aprendizagem</h2>
+            <ul>
+                <li>Diferenciar <strong>poupar</strong> de <strong>investir</strong></li>
+                <li>Entender <strong>risco vs retorno</strong></li>
+                <li>Conhecer <strong>tipos básicos de investimento</strong></li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2 class="section-title"><span class="num">1</span> Script de Aula</h2>
+            <div class="script-item abertura">
+                <div class="script-time"><span class="clock">5 min</span><h4>ABERTURA — O Dinheiro Pode Trabalhar?</h4></div>
+                <div class="script-dialogue">
+                    <div class="label">🗣️ Professor diz:</div>
+                    <p>"E se odinheiro pudesse ganhar mais dinheiro sozinho? Vamos ver como fazer isso!"</p>
+                </div>
+                <div class="script-note"><span class="icon">💡</span><div><strong>Estimule:</strong> "Ja ouviram falar em investir? O que acham que significa?"</div></div>
+            </div>
+            <div class="script-item teoria">
+                <div class="script-time"><span class="clock">15 min</span><h4>EXPLICAÇÃO — Poupar vs Investir</h4></div>
+                <div class="script-dialogue">
+                    <div class="label">🗣️ Professor diz:</div>
+                    <p>"Poupar =guardar. Investir = fazer odinheiro crescer."</p>
+                </div>
+                <div class="script-dialogue">
+                    <div class="label">📊 Risco vs Retorno:</div>
+                    <p>• <strong>Maior retorno</strong> = maior risco<br>
+                    • Exemplo: Poupança (baixo risco, baixo retorno) vs Ações (alto risco, alto retorno possível)</p>
+                </div>
+                <div class="script-dialogue">
+                    <div class="label">💼 Tipos de Inversión:</div>
+                    <p>• <strong>Poupança</strong>: segura, rende pouco<br>
+                    • <strong>CDB</strong>: banco precisa dedinheiro, rende mais<br>
+                    • <strong>Ações</strong>: comprar parte de empresa (mais risco)<br>
+                    • <strong>Fundos</strong>: várias pessoas pool, profissional gere</p>
+                </div>
+            </div>
+            <div class="script-item pratica">
+                <div class="script-time"><span class="clock">22 min</span><h4>ATIVIDADE — Jogo dos Riscos</h4></div>
+                <div class="activity-step">
+                    <span class="step-num">1</span>
+                    <div class="step-content">
+                        <h4>Cenário A</h4>
+                        <p>"Você tem R$100. Opção 1: guardar na poupança (ganha R$5/ano). Opção 2: investir em negocio de amigo (pode ganhar R$20 ou perder R$30)." O que escolhem?</p>
+                    </div>
+                </div>
+                <div class="activity-step">
+                    <span class="step-num">2</span>
+                    <div class="step-content">
+                        <h4>Cenário B</h4>
+                        <p>"Mesma situação, mas agora é para comprar um celular novo que cuesta R$1000.guardar por 10 anos ou tentar investment para chegar mais rápido?"</p>
+                    </div>
+                </div>
+                <div class="activity-step">
+                    <span class="step-num">3</span>
+                    <div class="step-content">
+                        <h4>Regra de Ouro</h4>
+                        <p>"Nunca invista dinheiro que você não pode perder." Primeiro poupe, depois invista o excedente.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="script-item fechamento">
+                <div class="script-time"><span class="clock">8 min</span><h4>FECHAMENTO</h4></div>
+                <div class="script-dialogue">
+                    <div class="label">🗣️ Professor diz:</div>
+                    <p>"Investir não é gambling — é usar odinheiro com inteligência.<br><br><strong>Desafio:</strong> Pesquisa uma ação ou fundo e descubra o que faz."</p>
+                </div>
+            </div>
+        </div>
+        <div class="questions-box">
+            <h3>❓ Perguntas Provocadoras</h3>
+            <div class="question-item">
+                <div class="Q">P:投资 é como aposta?</div>
+                <div class="expected"><strong>R:</strong> Não! Aposta é sorte. Investir é análise + estratégia. Com tempo, tende a dar retorno.</div>
+            </div>
+            <div class="question-item">
+                <div class="Q">P: Qual mejor investimento?</div>
+                <div class="expected"><strong>R:</strong> Depende! Objetivos, prazo, tolerancia a risco. Sem "melhor" universal.</div>
+            </div>
+            <div class="question-item">
+                <div class="Q">P: Posso começar com pouco?</div>
+                <div class="expected"><strong>R:</strong> Sim! Muitos investimentos aceitam valores baixo. O importante é começar.</div>
+            </div>
+        </div>
+        <div class="section">
+            <h2 class="section-title"><span class="num">2</span> Dicas do Professor</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h4>🎮 Simule, Não Recomende</h4>
+                    <p>Use exemplos didáticos, sem indicar produtos específicos. O foco é conceito.</p>
+                </div>
+                <div class="tip-card">
+                    <h4>⏰ Prazo é Chave</h-long>
+                    <p>Investimentos de longo prazo toleram mais risco. Curto prazo = mais conservador.</p>
+                </div>
+            </div>
+        </div>
+        <div class="conexao">
+            <div class="icon">🔗</div>
+            <div><h3>Conecta com: MÓDULO 3</h3><p>Módulo 3 = Criação do Negócio. Agora a turma entende finanzas — pode aplicarna prática!</p></div>
+        </div>
+    </div>
+</body>
+</html>

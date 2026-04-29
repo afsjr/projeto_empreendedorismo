@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guias — Orçamento, Poupança, Investimentos (6º Ano)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --green: #16a34a; --emerald: #059669; --teal: #14b8a6; --bg: #f8fafc; --text: #1e293b; --text-light: #64748b; }
+        body { font-family: 'Outfit', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        .header { background: linear-gradient(135deg, var(--green), var(--emerald)); color: white; padding: 30px; border-radius: 16px; margin-bottom: 20px; }
+        .header-badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 5px 15px; border-radius: 20px; font-size: 12px; font-weight: 600; margin-bottom: 15px; }
+        .header h1 { font-size: 28px; font-weight: 800; margin-bottom: 8px; }
+        .header .meta { display: flex; gap: 20px; font-size: 14px; opacity: 0.9; }
+        .two-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .guide-card { background: white; border-radius: 12px; padding: 20px; border: 1px solid #e2e8f0; }
+        .guide-card h2 { font-size: 18px; margin-bottom: 10px; color: var(--green); }
+        .guide-card .meta { display: flex; gap: 15px; font-size: 12px; color: var(--text-light); margin-bottom: 15px; }
+        .guide-card .meta span { background: #f1f5f9; padding: 4px 10px; border-radius: 6px; }
+        .topics-list { list-style: none; }
+        .topics-list li { padding: 8px 0; border-bottom: 1px solid #f1f5f9; font-size: 13px; display: flex; align-items: center; gap: 10px; }
+        .topics-list li .icon { background: var(--green); color: white; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; }
+        .print-btn { position: fixed; bottom: 20px; right: 20px; background: var(--green); color: white; border: none; padding: 15px 30px; border-radius: 30px; font-size: 14px; font-weight: 700; cursor: pointer; }
+        @media (max-width: 768px) { .two-cols { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <button class="print-btn" onclick="window.print()">🖨️ Imprimir Guias</button>
+    <div class="container">
+        <header class="header">
+            <div class="header-badge">GUIAS DO PROFESSOR</div>
+            <h1>Módulo 2 — Aulas 2, 3 e 4</h1>
+            <div class="meta"><span>📅 6º Ano</span><span>⏱️ 50 min cada</span><span>📚 Educação Financeira</span></div>
+        </header>
+        <div class="two-cols">
+            <!-- Aula 2 -->
+            <div class="guide-card">
+                <h2>Aula 2: Orçamento Familiar</h2>
+                <div class="meta"><span>⏱️ 50 min</span><span>📝 Planilha</span></div>
+                <ul class="topics-list">
+                    <li><span class="icon">1</span> O que é orçamento?</li>
+                    <li><span class="icon">2</span> Receita vs Despesa</li>
+                    <li><span class="icon">3</span> Categorias de gasto</li>
+                    <li><span class="icon">4</span> Criar orçamento simples</li>
+                    <li><span class="icon">5</span> Dicas práticas</li>
+                </ul>
+            </div>
+            <!-- Aula 3 -->
+            <div class="guide-card">
+                <h2>Aula 3: Poupança</h2>
+                <div class="meta"><span>⏱️ 50 min</span><span>📝 Prática</span></div>
+                <ul class="topics-list">
+                    <li><span class="icon">1</span> Por que guardar dinheiro?</li>
+                    <li><span class="icon">2</span> Tipos de poupança</li>
+                    <li><span class="icon">3</span> Juros simples vs composto</li>
+                    <li><span class="icon">4</span> Metas de economia</li>
+                    <li><span class="icon">5</span> Regra 50-30-20</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Aula 4 -->
+        <div class="guide-card" style="margin-top: 20px;">
+            <h2>Aula 4: Investimentos Básicos</h2>
+            <div class="meta"><span>⏱️ 50 min</span><span>📝 Discussão</span></div>
+            <ul class="topics-list">
+                <li><span class="icon">1</span> Poupar vs Investir</li>
+                <li><span class="icon">2</span> Risco e retorno</li>
+                <li><span class="icon">3</span> Tipos de investimento (CDB, ações, fundos)</li>
+                <li><span class="icon">4</span> Juros compostos no dia a dia</li>
+                <li><span class="icon">5</span> Começar cedo = vantagem</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia do Professor — Poupança (6º Ano)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --green: #16a34a; --emerald: #059669; --lime: #84cc16; --bg: #f8fafc; --text: #1e293b; --text-light: #64748b; }
+        body { font-family: 'Outfit', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        .header { background: linear-gradient(135deg, var(--green), var(--emerald)); color: white; padding: 30px; border-radius: 16px; margin-bottom: 20px; }
+        .header-badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 5px 15px; border-radius: 20px; font-size: 12px; font-weight: 600; margin-bottom: 15px; }
+        .header h1 { font-size: 28px; font-weight: 800; margin-bottom: 8px; }
+        .header .meta { display: flex; gap: 20px; font-size: 14px; opacity: 0.9; }
+        .info-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 25px; }
+        .info-card { background: white; border-radius: 12px; padding: 20px; text-align: center; border: 2px solid #e2e8f0; }
+        .info-card .icon { font-size: 28px; margin-bottom: 8px; }
+        .info-card h3 { font-size: 11px; color: var(--text-light); text-transform: uppercase; }
+        .info-card p { font-size: 20px; font-weight: 700; }
+        .objetivos { background: #dcfce7; border: 2px solid var(--green); border-radius: 12px; padding: 20px; margin-bottom: 25px; }
+        .objetivos h2 { font-size: 16px; color: #15803d; margin-bottom: 12px; }
+        .objetivos ul { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .objetivos li { font-size: 14px; padding-left: 20px; position: relative; }
+        .objetivos li::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 700; }
+        .section { background: white; border-radius: 12px; padding: 25px; margin-bottom: 20px; border: 1px solid #e2e8f0; }
+        .section-title { font-size: 18px; font-weight: 700; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        .section-title .num { background: var(--green); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .script-item { margin-bottom: 20px; padding: 20px; border-radius: 10px; border-left: 4px solid; }
+        .script-item.abertura { background: #dcfce7; border-color: var(--green); }
+        .script-item.teoria { background: #f0fdf4; border-color: var(--emerald); }
+        .script-item.pratica { background: #f0fdf4; border-color: var(--green); }
+        .script-item.fechamento { background: #dcfce7; border-color: var(--green); }
+        .script-time { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; }
+        .script-time .clock { background: white; padding: 8px 15px; border-radius: 8px; font-weight: 700; font-size: 14px; }
+        .script-time h4 { font-size: 16px; }
+        .script-dialogue { background: white; border-radius: 8px; padding: 15px; margin-bottom: 12px; }
+        .script-dialogue .label { font-size: 11px; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600; }
+        .script-dialogue p { font-size: 15px; font-style: italic; }
+        .script-note { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 12px; font-size: 13px; display: flex; align-items: flex-start; gap: 10px; }
+        .script-note .icon { font-size: 18px; }
+        .activity-step { display: flex; gap: 15px; padding: 15px; background: #f8fafc; border-radius: 10px; margin-bottom: 10px; }
+        .activity-step .step-num { background: var(--green); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0; }
+        .activity-step .step-content h4 { font-size: 15px; margin-bottom: 5px; }
+        .activity-step .step-content p { font-size: 13px; color: var(--text-light); }
+        .questions-box { background: #dcfce7; border: 2px solid var(--green); border-radius: 12px; padding: 20px; }
+        .questions-box h3 { font-size: 15px; color: #15803d; margin-bottom: 15px; }
+        .question-item { background: white; border-radius: 8px; padding: 15px; margin-bottom: 10px; }
+        .question-item .Q { font-weight: 700; color: var(--green); margin-bottom: 5px; }
+        .question-item .expected { font-size: 13px; color: var(--text-light); margin-top: 8px; padding-top: 8px; border-top: 1px dashed #e2e8f0; }
+        .question-item .expected strong { color: #15803d; }
+        .tips-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .tip-card { background: #dcfce7; border-radius: 10px; padding: 15px; border-left: 4px solid var(--green); }
+        .tip-card h4 { font-size: 14px; color: #15803d; margin-bottom: 8px; }
+        .tip-card p { font-size: 13px; }
+        .conexao { background: #dcfce7; border: 2px solid var(--green); border-radius: 12px; padding: 20px; display: flex; align-items: center; gap: 20px; }
+        .conexao .icon { font-size: 40px; }
+        .conexao h3 { font-size: 16px; color: #15803d; margin-bottom: 8px; }
+        .conexao p { font-size: 14px; }
+        .print-btn { position: fixed; bottom: 20px; right: 20px; background: var(--green); color: white; border: none; padding: 15px 30px; border-radius: 30px; font-size: 14px; font-weight: 700; cursor: pointer; }
+        @media (max-width: 768px) { .info-grid { grid-template-columns: repeat(2, 1fr); } .objetivos ul { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <button class="print-btn" onclick="window.print()">🖨️ Imprimir Guia</button>
+    <div class="container">
+        <header class="header">
+            <div class="header-badge">GUIA DO PROFESSOR</div>
+            <h1>Poupança</h1>
+            <div class="meta"><span>📅 6º Ano</span><span>⏱️ 50 min</span><span>📚 Módulo 2: Educação Financeira</span></div>
+        </header>
+        <div class="info-grid">
+            <div class="info-card"><div class="icon">⏱️</div><h3>Duração</h3><p>50 min</p></div>
+            <div class="info-card"><div class="icon">👥</div><h3>Grupo</h3><p>Turma Inteira</p></div>
+            <div class="info-card"><div class="icon">📝</div><h3>Atividade</h3><p>Prática + Cálculo</p></div>
+            <div class="info-card"><div class="icon">📖</div><h3>Material</h3><p>Calculadora</p></div>
+        </div>
+        <div class="objetivos">
+            <h2>🎯 Objetivos de Aprendizagem</h2>
+            <ul>
+                <li>Compreender <strong>_importância de guardar</strong></li>
+                <li>Conhecer <strong>juros simples e compostos</strong></li>
+                <li>Definir <strong>metas de economia</strong></li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2 class="section-title"><span class="num">1</span> Script de Aula</h2>
+            <div class="script-item abertura">
+                <div class="script-time"><span class="clock">5 min</span><h4>ABERTURA — Por Que Guardar?</h4></div>
+                <div class="script-dialogue">
+                    <div class="label">🗣️ Professor diz:</div>
+                    <p>"Se você pudesse escolher entre R$100 hoje ou R$100 mês que vem, qual escolhe? E se fosse R$100 hoje vs R$110 mês que vem?"</p>
+                </div>
+                <div class="script-note"><span class="icon">💡</span><div><strong>Estimule:</strong> Debate curto. A maioria escolhe receber agora — mas a aula mostra o poder de esperar!</div></div>
+            </div>
+            <div class="script-item teoria">
+                <div class="script-time"><span class="clock">15 min</span><h4>EXPLICAÇÃO — Juros Compostos</h4></div>
+                <div class="script-dialogue">
+                    <div class="label">🗣️ Professor diz:</div>
+                    <p>"Juros compostos são como uma bola de neve. Quanto mais tempo, maior fica!"</p>
+                </div>
+                <div class="script-dialogue">
+                    <div class="label">💡 Exemplo:</div>
+                    <p>• Você guarda R$100<br>
+                    • Juros de 10% ao ano<br>
+                    • Ano 1: R$110 | Ano 2: R$121 | Ano 3: R$133<br>
+                    <em style="color:var(--text-light)">Cada ano ganha mais que o anterior!</em></p>
+                </div>
+                <div class="script-dialogue">
+                    <div class="label">📊 Regra 50-30-20:</div>
+                    <p>• 50% necessidades<br>
+                    • 30% desejos<br>
+                    • 20% guardar (poupança!)</p>
+                </div>
+            </div>
+            <div class="script-item pratica">
+                <div class="script-time"><span class="clock">22 min</span><h4>ATIVIDADE — Calculando Minha Poupança</h4></div>
+                <div class="activity-step">
+                    <span class="step-num">1</span>
+                    <div class="step-content">
+                        <h4>Definir Meta</h4>
+                        <p>Quanto você quer guardar? Pode ser um bicicleta, celular, curso... Ex: R$200.</p>
+                    </div>
+                </div>
+                <div class="activity-step">
+                    <span class="step-num">2</span>
+                    <div class="step-content">
+                        <h4>Calcular Tempo</h4>
+                        <p>Se guardar R$20 por mês, em quanto tempo chega lá? R$200 ÷ R$20 = 10 meses!</p>
+                    </div>
+                </div>
+                <div class="activity-step">
+                    <span class="step-num">3</span>
+                    <div class="step-content">
+                        <h4>Simular Juros</h4>
+                        <p>Quanto teria com 5% de juros? O aluno ve o efeito positivo de esperar.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="script-item fechamento">
+                <div class="script-time"><span class="clock">8 min</span><h4>FECHAMENTO</h4></div>
+                <div class="script-dialogue">
+                    <div class="label">🗣️ Professor diz:</div>
+                    <p>"Guardar não é abrir mão — é investir no seu futuro!<br><br><strong>Desafio:</strong> Pense numa meta real e calcule quanto guardar por mês."</p>
+                </div>
+            </div>
+        </div>
+        <div class="questions-box">
+            <h3>❓ Perguntas Provocadoras</h3>
+            <div class="question-item">
+                <div class="Q">P: Guardar dinheiro não é "perder" a diversão?</div>
+                <div class="expected"><strong>R:</strong> É trocar consumo imediato por realização futura. Tudo depende da meta!</div>
+            </div>
+            <div class="question-item">
+                <div class="Q">P: Pra que poupar se pode gastar agora?</div>
+                <div class="expected"><strong>R:</strong> Poupar gera opções. Emergência, oportunidades, realizações = liberdade.</div>
+            </div>
+            <div class="question-item">
+                <div class="Q">P: Juros compostos parecem мало...</div>
+                <div class="expected"><strong>R:</strong> Em curto prazo sim. Em 10 anos, o efeito é grande! Por isso começar cedo vale muito.</div>
+            </div>
+        </div>
+        <div class="section">
+            <h2 class="section-title"><span class="num">2</span> Dicas do Professor</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h4>🎯 Use Números Reais</h4>
+                    <p>Calcados em objetos que alunos conhecem: uniforme, material escolar, passeio.</p>
+                </div>
+                <div class="tip-card">
+                    <h4>⏰ Curto Prazo Primeiro</h4>
+                    <p>Metas de curto prazo (3-6 meses) são mais motivadoras que metas de anos.</p>
+                </div>
+            </div>
+        </div>
+        <div class="conexao">
+            <div class="icon">🔗</div>
+            <div><h3>Conecta com: PRÓXIMA AULA</h3><p>Próxima aula = Investimentos Básicos. Agora a turma entende juros — pode aprender a fazer odinheiro trabalhar.</p></div>
+        </div>
+    </div>
+</body>
+</html>
