@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia do Professor — Conhecer a Si Mesmo (6º Ano)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --green: #16a34a; --green-light: #d1fae5; --green-dark: #15803d; --yellow: #f59e0b; --purple: #8b5cf6; --blue: #3b82f6; --bg: #f8fafc; --text: #1e293b; --text-light: #64748b; }
+        body { font-family: 'Outfit', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        
+        .header { background: linear-gradient(135deg, var(--green) 0%, #15803d 100%); color: white; padding: 30px; border-radius: 16px; margin-bottom: 20px; }
+        .header-badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 5px 15px; border-radius: 20px; font-size: 12px; font-weight: 600; margin-bottom: 15px; }
+        .header h1 { font-size: 28px; font-weight: 800; margin-bottom: 8px; }
+        .header .meta { display: flex; gap: 20px; font-size: 14px; opacity: 0.9; }
+        
+        .info-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 25px; }
+        .info-card { background: white; border-radius: 12px; padding: 20px; text-align: center; border: 2px solid #e2e8f0; }
+        .info-card .icon { font-size: 28px; margin-bottom: 8px; }
+        .info-card h3 { font-size: 11px; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.5px; }
+        .info-card p { font-size: 20px; font-weight: 700; }
+        
+        .objetivos { background: var(--green-light); border: 2px solid var(--green); border-radius: 12px; padding: 20px; margin-bottom: 25px; }
+        .objetivos h2 { font-size: 16px; color: var(--green-dark); margin-bottom: 12px; }
+        .objetivos ul { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .objetivos li { font-size: 14px; padding-left: 20px; position: relative; }
+        .objetivos li::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 700; }
+        
+        .section { background: white; border-radius: 12px; padding: 25px; margin-bottom: 20px; border: 1px solid #e2e8f0; }
+        .section-title { font-size: 18px; font-weight: 700; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        .section-title .num { background: var(--green); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+        
+        .script-item { margin-bottom: 20px; padding: 20px; border-radius: 10px; border-left: 4px solid; }
+        .script-item.abertura { background: #f0fdf4; border-color: var(--green); }
+        .script-item.teoria { background: #eef2ff; border-color: var(--blue); }
+        .script-item.pratica { background: #fffbeb; border-color: var(--yellow); }
+        .script-item.fechamento { background: #f0fdf4; border-color: var(--green); }
+        
+        .script-time { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; }
+        .script-time .clock { background: white; padding: 8px 15px; border-radius: 8px; font-weight: 700; font-size: 14px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .script-time h4 { font-size: 16px; }
+        
+        .script-dialogue { background: white; border-radius: 8px; padding: 15px; margin-bottom: 12px; }
+        .script-dialogue .label { font-size: 11px; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600; }
+        .script-dialogue p { font-size: 15px; font-style: italic; color: #334155; }
+        
+        .script-note { background: #fefce8; border: 1px solid #fde047; border-radius: 8px; padding: 12px; font-size: 13px; display: flex; align-items: flex-start; gap: 10px; }
+        .script-note .icon { font-size: 18px; }
+        
+        .activity-step { display: flex; gap: 15px; padding: 15px; background: #f8fafc; border-radius: 10px; margin-bottom: 10px; }
+        .activity-step .step-num { background: var(--yellow); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0; }
+        .activity-step .step-content h4 { font-size: 15px; margin-bottom: 5px; }
+        .activity-step .step-content p { font-size: 13px; color: var(--text-light); }
+        
+        .questions-box { background: #faf5ff; border: 2px solid var(--purple); border-radius: 12px; padding: 20px; }
+        .questions-box h3 { font-size: 15px; color: #7c3aed; margin-bottom: 15px; }
+        .question-item { background: white; border-radius: 8px; padding: 15px; margin-bottom: 10px; }
+        .question-item .Q { font-weight: 700; color: var(--purple); margin-bottom: 5px; }
+        .question-item .expected { font-size: 13px; color: var(--text-light); margin-top: 8px; padding-top: 8px; border-top: 1px dashed #e2e8f0; }
+        .question-item .expected strong { color: var(--green-dark); }
+        
+        .tips-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .tip-card { background: #e0f2fe; border-radius: 10px; padding: 15px; border-left: 4px solid var(--blue); }
+        .tip-card h4 { font-size: 14px; color: #0369a1; margin-bottom: 8px; }
+        .tip-card p { font-size: 13px; }
+        
+        .conexao { background: #f0fdf4; border: 2px solid var(--green); border-radius: 12px; padding: 20px; display: flex; align-items: center; gap: 20px; }
+        .conexao .icon { font-size: 40px; }
+        .conexao h3 { font-size: 16px; color: var(--green-dark); margin-bottom: 8px; }
+        .conexao p { font-size: 14px; }
+        
+        .print-btn { position: fixed; bottom: 20px; right: 20px; background: var(--green); color: white; border: none; padding: 15px 30px; border-radius: 30px; font-size: 14px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 15px rgba(22, 163, 74, 0.3); }
+        
+        @media (max-width: 768px) {
+            .info-grid { grid-template-columns: repeat(2, 1fr); }
+            .objetivos ul { grid-template-columns: 1fr; }
+            .tips-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-btn" onclick="window.print()">🖨️ Imprimir Guia</button>
+    
+    <div class="container">
+        <header class="header">
+            <div class="header-badge">GUIA DO PROFESSOR</div>
+            <h1>Conhecer a Si Mesmo</h1>
+            <div class="meta"><span>📅 6º Ano</span><span>⏱️ 50 min</span><span>📚 Módulo 1: Negócios</span></div>
+        </header>
+        
+        <div class="info-grid">
+            <div class="info-card"><div class="icon">⏱️</div><h3>Duração</h3><p>50 min</p></div>
+            <div class="info-card"><div class="icon">👥</div><h3>Grupo</h3><p>Turma Inteira</p></div>
+            <div class="info-card"><div class="icon">📝</div><h3>Atividade</h3><p>Reflexão + Discussão</p></div>
+            <div class="info-card"><div class="icon">📖</div><h3>Material</h3><p>Questionário + Caneta</p></div>
+        </div>
+        
+        <div class="objetivos">
+            <h2>🎯 Objetivos de Aprendizagem</h2>
+            <ul>
+                <li>Identificar <strong>pontos fortes</strong> e areas de melhoria</li>
+                <li>Compreender a importância do <strong>autoconhecimento</strong></li>
+                <li>Relacionar caracteristicas pessoais com <strong>empreendedorismo</strong></li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title"><span class="num">1</span> Script de Aula</h2>
+            
+            <div class="script-item abertura">
+                <div class="script-time"><span class="clock">5 min</span><h4>ABERTURA — Quem Sou Eu?</h4></div>
+                <div class="script-dialogue">
+                    <div class="label">🗣️ Professor diz:</div>
+                    <p>"Para empreender, primeiro precisamos nos conhecer. <strong>Você sabe quais são suas qualidades?</strong> E o que você pode melhorar? Vamos descobrir!"</p>
+                </div>
+            </div>
+            
+            <div class="script-item teoria">
+                <div class="script-time"><span class="clock">12 min</span><h4>EXPLICAÇÃO — Pontos Fortes e Fracos</h4></div>
+                <div class="script-dialogue">
+                    <div class="label">🗣️ Professor diz:</div>
+                    <p>"Todo mundo tem qualidades (pontos fortes) e things para melhorar (áreas de crescimento). Isso é normal! O importante é <strong>conhecer a si mesmo</strong> para saber onde empreender."</p>
+                </div>
+                <div class="script-dialogue">
+                    <div class="label">🗣️ Exemplo:</div>
+                    <p>"Se você é boa em dibujar, pode criar logotipos. Se é boa em falar, pode presentar. Se é Organized, pode gerenciar estoque. <strong>Cada pessoa tem um superpower!</strong>"</p>
+                </div>
+            </div>
+            
+            <div class="script-item pratica">
+                <div class="script-time"><span class="clock">25 min</span><h4>ATIVIDADE — Auto-descobrimento</h4></div>
+                <div class="activity-step">
+                    <span class="step-num">1</span>
+                    <div class="step-content">
+                        <h4>Questionário</h4>
+                        <p>Cada aluno responde (privado): "O que eu faço bem?", "Do que eu mais gosto?", "O que outros dizem que eu faço bem?"</p>
+                    </div>
+                </div>
+                <div class="activity-step">
+                    <span class="step-num">2</span>
+                    <div class="step-content">
+                        <h4>Compartilhar (opcional)</h4>
+                        <p>Quem quiser, compartilha com a turma. Outros podem completar ("Eu também sou assim!" ou "Não tinha pensado nisso!").</p>
+                    </div>
+                </div>
+                <div class="script-note">
+                    <span class="icon">💡</span>
+                    <div><strong>Importante:</strong> Não forced ninguém a compartilhar. Respeite o ritmo de cada um.</div>
+                </div>
+            </div>
+            
+            <div class="script-item fechamento">
+                <div class="script-time"><span class="clock">8 min</span><h4>FECHAMENTO</h4></div>
+                <div class="script-dialogue">
+                    <div class="label">🗣️ Professor diz:</div>
+                    <p>"<strong>Resumo:</strong> Nos conhecer é o primeiro passo para empreender. Cada um de vocês tem skills únicas!<br><br><strong>Desafio:</strong> Perguntem a familia: o que eu faço bem? Tragam para próxima aula!"</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="questions-box">
+            <h3>❓ Perguntas Provocadoras</h3>
+            <div class="question-item">
+                <div class="Q">P: Sou timido, posso ser empreendedor?</div>
+                <div class="expected"><strong>R:</strong> Sim! Muitos empreendedores de sucesso são timidos. Você pode trabalhar com algo que não exigebastar comunicação, como diseño, programação, ou trabalhar em equipe.</div>
+            </div>
+            <div class="question-item">
+                <div class="Q">P: Não tenho habilidades especiais...</div>
+                <div class="expected"><strong>R:</strong> Todo mundo tem! Pode ser ainda não descobriu. Pergunte aos outros — eles veem coisas em nós que não vemos.</div>
+            </div>
+            <div class="question-item">
+                <div class="Q">P: Fraco em matemática posso empreender?</div>
+                <div class="expected"><strong>R:</strong> Sim! Existemmany tipos de empreendedor. Algumas áreas precisam mais de números, outras não. Encontre seu estilo!</div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title"><span class="num">2</span> Dicas do Professor</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h4>💡 Sem Judges</h4>
+                    <p>Não judge as respostas dos alunos. Tudo quevemdeles é válido e importante.</p>
+                </div>
+                <div class="tip-card">
+                    <h4>🔄 Modelo</h4>
+                    <p>Se ninguém começar,compartilhe um exemplo seu (appropriado) para quebra-gelo.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="conexao">
+            <div class="icon">📍</div>
+            <div><h3>Conecta com: AULAS SEGUINTES</h3><p>Esta aula prepara o terreno para "Inteligência Emocional" e "Trabalho em Equipe". autoconhecimento é fundamento.</p></div>
+        </div>
+    </div>
+</body>
+</html>
