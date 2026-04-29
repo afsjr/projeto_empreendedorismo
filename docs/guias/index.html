@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root { --green: #16a34a; --yellow: #f59e0b; --blue: #3b82f6; --purple: #8b5cf6; --bg: #0f172a; --text: #f1f5f9; --text2: #94a3b8; }
+        :root { --green: #16a34a; --yellow: #f59e0b; --blue: #3b82f6; --purple: #8b5cf6; --pink: #ec4899; --bg: #0f172a; --text: #f1f5f9; --text2: #94a3b8; }
         body { font-family: 'Outfit', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; padding: 30px; }
         .container { max-width: 900px; margin: 0 auto; }
         
@@ -25,7 +25,7 @@
         .year-header h3 { font-size: 22px; font-weight: 700; }
         .year-header .badge { background: #16a34a; padding: 5px 15px; border-radius: 20px; font-size: 12px; }
         
-        .lessons-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+        .lessons-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; }
         .lesson-link { background: #0f172a; border-radius: 10px; padding: 15px; text-decoration: none; color: var(--text); display: flex; align-items: center; gap: 12px; transition: all 0.2s; }
         .lesson-link:hover { background: #1e293b; transform: translateX(5px); }
         .lesson-link .num { background: var(--green); width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0; }
@@ -39,7 +39,7 @@
         .stat p { color: var(--text2); }
         .stat .num { font-size: 36px; font-weight: 700; color: var(--green); }
         
-        @media (max-width: 600px) { .header h1 { font-size: 26px; } .lessons-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 600px) { .header h1 { font-size: 26px; } }
     </style>
 </head>
 <body>
@@ -48,15 +48,15 @@
         
         <div class="header">
             <h1>📚 Guias do Professor</h1>
-            <p>Roteiros completos para facilitar o ensino</p>
+            <p>Roteiros completos para lecionar o Módulo 1</p>
         </div>
         
         <!-- 6º Ano -->
         <div class="section">
-            <h2 class="section-title">6º Ano</h2>
+            <h2 class="section-title">6º Ano — Módulo 1: Negócios</h2>
             <div class="year-card">
                 <div class="year-header">
-                    <h3>Módulo 1: Negócios</h3>
+                    <h3>Aulas Neurodiversas</h3>
                     <span class="badge">9 aulas</span>
                 </div>
                 <div class="lessons-grid">
@@ -64,7 +64,7 @@
                         <span class="num">1</span>
                         <div class="info">
                             <h4>O Que É Ser Empreendedor?</h4>
-                            <p>50 min • Introdução ao conceito</p>
+                            <p>50 min • Introdução</p>
                         </div>
                     </a>
                     <a href="6ano/modulo-01-aula-02-conhecer.html" class="lesson-link">
@@ -74,14 +74,63 @@
                             <p>50 min • Autoconhecimento</p>
                         </div>
                     </a>
+                    <a href="6ano/modulo-01-aula-03-inteligencia.html" class="lesson-link">
+                        <span class="num">3</span>
+                        <div class="info">
+                            <h4>Inteligência Emocional</h4>
+                            <p>50 min • Emoções</p>
+                        </div>
+                    </a>
+                    <a href="6ano/modulo-01-aula-04-pensamento.html" class="lesson-link">
+                        <span class="num">4</span>
+                        <div class="info">
+                            <h4>Pensamento Crítico e Empatia</h4>
+                            <p>50 min • Análise</p>
+                        </div>
+                    </a>
+                    <a href="6ano/modulo-01-aula-05-coragem.html" class="lesson-link">
+                        <span class="num">5</span>
+                        <div class="info">
+                            <h4>Coragem e Resiliência</h4>
+                            <p>50 min • Persistência</p>
+                        </div>
+                    </a>
+                    <a href="6ano/modulo-01-aula-06-lideranca.html" class="lesson-link">
+                        <span class="num">6</span>
+                        <div class="info">
+                            <h4>Liderança e Proatividade</h4>
+                            <p>50 min • Ação</p>
+                        </div>
+                    </a>
+                    <a href="6ano/modulo-01-aula-07-equipe.html" class="lesson-link">
+                        <span class="num">7</span>
+                        <div class="info">
+                            <h4>Trabalho em Equipe</h4>
+                            <p>50 min • Colaboração</p>
+                        </div>
+                    </a>
+                    <a href="6ano/modulo-01-aula-08-inovacao.html" class="lesson-link">
+                        <span class="num">8</span>
+                        <div class="info">
+                            <h4>Inovação e Criatividade</h4>
+                            <p>50 min • Criação</p>
+                        </div>
+                    </a>
+                    <a href="6ano/modulo-01-revisao.html" class="lesson-link">
+                        <span class="num">9</span>
+                        <div class="info">
+                            <h4>Revisão do Módulo</h4>
+                            <p>50 min • Quiz</p>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
         
         <div class="stat">
             <p>Total de Guias:</p>
-            <div class="num">2</div>
-            <p>Guias disponíveis agora</p>
+            <div class="num">9</div>
+            <p>Guias do Professor disponíveis para 6º Ano</p>
         </div>
     </div>
 </body>

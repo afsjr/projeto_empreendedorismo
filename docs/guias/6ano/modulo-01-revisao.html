@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalho em Equipe + Revisão (6º Ano)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --violet: #8b5cf6; --pink: #ec4899; --bg: #f8fafc; --text: #1e293b; --text-light: #64748b; }
+        body { font-family: 'Outfit', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        .header { background: linear-gradient(135deg, var(--violet), var(--pink)); color: white; padding: 30px; border-radius: 16px; margin-bottom: 20px; }
+        .header-badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 5px 15px; border-radius: 20px; font-size: 12px; font-weight: 600; margin-bottom: 15px; }
+        .header h1 { font-size: 28px; font-weight: 800; margin-bottom: 8px; }
+        .header .meta { display: flex; gap: 20px; font-size: 14px; }
+        .section-title { font-size: 18px; font-weight: 700; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        .section-title .num { background: var(--violet); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        
+        .two-guides { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .guide-card { background: white; border-radius: 12px; padding: 20px; border: 1px solid #e2e8f0; }
+        .guide-card h2 { font-size: 20px; margin-bottom: 15px; color: var(--violet); }
+        .guide-card .meta { display: flex; gap: 15px; margin-bottom: 15px; font-size: 13px; color: var(--text-light); }
+        .guide-card .meta span { background: #f1f5f9; padding: 4px 10px; border-radius: 6px; }
+        
+        .topics-list { list-style: none; }
+        .topics-list li { padding: 10px 0; border-bottom: 1px solid #f1f5f9; display: flex; align-items: center; gap: 10px; }
+        .topics-list li .icon { background: var(--violet); color: white; width: 24px; height: 24px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; }
+        
+        .print-btn { position: fixed; bottom: 20px; right: 20px; background: var(--violet); color: white; border: none; padding: 15px 30px; border-radius: 30px; font-size: 14px; font-weight: 700; cursor: pointer; }
+        @media (max-width: 768px) { .two-guides { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <button class="print-btn" onclick="window.print()">🖨️ ImprimirGuias</button>
+    <div class="container">
+        <header class="header">
+            <div class="header-badge">GUIAS DO PROFESSOR</div>
+            <h1>Módulo 1 - Aulas 7 e 8</h1>
+            <div class="meta"><span>📅 6º Ano</span><span>⏱️ 50 min cada</span></div>
+        </header>
+        
+        <div class="two-guides">
+            <!-- Aula 7 -->
+            <div class="guide-card">
+                <h2>Aula 7: Trabalho em Equipe</h2>
+                <div class="meta">
+                    <span>⏱️ 50 min</span>
+                    <span>📝 Grupos Dinâmicos</span>
+                </div>
+                <ul class="topics-list">
+                    <li><span class="icon">1</span> Por que teamwork é melhor?</li>
+                    <li><span class="icon">2</span> Papéis em equipe (líder, executor, apoio)</li>
+                    <li><span class="icon">3</span> Conflitos saudáveis vs destrutivos</li>
+                    <li><span class="icon">4</span> Dinâmica: construir juntos</li>
+                    <li><span class="icon">5</span> Feedback construtivo</li>
+                </ul>
+            </div>
+            <!-- Aula 8 -->
+            <div class="guide-card">
+                <h2>Aula 8: Inovação e Criatividade</h2>
+                <div class="meta">
+                    <span>⏱️ 50 min</span>
+                    <span>📝 Sessão Criativa</span>
+                </div>
+                <ul class="topics-list">
+                    <li><span class="icon">1</span> O que é inovação?</li>
+                    <li><span class="icon">2</span> Pensar fora da caixa</li>
+                    <li><span class="icon">3</span> Técnicas de brainstorm</li>
+                    <li><span class="icon">4</span> Prototipar ideia</li>
+                    <li><span class="icon">5</span> Apresentar e inovar</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- aula 9: Revisão -->
+        <div class="guide-card" style="margin-top: 20px;">
+            <h2>Aula 9: Revisão do Módulo 1</h2>
+            <div class="meta">
+                <span>⏱️ 50 min</span>
+                <span>📝 Quiz + Apresentação</span>
+            </div>
+            <ul class="topics-list">
+                <li><span class="icon">1</span> Recapitulando: O que aprendemos?</li>
+                <li><span class="icon">2</span> Quiz de verificação</li>
+                <li><span class="icon">3</span> Apresentação de projetos da Feira</li>
+                <li><span class="icon">4</span> Feedback geral</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
