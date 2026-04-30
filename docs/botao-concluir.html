@@ -1,0 +1,42 @@
+<script>
+function marcardomocomoConcluida() {
+    const path = window.location.pathname;
+    constano = path.includes('6ano') ? '6ano' :
+              path.includes('7ano') ? '7ano' :
+              path.includes('8ano') ? '8ano' :
+              path.includes('9ano') ? '9ano' : null;
+    
+    if (!ano) return;
+    
+    constid = path.split('/').pop().replace('.html', '');
+    const key = 'progresso_' + ano;
+    const saved = localStorage.getItem(key);
+    let lista = saved ? JSON.parse(saved) : [];
+    
+    if (!lista.includes(id)) {
+        lista.push(id);
+        localStorage.setItem(key, JSON.stringify(lista));
+        alert('Aula marcada como concluída! ✓');
+    } else {
+        alert('Esta aula já está marcada como concluída.');
+    }
+}
+</script>
+
+<button onclick="marcardomocomoConcluida()" style="
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #16a34a;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 15px 25px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(22, 163, 74, 0.4);
+    z-index: 1000;
+">
+    ✓ Marcar como Concluída
+</button>
