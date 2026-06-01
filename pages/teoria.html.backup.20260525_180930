@@ -659,248 +659,257 @@
                 mods: [
                     {
                         id: 1, name: "Negócios", icon: "💼", lessons: [
-                            { title: "Empreendedorismo", page: 1 },
-                            { title: "Conhecer a si mesmo", page: 2 },
-                            { title: "Inteligência emocional", page: 3 },
-                            { title: "Pensamento crítico e empatia", page: 4 },
-                            { title: "Coragem e resiliência", page: 5 },
-                            { title: "Liderança e proatividade", page: 6 },
-                            { title: "Trabalho em equipe", page: 7 },
-                            { title: "Inovação e criatividade", page: 8 },
-                            { title: "Revisão", page: 9, isQuiz: true }
+                            { title: "Empreendedorismo", page: 8 },
+                            { title: "Conhecer a si mesmo", page: 10 },
+                            { title: "Inteligência emocional", page: 12 },
+                            { title: "Pensamento crítico e empatia", page: 14 },
+                            { title: "Coragem e resiliência", page: 16 },
+                            { title: "Liderança e proatividade", page: 18 },
+                            { title: "Trabalho em equipe", page: 20 },
+                            { title: "Inovação e criatividade", page: 22 },
+                            { title: "Revisão", page: 24, isQuiz: true }
                         ]
                     },
                     {
                         id: 2, name: "Educação Financeira", icon: "💰", lessons: [
-                            { title: "Mindset Financeiro", page: 10 },
-                            { title: "O que eu tenho a ver com meu dinheiro?", page: 11 },
-                            { title: "Eu sou o que consumo", page: 12 },
-                            { title: "Poupar para quê?", page: 13 },
-                            { title: "Como investir bem", page: 14 },
-                            { title: "Ué, preciso me planejar?", page: 15 },
-                            { title: "1 + 1 = 3!", page: 16 },
-                            { title: "Ponto de equilíbrio", page: 17 },
-                            { title: "Revisão de Educação Financeira", page: 18, isQuiz: true }
+                            { title: "Dinheiro e consumo", page: 26 },
+                            { title: "Orçamento familiar", page: 28 },
+                            { title: "Poupança", page: 30 },
+                            { title: "Investimentos basics", page: 32 },
+                            { title: "Custos e preços", page: 34 },
+                            { title: "Marketing de vendas", page: 36 },
+                            { title: "Atendimento ao cliente", page: 38 },
+                            { title: "Gestão de estoque", page: 40 },
+                            { title: "Revisão", page: 42, isQuiz: true }
                         ]
                     },
                     {
                         id: 3, name: "Inovação", icon: "💡", lessons: [
-                            { title: "Liderar é essencial", page: 19 },
-                            { title: "Como vencer o bloqueio criativo", page: 20 },
-                            { title: "Solucionando um problema", page: 21 },
-                            { title: "Inovando diante do problema", page: 22 },
-                            { title: "Validando a solução", page: 23 },
-                            { title: "Prototipando I", page: 24 },
-                            { title: "Prototipando II", page: 25 },
-                            { title: "Pesquisa final de Validação", page: 26 },
-                            { title: "Revisão de Inovação", page: 27, isQuiz: true }
+                            { title: "O que é inovação?", page: 44 },
+                            { title: "Identificar problemas", page: 46 },
+                            { title: "Gerar soluções", page: 48 },
+                            { title: "Prototipagem", page: 50 },
+                            { title: "Testes e ajustes", page: 52 },
+                            { title: "Melhoria contínua", page: 54 },
+                            { title: "Design thinking", page: 56 },
+                            { title: "Canvas de inovação", page: 58 },
+                            { title: "Revisão", page: 60, isQuiz: true }
                         ]
                     },
                     {
-                        id: 4, name: "Comunicação", icon: "👥", lessons: [
-                            { title: "Conceito de Comunicação", page: 28 },
-                            { title: "Estilos Comunicacionais", page: 29 },
-                            { title: "Comunicação Interpessoal", page: 30 },
-                            { title: "Comunicação Intrapessoal", page: 31 },
-                            { title: "Técnicas de comunicação", page: 32 },
-                            { title: "Trabalho em equipe: Comunicação é essencial", page: 33 },
-                            { title: "Tipos de líderes", page: 34 },
-                            { title: "Feedback é essencial!!", page: 35 },
-                            { title: "Revisão de Comunicação", page: 36, isQuiz: true }
+                        id: 4, name: "Pessoas e Comunicação", icon: "👥", lessons: [
+                            { title: "Comunicação verbal", page: 62 },
+                            { title: "Comunicação escrita", page: 64 },
+                            { title: "Oratória", page: 66 },
+                            { title: "Escuta ativa", page: 68 },
+                            { title: "Feedback", page: 70 },
+                            { title: "Gestão de conflitos", page: 72 },
+                            { title: "Networking", page: 74 },
+                            { title: "Presentação pessoal", page: 76 },
+                            { title: "Revisão", page: 78, isQuiz: true }
                         ]
                     },
                     {
                         id: 5, name: "Projetos Semestrais", icon: "📋", lessons: [
-                            { title: "Projeto 1 — 1º Semestre", page: 37 },
-                            { title: "Projeto 2 — 2º Semestre", page: 38 }
+                            { title: "Planejamento do projeto", page: 80 },
+                            { title: "Apresentação final", page: 82 }
                         ]
                     }
                 ]
             },
-
             7: {
-                title: "Modelo de Negócio",
+                title: "Fundamentos Empreendedores",
                 theme: "red",
                 mods: [
                     {
-                        id: 6, name: "Negócios", icon: "💼", lessons: [
-                            { title: "GERAÇÃO DE VALOR", page: 1 },
-                            { title: "CCEs — Características Empreendedoras", page: 2 },
-                            { title: "IDENTIFICAÇÃO DE OPORTUNIDADES", page: 3 },
-                            { title: "DIFERENCIAÇÃO E PROPOSTA DE VALOR", page: 4 },
-                            { title: "BUSINESS MODEL CANVAS", page: 5 },
-                            { title: "REVISÃO — Módulo 1: Negócios", page: 6, isQuiz: true },
-                            { title: "CANVAS DO PROJETO — Prática Integrada", page: 7 },
-                            { title: "PITCH PRATICANDO — Começando a Apresentar", page: 8 },
+                        id: 1, name: "Negócios", icon: "💼", lessons: [
+                            { title: "Empreendedorismo", page: 84 },
+                            { title: "Conhecer a si mesmo", page: 86 },
+                            { title: "Inteligência emocional", page: 88 },
+                            { title: "Pensamento crítico e empatia", page: 90 },
+                            { title: "Coragem e resiliência", page: 92 },
+                            { title: "Liderança e proatividade", page: 94 },
+                            { title: "Trabalho em equipe", page: 96 },
+                            { title: "Inovação e criatividade", page: 98 },
+                            { title: "Revisão", page: 100, isQuiz: true }
                         ]
                     },
                     {
-                        id: 7, name: "Educação Financeira", icon: "💰", lessons: [
-                            { title: "ORÇAMENTO PESSOAL", page: 9 },
-                            { title: "RECEITA, DESPESA E LUCRO", page: 10 },
-                            { title: "POUPANÇA E JUROS", page: 11 },
-                            { title: "INVESTIMENTOS BÁSICOS", page: 12 },
-                            { title: "DÍVIDAS E CRÉDITO", page: 13 },
-                            { title: "PLANEJAMENTO FINANCEIRO", page: 14 },
-                            { title: "QUIZ DE REVISÃO", page: 15, isQuiz: true },
-                            { title: "CÁLCULO REAL", page: 16 },
+                        id: 2, name: "Educação Financeira", icon: "💰", lessons: [
+                            { title: "Dinheiro e consumo", page: 102 },
+                            { title: "Orçamento familiar", page: 104 },
+                            { title: "Poupança", page: 106 },
+                            { title: "Investimentos basics", page: 108 },
+                            { title: "Custos e preços", page: 110 },
+                            { title: "Marketing de vendas", page: 112 },
+                            { title: "Atendimento ao cliente", page: 114 },
+                            { title: "Gestão de estoque", page: 116 },
+                            { title: "Revisão", page: 118, isQuiz: true }
                         ]
                     },
                     {
-                        id: 8, name: "Inovação", icon: "💡", lessons: [
-                            { title: "CRIATIVIDADE", page: 17 },
-                            { title: "IDEAÇÃO", page: 18 },
-                            { title: "MVP — PRODUTO MÍNIMO VIÁVEL", page: 19 },
-                            { title: "TESTES E VALIDAÇÃO", page: 20 },
-                            { title: "LEI DE STARTUPS", page: 21 },
-                            { title: "PONTES DE INOVAÇÃO", page: 22 },
-                            { title: "QUIZ DE REVISÃO", page: 23, isQuiz: true },
-                            { title: "PROJETO DE INOVAÇÃO", page: 24 },
+                        id: 3, name: "Inovação", icon: "💡", lessons: [
+                            { title: "O que é inovação?", page: 120 },
+                            { title: "Identificar problemas", page: 122 },
+                            { title: "Gerar soluções", page: 124 },
+                            { title: "Prototipagem", page: 126 },
+                            { title: "Testes e ajustes", page: 128 },
+                            { title: "Melhoria contínua", page: 130 },
+                            { title: "Design thinking", page: 132 },
+                            { title: "Canvas de inovação", page: 134 },
+                            { title: "Revisão", page: 136, isQuiz: true }
                         ]
                     },
                     {
-                        id: 9, name: "Pessoas", icon: "👥", lessons: [
-                            { title: "LIDERANÇA", page: 25 },
-                            { title: "TRABALHO EM EQUIPE", page: 26 },
-                            { title: "COMUNICAÇÃO", page: 27 },
-                            { title: "FEEDBACK", page: 28 },
-                            { title: "ORATÓRIA", page: 29 },
-                            { title: "NETWORKING", page: 30 },
-                            { title: "QUIZ DE REVISÃO", page: 31, isQuiz: true },
+                        id: 4, name: "Pessoas e Comunicação", icon: "👥", lessons: [
+                            { title: "Comunicação verbal", page: 138 },
+                            { title: "Comunicação escrita", page: 140 },
+                            { title: "Oratória", page: 142 },
+                            { title: "Escuta ativa", page: 144 },
+                            { title: "Feedback", page: 146 },
+                            { title: "Gestão de conflitos", page: 148 },
+                            { title: "Networking", page: 150 },
+                            { title: "Presentação pessoal", page: 152 },
+                            { title: "Revisão", page: 154, isQuiz: true }
                         ]
                     },
                     {
-                        id: 18, name: "Projetos Semestrais", icon: "📋", lessons: [
-                            { title: "PROJETO DE APRESENTAÇÃO", page: 32 },
-                            { title: "APRESENTAÇÃO FINAL", page: 33 },
-                            { title: "AVALIAÇÃO E ENCERRAMENTO", page: 34 },
+                        id: 5, name: "Projetos Semestrais", icon: "📋", lessons: [
+                            { title: "Planejamento do projeto", page: 156 },
+                            { title: "Apresentação final", page: 158 }
                         ]
-                    },
+                    }
                 ]
             },
             8: {
-                title: "Startup e Inovação",
+                title: "Startups e Mundo Digital",
                 theme: "blue",
                 mods: [
                     {
-                        id: 10, name: "Startups", icon: "💼", lessons: [
-                            { title: "O QUE É STARTUP?", page: 1 },
-                            { title: "MINDSET EMPREENDEDOR", page: 2 },
-                            { title: "ENCONTRAR PROBLEMA", page: 3 },
-                            { title: "CRIAR SOLUÇÃO", page: 4 },
-                            { title: "MVP — PRODUTO MÍNIMO VIÁVEL", page: 5 },
-                            { title: "VALIDAÇÃO", page: 6 },
-                            { title: "PITCH", page: 7 },
-                            { title: "ITERAR — MELHORAR MVP", page: 8 },
+                        id: 1, name: "Negócios", icon: "💼", lessons: [
+                            { title: "Empreendedorismo", page: 160 },
+                            { title: "Conhecer a si mesmo", page: 162 },
+                            { title: "Inteligência emocional", page: 164 },
+                            { title: "Pensamento crítico e empatia", page: 166 },
+                            { title: "Coragem e resiliência", page: 168 },
+                            { title: "Liderança e proatividade", page: 170 },
+                            { title: "Trabalho em equipe", page: 172 },
+                            { title: "Inovação e criatividade", page: 174 },
+                            { title: "Revisão", page: 176, isQuiz: true }
                         ]
                     },
                     {
-                        id: 11, name: "Educação Financeira", icon: "💰", lessons: [
-                            { title: "CUSTOS", page: 9 },
-                            { title: "PRECIFICAÇÃO", page: 10 },
-                            { title: "MARKUP", page: 11 },
-                            { title: "ANÁLISE CONCORRENTES", page: 12 },
-                            { title: "MARGEM DE LUCRO", page: 13 },
-                            { title: "PONTO DE EQUILÍBRIO", page: 14 },
-                            { title: "FLUXO DE CAIXA", page: 15 },
-                            { title: "QUIZ — REVISÃO MÓDULO 2", page: 16, isQuiz: true },
+                        id: 2, name: "Educação Financeira", icon: "💰", lessons: [
+                            { title: "Dinheiro e consumo", page: 178 },
+                            { title: "Orçamento familiar", page: 180 },
+                            { title: "Poupança", page: 182 },
+                            { title: "Investimentos basics", page: 184 },
+                            { title: "Custos e preços", page: 186 },
+                            { title: "Marketing de vendas", page: 188 },
+                            { title: "Atendimento ao cliente", page: 190 },
+                            { title: "Gestão de estoque", page: 192 },
+                            { title: "Revisão", page: 194, isQuiz: true }
                         ]
                     },
                     {
-                        id: 12, name: "Marketing", icon: "📢", lessons: [
-                            { title: "MARKETING BÁSICO", page: 17 },
-                            { title: "PERSONAS", page: 18 },
-                            { title: "CANAIS DE VENDA", page: 19 },
-                            { title: "PROMOÇÃO", page: 20 },
-                            { title: "TÉCNICAS DE VENDA", page: 21 },
-                            { title: "ATENDIMENTO AO CLIENTE", page: 22 },
-                            { title: "REDES SOCIAIS", page: 23 },
-                            { title: "QUIZ — REVISÃO MÓDULO 3", page: 24, isQuiz: true },
+                        id: 3, name: "Inovação", icon: "💡", lessons: [
+                            { title: "O que é inovação?", page: 196 },
+                            { title: "Identificar problemas", page: 198 },
+                            { title: "Gerar soluções", page: 200 },
+                            { title: "Prototipagem", page: 202 },
+                            { title: "Testes e ajustes", page: 204 },
+                            { title: "Melhoria contínua", page: 206 },
+                            { title: "Design thinking", page: 208 },
+                            { title: "Canvas de inovação", page: 210 },
+                            { title: "Revisão", page: 212, isQuiz: true }
                         ]
                     },
                     {
-                        id: 13, name: "Pessoas", icon: "👥", lessons: [
-                            { title: "COMUNICAÇÃO", page: 25 },
-                            { title: "FEEDBACK", page: 26 },
-                            { title: "CONFIANÇA", page: 27 },
-                            { title: "TRABALHO EM EQUIPE", page: 28 },
-                            { title: "GESTÃO DE CONFLITOS", page: 29 },
-                            { title: "REUNIÕES", page: 30 },
-                            { title: "REDE DE CONTATOS", page: 31 },
-                            { title: "QUIZ — REVISÃO MÓDULO 4", page: 32, isQuiz: true },
+                        id: 4, name: "Pessoas e Comunicação", icon: "👥", lessons: [
+                            { title: "Comunicação verbal", page: 214 },
+                            { title: "Comunicação escrita", page: 216 },
+                            { title: "Oratória", page: 218 },
+                            { title: "Escuta ativa", page: 220 },
+                            { title: "Feedback", page: 222 },
+                            { title: "Gestão de conflitos", page: 224 },
+                            { title: "Networking", page: 226 },
+                            { title: "Presentação pessoal", page: 228 },
+                            { title: "Revisão", page: 230, isQuiz: true }
                         ]
                     },
                     {
-                        id: 19, name: "Projetos Semestrais", icon: "📋", lessons: [
-                            { title: "PROJETO FINAL", page: 33 },
-                            { title: "APRESENTAÇÃO FINAL", page: 34 },
+                        id: 5, name: "Projetos Semestrais", icon: "📋", lessons: [
+                            { title: "Planejamento do projeto", page: 232 },
+                            { title: "Apresentação final", page: 234 }
                         ]
-                    },
+                    }
                 ]
             },
             9: {
-                title: "Negócio Real",
+                title: "Mercado e Expansão",
                 theme: "purple",
                 mods: [
                     {
-                        id: 14, name: "Estrutura Legal", icon: "📋", lessons: [
-                            { title: "ASPECTOS LEGAIS", page: 1 },
-                            { title: "ESTRUTURA JURÍDICA", page: 2 },
-                            { title: "CRIAÇÃO DE MARCA", page: 3 },
-                            { title: "LOGOTIPO", page: 4 },
-                            { title: "PLANO DE NEGÓCIOS", page: 5 },
-                            { title: "QUESTÕES LEGAIS", page: 6 },
-                            { title: "GLOSSÁRIO", page: 7 },
-                            { title: "QUIZ — REVISÃO MÓDULO 1", page: 8, isQuiz: true },
+                        id: 1, name: "Negócios", icon: "💼", lessons: [
+                            { title: "Empreendedorismo", page: 236 },
+                            { title: "Conhecer a si mesmo", page: 238 },
+                            { title: "Inteligência emocional", page: 240 },
+                            { title: "Pensamento crítico e empatia", page: 242 },
+                            { title: "Coragem e resiliência", page: 244 },
+                            { title: "Liderança e proatividade", page: 246 },
+                            { title: "Trabalho em equipe", page: 248 },
+                            { title: "Inovação e criatividade", page: 250 },
+                            { title: "Revisão", page: 252, isQuiz: true }
                         ]
                     },
                     {
-                        id: 15, name: "Educação Financeira", icon: "💰", lessons: [
-                            { title: "INVESTIMENTO INICIAL", page: 9 },
-                            { title: "ROI — RETORNO SOBRE INVESTIMENTO", page: 10 },
-                            { title: "PONTO DE EQUILÍBRIO", page: 11 },
-                            { title: "DRE — DEMONSTRATIVO DE RESULTADOS", page: 12 },
-                            { title: "PROJEÇÃO DE VENDAS", page: 13 },
-                            { title: "ESCALA", page: 14 },
-                            { title: "KPIs — MÉTRICAS-CHAVE", page: 15 },
-                            { title: "BURN RATE", page: 16 },
+                        id: 2, name: "Educação Financeira", icon: "💰", lessons: [
+                            { title: "Dinheiro e consumo", page: 254 },
+                            { title: "Orçamento familiar", page: 256 },
+                            { title: "Poupança", page: 258 },
+                            { title: "Investimentos basics", page: 260 },
+                            { title: "Custos e preços", page: 262 },
+                            { title: "Marketing de vendas", page: 264 },
+                            { title: "Atendimento ao cliente", page: 266 },
+                            { title: "Gestão de estoque", page: 268 },
+                            { title: "Revisão", page: 270, isQuiz: true }
                         ]
                     },
                     {
-                        id: 16, name: "Crescimento", icon: "🚀", lessons: [
-                            { title: "QUIZ — REVISÃO MÓDULO 2", page: 17, isQuiz: true },
-                            { title: "GROWTH HACKING", page: 18 },
-                            { title: "CAC — CUSTO DE AQUISIÇÃO", page: 19 },
-                            { title: "LTV — VALOR LIFETIME", page: 20 },
-                            { title: "FUNIL DE VENDAS", page: 21 },
-                            { title: "TAXA DE CONVERSÃO", page: 22 },
-                            { title: "RETENÇÃO DE CLIENTES", page: 23 },
-                            { title: "GROWTH VIRAL", page: 24 },
+                        id: 3, name: "Inovação", icon: "💡", lessons: [
+                            { title: "O que é inovação?", page: 272 },
+                            { title: "Identificar problemas", page: 274 },
+                            { title: "Gerar soluções", page: 276 },
+                            { title: "Prototipagem", page: 278 },
+                            { title: "Testes e ajustes", page: 280 },
+                            { title: "Melhoria contínua", page: 282 },
+                            { title: "Design thinking", page: 284 },
+                            { title: "Canvas de inovação", page: 286 },
+                            { title: "Revisão", page: 288, isQuiz: true }
                         ]
                     },
                     {
-                        id: 17, name: "Investidores", icon: "🏦", lessons: [
-                            { title: "QUIZ — REVISÃO MÓDULO 3", page: 25, isQuiz: true },
-                            { title: "INVESTIDORES", page: 26 },
-                            { title: "SEED E PRÉ-SEED", page: 27 },
-                            { title: "VALUATION", page: 28 },
-                            { title: "PITCH DECK", page: 29 },
-                            { title: "PITCH", page: 30 },
-                            { title: "DUE DILIGENCE", page: 31 },
-                            { title: "TERM SHEET", page: 32 },
-                            { title: "QUIZ — REVISÃO MÓDULO 4", page: 33, isQuiz: true },
+                        id: 4, name: "Pessoas e Comunicação", icon: "👥", lessons: [
+                            { title: "Comunicação verbal", page: 290 },
+                            { title: "Comunicação escrita", page: 292 },
+                            { title: "Oratória", page: 294 },
+                            { title: "Escuta ativa", page: 296 },
+                            { title: "Feedback", page: 298 },
+                            { title: "Gestão de conflitos", page: 300 },
+                            { title: "Networking", page: 302 },
+                            { title: "Presentação pessoal", page: 304 },
+                            { title: "Revisão", page: 306, isQuiz: true }
                         ]
                     },
                     {
-                        id: 20, name: "Projetos Semestrais", icon: "📋", lessons: [
-                            { title: "APRESENTAÇÃO DO PROJETO", page: 34 },
-                            { title: "ENCERRAMENTO", page: 35 },
+                        id: 5, name: "Projetos Semestrais", icon: "📋", lessons: [
+                            { title: "Planejamento do projeto", page: 308 },
+                            { title: "Apresentação final", page: 310 }
                         ]
-                    },
+                    }
                 ]
             }
         };
-
 
         let currentGrade = 6;
         let currentModule = null;
@@ -1045,24 +1054,18 @@
                 const modName = mod.name.toLowerCase();
                 let moduleKey = '';
 
-                if (modName.includes('neg') || modName.includes('start') || modName.includes('estrut')) moduleKey = 'negocios';
+                if (modName.includes('neg')) moduleKey = 'negocios';
                 else if (modName.includes('fin') || modName.includes('din') || modName.includes('orca')) moduleKey = 'financas';
-                else if (modName.includes('inova') || modName.includes('market') || modName.includes('cresc')) moduleKey = 'inovacao';
-                else if (modName.includes('pessoa') || modName.includes('ux') || modName.includes('invest')) moduleKey = 'pessoas';
-                else if (modName.includes('projet')) moduleKey = 'projetos';
-                else if (modName.includes('comunica')) moduleKey = 'comunicacao';
+                else if (modName.includes('inova')) moduleKey = 'inovacao';
+                else if (modName.includes('pessoa') || modName.includes('comunica')) moduleKey = 'comunicacao';
                 else moduleKey = modName.replace(/[^a-z]/g, '');
 
                 const lessonTitleLower = lesson.title.toLowerCase();
 
                 const conteudoRico = window.CONTEUDO_LICOES &&
-                    window.CONTEUDO_LICOES[grade] ?
-                    (window.CONTEUDO_LICOES[grade][moduleKey] ||
-                     window.CONTEUDO_LICOES[grade]['negocios'] ||
-                     window.CONTEUDO_LICOES[grade]['pessoas'] ||
-                     window.CONTEUDO_LICOES[grade]['projetos'] ||
-                     window.CONTEUDO_LICOES[grade]['inovacao'] ||
-                     Object.values(window.CONTEUDO_LICOES[grade])[0]).find(l =>
+                    window.CONTEUDO_LICOES[grade] &&
+                    window.CONTEUDO_LICOES[grade][moduleKey] ?
+                    window.CONTEUDO_LICOES[grade][moduleKey].find(l =>
                         l.title.toLowerCase() === lessonTitleLower ||
                         l.title.toLowerCase().includes(lessonTitleLower.split(' ')[0])
                     ) : null;
